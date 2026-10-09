@@ -1,0 +1,14 @@
+Pull Request,Created,State,Modified Java Files,Decision
+8349,02/01/2019,merged,1,ELIGIBLE #1
+8417,21/01/2019,closed-unmerged,,excluded: not merged/open
+8420,21/01/2019,closed-unmerged,,excluded: not merged/open
+8429,23/01/2019,merged,1,ELIGIBLE #2
+8436,25/01/2019,closed-unmerged,,excluded: not merged/open
+8458,28/01/2019,merged,1,ELIGIBLE #3
+8537,14/02/2019,merged,2,ELIGIBLE #4
+8600,04/03/2019,merged,8,ELIGIBLE #5
+8607,06/03/2019,open,2,ELIGIBLE #6
+8621,08/03/2019,open,3,ELIGIBLE #7
+8638,11/03/2019,merged,1,ELIGIBLE #8
+8640,11/03/2019,open,2,ELIGIBLE #9
+8647,12/03/2019,open,1,ELIGIBLE #10
