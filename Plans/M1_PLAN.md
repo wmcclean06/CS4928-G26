@@ -28,11 +28,11 @@
 
 ## 3 · Bounding the sample
 
-| Sample Element       | Freezing now                                                                                                                                                                                                                                                               |
-|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Unit of analysis** | One pull request (PR).                                                                                                                                                                                                                                                     |
-| **Source/version**   | https://github.com/arduino/Arduino, branch `master`, commit "a0df6e0e83b652c72bc78b0a1376c54d6ebc3bee (master head, 11/10/2025)". Arduino is one of the paper's evaluation projects (Table 10).                                                                            |
-| **Size/range**       | 10 PRs: #8349, #8429, #8458, #8537, #8600, #8607, #8621, #8638, #8640, #8647 (selection: scripts/select_sample.py; log: data/eligibility_log.csv)                                                                                                                          |
+| Sample Element       | Freezing now                                                                                                                                                                                                                                                             |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Unit of analysis** | One pull request (PR).                                                                                                                                                                                                                                                   |
+| **Source/version**   | https://github.com/arduino/Arduino, branch `master`, commit a0df6e0e83b652c72bc78b0a1376c54d6ebc3bee (master head, 11/10/2025). Arduino is one of the paper's evaluation projects (Table 10).                                                                            |
+| **Size/range**       | 10 PRs: #8349, #8429, #8458, #8537, #8600, #8607, #8621, #8638, #8640, #8647 (selection: scripts/select_sample.py; log: data/eligibility_log.csv)                                                                                                                        |
 | **Selection rule**   | First 10 eligible PRs in ascending PR number, created on or after 01/01/2019 (A majority of master PRs precede it, giving each sampled PR substantial history). Eligible = merged or open, base `master`, changes at least one existing `.java` file (paper §4.2.1–4.2.2). |
 
 ---
