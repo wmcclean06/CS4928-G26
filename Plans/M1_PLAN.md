@@ -53,14 +53,21 @@
 
 **Expected result:** all metrics and a risk score can be computed for every PR, giving a ranking that separates the PRs. The top-ranked PRs will show more review/defect evidence than the bottom-ranked ones.
 
+**RQ1 decision rule:**
+
 | Outcome | Our criterion                                                                                                                       |
 |---|-------------------------------------------------------------------------------------------------------------------------------------|
 | **REPRODUCED** | A risk score is computed per the paper's definitions for at least 8 of 10 PRs, and the scores fall into more than one risk category. |
 | **NOT REPRODUCED** | A valid run completes, but fewer than 8 PRs can be scored, or all scores fall into one category.                                    |
 | **INCONCLUSIVE / BLOCKED** | Build, data or environment problems prevent a valid run.                                                                            |
 
-RQ2 is reported descriptively: the evidence count for the top 3 vs bottom 3.
+**RQ2 decision rule**: 
 
+| Outcome | Our criterion |
+|---|---|
+| **SUPPORTED** | More of the top-3 (high-risk) PRs have review/defect evidence than the bottom-3 PRs. |
+| **NOT SUPPORTED** | The top-3 PRs have the same or fewer PRs with evidence than the bottom-3. |
+| **INCONCLUSIVE** | No valid RQ1 ranking exists, or evidence cannot be determined for the sampled PRs. |
 ---
 
 ## 6 · Run a feasibility check
