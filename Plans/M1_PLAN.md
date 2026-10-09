@@ -1,0 +1,98 @@
+# M1_PLAN — Freeze the Reproduction Plan
+
+**Group:** G26 (William McClean, Kaiden Foley, Abdulmohsen Alghani) · **Project:** P26
+**Status:** DRAFT. Frozen (tag `M1_PLAN`) once the coordinator marks M1 as READY.
+
+---
+
+## 1 · Start from your assigned study and project pack
+
+| Item | Value |
+|---|---|
+| Assigned study | Göçmen, Cezayir & Tüzün, "Enhanced code reviews using pull request based change impact analysis", *Empirical Software Engineering* 30:64 (2025). https://doi.org/10.1007/s10664-024-10600-2 |
+| Artefact | CHID replication package, https://doi.org/10.6084/m9.figshare.27643755.v1 (accessed 2026-10-03) |
+| Project pack | P26: Pull-Request Change Impact for Code Review |
+| Source result for RQ1 | Paper §3.1–3.3 (metrics, Tables 3–7, risk score Fig. 8) and §4.2.2 (per-PR analysis); example output Fig. 10 |
+| Source result for RQ2 | Paper §3.3 and Table 1 (risk score = likelihood of a PR causing bugs or issues) |
+
+---
+
+## 2 · Freeze the research question(s) and target result
+
+| Freeze item | What our group records |
+|---|---|
+| **RQ(s)** | **RQ1.** Can PR-level change-impact ranking be reproduced on the selected project?<br>**RQ2.** Which high-risk predictions correspond to real review/defect evidence? |
+| **Source anchor** | **RQ1:** Paper §3.1–3.3 (Tables 3–7, Fig. 8), §4.2.2, Fig. 10.<br>**RQ2:** Paper §3.3 and Table 1: the risk score estimates "the likelihood of a pull request causing bugs or issues". |
+| **Target result** | **RQ1:** For each sampled PR: changed files, directly impacted methods, history/risk metrics and a risk score, giving a ranking of the PRs.<br>**RQ2:** Which of the highest-ranked PRs have real review or defect evidence. |
+| **Out of scope** | Focus groups and surveys; GitHub bot, web app and databases; execution-time experiments; projects other than Arduino; held-out/Event material. |
+
+---
+
+## 3 · Bound the sample before you run
+
+| Sample element | Freeze this now |
+|---|---|
+| **Unit of analysis** | One pull request (PR). |
+| **Source/version** | https://github.com/arduino/Arduino, branch `master`, commit `[[TODO: SHA]]`. Arduino is one of the paper's evaluation projects (Table 10). |
+| **Size/range** | 10 PRs: `[[TODO: 10 PR numbers]]` |
+| **Selection rule** | First 10 eligible PRs in ascending PR number, created on or after `[[TODO: cutoff date]]` (earlier PRs give the history). Eligible = merged or open, base `master`, changes at least one existing `.java` file (paper §4.2.1–4.2.2). Excluded PRs are listed with the reason. |
+
+---
+
+## 4 · Freeze the method, metric and evidence route
+
+| INPUTS | PROCEDURE | OUTPUT / DECISION |
+|---|---|---|
+| Arduino repository at the frozen commit.<br><br>PR data from the GitHub API: changed files, lines changed, labels, author, merged state.<br><br>For each PR, only PRs created before it are used as history. | 1. List the changed `.java` files.<br>2. Build the method call graph and find changed methods using the artefact's `callgraph-server` code (JavaParser + ChangeDistiller).<br>3. Impacted methods = callers of changed methods, up to 3 levels (§3.2.3).<br>4. Compute the metrics with the paper's definitions and thresholds: impact size (PageRank), highly churned file ratio, highly buggy file ratio, PR size, author merge rate (§3.1, Tables 3–7).<br>5. Risk score = weighted sum with the artefact's default weights: impact 4, buggy 2, size 1.75, churn 1.25, merge rate 1 (Fig. 8; `github-bot/models/Repository.js`).<br>6. Rank the 10 PRs by risk score. | **RQ1:** a table of the 10 PRs with metrics, risk score and rank.<br><br>**RQ2:** for each PR, whether review/defect evidence exists (bug label, a later bug-fix PR touching the same files, or `[[TODO: N]]`+ review comments). Compare the top 3 with the bottom 3. |
+
+**Bounded decisions where the source does not specify:**
+- Bug-related PR = labelled `Type: Bug` / `bug`.
+- Category values follow the artefact code (0–4).
+
+---
+
+## 5 · Pre-declare the expected result and decision rule
+
+**Expected result:** all metrics and a risk score can be computed for every PR, giving a ranking that separates the PRs. The top-ranked PRs will show more review/defect evidence than the bottom-ranked ones.
+
+| Outcome | Meaning (our criterion) |
+|---|---|
+| **REPRODUCED** | A risk score is computed per the paper's definitions for at least 8 of 10 PRs, and the scores fall into more than one risk category. |
+| **NOT REPRODUCED** | A valid run completes, but fewer than 8 PRs can be scored, or all scores fall into one category. |
+| **INCONCLUSIVE / BLOCKED** | Build, data or environment problems prevent a valid run. |
+
+RQ2 is reported descriptively: the evidence count for the top 3 vs bottom 3.
+
+---
+
+## 6 · Run a feasibility check — not the full study
+
+| Check | Result / evidence |
+|---|---|
+| Arduino repo accessible; default branch `master` | Confirmed via GitHub API, 2026-10-09 |
+| `Type: Bug` label exists | Confirmed via GitHub API, 2026-10-09 |
+| Artefact downloads and unpacks | `CHID_codes.zip` contains `callgraph-server/` (Java 1.8, Maven) |
+| First essential step: `callgraph-server` builds (`mvn clean install -DskipTests`) | `[[TODO: pass / exact error]]` |
+| Blockers | `[[TODO: none / details]]` |
+
+---
+
+## 7 · M1 coordinator checkpoint
+
+| Coordinator check | Where it is |
+|---|---|
+| RQ + source | Section 2 |
+| Bounded sample | Section 3 |
+| Method | Section 4 |
+| Expected result | Section 5 |
+| Decision rule | Section 5 |
+| Feasibility | Section 6 |
+| Understanding | All group members can explain sections 2–5 |
+
+**Coordinator status:** `[[READY / NOT YET / BLOCKED]]` · **Date:** `[[ ]]`
+
+---
+
+## 8 · Freeze M1, then begin the reproduction
+
+Once marked READY, this file is frozen and tagged `M1_PLAN`. Any later change is recorded as a deviation (what changed, why, and how it affects interpretation) rather than edited here.
