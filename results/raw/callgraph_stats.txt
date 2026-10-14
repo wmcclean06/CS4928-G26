@@ -1,0 +1,3 @@
+MATCH (f:Function) RETURN count(f) AS functions; 2124
+MATCH ()-[r:CALLS]->() RETURN count(r) AS calls; 3355
+MATCH (f:Function) WHERE f.pagerank IS NOT NULL RETURN count(f) AS withPagerank, sum(f.pagerank) AS pagerankSum; 1701 1.0000000000000164

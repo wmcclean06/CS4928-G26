@@ -1,4 +1,5 @@
 - AI wrote scripts/select_sample.py: output was checked by re-running and comparing logs.
 - AI flagged that the paper’s category coding (A–E → 1–5, §3.3) differs from the artefact’s (0–4, ×25 to a 0–100 score); we verified this in incrementalAnalysisMethods.js, Repository.js and the paper’s Fig. 10 (recomputing its 44.38% / category C exactly requires 0–4 coding), and decided to follow the artefact’s 0–4 coding.
-- AI influenced Deviation 1 as it highlighted the likelihood of ties occurring 
+- AI influenced Deviation 1 as it highlighted the likelihood of ties occurring. We reviewed and agreed upon it before running.
+- AI explained the "fatal: not a git repository ... code 128" line in the server log by reading the artefact code: the Gradle clean-up in CallgraphUtils.downloadDependencyJars runs `git reset --hard` in the parent folder instead of the clone. We checked this ourselves in CallgraphUtils.java and CallGraphService.java and confirmed it does not affect the run.
 - 

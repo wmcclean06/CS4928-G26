@@ -47,3 +47,61 @@
 2026-10-14 20:11:40.674  INFO 8056 --- [           main] org.neo4j.driver.internal.DriverFactory  : Direct driver instance 1006727288 created for server address localhost:7687
 2026-10-14 20:11:40.698  INFO 8056 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2026-10-14 20:11:40.705  INFO 8056 --- [           main] c.callgraph.CallgraphServerApplication   : Started CallgraphServerApplication in 1.37 seconds (JVM running for 1.736)
+2026-10-14 21:07:37.535  INFO 8056 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-14 21:07:37.537  INFO 8056 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-14 21:07:37.550  INFO 8056 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+Cloning into 'arduino/Arduino'...
+Updating files:  56% (575/1019)
+Updating files:  57% (581/1019)
+Updating files:  58% (592/1019)
+Updating files:  59% (602/1019)
+Updating files:  60% (612/1019)
+Updating files:  61% (622/1019)
+Updating files:  62% (632/1019)
+Updating files:  63% (642/1019)
+Updating files:  64% (653/1019)
+Updating files:  65% (663/1019)
+Updating files:  66% (673/1019)
+Updating files:  67% (683/1019)
+Updating files:  68% (693/1019)
+Updating files:  69% (704/1019)
+Updating files:  70% (714/1019)
+Updating files:  71% (724/1019)
+Updating files:  72% (734/1019)
+Updating files:  73% (744/1019)
+Updating files:  74% (755/1019)
+Updating files:  75% (765/1019)
+Updating files:  76% (775/1019)
+Updating files:  77% (785/1019)
+Updating files:  78% (795/1019)
+Updating files:  79% (806/1019)
+Updating files:  80% (816/1019)
+Updating files:  81% (826/1019)
+Updating files:  82% (836/1019)
+Updating files:  83% (846/1019)
+Updating files:  84% (856/1019)
+Updating files:  85% (867/1019)
+Updating files:  86% (877/1019)
+Updating files:  87% (887/1019)
+Updating files:  88% (897/1019)
+Updating files:  89% (907/1019)
+Updating files:  90% (918/1019)
+Updating files:  91% (928/1019)
+Updating files:  92% (938/1019)
+Updating files:  93% (948/1019)
+Updating files:  94% (958/1019)
+Updating files:  95% (969/1019)
+Updating files:  96% (979/1019)
+Updating files:  97% (989/1019)
+Updating files:  98% (999/1019)
+Updating files:  99% (1009/1019)
+Updating files: 100% (1019/1019)
+Updating files: 100% (1019/1019), done.
+Command exited with code 0
+fatal: not a git repository (or any of the parent directories): .git
+Command exited with code 128
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
