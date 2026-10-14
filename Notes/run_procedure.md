@@ -53,3 +53,5 @@ python scripts/fetch_pr_data.py
 ```
 - Fetches raw GitHub data for the 10 sample PRs, the 474 merged PRs created before the last sample PR (history), and the 11 later merged bug-labelled PRs (RQ2), into data/raw/. No method rules are applied at this stage.
 - Every request is logged in data/raw/fetch_log.csv.
+
+Status 14/10/2026: IN PROGRESS. §1–§2 complete (environment, call graph at a0df6e0, raw PR data). Next: §3 pilot on #8349 (write metrics script, check against Fig. 10).
