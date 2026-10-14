@@ -1,0 +1,86 @@
+[
+ {
+  "sha": "8d8a51ec901a1b4edf69ad52bc9249b2cef48cc9",
+  "filename": "libraries/SD/examples/CardInfo/CardInfo.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 6,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2FCardInfo%2FCardInfo.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2FCardInfo%2FCardInfo.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fexamples%2FCardInfo%2FCardInfo.ino?ref=d3a6c37980f0376d1ce435bc4336583abaf68edb",
+  "patch": "@@ -44,12 +44,6 @@ void setup()\n \n \n   Serial.print(\"\\nInitializing SD card...\");\n-  // On the Ethernet Shield, CS is pin 4. It's set as an output by default.\n-  // Note that even if it's not used as the CS pin, the hardware SS pin\n-  // (10 on most Arduino boards, 53 on the Mega) must be left as an output\n-  // or the SD library functions will not work.\n-  pinMode(10, OUTPUT);     // change this to 53 on a mega\n-\n \n   // we'll use the initialization code from the utility libraries\n   // since we're just testing if the card is working!"
+ },
+ {
+  "sha": "e071b52826613c75e2ddb3e78015ac51ae313b45",
+  "filename": "libraries/SD/examples/Datalogger/Datalogger.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 7,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2FDatalogger%2FDatalogger.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2FDatalogger%2FDatalogger.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fexamples%2FDatalogger%2FDatalogger.ino?ref=d3a6c37980f0376d1ce435bc4336583abaf68edb",
+  "patch": "@@ -23,10 +23,6 @@\n #include <SPI.h>\n #include <SD.h>\n \n-// On the Ethernet Shield, CS is pin 4. Note that even if it's not\n-// used as the CS pin, the hardware CS pin (10 on most Arduino boards,\n-// 53 on the Mega) must be left as an output or the SD library\n-// functions will not work.\n const int chipSelect = 4;\n \n void setup()\n@@ -39,9 +35,6 @@ void setup()\n \n \n   Serial.print(\"Initializing SD card...\");\n-  // make sure that the default chip select pin is set to\n-  // output, even if you don't use it:\n-  pinMode(10, OUTPUT);\n \n   // see if the card is present and can be initialized:\n   if (!SD.begin(chipSelect)) {"
+ },
+ {
+  "sha": "e2eaf1c59495b1713e4883046c055664a1ec5655",
+  "filename": "libraries/SD/examples/DumpFile/DumpFile.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 7,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2FDumpFile%2FDumpFile.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2FDumpFile%2FDumpFile.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fexamples%2FDumpFile%2FDumpFile.ino?ref=d3a6c37980f0376d1ce435bc4336583abaf68edb",
+  "patch": "@@ -23,10 +23,6 @@\n #include <SPI.h>\n #include <SD.h>\n \n-// On the Ethernet Shield, CS is pin 4. Note that even if it's not\n-// used as the CS pin, the hardware CS pin (10 on most Arduino boards,\n-// 53 on the Mega) must be left as an output or the SD library\n-// functions will not work.\n const int chipSelect = 4;\n \n void setup()\n@@ -39,9 +35,6 @@ void setup()\n \n \n   Serial.print(\"Initializing SD card...\");\n-  // make sure that the default chip select pin is set to\n-  // output, even if you don't use it:\n-  pinMode(10, OUTPUT);\n \n   // see if the card is present and can be initialized:\n   if (!SD.begin(chipSelect)) {"
+ },
+ {
+  "sha": "f01db3828cfbf1094816f4bc50be8c8ad3e73fcf",
+  "filename": "libraries/SD/examples/Files/Files.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 5,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2FFiles%2FFiles.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2FFiles%2FFiles.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fexamples%2FFiles%2FFiles.ino?ref=d3a6c37980f0376d1ce435bc4336583abaf68edb",
+  "patch": "@@ -32,11 +32,6 @@ void setup()\n \n \n   Serial.print(\"Initializing SD card...\");\n-  // On the Ethernet Shield, CS is pin 4. It's set as an output by default.\n-  // Note that even if it's not used as the CS pin, the hardware SS pin\n-  // (10 on most Arduino boards, 53 on the Mega) must be left as an output\n-  // or the SD library functions will not work.\n-  pinMode(10, OUTPUT);\n \n   if (!SD.begin(4)) {\n     Serial.println(\"initialization failed!\");"
+ },
+ {
+  "sha": "055a0166b8df7a8e2b8c6d5bd2688632e6e0d963",
+  "filename": "libraries/SD/examples/ReadWrite/ReadWrite.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 5,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2FReadWrite%2FReadWrite.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2FReadWrite%2FReadWrite.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fexamples%2FReadWrite%2FReadWrite.ino?ref=d3a6c37980f0376d1ce435bc4336583abaf68edb",
+  "patch": "@@ -33,11 +33,6 @@ void setup()\n \n \n   Serial.print(\"Initializing SD card...\");\n-  // On the Ethernet Shield, CS is pin 4. It's set as an output by default.\n-  // Note that even if it's not used as the CS pin, the hardware SS pin\n-  // (10 on most Arduino boards, 53 on the Mega) must be left as an output\n-  // or the SD library functions will not work.\n-  pinMode(10, OUTPUT);\n \n   if (!SD.begin(4)) {\n     Serial.println(\"initialization failed!\");"
+ },
+ {
+  "sha": "1500d74e072b1bafc36600dc8372f5295733f4a6",
+  "filename": "libraries/SD/examples/listfiles/listfiles.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 5,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2Flistfiles%2Flistfiles.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Fexamples%2Flistfiles%2Flistfiles.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fexamples%2Flistfiles%2Flistfiles.ino?ref=d3a6c37980f0376d1ce435bc4336583abaf68edb",
+  "patch": "@@ -35,11 +35,6 @@ void setup()\n   }\n \n   Serial.print(\"Initializing SD card...\");\n-  // On the Ethernet Shield, CS is pin 4. It's set as an output by default.\n-  // Note that even if it's not used as the CS pin, the hardware SS pin\n-  // (10 on most Arduino boards, 53 on the Mega) must be left as an output\n-  // or the SD library functions will not work.\n-  pinMode(10, OUTPUT);\n \n   if (!SD.begin(4)) {\n     Serial.println(\"initialization failed!\");"
+ },
+ {
+  "sha": "7758447453cc728a817695ea3445203277f8e652",
+  "filename": "libraries/SD/library.properties",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Flibrary.properties",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d3a6c37980f0376d1ce435bc4336583abaf68edb/libraries%2FSD%2Flibrary.properties",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Flibrary.properties?ref=d3a6c37980f0376d1ce435bc4336583abaf68edb",
+  "patch": "@@ -1,5 +1,5 @@\n name=SD\r\n-version=1.0.1\r\n+version=1.0.2\r\n author=Arduino, SparkFun\r\n maintainer=Arduino <info@arduino.cc>\r\n sentence=Enables reading and writing on SD cards. For all Arduino boards.\r"
+ }
+]

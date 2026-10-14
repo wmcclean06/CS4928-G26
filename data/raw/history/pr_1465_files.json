@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "69caff744ff39003db058b1e15260264cc4b2a1a",
+  "filename": "build/shared/examples/02.Digital/tonePitchFollower/tonePitchFollower.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ad500ae24d9737090e84a5242d4914df8edc51a1/build%2Fshared%2Fexamples%2F02.Digital%2FtonePitchFollower%2FtonePitchFollower.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ad500ae24d9737090e84a5242d4914df8edc51a1/build%2Fshared%2Fexamples%2F02.Digital%2FtonePitchFollower%2FtonePitchFollower.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F02.Digital%2FtonePitchFollower%2FtonePitchFollower.ino?ref=ad500ae24d9737090e84a5242d4914df8edc51a1",
+  "patch": "@@ -4,7 +4,7 @@\n  Plays a pitch that changes based on a changing analog input\n  \n  circuit:\n- * 8-ohm speaker on digital pin 8\n+ * 8-ohm speaker on digital pin 9\n  * photoresistor on analog 0 to 5V\n  * 4.7K resistor on analog 0 to ground\n  "
+ }
+]

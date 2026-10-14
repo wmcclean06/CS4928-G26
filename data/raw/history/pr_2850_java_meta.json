@@ -1,0 +1,55 @@
+{
+ "pr": 2850,
+ "base_sha": "1fcd6ff1cedf64999432d4a86194669b65e62c04",
+ "head_sha": "b5367bcdbe236c5b771e0019b0170f42fbe89081",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndexer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 25,
+   "deletions": 4,
+   "old_sha": "c1c9969ec5ca5b8cead760ef6e64288cbe4378e1",
+   "new_sha": "4ac5a74b206a347a62240803b8ae516a80e82dbb",
+   "head_sha_check": "4ac5a74b206a347a62240803b8ae516a80e82dbb",
+   "loc_at_head": 188,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/BaseNoGui.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 51,
+   "deletions": 18,
+   "old_sha": "9bd0c62de2316e30fa44bdf60d706aea31972c6a",
+   "new_sha": "9952e2e4ebd5eddb342e4a8dbe1d171d6517d980",
+   "head_sha_check": "9952e2e4ebd5eddb342e4a8dbe1d171d6517d980",
+   "loc_at_head": 950,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/debug/Compiler.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 43,
+   "deletions": 6,
+   "old_sha": "93e9e699caa2fcaceaf3dad25c8c64b237308718",
+   "new_sha": "b2ba629c875fe29958b0442bd81a5db645c884d9",
+   "head_sha_check": "b2ba629c875fe29958b0442bd81a5db645c884d9",
+   "loc_at_head": 1090,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/packages/LibraryList.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 7,
+   "deletions": 0,
+   "old_sha": "9ae2c2b60ab6c93b87fb2f1137b58e4f7a639b91",
+   "new_sha": "d4d504cea79738ccd35759192d517c36b5775b3e",
+   "head_sha_check": "d4d504cea79738ccd35759192d517c36b5775b3e",
+   "loc_at_head": 78,
+   "notes": ""
+  }
+ ]
+}

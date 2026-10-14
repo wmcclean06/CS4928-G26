@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "5fe83687824fdd49037b99f6287c6046a1f95651",
+  "filename": "build/shared/lib/keywords.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/45e860525c9c2bfd6cf902866b2af7310ca05bcd/build%2Fshared%2Flib%2Fkeywords.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/45e860525c9c2bfd6cf902866b2af7310ca05bcd/build%2Fshared%2Flib%2Fkeywords.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Flib%2Fkeywords.txt?ref=45e860525c9c2bfd6cf902866b2af7310ca05bcd",
+  "patch": "@@ -30,6 +30,7 @@ INTERNAL2V56\tLITERAL2\tAnalogReference\n \n boolean\tLITERAL2\tBooleanVariables\n byte\tLITERAL2\tByte\n+char\tLITERAL2\tChar\n const\tLITERAL2\tConst\n false\tLITERAL2\tConstants\n float\tLITERAL2\tFloat\n@@ -169,7 +170,6 @@ isPressed\tKEYWORD2\n \n break\tKEYWORD3\tBreak\n case\tKEYWORD3\tSwitchCase\n-char\tKEYWORD3\tChar\n class\tKEYWORD3\n continue\tKEYWORD3\tContinue\n default\tKEYWORD3\tSwitchCase\t\n@@ -224,4 +224,4 @@ loop\tKEYWORD3\tLoop\n ()\t\tparentheses\n >>\t\tBitshift\n ;\t\tSemiColon\n--=\t\tIncrementCompound\n\\ No newline at end of file\n+-=\t\tDecrementCompound"
+ }
+]

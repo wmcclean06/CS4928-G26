@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "850f7992e9c22da50b28c3eb1909fe30683746db",
+  "filename": "app/src/processing/app/debug/Compiler.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2fb37707576bd90b6c04aa78df9ff9219febc51c/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2fb37707576bd90b6c04aa78df9ff9219febc51c/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java?ref=2fb37707576bd90b6c04aa78df9ff9219febc51c",
+  "patch": "@@ -547,7 +547,7 @@ static private List getCommandCompilerS(String avrBasePath, List includePaths,\n       avrBasePath + \"avr-gcc\",\n       \"-c\", // compile, don't link\n       \"-g\", // include debugging info (so errors include line numbers)\n-      \"-assembler-with-cpp\",\n+      \"-x\",\"assembler-with-cpp\",\n       \"-mmcu=\" + boardPreferences.get(\"build.mcu\"),\n       \"-DF_CPU=\" + boardPreferences.get(\"build.f_cpu\"),      \n       \"-DARDUINO=\" + Base.REVISION,"
+ }
+]

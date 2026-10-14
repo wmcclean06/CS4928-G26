@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "611cc87c7d4dd4868aec33e94fbef9b962056a0e",
+  "filename": "hardware/arduino/boards.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4dd931a99a683fc7644580d0e07eefd7f7503d2d/hardware%2Farduino%2Fboards.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4dd931a99a683fc7644580d0e07eefd7f7503d2d/hardware%2Farduino%2Fboards.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fboards.txt?ref=4dd931a99a683fc7644580d0e07eefd7f7503d2d",
+  "patch": "@@ -107,7 +107,7 @@ nano.build.variant=eightanaloginputs\n mega2560.name=Arduino Mega 2560 or Mega ADK\n \n mega2560.upload.protocol=wiring\n-mega2560.upload.maximum_size=258048\n+mega2560.upload.maximum_size=253952\n mega2560.upload.speed=115200\n \n mega2560.bootloader.low_fuses=0xFF"
+ }
+]

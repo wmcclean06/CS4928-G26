@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "8de523eb18e35fbb6b6348469f2095a0c2369e66",
+  "filename": "arduino-core/src/processing/app/BaseNoGui.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7c039c484b8cc735511918036393bb85c3dd1b63/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7c039c484b8cc735511918036393bb85c3dd1b63/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java?ref=7c039c484b8cc735511918036393bb85c3dd1b63",
+  "patch": "@@ -41,9 +41,9 @@\n public class BaseNoGui {\n \n   /** Version string to be used for build */\n-  public static final int REVISION = 10803;\n+  public static final int REVISION = 10804;\n   /** Extended version string displayed on GUI */\n-  public static final String VERSION_NAME = \"1.8.3\";\n+  public static final String VERSION_NAME = \"1.8.4\";\n   public static final String VERSION_NAME_LONG;\n \n   // Current directory to use for relative paths specified on the"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "0d73364e2abcb6bca8052c6972a8323de3ec30e6",
+  "filename": "build/shared/examples/08.Strings/StringLength/StringLength.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a309364fb88ecb93fa84cf9bb7c4294c476b00e7/build%2Fshared%2Fexamples%2F08.Strings%2FStringLength%2FStringLength.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a309364fb88ecb93fa84cf9bb7c4294c476b00e7/build%2Fshared%2Fexamples%2F08.Strings%2FStringLength%2FStringLength.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F08.Strings%2FStringLength%2FStringLength.ino?ref=a309364fb88ecb93fa84cf9bb7c4294c476b00e7",
+  "patch": "@@ -23,7 +23,7 @@ void setup() {\n \n   // send an intro:\n   Serial.println(\"\\n\\nString  length():\");\n-  Serial.ptintln();\n+  Serial.println();\n }\n \n void loop() {"
+ }
+]

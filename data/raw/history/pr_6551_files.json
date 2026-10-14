@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "8c772de8f3e0be6b75c59eb8a7989b2a3e410be0",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 11,
+  "deletions": 0,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/388822ad95dd91033f9194d9a770eb90710df6df/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/388822ad95dd91033f9194d9a770eb90710df6df/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=388822ad95dd91033f9194d9a770eb90710df6df",
+  "patch": "@@ -1839,6 +1839,17 @@ public void handlePrefs() {\n     dialog.setVisible(true);\n   }\n \n+  /**\n+   * Adjust font size\n+   */\n+  public void handleFontSizeChange(int change) {\n+    String pieces[] = PApplet.split(PreferencesData.get(\"editor.font\"), ',');\n+    int newSize = Integer.parseInt(pieces[2]) + change;\n+    pieces[2] = String.valueOf(newSize);\n+    PreferencesData.set(\"editor.font\", PApplet.join(pieces, ','));\n+    this.getEditors().forEach(processing.app.Editor::applyPreferences);\n+  }\n+\n   // XXX: Remove this method and make librariesIndexer non-static\n   static public LibraryList getLibraries() {\n     return BaseNoGui.librariesIndexer.getInstalledLibraries();"
+ },
+ {
+  "sha": "4d2be279f23168a1ec719b7b1c67275ced284b16",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 18,
+  "deletions": 0,
+  "changes": 18,
+  "blob_url": "https://github.com/arduino/Arduino/blob/388822ad95dd91033f9194d9a770eb90710df6df/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/388822ad95dd91033f9194d9a770eb90710df6df/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=388822ad95dd91033f9194d9a770eb90710df6df",
+  "patch": "@@ -1374,6 +1374,24 @@ public void actionPerformed(ActionEvent e) {\n \n     menu.addSeparator();\n \n+    JMenuItem increaseFontSizeItem = newJMenuItem(tr(\"Increase Font Size\"), '+');\n+    increaseFontSizeItem.addActionListener(new ActionListener() {\n+        public void actionPerformed(ActionEvent e) {\n+          base.handleFontSizeChange(1);\n+        }\n+    });\n+    menu.add(increaseFontSizeItem);\n+\n+    JMenuItem decreaseFontSizeItem = newJMenuItem(tr(\"Decrease Font Size\"), '-');\n+    decreaseFontSizeItem.addActionListener(new ActionListener() {\n+        public void actionPerformed(ActionEvent e) {\n+          base.handleFontSizeChange(-1);\n+        }\n+    });\n+    menu.add(decreaseFontSizeItem);\n+\n+    menu.addSeparator();\n+\n     JMenuItem findItem = newJMenuItem(tr(\"Find...\"), 'F');\n     findItem.addActionListener(new ActionListener() {\n       public void actionPerformed(ActionEvent e) {"
+ },
+ {
+  "sha": "33dabdbbbc27098ea42bccc49d31228e5ef12b0a",
+  "filename": "app/src/processing/app/EditorTab.java",
+  "status": "modified",
+  "additions": 17,
+  "deletions": 1,
+  "changes": 18,
+  "blob_url": "https://github.com/arduino/Arduino/blob/388822ad95dd91033f9194d9a770eb90710df6df/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/388822ad95dd91033f9194d9a770eb90710df6df/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java?ref=388822ad95dd91033f9194d9a770eb90710df6df",
+  "patch": "@@ -30,6 +30,9 @@\n import java.awt.Font;\n import java.awt.event.ActionEvent;\n import java.awt.event.ActionListener;\n+import java.awt.event.MouseWheelListener;\n+import java.awt.event.MouseWheelEvent;\n+\n import java.io.IOException;\n \n import javax.swing.Action;\n@@ -64,7 +67,7 @@\n /**\n  * Single tab, editing a single file, in the main window.\n  */\n-public class EditorTab extends JPanel implements SketchFile.TextStorage {\n+public class EditorTab extends JPanel implements SketchFile.TextStorage, MouseWheelListener {\n   protected Editor editor;\n   protected SketchTextArea textarea;\n   protected RTextScrollPane scrollPane;\n@@ -106,6 +109,7 @@ public EditorTab(Editor editor, SketchFile file, String contents)\n     file.setStorage(this);\n     applyPreferences();\n     add(scrollPane, BorderLayout.CENTER);\n+\ttextarea.addMouseWheelListener(this);\n   }\n \n   private RSyntaxDocument createDocument(String contents) {\n@@ -178,6 +182,18 @@ private SketchTextArea createTextArea(RSyntaxDocument document)\n     return textArea;\n   }\n   \n+  public void mouseWheelMoved(MouseWheelEvent e) {\n+    if (e.isControlDown()) {\n+      if (e.getWheelRotation() < 0) {\n+        editor.base.handleFontSizeChange(1);\n+      } else {\n+        editor.base.handleFontSizeChange(-1);\n+      }\n+    } else {\n+      e.getComponent().getParent().dispatchEvent(e);\n+    }\n+  }\n+\n   private void configurePopupMenu(final SketchTextArea textarea){\n \n     JPopupMenu menu = textarea.getPopupMenu();"
+ }
+]

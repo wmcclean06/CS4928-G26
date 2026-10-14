@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "358444ed238aeaaf049b1c653ff8a3850225aa8f",
+  "filename": "hardware/arduino/avr/cores/arduino/USBAPI.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ced86a9c488ef159ed269d7725c2c113e4045141/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ced86a9c488ef159ed269d7725c2c113e4045141/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h?ref=ced86a9c488ef159ed269d7725c2c113e4045141",
+  "patch": "@@ -193,6 +193,7 @@ bool\tCDC_Setup(USBSetup& setup);\n \n int USB_SendControl(uint8_t flags, const void* d, int len);\n int USB_RecvControl(void* d, int len);\n+int USB_RecvControlLong(void* d, int len);\n \n uint8_t\tUSB_Available(uint8_t ep);\n uint8_t USB_SendSpace(uint8_t ep);"
+ },
+ {
+  "sha": "4e7e8af1c3821f8004918ba4ce1d42d571de9ff6",
+  "filename": "hardware/arduino/avr/cores/arduino/USBCore.cpp",
+  "status": "modified",
+  "additions": 20,
+  "deletions": 1,
+  "changes": 21,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ced86a9c488ef159ed269d7725c2c113e4045141/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ced86a9c488ef159ed269d7725c2c113e4045141/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp?ref=ced86a9c488ef159ed269d7725c2c113e4045141",
+  "patch": "@@ -426,7 +426,7 @@ static bool USB_SendStringDescriptor(const u8*string_P, u8 string_len, uint8_t f\n \n //\tDoes not timeout or cross fifo boundaries\n //\tWill only work for transfers <= 64 bytes\n-//\tTODO\n+//\tUse USB_RecvControlLong for longer transfers\n int USB_RecvControl(void* d, int len)\n {\n \tWaitOUT();\n@@ -435,6 +435,25 @@ int USB_RecvControl(void* d, int len)\n \treturn len;\n }\n \n+//\tDoes not timeout or cross fifo boundaries\n+int USB_RecvControlLong(void* d, int len)\n+{\n+\tauto bytesleft = len;\n+\twhile(bytesleft > 0)\n+\t{\n+\t\t// Dont receive more than the USB Control EP has to offer\n+\t\t// Use fixed 64 because control EP always have 64 bytes even on 16u2.\n+\t\tauto recvLength = bytesleft;\n+\t\tif(recvLength > 64){\n+\t\t\trecvLength = 64;\n+\t\t}\n+\n+\t\t// Write data to fit to the beginning of the array\n+\t\tbytesleft -= USB_RecvControl((u8*)d + len - bytesleft, recvLength);\n+\t}\n+\treturn len;\n+}\n+\n static u8 SendInterfaces()\n {\n \tu8 interfaces = 0;"
+ }
+]

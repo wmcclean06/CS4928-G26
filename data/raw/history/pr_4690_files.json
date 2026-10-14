@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "074c9c7897603d3ffdd2e83d359a47f29ff45e29",
+  "filename": "build/shared/examples/04.Communication/ReadASCIIString/ReadASCIIString.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/eab75d9f65d2f7ddc3aba82ccb11997539157810/build%2Fshared%2Fexamples%2F04.Communication%2FReadASCIIString%2FReadASCIIString.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/eab75d9f65d2f7ddc3aba82ccb11997539157810/build%2Fshared%2Fexamples%2F04.Communication%2FReadASCIIString%2FReadASCIIString.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F04.Communication%2FReadASCIIString%2FReadASCIIString.ino?ref=eab75d9f65d2f7ddc3aba82ccb11997539157810",
+  "patch": "@@ -5,7 +5,7 @@\n  It looks for an ASCII string of comma-separated values.\n  It parses them into ints, and uses those to fade an RGB LED.\n \n- Circuit: Common-athode  RGB LED wired like so:\n+ Circuit: Common-Cathode RGB LED wired like so:\n  * Red anode: digital pin 3\n  * Green anode: digital pin 5\n  * Blue anode: digital pin 6"
+ }
+]

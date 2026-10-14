@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ad97c9160226678cc2e93b909699369b6bbd2e55",
+  "filename": "build/linux/dist/arduino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1b95b439a16318dabc118e1c0aadee284de09d92/build%2Flinux%2Fdist%2Farduino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1b95b439a16318dabc118e1c0aadee284de09d92/build%2Flinux%2Fdist%2Farduino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Farduino?ref=1b95b439a16318dabc118e1c0aadee284de09d92",
+  "patch": "@@ -27,7 +27,8 @@ fi\n # Collect options to java in an array, to properly handle whitespace in options\n JAVA_OPTIONS=(\"-DAPP_DIR=$APPDIR\" \"-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel\")\n \n-if [[ \"$@\" != *\"--upload\"* && \"$@\" != *\"--verify\"* && \"$@\" != *\"--get-pref\"* && \"$@\" != *\"--install-board\"* && \"$@\" != *\"--install-library\"* ]] ; then\n+# Only show the splash screen when no options are present\n+if [[ \"$@\" != *\"--\"* ]] ; then\n \tJAVA_OPTIONS+=(\"-splash:$APPDIR/lib/splash.png\")\n fi\n "
+ }
+]

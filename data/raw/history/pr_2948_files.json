@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "2bae0ac405e24467cd6279fd7af2341da963a353",
+  "filename": "arduino-core/src/cc/arduino/contributions/libraries/LibraryInstaller.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 5,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/26ae4d13b880c78dc579ed5528ee20f2404d531e/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibraryInstaller.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/26ae4d13b880c78dc579ed5528ee20f2404d531e/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibraryInstaller.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibraryInstaller.java?ref=26ae4d13b880c78dc579ed5528ee20f2404d531e",
+  "patch": "@@ -97,16 +97,17 @@ public void updateIndex() throws Exception {\n     rescanLibraryIndex(progress);\n   }\n \n-  public void install(ContributedLibrary lib, ContributedLibrary replacedLib) throws Exception {\n+  public void install(ContributedLibrary lib, ContributedLibrary replacedLib) {\n     if (lib.isInstalled()) {\n-      throw new Exception(_(\"Library is already installed!\"));\n+      System.out.println(_(\"Library is already installed: \\\"\" + lib.getName() + \"\\\"\"));\n+      return;\n     }\n \n     final MultiStepProgress progress = new MultiStepProgress(3);\n \n     // Step 1: Download library\n     try {\n-      downloader.download(lib, progress, _(\"Downloading library.\"));\n+      downloader.download(lib, progress, _(\"Downloading library: \\\"\" + lib.getName() + \"\\\"\"));\n     } catch (InterruptedException e) {\n       // Download interrupted... just exit\n       return;\n@@ -117,7 +118,7 @@ public void install(ContributedLibrary lib, ContributedLibrary replacedLib) thro\n     // all the temporary folders and abort installation.\n \n     // Step 2: Unpack library on the correct location\n-    progress.setStatus(_(\"Installing library...\"));\n+    progress.setStatus(_(\"Installing library: \\\"\" + lib.getName() + \"\\\"\"));\n     onProgress(progress);\n     File libsFolder = indexer.getSketchbookLibrariesFolder();\n     File tmpFolder = FileUtils.createTempFolderIn(libsFolder);\n@@ -148,7 +149,7 @@ public void remove(ContributedLibrary lib) throws IOException {\n     final MultiStepProgress progress = new MultiStepProgress(2);\n \n     // Step 1: Remove library\n-    progress.setStatus(_(\"Removing library...\"));\n+    progress.setStatus(_(\"Removing library: \\\"\" + lib.getName() + \"\\\"\"));\n     onProgress(progress);\n     FileUtils.recursiveDelete(lib.getInstalledFolder());\n     progress.stepDone();"
+ }
+]

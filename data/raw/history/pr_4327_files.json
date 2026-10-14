@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "3fe6618952f183307d58042d6b55d1824b0f3da3",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 21,
+  "changes": 23,
+  "blob_url": "https://github.com/arduino/Arduino/blob/07903b8585a6af8f28fea7b13500bc0ca5bbad20/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/07903b8585a6af8f28fea7b13500bc0ca5bbad20/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=07903b8585a6af8f28fea7b13500bc0ca5bbad20",
+  "patch": "@@ -44,6 +44,7 @@\n import processing.app.syntax.ArduinoTokenMakerFactory;\n import processing.app.syntax.PdeKeywords;\n import processing.app.syntax.SketchTextArea;\n+import processing.app.syntax.SketchTextAreaEditorKit;\n import processing.app.tools.DiscourseFormat;\n import processing.app.tools.MenuScroller;\n import processing.app.tools.Tool;\n@@ -1866,28 +1867,8 @@ void handleCommentUncomment() {\n \n   private void handleIndentOutdent(boolean indent) {\n     if (indent) {\n-\n-      int caretPosition = textarea.getCaretPosition();\n-      boolean noSelec = !textarea.isSelectionActive();\n-\n-      // if no selection, focus on first char.\n-      if (noSelec) {\n-        try {\n-          int line = textarea.getCaretLineNumber();\n-          int startOffset = textarea.getLineStartOffset(line);\n-          textarea.setCaretPosition(startOffset);\n-        } catch (BadLocationException e) {\n-        }\n-      }\n-\n-      // Insert Tab or Spaces..\n-      Action action = textarea.getActionMap().get(RSyntaxTextAreaEditorKit.insertTabAction);\n+      Action action = textarea.getActionMap().get(SketchTextAreaEditorKit.rtaIncreaseIndentAction);\n       action.actionPerformed(null);\n-\n-      if (noSelec) {\n-        textarea.setCaretPosition(caretPosition);\n-      }\n-\n     } else {\n       Action action = textarea.getActionMap().get(RSyntaxTextAreaEditorKit.rstaDecreaseIndentAction);\n       action.actionPerformed(null);"
+ },
+ {
+  "sha": "5e3b59646f1282241822a92ab36b403a040b9669",
+  "filename": "app/src/processing/app/syntax/SketchTextAreaDefaultInputMap.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/07903b8585a6af8f28fea7b13500bc0ca5bbad20/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/07903b8585a6af8f28fea7b13500bc0ca5bbad20/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java?ref=07903b8585a6af8f28fea7b13500bc0ca5bbad20",
+  "patch": "@@ -45,8 +45,8 @@ public SketchTextAreaDefaultInputMap() {\n \n       remove(KeyStroke.getKeyStroke(KeyEvent.VK_J, defaultModifier));\n \n-      put(KeyStroke.getKeyStroke(KeyEvent.VK_OPEN_BRACKET, defaultModifier), DefaultEditorKit.insertTabAction);\n-      put(KeyStroke.getKeyStroke(KeyEvent.VK_CLOSE_BRACKET, defaultModifier), RSyntaxTextAreaEditorKit.rstaDecreaseIndentAction);\n+      put(KeyStroke.getKeyStroke(KeyEvent.VK_OPEN_BRACKET, defaultModifier), RSyntaxTextAreaEditorKit.rstaDecreaseIndentAction);\n+      put(KeyStroke.getKeyStroke(KeyEvent.VK_CLOSE_BRACKET, defaultModifier), SketchTextAreaEditorKit.rtaIncreaseIndentAction);\n \n       put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, defaultModifier | shift), DefaultEditorKit.selectionBeginAction);\n       put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, defaultModifier | shift), DefaultEditorKit.selectionEndAction);"
+ },
+ {
+  "sha": "35574b16ca988a5925882c89f7887bd42de87cba",
+  "filename": "app/src/processing/app/syntax/SketchTextAreaEditorKit.java",
+  "status": "modified",
+  "additions": 35,
+  "deletions": 0,
+  "changes": 35,
+  "blob_url": "https://github.com/arduino/Arduino/blob/07903b8585a6af8f28fea7b13500bc0ca5bbad20/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaEditorKit.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/07903b8585a6af8f28fea7b13500bc0ca5bbad20/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaEditorKit.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaEditorKit.java?ref=07903b8585a6af8f28fea7b13500bc0ca5bbad20",
+  "patch": "@@ -13,10 +13,12 @@ public class SketchTextAreaEditorKit extends RSyntaxTextAreaEditorKit {\n \n   public static final String rtaDeleteNextWordAction = \"RTA.DeleteNextWordAction\";\n   public static final String rtaDeleteLineToCursorAction = \"RTA.DeleteLineToCursorAction\";\n+  public static final String rtaIncreaseIndentAction = \"RTA.IncreaseIndentAction\";\n \n   private static final Action[] defaultActions = {\n     new DeleteNextWordAction(),\n     new DeleteLineToCursorAction(),\n+    new IncreaseIndentAction(),\n     new SelectWholeLineAction(),\n     new ToggleCommentAction()\n   };\n@@ -103,6 +105,39 @@ public String getMacroID() {\n \n   }\n \n+  /**\n+   * Increases the indent of the selected or current line(s).\n+   */\n+  public static class IncreaseIndentAction extends RSyntaxTextAreaEditorKit.InsertTabAction {\n+\n+    public IncreaseIndentAction() {\n+      super(rtaIncreaseIndentAction);\n+    }\n+\n+    @Override\n+    public void actionPerformedImpl(ActionEvent e, RTextArea textArea) {\n+      int caretPosition = textArea.getCaretPosition();\n+      boolean noSelec = textArea.getSelectedText() == null;\n+\n+      // if no selection, focus on first char.\n+      if (noSelec) {\n+        try {\n+          int line = textArea.getCaretLineNumber();\n+          int startOffset = textArea.getLineStartOffset(line);\n+          textArea.setCaretPosition(startOffset);\n+        } catch (BadLocationException ex) {\n+        }\n+      }\n+\n+      // Insert Tab or Spaces..\n+      super.actionPerformedImpl(e, textArea);\n+\n+      if (noSelec) {\n+        textArea.setCaretPosition(caretPosition + (textArea.getTabsEmulated() ? textArea.getTabSize() : 1));\n+      }\n+    }\n+  }\n+\n   /**\n    * Selects the line around the caret.\n    */"
+ }
+]

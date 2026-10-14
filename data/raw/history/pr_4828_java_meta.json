@@ -1,0 +1,43 @@
+{
+ "pr": 4828,
+ "base_sha": "f74afc4ad9c3cd399e986a986e7abbc4383edb43",
+ "head_sha": "c28c8549368ee6c74bbeb1b23e18c0abdea70cc8",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 0,
+   "old_sha": "0a260e51650d7425b9d04c5c8c021b68e2c89dc3",
+   "new_sha": "d45d9c638f23d16bf75c997a5fc5e88f5f110e94",
+   "head_sha_check": "d45d9c638f23d16bf75c997a5fc5e88f5f110e94",
+   "loc_at_head": 1967,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndexer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 2,
+   "old_sha": "ae5806ef89d242c418eb0515713ca8cf7f6becb2",
+   "new_sha": "93c981c9aaadbf2eb7e54108be939ccfffdec949",
+   "head_sha_check": "93c981c9aaadbf2eb7e54108be939ccfffdec949",
+   "loc_at_head": 217,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/packages/LibraryList.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 15,
+   "deletions": 5,
+   "old_sha": "5c9c096dbf5ea0f282a8509fb745d7da76e3b653",
+   "new_sha": "b83e5265ef22c85569a65c649b815b81ac99fa30",
+   "head_sha_check": "b83e5265ef22c85569a65c649b815b81ac99fa30",
+   "loc_at_head": 86,
+   "notes": ""
+  }
+ ]
+}

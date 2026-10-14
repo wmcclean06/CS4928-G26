@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "f5491af8cb8f62d4734ef2299b28f57c2a15f3ac",
+  "filename": "README.md",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e30319fd36d90a7e86878d1a8810d7faed4a8594/README.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e30319fd36d90a7e86878d1a8810d7faed4a8594/README.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/README.md?ref=e30319fd36d90a7e86878d1a8810d7faed4a8594",
+  "patch": "@@ -29,7 +29,7 @@ https://groups.google.com/a/arduino.cc/forum/#!forum/developers\n Installation\n ------------\n Detailed instructions for installation in popular operating systems.  \n-For Linux: https://www.arduino.cc/en/Guide/Linux (see also the Arduino playground page http://www.arduino.cc/playground/Learning/Linux)   \n+For Linux: https://www.arduino.cc/en/Guide/Linux (see also the Arduino playground page https://playground.arduino.cc/Learning/Linux)   \n For macOS X: https://www.arduino.cc/en/Guide/MacOSX   \n For Windows: https://www.arduino.cc/en/Guide/Windows\n "
+ }
+]

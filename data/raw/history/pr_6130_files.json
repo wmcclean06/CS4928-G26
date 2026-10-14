@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "b32382354ec809ce02b9d1e43acb27a211785e2c",
+  "filename": "app/src/processing/app/EditorConsole.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 3,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/019022505089dd45f9beba77fc033bdc67d242e6/app%2Fsrc%2Fprocessing%2Fapp%2FEditorConsole.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/019022505089dd45f9beba77fc033bdc67d242e6/app%2Fsrc%2Fprocessing%2Fapp%2FEditorConsole.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorConsole.java?ref=019022505089dd45f9beba77fc033bdc67d242e6",
+  "patch": "@@ -103,9 +103,8 @@ public EditorConsole() {\n     FontMetrics metrics = getFontMetrics(actualFont);\n     int height = metrics.getAscent() + metrics.getDescent();\n     int lines = PreferencesData.getInteger(\"console.lines\");\n-    int sizeFudge = 6; //10; // unclear why this is necessary, but it is\n-    setPreferredSize(new Dimension(100, (height * lines) + sizeFudge));\n-    setMinimumSize(new Dimension(100, (height * 5) + sizeFudge));\n+    setPreferredSize(new Dimension(100, (height * lines)));\n+    setMinimumSize(new Dimension(100, (height * lines)));\n \n     EditorConsole.init(stdOutStyle, System.out, stdErrStyle, System.err);\n   }"
+ }
+]

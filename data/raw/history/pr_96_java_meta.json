@@ -1,0 +1,43 @@
+{
+ "pr": 96,
+ "base_sha": "a363686a3183ba98024329390f82c36608f8d8f7",
+ "head_sha": "5e75bd4a9776dd6566ae938c72ac97957135733c",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/debug/Compiler.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 4,
+   "old_sha": "6d469e276daad269e11f4c2798b7be2d3f0ffacb",
+   "new_sha": "9660ca721fec1c289bb52b69b34af03a97c41430",
+   "head_sha_check": "9660ca721fec1c289bb52b69b34af03a97c41430",
+   "loc_at_head": 574,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/debug/MessageSiphon.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 9,
+   "deletions": 2,
+   "old_sha": "79a0920d53adc87805b82500d1e714a7b8c8ba23",
+   "new_sha": "12b1f993b77167fdcf999512cb3cc728a74587ca",
+   "head_sha_check": "12b1f993b77167fdcf999512cb3cc728a74587ca",
+   "loc_at_head": 81,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/debug/Sizer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 4,
+   "old_sha": "d67728a3c85066cf64c210a51a44ca1b9ca4c382",
+   "new_sha": "67ce2080ca76ec60ea498718a646521a4a7ff30f",
+   "head_sha_check": "67ce2080ca76ec60ea498718a646521a4a7ff30f",
+   "loc_at_head": 86,
+   "notes": ""
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "9b5669e86c1c423050457791a026fe4ff8046bf8",
+  "filename": "hardware/arduino/avr/platform.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/35e45c9fe09279e1d5736032dad2dc892e35b6fe/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/35e45c9fe09279e1d5736032dad2dc892e35b6fe/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fplatform.txt?ref=35e45c9fe09279e1d5736032dad2dc892e35b6fe",
+  "patch": "@@ -21,9 +21,9 @@ compiler.warning_flags.all=-Wall -Wextra\n compiler.path={runtime.tools.avr-gcc.path}/bin/\n compiler.c.cmd=avr-gcc\n compiler.c.flags=-c -g -Os {compiler.warning_flags} -std=gnu11 -ffunction-sections -fdata-sections -MMD -flto -fno-fat-lto-objects\n-compiler.c.elf.flags={compiler.warning_flags} -Os -flto -fuse-linker-plugin -Wl,--gc-sections\n+compiler.c.elf.flags={compiler.warning_flags} -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections\n compiler.c.elf.cmd=avr-gcc\n-compiler.S.flags=-c -g -x assembler-with-cpp -flto\n+compiler.S.flags=-c -g -x assembler-with-cpp -flto -MMD\n compiler.cpp.cmd=avr-g++\n compiler.cpp.flags=-c -g -Os {compiler.warning_flags} -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -flto\n compiler.ar.cmd=avr-gcc-ar"
+ },
+ {
+  "sha": "3b759aa8b00da35d4143b9cad3dc4433b78defb5",
+  "filename": "hardware/arduino/sam/platform.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/35e45c9fe09279e1d5736032dad2dc892e35b6fe/hardware%2Farduino%2Fsam%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/35e45c9fe09279e1d5736032dad2dc892e35b6fe/hardware%2Farduino%2Fsam%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fplatform.txt?ref=35e45c9fe09279e1d5736032dad2dc892e35b6fe",
+  "patch": "@@ -23,7 +23,7 @@ compiler.c.flags=-c -g -Os {compiler.warning_flags} -std=gnu11 -ffunction-sectio\n compiler.c.elf.cmd=arm-none-eabi-gcc\n compiler.c.elf.flags=-Os -Wl,--gc-sections\n compiler.S.cmd=arm-none-eabi-gcc\n-compiler.S.flags=-c -g -x assembler-with-cpp\n+compiler.S.flags=-c -g -x assembler-with-cpp -MMD\n compiler.cpp.cmd=arm-none-eabi-g++\n compiler.cpp.flags=-c -g -Os {compiler.warning_flags} -std=gnu++11 -ffunction-sections -fdata-sections -nostdlib -fno-threadsafe-statics --param max-inline-insns-single=500 -fno-rtti -fno-exceptions -Dprintf=iprintf -MMD\n compiler.ar.cmd=arm-none-eabi-ar"
+ }
+]

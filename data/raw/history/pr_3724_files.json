@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "2bd48ed8aaf503be0276ab98233e0157cb633eee",
+  "filename": "hardware/arduino/avr/libraries/Wire/Wire.cpp",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 0,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d00a3ceba344f02d18ddea89fd969433f696d00e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2FWire.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d00a3ceba344f02d18ddea89fd969433f696d00e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2FWire.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2FWire.cpp?ref=d00a3ceba344f02d18ddea89fd969433f696d00e",
+  "patch": "@@ -75,6 +75,11 @@ void TwoWire::begin(int address)\n   begin((uint8_t)address);\n }\n \n+void TwoWire::end(void)\n+{\n+  twi_disable();\n+}\n+\n void TwoWire::setClock(uint32_t frequency)\n {\n   TWBR = ((F_CPU / frequency) - 16) / 2;"
+ },
+ {
+  "sha": "702f37d64bec8d011995b3c107b1f30e725c5602",
+  "filename": "hardware/arduino/avr/libraries/Wire/Wire.h",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d00a3ceba344f02d18ddea89fd969433f696d00e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2FWire.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d00a3ceba344f02d18ddea89fd969433f696d00e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2FWire.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2FWire.h?ref=d00a3ceba344f02d18ddea89fd969433f696d00e",
+  "patch": "@@ -27,6 +27,9 @@\n \n #define BUFFER_LENGTH 32\n \n+// WIRE_HAS_END means Wire has end()\n+#define WIRE_HAS_END 1\n+\n class TwoWire : public Stream\n {\n   private:\n@@ -49,6 +52,7 @@ class TwoWire : public Stream\n     void begin();\n     void begin(uint8_t);\n     void begin(int);\n+    void end();\n     void setClock(uint32_t);\n     void beginTransmission(uint8_t);\n     void beginTransmission(int);"
+ },
+ {
+  "sha": "d7d72bcb72f0e1ee8539de3c01fe168cbe856c46",
+  "filename": "hardware/arduino/avr/libraries/Wire/utility/twi.c",
+  "status": "modified",
+  "additions": 16,
+  "deletions": 0,
+  "changes": 16,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d00a3ceba344f02d18ddea89fd969433f696d00e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Futility%2Ftwi.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d00a3ceba344f02d18ddea89fd969433f696d00e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Futility%2Ftwi.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Futility%2Ftwi.c?ref=d00a3ceba344f02d18ddea89fd969433f696d00e",
+  "patch": "@@ -90,6 +90,22 @@ void twi_init(void)\n   TWCR = _BV(TWEN) | _BV(TWIE) | _BV(TWEA);\n }\n \n+/* \n+ * Function twi_disable\n+ * Desc     disables twi pins\n+ * Input    none\n+ * Output   none\n+ */\n+void twi_disable(void)\n+{\n+  // disable twi module, acks, and twi interrupt\n+  TWCR &= ~(_BV(TWEN) | _BV(TWIE) | _BV(TWEA));\n+\n+  // deactivate internal pullups for twi.\n+  digitalWrite(SDA, 0);\n+  digitalWrite(SCL, 0);\n+}\n+\n /* \n  * Function twi_slaveInit\n  * Desc     sets slave address and enables interrupt"
+ },
+ {
+  "sha": "4c52bc5a0c890f8d273218b82995b3ec74c51c5c",
+  "filename": "hardware/arduino/avr/libraries/Wire/utility/twi.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d00a3ceba344f02d18ddea89fd969433f696d00e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Futility%2Ftwi.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d00a3ceba344f02d18ddea89fd969433f696d00e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Futility%2Ftwi.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Futility%2Ftwi.h?ref=d00a3ceba344f02d18ddea89fd969433f696d00e",
+  "patch": "@@ -39,6 +39,7 @@\n   #define TWI_STX   4\n   \n   void twi_init(void);\n+  void twi_disable(void);\n   void twi_setAddress(uint8_t);\n   uint8_t twi_readFrom(uint8_t, uint8_t*, uint8_t, uint8_t);\n   uint8_t twi_writeTo(uint8_t, uint8_t*, uint8_t, uint8_t, uint8_t);"
+ }
+]

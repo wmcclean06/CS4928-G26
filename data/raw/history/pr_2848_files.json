@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "b454d08bf4a670b02ff9050fde5bd8f78bdab377",
+  "filename": "libraries/Bridge/library.properties",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d6f9a6703cda424146b89fa2571384d61a82de38/libraries%2FBridge%2Flibrary.properties",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d6f9a6703cda424146b89fa2571384d61a82de38/libraries%2FBridge%2Flibrary.properties",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FBridge%2Flibrary.properties?ref=d6f9a6703cda424146b89fa2571384d61a82de38",
+  "patch": "@@ -1,5 +1,5 @@\n name=Bridge\n-version=1.0.0\n+version=1.0.1\n author=Arduino\n maintainer=Arduino <info@arduino.cc>\n sentence=Enables the communication between the Linux processor and the AVR. For Arduino Y\u00fan and TRE only."
+ },
+ {
+  "sha": "4cf74661d4f1550db8328d1aa2948fd695345c97",
+  "filename": "libraries/Bridge/src/Bridge.cpp",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d6f9a6703cda424146b89fa2571384d61a82de38/libraries%2FBridge%2Fsrc%2FBridge.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d6f9a6703cda424146b89fa2571384d61a82de38/libraries%2FBridge%2Fsrc%2FBridge.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FBridge%2Fsrc%2FBridge.cpp?ref=d6f9a6703cda424146b89fa2571384d61a82de38",
+  "patch": "@@ -87,10 +87,11 @@ void BridgeClass::begin() {\n void BridgeClass::put(const char *key, const char *value) {\n   // TODO: do it in a more efficient way\n   String cmd = \"D\";\n+  uint8_t res[1];\n   cmd += key;\n   cmd += \"\\xFE\";\n   cmd += value;\n-  transfer((uint8_t*)cmd.c_str(), cmd.length());\n+  transfer((uint8_t*)cmd.c_str(), cmd.length(), res, 1);\n }\n \n unsigned int BridgeClass::get(const char *key, uint8_t *value, unsigned int maxlen) {"
+ },
+ {
+  "sha": "603657239ad4741e55d7eef6b536675fdabada83",
+  "filename": "libraries/Bridge/src/FileIO.cpp",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d6f9a6703cda424146b89fa2571384d61a82de38/libraries%2FBridge%2Fsrc%2FFileIO.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d6f9a6703cda424146b89fa2571384d61a82de38/libraries%2FBridge%2Fsrc%2FFileIO.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FBridge%2Fsrc%2FFileIO.cpp?ref=d6f9a6703cda424146b89fa2571384d61a82de38",
+  "patch": "@@ -175,7 +175,8 @@ void File::close() {\n   if (mode == 255)\n     return;\n   uint8_t cmd[] = {'f', handle};\n-  bridge.transfer(cmd, 2);\n+  uint8_t ret[1];\n+  bridge.transfer(cmd, 2, ret, 1);\n   mode = 255;\n }\n "
+ }
+]

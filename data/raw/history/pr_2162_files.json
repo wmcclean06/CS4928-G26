@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "eaf0f6f2d036bec069f60de4002a84e870464d51",
+  "filename": "libraries/LiquidCrystal/examples/HelloWorld/HelloWorld.ino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f34787d100d22c2893320e1e9781110491371e0f/libraries%2FLiquidCrystal%2Fexamples%2FHelloWorld%2FHelloWorld.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f34787d100d22c2893320e1e9781110491371e0f/libraries%2FLiquidCrystal%2Fexamples%2FHelloWorld%2FHelloWorld.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FLiquidCrystal%2Fexamples%2FHelloWorld%2FHelloWorld.ino?ref=f34787d100d22c2893320e1e9781110491371e0f",
+  "patch": "@@ -17,6 +17,8 @@\n  * LCD D6 pin to digital pin 3\n  * LCD D7 pin to digital pin 2\n  * LCD R/W pin to ground\n+ * LCD VSS pin to ground\n+ * LCD VCC pin to 5V\n  * 10K resistor:\n  * ends to +5V and ground\n  * wiper to LCD VO pin (pin 3)"
+ }
+]

@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "2f7b5bfdf79d253c8fed86028c68461fa9bbad78",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 4,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d05b3758100069e8afb8e0975520bc110f52c873/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d05b3758100069e8afb8e0975520bc110f52c873/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=d05b3758100069e8afb8e0975520bc110f52c873",
+  "patch": "@@ -2549,7 +2549,7 @@ public void handleSerial() {\n       if(serialPlotter.isClosed()) {\n         serialPlotter = null;\n       } else {\n-        statusError(I18n.format(\"Serial monitor not available while plotter is open\"));\n+        statusError(tr(\"Serial monitor not available while plotter is open\"));\n         return;\n       }\n     }\n@@ -2578,7 +2578,7 @@ public void handleSerial() {\n     BoardPort port = Base.getDiscoveryManager().find(PreferencesData.get(\"serial.port\"));\n \n     if (port == null) {\n-      statusError(I18n.format(\"Board at {0} is not available\", PreferencesData.get(\"serial.port\")));\n+      statusError(I18n.format(tr(\"Board at {0} is not available\"), PreferencesData.get(\"serial.port\")));\n       return;\n     }\n \n@@ -2646,7 +2646,7 @@ public void handlePlotter() {\n       if(serialMonitor.isClosed()) {\n         serialMonitor = null;\n       } else {\n-        statusError(I18n.format(\"Plotter not available while serial monitor is open\"));\n+        statusError(tr(\"Plotter not available while serial monitor is open\"));\n         return;\n       }\n     }\n@@ -2674,7 +2674,7 @@ public void handlePlotter() {\n     BoardPort port = Base.getDiscoveryManager().find(PreferencesData.get(\"serial.port\"));\n \n     if (port == null) {\n-      statusError(I18n.format(\"Board at {0} is not available\", PreferencesData.get(\"serial.port\")));\n+      statusError(I18n.format(tr(\"Board at {0} is not available\"), PreferencesData.get(\"serial.port\")));\n       return;\n     }\n "
+ },
+ {
+  "sha": "b0ba1ec4ee91cc6571c462126d9ac1092a372d2c",
+  "filename": "arduino-core/src/cc/arduino/packages/uploaders/SSHUploader.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d05b3758100069e8afb8e0975520bc110f52c873/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSSHUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d05b3758100069e8afb8e0975520bc110f52c873/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSSHUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSSHUploader.java?ref=d05b3758100069e8afb8e0975520bc110f52c873",
+  "patch": "@@ -139,7 +139,7 @@ public boolean uploadUsingPreferences(File sourcePath, String buildPath, String\n         return false;\n       }\n       if (e.getMessage().contains(\"Connection refused\")) {\n-        throw new RunnerException(I18n.format(\"Unable to connect to {0}\", port.getAddress()));\n+        throw new RunnerException(I18n.format(tr(\"Unable to connect to {0}\"), port.getAddress()));\n       }\n       throw new RunnerException(e);\n     } catch (Exception e) {"
+ },
+ {
+  "sha": "21aeecb4822ce688581529a52d038a2cb44bce12",
+  "filename": "arduino-core/src/processing/app/SketchData.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d05b3758100069e8afb8e0975520bc110f52c873/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchData.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d05b3758100069e8afb8e0975520bc110f52c873/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchData.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchData.java?ref=d05b3758100069e8afb8e0975520bc110f52c873",
+  "patch": "@@ -136,7 +136,7 @@ protected void load() throws IOException {\n           if (BaseNoGui.isSanitaryName(base)) {\n             addCode(new SketchCode(new File(folder, filename)));\n           } else {\n-            System.err.println(I18n.format(\"File name {0} is invalid: ignored\", filename));\n+            System.err.println(I18n.format(tr(\"File name {0} is invalid: ignored\"), filename));\n           }\n         }\n       }"
+ }
+]

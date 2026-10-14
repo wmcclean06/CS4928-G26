@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "da3fc5d1dc323188ddfbc713241dfbe1bf04d47e",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 26,
+  "deletions": 0,
+  "changes": 26,
+  "blob_url": "https://github.com/arduino/Arduino/blob/750534f69a1efe036f1eadba33fffc4aee1aec08/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/750534f69a1efe036f1eadba33fffc4aee1aec08/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=750534f69a1efe036f1eadba33fffc4aee1aec08",
+  "patch": "@@ -739,6 +739,32 @@ public void menuDeselected(MenuEvent e) {}\n       public void menuSelected(MenuEvent e) {\n         //System.out.println(\"Tools menu selected.\");\n         populatePortMenu();\n+        for (Component c : toolsMenu.getMenuComponents()) {\n+          if ((c instanceof JMenu) && c.isVisible()) {\n+            JMenu menu = (JMenu)c;\n+            String name = menu.getText();\n+            if (name == null) continue;\n+            String basename = name;\n+            int index = name.indexOf(':');\n+            if (index > 0) basename = name.substring(0, index);\n+            String sel = null;\n+            int count = menu.getItemCount();\n+            for (int i=0; i < count; i++) {\n+              JMenuItem item = menu.getItem(i);\n+              if (item != null && item.isSelected()) {\n+                sel = item.getText();\n+                if (sel != null) break;\n+              }\n+            }\n+            if (sel == null) {\n+              if (!name.equals(basename)) menu.setText(basename);\n+            } else {\n+              if (sel.length() > 17) sel = sel.substring(0, 16) + \"...\";\n+              String newname = basename + \": \\\"\" + sel + \"\\\"\";\n+              if (!name.equals(newname)) menu.setText(newname);\n+            }\n+          }\n+        }\n       }\n     });\n "
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "1fc0079977f64650c9bc37601f89c4398aedf5a2",
+  "filename": "arduino-core/src/cc/arduino/utils/ArchiveExtractor.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c1ce649554dd84b75c8c6c0aa419d78d09415dac/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2FArchiveExtractor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c1ce649554dd84b75c8c6c0aa419d78d09415dac/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2FArchiveExtractor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2FArchiveExtractor.java?ref=c1ce649554dd84b75c8c6c0aa419d78d09415dac",
+  "patch": "@@ -164,7 +164,7 @@ public void extract(File archiveFile, File destFolder, int stripPath, boolean ov\n           while (stripPath > 0) {\n             slash = name.indexOf(\"/\", slash);\n             if (slash == -1) {\n-              throw new IOException(\"Invalid archive: it must contains a single root folder\");\n+              throw new IOException(\"Invalid archive: it must contain a single root folder\");\n             }\n             slash++;\n             stripPath--;\n@@ -174,7 +174,7 @@ public void extract(File archiveFile, File destFolder, int stripPath, boolean ov\n \n         // Strip the common path prefix when requested\n         if (!name.startsWith(pathPrefix)) {\n-          throw new IOException(\"Invalid archive: it must contains a single root folder while file \" + name + \" is outside \" + pathPrefix);\n+          throw new IOException(\"Invalid archive: it must contain a single root folder while file \" + name + \" is outside \" + pathPrefix);\n         }\n         name = name.substring(pathPrefix.length());\n         if (name.isEmpty()) {\n@@ -185,7 +185,7 @@ public void extract(File archiveFile, File destFolder, int stripPath, boolean ov\n         File outputLinkedFile = null;\n         if (isLink) {\n           if (!linkName.startsWith(pathPrefix)) {\n-            throw new IOException(\"Invalid archive: it must contains a single root folder while file \" + linkName + \" is outside \" + pathPrefix);\n+            throw new IOException(\"Invalid archive: it must contain a single root folder while file \" + linkName + \" is outside \" + pathPrefix);\n           }\n           linkName = linkName.substring(pathPrefix.length());\n           outputLinkedFile = new File(destFolder, linkName);"
+ }
+]

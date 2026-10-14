@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "74b993433dae298fae4da5c13987ea915232b8d9",
+  "filename": "arduino-core/src/cc/arduino/packages/UploaderFactory.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2b75aec6a65919ad5acc3dbd568c3e27f5863a9f/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploaderFactory.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2b75aec6a65919ad5acc3dbd568c3e27f5863a9f/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploaderFactory.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploaderFactory.java?ref=2b75aec6a65919ad5acc3dbd568c3e27f5863a9f",
+  "patch": "@@ -31,6 +31,7 @@\n \n import cc.arduino.packages.uploaders.SSHUploader;\n import cc.arduino.packages.uploaders.SerialUploader;\n+import cc.arduino.packages.uploaders.GenericNetworkUploader;\n import processing.app.debug.TargetBoard;\n \n public class UploaderFactory {\n@@ -41,6 +42,9 @@ public Uploader newUploader(TargetBoard board, BoardPort port, boolean noUploadP\n     }\n \n     if (port != null && \"network\".equals(port.getProtocol())) {\n+      if(port.getPrefs().get(\"ssh_upload\").contentEquals(\"no\")){\n+        return new GenericNetworkUploader(port);\n+      }\n       return new SSHUploader(port);\n     }\n "
+ },
+ {
+  "sha": "ebbb8c50df14539b9000ffccca95ccef619e025a",
+  "filename": "arduino-core/src/cc/arduino/packages/discoverers/NetworkDiscovery.java",
+  "status": "modified",
+  "additions": 15,
+  "deletions": 0,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2b75aec6a65919ad5acc3dbd568c3e27f5863a9f/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fdiscoverers%2FNetworkDiscovery.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2b75aec6a65919ad5acc3dbd568c3e27f5863a9f/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fdiscoverers%2FNetworkDiscovery.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fdiscoverers%2FNetworkDiscovery.java?ref=2b75aec6a65919ad5acc3dbd568c3e27f5863a9f",
+  "patch": "@@ -144,6 +144,21 @@ public void serviceResolved(ServiceEvent serviceEvent) {\n         port.getPrefs().put(\"board\", board);\n         port.getPrefs().put(\"distro_version\", info.getPropertyString(\"distro_version\"));\n         port.getPrefs().put(\"port\", \"\" + info.getPort());\n+        \n+        //Add additional fields to permit generic ota updates\n+        //and make sure we do not intefere with Arduino boards\n+        // define \"ssh_upload=no\" TXT property to use generic uploader\n+        // define \"tcp_check=no\" TXT property if you are not using TCP\n+        // define \"auth_upload=yes\" TXT property if you want to use authenticated generic upload\n+        String useSSH = info.getPropertyString(\"ssh_upload\");\n+        String checkTCP = info.getPropertyString(\"tcp_check\");\n+        String useAuth = info.getPropertyString(\"auth_upload\");\n+        if(useSSH == null || !useSSH.contentEquals(\"no\")) useSSH = \"yes\";\n+        if(checkTCP == null || !checkTCP.contentEquals(\"no\")) checkTCP = \"yes\";\n+        if(useAuth == null || !useAuth.contentEquals(\"yes\")) useAuth = \"no\";\n+        port.getPrefs().put(\"ssh_upload\", useSSH);\n+        port.getPrefs().put(\"tcp_check\", checkTCP);\n+        port.getPrefs().put(\"auth_upload\", useAuth);\n       }\n \n       String label = name + \" at \" + address;"
+ },
+ {
+  "sha": "433142eb3b9e69a5660317bf535144ce7e544fee",
+  "filename": "arduino-core/src/cc/arduino/packages/discoverers/network/BoardReachabilityFilter.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2b75aec6a65919ad5acc3dbd568c3e27f5863a9f/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fdiscoverers%2Fnetwork%2FBoardReachabilityFilter.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2b75aec6a65919ad5acc3dbd568c3e27f5863a9f/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fdiscoverers%2Fnetwork%2FBoardReachabilityFilter.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fdiscoverers%2Fnetwork%2FBoardReachabilityFilter.java?ref=2b75aec6a65919ad5acc3dbd568c3e27f5863a9f",
+  "patch": "@@ -69,7 +69,7 @@ public void run() {\n           ports.add(0, 22);\n         }\n \n-        boolean reachable = NetUtils.isReachable(inetAddress, ports);\n+        boolean reachable = board.getPrefs().get(\"tcp_check\").contentEquals(\"no\") || NetUtils.isReachable(inetAddress, ports);\n         if (!reachable) {\n           boardPortIterator.remove();\n         }"
+ },
+ {
+  "sha": "3a7cabf4915235a04163cf52351b4d19a8bafde6",
+  "filename": "arduino-core/src/cc/arduino/packages/uploaders/GenericNetworkUploader.java",
+  "status": "added",
+  "additions": 112,
+  "deletions": 0,
+  "changes": 112,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2b75aec6a65919ad5acc3dbd568c3e27f5863a9f/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FGenericNetworkUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2b75aec6a65919ad5acc3dbd568c3e27f5863a9f/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FGenericNetworkUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FGenericNetworkUploader.java?ref=2b75aec6a65919ad5acc3dbd568c3e27f5863a9f",
+  "patch": "@@ -0,0 +1,112 @@\n+/*\n+  GenericNetworkUploader - generic network uploader implementation\n+  makes possible to implement firmware updates over the air on any device\n+  Part of the Arduino project - http://www.arduino.cc/\n+\n+  Copyright (c) 2004-05\n+  Hernando Barragan\n+  Copyright (c) 2012\n+  Cristian Maglie <c.maglie@arduino.cc>\n+  Copyright (c) 2015\n+  Hristo Gochkov <hristo.gochkov@gmail.com>\n+\n+  This program is free software; you can redistribute it and/or modify\n+  it under the terms of the GNU General Public License as published by\n+  the Free Software Foundation; either version 2 of the License, or\n+  (at your option) any later version.\n+\n+  This program is distributed in the hope that it will be useful,\n+  but WITHOUT ANY WARRANTY; without even the implied warranty of\n+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n+  GNU General Public License for more details.\n+\n+  You should have received a copy of the GNU General Public License\n+  along with this program; if not, write to the Free Software Foundation,\n+  Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA\n+*/\n+\n+package cc.arduino.packages.uploaders;\n+\n+import cc.arduino.packages.BoardPort;\n+import cc.arduino.packages.Uploader;\n+import processing.app.*;\n+import processing.app.debug.RunnerException;\n+import processing.app.debug.TargetPlatform;\n+import processing.app.helpers.PreferencesMap;\n+import processing.app.helpers.StringReplacer;\n+\n+import java.io.File;\n+import java.util.List;\n+\n+import static processing.app.I18n.tr;\n+\n+public class GenericNetworkUploader extends Uploader {\n+\n+  private final BoardPort port;\n+\n+  public GenericNetworkUploader(BoardPort port) {\n+    this.port = port;\n+  }\n+\n+  public boolean requiresAuthorization() {\n+    return this.port.getPrefs().get(\"auth_upload\").contentEquals(\"yes\");\n+  }\n+\n+  @Override\n+  public String getAuthorizationKey() {\n+    return \"runtime.pwd.\" + this.port.getAddress();\n+  }\n+\n+  public boolean uploadUsingPreferences(File sourcePath, String buildPath, String className, boolean usingProgrammer, List<String> warningsAccumulator) throws Exception {\n+    TargetPlatform targetPlatform = BaseNoGui.getTargetPlatform();\n+    PreferencesMap prefs = PreferencesData.getMap();\n+    PreferencesMap boardPreferences = BaseNoGui.getBoardPreferences();\n+    if (boardPreferences != null) {\n+      prefs.putAll(boardPreferences);\n+    }\n+    String tool = prefs.getOrExcept(\"upload.tool\");\n+    if (tool.contains(\":\")) {\n+      String[] split = tool.split(\":\", 2);\n+      targetPlatform = BaseNoGui.getCurrentTargetPlatformFromPackage(split[0]);\n+      tool = split[1];\n+    }\n+    prefs.putAll(targetPlatform.getTool(tool));\n+    \n+    String password = \"\";\n+    if(requiresAuthorization()){\n+      password = prefs.getOrExcept(getAuthorizationKey());\n+    }\n+    prefs.put(\"network.password\", password);\n+\n+    prefs.put(\"network.port\", this.port.getPrefs().get(\"port\"));\n+    \n+    prefs.put(\"build.path\", buildPath);\n+    prefs.put(\"build.project_name\", className);\n+    if (verbose) {\n+      prefs.put(\"upload.verbose\", prefs.getOrExcept(\"upload.params.verbose\"));\n+    } else {\n+      prefs.put(\"upload.verbose\", prefs.getOrExcept(\"upload.params.quiet\"));\n+    }\n+    \n+    boolean uploadResult;\n+    try {\n+      String pattern;\n+      //check if there is a separate pattern for network uploads\n+      pattern = prefs.get(\"upload.network_pattern\");\n+      if(pattern == null)\n+        pattern = prefs.getOrExcept(\"upload.pattern\");\n+      String[] cmd = StringReplacer.formatAndSplit(pattern, prefs, true);\n+      uploadResult = executeUploadCommand(cmd);\n+    } catch (RunnerException e) {\n+      throw e;\n+    } catch (Exception e) {\n+      throw new RunnerException(e);\n+    }\n+    return uploadResult;\n+  }\n+\n+  @Override\n+  public boolean burnBootloader() throws RunnerException {\n+    throw new RunnerException(\"Burning bootloader is not supported via network!\");\n+  }\n+}"
+ }
+]

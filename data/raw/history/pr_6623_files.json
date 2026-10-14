@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "f21f5726a69d6a269d179d5c1f31fdd7478c4058",
+  "filename": "build/shared/examples/02.Digital/toneMultiple/toneMultiple.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/86c5ca8547d7964b650f330892befebc7351f659/build%2Fshared%2Fexamples%2F02.Digital%2FtoneMultiple%2FtoneMultiple.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/86c5ca8547d7964b650f330892befebc7351f659/build%2Fshared%2Fexamples%2F02.Digital%2FtoneMultiple%2FtoneMultiple.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F02.Digital%2FtoneMultiple%2FtoneMultiple.ino?ref=86c5ca8547d7964b650f330892befebc7351f659",
+  "patch": "@@ -34,7 +34,7 @@ void loop() {\n \n   // turn off tone function for pin 7:\n   noTone(7);\n-  // play a note on pin 8 for 500 ms:\n+  // play a note on pin 8 for 300 ms:\n   tone(8, 523, 300);\n   delay(300);\n }"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "53a23aa6f637299b8a5dc25dc136f3a4f59ec93b",
+  "filename": "build/shared/manpage.adoc",
+  "status": "modified",
+  "additions": 20,
+  "deletions": 0,
+  "changes": 20,
+  "blob_url": "https://github.com/arduino/Arduino/blob/35d31b6277ad11e40c2d240fbbf6dcbc889fe602/build%2Fshared%2Fmanpage.adoc",
+  "raw_url": "https://github.com/arduino/Arduino/raw/35d31b6277ad11e40c2d240fbbf6dcbc889fe602/build%2Fshared%2Fmanpage.adoc",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fmanpage.adoc?ref=35d31b6277ad11e40c2d240fbbf6dcbc889fe602",
+  "patch": "@@ -268,6 +268,26 @@ Install Bridge and Servo libraries\n \n      arduino --install-library \"Bridge:1.0.0,Servo:1.2.0\"\n \n+BUGS\n+----\n+\n+Even in command line mode the Arduino IDE requires a graphical user interface to be\n+present. This should usually be the case in Windows or Mac OS X. On Linux however you\n+might want to compile and upload sketches when logged in via SSH or in batch mode. To\n+accomplish this, install the Xvfb dummy X server and write a small wrapper script to \n+create an instance of this Xserver, run the Arduino IDE in it and kill the Xserver \n+afterwards:\n+\n+     #!/bin/bash\n+     Xvfb :1 -nolisten tcp -screen :1 1280x800x24 &\n+     xvfb=\"$!\"\n+     DISPLAY=:1 arduino $@\n+     kill -9 $xvfb\n+\n+Save the script as *arduino-headless* and run it with the options described above.\n+If the script does not return to a shell prompt, the options you specified were wrong\n+and the Arduino IDE actually opened a window, stop its execution with Ctrl+C.\n+\n HISTORY\n -------\n 1.5.2::"
+ }
+]

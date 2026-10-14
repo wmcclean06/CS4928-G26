@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "2220aaeb67dbc98df9aa6e822a8e2a70921dc933",
+  "filename": "arduino-core/src/processing/app/linux/Platform.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 2,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3e0a0a30e2f6694aaf46f4caf9ef990d4a122342/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flinux%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3e0a0a30e2f6694aaf46f4caf9ef990d4a122342/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flinux%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flinux%2FPlatform.java?ref=3e0a0a30e2f6694aaf46f4caf9ef990d4a122342",
+  "patch": "@@ -37,10 +37,11 @@\n  */\n public class Platform extends processing.app.Platform {\n \n-  // TODO Need to be smarter here since KDE people ain't gonna like that GTK.\n-  //      It may even throw a weird exception at 'em for their trouble.\n   @Override\n   public void setLookAndFeel() throws Exception {\n+    // Override desktop check\n+    System.setProperty(\"sun.desktop\", \"gnome\");\n+    super.setLookAndFeel();\n     GTKLookAndFeelFixer.installGtkPopupBugWorkaround();\n   }\n "
+ },
+ {
+  "sha": "f70c65082bf93df07f95cc6c6437fc9de26af151",
+  "filename": "build/linux/dist/arduino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3e0a0a30e2f6694aaf46f4caf9ef990d4a122342/build%2Flinux%2Fdist%2Farduino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3e0a0a30e2f6694aaf46f4caf9ef990d4a122342/build%2Flinux%2Fdist%2Farduino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Farduino?ref=3e0a0a30e2f6694aaf46f4caf9ef990d4a122342",
+  "patch": "@@ -25,7 +25,7 @@ if [ -x \"$APPDIR/java/bin/java\" ]; then\n fi\n \n # Collect options to java in an array, to properly handle whitespace in options\n-JAVA_OPTIONS=(\"-DAPP_DIR=$APPDIR\" \"-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel\")\n+JAVA_OPTIONS=(\"-DAPP_DIR=$APPDIR\")\n \n # Only show the splash screen when no options are present\n if [[ \"$@\" != *\"--\"* ]] ; then"
+ }
+]

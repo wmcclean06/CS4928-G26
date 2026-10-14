@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "e84ba4eda37e1efb160d8fa70af0f0a9e8d0a2ed",
+  "filename": "arduino-core/src/processing/app/debug/Compiler.java",
+  "status": "modified",
+  "additions": 12,
+  "deletions": 7,
+  "changes": 19,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a39364193f614b9e711d4cb861b7eb6e16ef5b98/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a39364193f614b9e711d4cb861b7eb6e16ef5b98/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java?ref=a39364193f614b9e711d4cb861b7eb6e16ef5b98",
+  "patch": "@@ -34,6 +34,7 @@\n import java.io.PrintWriter;\n import java.util.ArrayList;\n import java.util.Arrays;\n+import java.util.Collections;\n import java.util.LinkedList;\n import java.util.List;\n import java.util.Map;\n@@ -399,13 +400,17 @@ public boolean compile(boolean _verbose) throws RunnerException, PreferencesMapE\n     progressListener.progress(60);\n     compileLink();\n \n-    // 5. extract EEPROM data (from EEMEM directive) to .eep file.\n-    progressListener.progress(70);\n-    runRecipe(\"recipe.objcopy.eep.pattern\");\n-\n-    // 6. build the .hex file\n-    progressListener.progress(80);\n-    runRecipe(\"recipe.objcopy.output.pattern\");\n+    // 5. run objcopy to generate output files\n+    progressListener.progress(75);\n+    List<String> objcopyPatterns = new ArrayList<String>();\n+    for (String key : prefs.keySet()) {\n+      if (key.startsWith(\"recipe.objcopy.\") && key.endsWith(\".pattern\"))\n+        objcopyPatterns.add(key);\n+    }\n+    Collections.sort(objcopyPatterns);\n+    for (String recipe : objcopyPatterns) {\n+      runRecipe(recipe);\n+    }\n \n     progressListener.progress(90);\n     return true;"
+ },
+ {
+  "sha": "051bd013b50153047a68721c0543f3f7244a5e89",
+  "filename": "hardware/arduino/avr/platform.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 4,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a39364193f614b9e711d4cb861b7eb6e16ef5b98/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a39364193f614b9e711d4cb861b7eb6e16ef5b98/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fplatform.txt?ref=a39364193f614b9e711d4cb861b7eb6e16ef5b98",
+  "patch": "@@ -61,11 +61,9 @@ recipe.ar.pattern=\"{compiler.path}{compiler.ar.cmd}\" {compiler.ar.flags} {compil\n ## Combine gc-sections, archives, and objects\n recipe.c.combine.pattern=\"{compiler.path}{compiler.c.elf.cmd}\" {compiler.c.elf.flags} -mmcu={build.mcu} {compiler.c.elf.extra_flags} -o \"{build.path}/{build.project_name}.elf\" {object_files} \"{build.path}/{archive_file}\" \"-L{build.path}\" -lm\n \n-## Create eeprom\n+## Create output files (.eep and .hex)\n recipe.objcopy.eep.pattern=\"{compiler.path}{compiler.objcopy.cmd}\" {compiler.objcopy.eep.flags} {compiler.objcopy.eep.extra_flags} \"{build.path}/{build.project_name}.elf\" \"{build.path}/{build.project_name}.eep\"\n-\n-## Create hex\n-recipe.objcopy.output.pattern=\"{compiler.path}{compiler.elf2hex.cmd}\" {compiler.elf2hex.flags} {compiler.elf2hex.extra_flags} \"{build.path}/{build.project_name}.elf\" \"{build.path}/{build.project_name}.hex\"\n+recipe.objcopy.hex.pattern=\"{compiler.path}{compiler.elf2hex.cmd}\" {compiler.elf2hex.flags} {compiler.elf2hex.extra_flags} \"{build.path}/{build.project_name}.elf\" \"{build.path}/{build.project_name}.hex\"\n \n ## Compute size\n recipe.size.pattern=\"{compiler.path}{compiler.size.cmd}\" -A \"{build.path}/{build.project_name}.elf\""
+ },
+ {
+  "sha": "41d10efe83a0bbaed706c7430593b7932b525bb9",
+  "filename": "hardware/arduino/sam/platform.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 5,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a39364193f614b9e711d4cb861b7eb6e16ef5b98/hardware%2Farduino%2Fsam%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a39364193f614b9e711d4cb861b7eb6e16ef5b98/hardware%2Farduino%2Fsam%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fplatform.txt?ref=a39364193f614b9e711d4cb861b7eb6e16ef5b98",
+  "patch": "@@ -65,11 +65,8 @@ recipe.ar.pattern=\"{compiler.path}{compiler.ar.cmd}\" {compiler.ar.flags} {compil\n ## Combine gc-sections, archives, and objects\n recipe.c.combine.pattern=\"{compiler.path}{compiler.c.elf.cmd}\" {compiler.c.elf.flags} -mcpu={build.mcu} \"-T{build.variant.path}/{build.ldscript}\" \"-Wl,-Map,{build.path}/{build.project_name}.map\" {compiler.c.elf.extra_flags} -o \"{build.path}/{build.project_name}.elf\" \"-L{build.path}\" -mthumb -Wl,--cref -Wl,--check-sections -Wl,--gc-sections -Wl,--entry=Reset_Handler -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align -Wl,--warn-unresolved-symbols -Wl,--start-group \"{build.path}/syscalls_sam3.c.o\" {object_files} \"{build.variant.path}/{build.variant_system_lib}\" \"{build.path}/{archive_file}\" -Wl,--end-group -lm -gcc\n \n-## Create eeprom\n-recipe.objcopy.eep.pattern=\n-\n-## Create hex\n-recipe.objcopy.output.pattern=\"{compiler.path}{compiler.elf2hex.cmd}\" {compiler.elf2hex.flags} {compiler.elf2hex.extra_flags} \"{build.path}/{build.project_name}.elf\" \"{build.path}/{build.project_name}.bin\"\n+## Create output (.bin file)\n+recipe.objcopy.bin.pattern=\"{compiler.path}{compiler.elf2hex.cmd}\" {compiler.elf2hex.flags} {compiler.elf2hex.extra_flags} \"{build.path}/{build.project_name}.elf\" \"{build.path}/{build.project_name}.bin\"\n \n ## Compute size\n recipe.size.pattern=\"{compiler.path}{compiler.size.cmd}\" -A \"{build.path}/{build.project_name}.elf\""
+ }
+]

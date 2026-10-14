@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "a11ecfc61a57fac4f22159db88e503622f6fed65",
+  "filename": "hardware/arduino/avr/variants/ethernet/pins_arduino.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e3351f6fb1717ce167a9c16781cf2c726f3d239e/hardware%2Farduino%2Favr%2Fvariants%2Fethernet%2Fpins_arduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e3351f6fb1717ce167a9c16781cf2c726f3d239e/hardware%2Farduino%2Favr%2Fvariants%2Fethernet%2Fpins_arduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fvariants%2Fethernet%2Fpins_arduino.h?ref=e3351f6fb1717ce167a9c16781cf2c726f3d239e",
+  "patch": "@@ -58,6 +58,8 @@ static const uint8_t A7 = 21;\n #define digitalPinToPCMSK(p)    (((p) <= 7) ? (&PCMSK2) : (((p) <= 13) ? (&PCMSK0) : (((p) <= 21) ? (&PCMSK1) : ((uint8_t *)0))))\n #define digitalPinToPCMSKbit(p) (((p) <= 7) ? (p) : (((p) <= 13) ? ((p) - 8) : ((p) - 14)))\n \n+#define digitalPinToInterrupt(p)  ((p) == 2 ? 0 : ((p) == 3 ? 1 : NOT_AN_INTERRUPT))\n+\n #ifdef ARDUINO_MAIN\n \n // On the Arduino board, digital pins are also used"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "9ef964631beceec0f85b93b5d570f16cdd7853f2",
+  "filename": "libraries/Robot_Control/Melody.cpp",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e6923526d3d9ed28427e8beecb4f3b5bf2f87775/libraries%2FRobot_Control%2FMelody.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e6923526d3d9ed28427e8beecb4f3b5bf2f87775/libraries%2FRobot_Control%2FMelody.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FRobot_Control%2FMelody.cpp?ref=e6923526d3d9ed28427e8beecb4f3b5bf2f87775",
+  "patch": "@@ -40,7 +40,7 @@ void RobotControl::playMelody(char* script){\n       case 'C': playNote(202, time, modifier); break; // Play a  C#\n       case 'd': playNote(190, time, modifier); break; // Play a  D\n       case 'D': playNote(180, time, modifier); break; // Play a  D#\n-      case 'e': playNote(170, time, modifier); break; // Play an F\n+      case 'e': playNote(170, time, modifier); break; // Play an E\n       case 'f': playNote(160, time, modifier); break; // Play an F\n       case 'F': playNote(151, time, modifier); break; // Play an F#\n       case 'g': playNote(143, time, modifier); break; // Play a  G\n@@ -97,4 +97,4 @@ void RobotControl::playFile(char* filename){\n \n void RobotControl::stopPlayFile(){\n   melody.close();\n-}\n\\ No newline at end of file\n+}"
+ }
+]

@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "a836e6d9c19940972fd055c04c55f883330790a2",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/99200cbbae6970569a1534d166e6efaa2057e74e/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/99200cbbae6970569a1534d166e6efaa2057e74e/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=99200cbbae6970569a1534d166e6efaa2057e74e",
+  "patch": "@@ -187,8 +187,8 @@\n \n     <!-- Add WiFi101 updater tool -->\n     <antcall target=\"unzip\">\n-      <param name=\"archive_file\" value=\"shared/WiFi101-Updater-ArduinoIDE-Plugin-0.8.3.zip\" />\n-      <param name=\"archive_url\" value=\"https://github.com/arduino-libraries/WiFi101-FirmwareUpdater-Plugin/releases/download/v0.8.3/WiFi101-Updater-ArduinoIDE-Plugin-0.8.3.zip\" />\n+      <param name=\"archive_file\" value=\"shared/WiFi101-Updater-ArduinoIDE-Plugin-0.9.0.zip\" />\n+      <param name=\"archive_url\" value=\"https://github.com/arduino-libraries/WiFi101-FirmwareUpdater-Plugin/releases/download/v0.9.0/WiFi101-Updater-ArduinoIDE-Plugin-0.9.0.zip\" />\n       <param name=\"final_folder\" value=\"${target.path}/tools/WiFi101\" />\n       <param name=\"dest_folder\" value=\"${target.path}/tools/\" />\n     </antcall>"
+ },
+ {
+  "sha": "0dccda318f7b0a69e2799facb788618d0cafa6d8",
+  "filename": "build/shared/WiFi101-Updater-ArduinoIDE-Plugin-0.8.3.zip.sha",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c6bac064065b667bf8099ed0131742b1f111cb94/build%2Fshared%2FWiFi101-Updater-ArduinoIDE-Plugin-0.8.3.zip.sha",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c6bac064065b667bf8099ed0131742b1f111cb94/build%2Fshared%2FWiFi101-Updater-ArduinoIDE-Plugin-0.8.3.zip.sha",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2FWiFi101-Updater-ArduinoIDE-Plugin-0.8.3.zip.sha?ref=c6bac064065b667bf8099ed0131742b1f111cb94",
+  "patch": "@@ -1 +0,0 @@\n-d49345c65cab330fa67d35ddafed4d9ac9ecd98a"
+ },
+ {
+  "sha": "1cfafaf5ebc6e59afebeeb09046f11b2fe3dc208",
+  "filename": "build/shared/WiFi101-Updater-ArduinoIDE-Plugin-0.9.0.zip.sha",
+  "status": "added",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/99200cbbae6970569a1534d166e6efaa2057e74e/build%2Fshared%2FWiFi101-Updater-ArduinoIDE-Plugin-0.9.0.zip.sha",
+  "raw_url": "https://github.com/arduino/Arduino/raw/99200cbbae6970569a1534d166e6efaa2057e74e/build%2Fshared%2FWiFi101-Updater-ArduinoIDE-Plugin-0.9.0.zip.sha",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2FWiFi101-Updater-ArduinoIDE-Plugin-0.9.0.zip.sha?ref=99200cbbae6970569a1534d166e6efaa2057e74e",
+  "patch": "@@ -0,0 +1 @@\n+d6edfd620840c28d95d7cf1d0578ff619512c304"
+ }
+]

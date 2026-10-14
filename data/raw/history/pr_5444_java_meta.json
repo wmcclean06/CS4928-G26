@@ -1,0 +1,19 @@
+{
+ "pr": 5444,
+ "base_sha": "653a05273d96d91b6b12b19cf62aa4da4664c0be",
+ "head_sha": "ba42280fba2b6a3827c9e1ce0ced115118a78a90",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/packages/HostDependentDownloadableContribution.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 8,
+   "deletions": 0,
+   "old_sha": "93a3420308a1292121ccf12595d3c287b4cafd68",
+   "new_sha": "9209c77fc3f68b902d7adae30f70e2831a9fd2c4",
+   "head_sha_check": "9209c77fc3f68b902d7adae30f70e2831a9fd2c4",
+   "loc_at_head": 79,
+   "notes": ""
+  }
+ ]
+}

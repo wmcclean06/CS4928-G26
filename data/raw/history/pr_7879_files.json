@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "8ab4852b0b908e44ba442025e40137fb2af3287c",
+  "filename": "arduino-core/src/processing/app/PreferencesData.java",
+  "status": "modified",
+  "additions": 16,
+  "deletions": 9,
+  "changes": 25,
+  "blob_url": "https://github.com/arduino/Arduino/blob/056817d0815f68f2768d3b6785f4254f66beab8b/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/056817d0815f68f2768d3b6785f4254f66beab8b/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java?ref=056817d0815f68f2768d3b6785f4254f66beab8b",
+  "patch": "@@ -1,14 +1,9 @@\n package processing.app;\n \n-import org.apache.commons.compress.utils.IOUtils;\n-\n-import cc.arduino.i18n.Languages;\n-import processing.app.helpers.PreferencesHelper;\n-import processing.app.helpers.PreferencesMap;\n-import processing.app.legacy.PApplet;\n-import processing.app.legacy.PConstants;\n+import static processing.app.I18n.format;\n+import static processing.app.I18n.tr;\n \n-import java.awt.*;\n+import java.awt.Font;\n import java.io.File;\n import java.io.IOException;\n import java.io.PrintWriter;\n@@ -18,7 +13,13 @@\n import java.util.MissingResourceException;\n import java.util.stream.Collectors;\n \n-import static processing.app.I18n.tr;\n+import org.apache.commons.compress.utils.IOUtils;\n+\n+import cc.arduino.i18n.Languages;\n+import processing.app.helpers.PreferencesHelper;\n+import processing.app.helpers.PreferencesMap;\n+import processing.app.legacy.PApplet;\n+import processing.app.legacy.PConstants;\n \n \n public class PreferencesData {\n@@ -114,6 +115,9 @@ static protected void save() {\n     if (!doSave)\n       return;\n \n+    if (getBoolean(\"preferences.readonly\"))\n+      return;\n+\n     // on startup, don't worry about it\n     // this is trying to update the prefs for who is open\n     // before Preferences.init() has been called.\n@@ -133,6 +137,9 @@ static protected void save() {\n       }\n \n       writer.flush();\n+    } catch (Throwable e) {\n+      System.err.println(format(tr(\"Could not write preferences file: {0}\"), e.getMessage()));\n+      return;\n     } finally {\n       IOUtils.closeQuietly(writer);\n     }"
+ },
+ {
+  "sha": "d9eea95fd12bd238649f8cd8e077d9c7ab749e62",
+  "filename": "arduino-core/src/processing/app/legacy/PApplet.java",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 14,
+  "changes": 22,
+  "blob_url": "https://github.com/arduino/Arduino/blob/056817d0815f68f2768d3b6785f4254f66beab8b/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flegacy%2FPApplet.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/056817d0815f68f2768d3b6785f4254f66beab8b/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flegacy%2FPApplet.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flegacy%2FPApplet.java?ref=056817d0815f68f2768d3b6785f4254f66beab8b",
+  "patch": "@@ -552,26 +552,20 @@ static final public String[] str(int x[]) {\n   /**\n    * I want to print lines to a file. I have RSI from typing these\n    * eight lines of code so many times.\n+   * @throws IOException\n    */\n-  static public PrintWriter createWriter(File file) {\n+  static public PrintWriter createWriter(File file) throws IOException {\n+    createPath(file);  // make sure in-between folders exist\n+    OutputStream output = new FileOutputStream(file);\n     try {\n-      createPath(file);  // make sure in-between folders exist\n-      OutputStream output = new FileOutputStream(file);\n       if (file.getName().toLowerCase().endsWith(\".gz\")) {\n         output = new GZIPOutputStream(output);\n       }\n-      return createWriter(output);\n-\n-    } catch (Exception e) {\n-      if (file == null) {\n-        throw new RuntimeException(\"File passed to createWriter() was null\");\n-      } else {\n-        e.printStackTrace();\n-        throw new RuntimeException(\"Couldn't create a writer for \" +\n-                                   file.getAbsolutePath());\n-      }\n+    } catch (IOException e) {\n+      output.close();\n+      throw e;\n     }\n-    //return null;\n+    return createWriter(output);\n   }\n \n "
+ },
+ {
+  "sha": "e777627af3d9f448530d18cdc0fbda20cb592ad3",
+  "filename": "build/shared/lib/preferences.txt",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/056817d0815f68f2768d3b6785f4254f66beab8b/build%2Fshared%2Flib%2Fpreferences.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/056817d0815f68f2768d3b6785f4254f66beab8b/build%2Fshared%2Flib%2Fpreferences.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Flib%2Fpreferences.txt?ref=056817d0815f68f2768d3b6785f4254f66beab8b",
+  "patch": "@@ -279,6 +279,9 @@ serial.line_ending=1\n # default chosen language (none for none)\n editor.languages.current = \n \n+# Disable saving of preferences.txt file (settings will not survive Arduino IDE reboot)\n+preferences.readonly=false\n+\n # Debugging/Development Preferences\n # ---------------------------------\n "
+ }
+]

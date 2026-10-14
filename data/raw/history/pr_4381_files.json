@@ -1,0 +1,62 @@
+[
+ {
+  "sha": "e0ba1c9680b96258f8446d7280487ede7f95fd33",
+  "filename": "app/src/processing/app/EditorLineStatus.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7aa384db7cbe0f30b586fe0dd16c389553e54d83/app%2Fsrc%2Fprocessing%2Fapp%2FEditorLineStatus.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7aa384db7cbe0f30b586fe0dd16c389553e54d83/app%2Fsrc%2Fprocessing%2Fapp%2FEditorLineStatus.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorLineStatus.java?ref=7aa384db7cbe0f30b586fe0dd16c389553e54d83",
+  "patch": "@@ -28,6 +28,7 @@\n \n import processing.app.helpers.OSUtils;\n import processing.app.helpers.PreferencesMap;\n+import static processing.app.I18n.tr;\n \n \n /**\n@@ -105,7 +106,7 @@ public void paintComponent(Graphics g) {\n     g.drawString(text, 6, baseline);\n \n     g.setColor(messageForeground);\n-    String tmp = name + \" on \" + serialport;\n+    String tmp = I18n.format(tr(\"{0} on {1}\"), name, serialport);\n     \n     Rectangle2D bounds = g.getFontMetrics().getStringBounds(tmp, null);\n     "
+ },
+ {
+  "sha": "684b1043f8376ca06d77234879a8abe42335f3e7",
+  "filename": "app/src/processing/app/EditorStatus.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7aa384db7cbe0f30b586fe0dd16c389553e54d83/app%2Fsrc%2Fprocessing%2Fapp%2FEditorStatus.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7aa384db7cbe0f30b586fe0dd16c389553e54d83/app%2Fsrc%2Fprocessing%2Fapp%2FEditorStatus.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorStatus.java?ref=7aa384db7cbe0f30b586fe0dd16c389553e54d83",
+  "patch": "@@ -346,9 +346,9 @@ public void keyTyped(KeyEvent event) {\n       message1 += editor.console.getText();\n       if (!(PreferencesData.getBoolean(\"build.verbose\"))) {\n         message1 += \"\\n\\n\";\n-        message1 += \"  \" + tr(\"This report would have more information with\") + \"\\n\";\n-        message1 += \"  \\\"\" + tr(\"Show verbose output during compilation\") + \"\\\"\\n\";\n-        message1 += \"  \" + tr(\"enabled in File > Preferences.\") + \"\\n\";\n+        message1 += tr(\"  This report would have more information with\\n\" +\n+                       \"  \\\"Show verbose output during compilation\\\"\\n\" +\n+                       \"  enabled in File -> Preferences.\\n\");\n       }\n       Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();\n       StringSelection data = new StringSelection(message1);"
+ },
+ {
+  "sha": "eab7eb2c4d7a98d094e5b98fed325d2971c39cf8",
+  "filename": "arduino-core/src/cc/arduino/packages/uploaders/SSHUploader.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7aa384db7cbe0f30b586fe0dd16c389553e54d83/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSSHUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7aa384db7cbe0f30b586fe0dd16c389553e54d83/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSSHUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSSHUploader.java?ref=7aa384db7cbe0f30b586fe0dd16c389553e54d83",
+  "patch": "@@ -203,7 +203,7 @@ private boolean canUploadWWWFiles(File sourcePath, SSH ssh, List<String> warning\n       return false;\n     }\n     if (!www.canExecute()) {\n-      warningsAccumulator.add(tr(\"Problem accessing files in folder \") + www);\n+      warningsAccumulator.add(I18n.format(tr(\"Problem accessing files in folder \\\"{0}\\\"\"), www));\n       return false;\n     }\n     if (!ssh.execSyncCommand(\"special-storage-available\")) {"
+ },
+ {
+  "sha": "72b67a8ecd5f80fddf667f9ad9c117ff3549f870",
+  "filename": "arduino-core/src/processing/app/I18n.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7aa384db7cbe0f30b586fe0dd16c389553e54d83/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FI18n.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7aa384db7cbe0f30b586fe0dd16c389553e54d83/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FI18n.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FI18n.java?ref=7aa384db7cbe0f30b586fe0dd16c389553e54d83",
+  "patch": "@@ -25,6 +25,7 @@ public class I18n {\n     tr(\"Partner\");\n     tr(\"Recommended\");\n     tr(\"Contributed\");\n+    tr(\"Retired\");\n \n     tr(\"Display\");\n     tr(\"Communication\");"
+ },
+ {
+  "sha": "28d838a5241b971988c0113bb45af9987530e6b6",
+  "filename": "arduino-core/src/processing/app/SketchCode.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 4,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7aa384db7cbe0f30b586fe0dd16c389553e54d83/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7aa384db7cbe0f30b586fe0dd16c389553e54d83/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java?ref=7aa384db7cbe0f30b586fe0dd16c389553e54d83",
+  "patch": "@@ -198,10 +198,10 @@ private void load() throws IOException {\n     if (program.indexOf('\\uFFFD') != -1) {\n       System.err.println(\n         I18n.format(\n-          tr(\"\\\"{0}\\\" contains unrecognized characters.\" +\n-            \"If this code was created with an older version of Arduino,\" +\n-            \"you may need to use Tools -> Fix Encoding & Reload to update\" +\n-            \"the sketch to use UTF-8 encoding. If not, you may need to\" +\n+          tr(\"\\\"{0}\\\" contains unrecognized characters. \" +\n+            \"If this code was created with an older version of Arduino, \" +\n+            \"you may need to use Tools -> Fix Encoding & Reload to update \" +\n+            \"the sketch to use UTF-8 encoding. If not, you may need to \" +\n             \"delete the bad characters to get rid of this warning.\"),\n           file.getName()\n         )"
+ }
+]

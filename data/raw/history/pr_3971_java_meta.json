@@ -1,0 +1,19 @@
+{
+ "pr": 3971,
+ "base_sha": "bf609ecc4cf1478b5b81cd2a2a6b2185673babcd",
+ "head_sha": "c1ce649554dd84b75c8c6c0aa419d78d09415dac",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/utils/ArchiveExtractor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 3,
+   "deletions": 3,
+   "old_sha": "d892e9ec279c8a944bf371ffe2e65b693b750443",
+   "new_sha": "1fc0079977f64650c9bc37601f89c4398aedf5a2",
+   "head_sha_check": "1fc0079977f64650c9bc37601f89c4398aedf5a2",
+   "loc_at_head": 267,
+   "notes": ""
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "a969b862140e66d0a6c7dd31f181a25dae7744a1",
+  "filename": "libraries/SD/src/SD.h",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 0,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/36f320b6d5436092eb44dd84a7774685bcd11b86/libraries%2FSD%2Fsrc%2FSD.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/36f320b6d5436092eb44dd84a7774685bcd11b86/libraries%2FSD%2Fsrc%2FSD.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fsrc%2FSD.h?ref=36f320b6d5436092eb44dd84a7774685bcd11b86",
+  "patch": "@@ -71,18 +71,23 @@ class SDClass {\n   // write, etc). Returns a File object for interacting with the file.\n   // Note that currently only one file can be open at a time.\n   File open(const char *filename, uint8_t mode = FILE_READ);\n+  File open(const String &filename, uint8_t mode = FILE_READ) { return open( filename.c_str(), mode ); }\n \n   // Methods to determine if the requested file path exists.\n   boolean exists(char *filepath);\n+  boolean exists(const String &filepath) { return exists(filepath.c_str()); }\n \n   // Create the requested directory heirarchy--if intermediate directories\n   // do not exist they will be created.\n   boolean mkdir(char *filepath);\n+  boolean mkdir(const String &filepath) { return mkdir(filepath.c_str()); }\n   \n   // Delete the file.\n   boolean remove(char *filepath);\n+  boolean remove(const String &filepath) { return remove(filepath.c_str()); }\n   \n   boolean rmdir(char *filepath);\n+  boolean rmdir(const String &filepath) { return rmdir(filepath.c_str()); }\n \n private:\n "
+ }
+]

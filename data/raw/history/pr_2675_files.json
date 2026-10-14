@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "350ceeeb0b1b79671bf1a61982d7127079e45687",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3bd694d78b63c038cdb52dea97f28573db452d48/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3bd694d78b63c038cdb52dea97f28573db452d48/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=3bd694d78b63c038cdb52dea97f28573db452d48",
+  "patch": "@@ -1187,6 +1187,7 @@ public void actionPerformed(ActionEvent actionevent) {\n           Action subAction = new AbstractAction(_(boardCustomMenu.get(customMenuOption))) {\n             public void actionPerformed(ActionEvent e) {\n               Preferences.set(\"custom_\" + menuId, ((TargetBoard)getValue(\"board\")).getId() + \"_\" + getValue(\"custom_menu_option\"));\n+              onBoardOrPortChange();\n             }\n           };\n           subAction.putValue(\"board\", board);"
+ }
+]

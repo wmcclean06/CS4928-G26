@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "c6278955c542df482c81839bfe5923b3273dc316",
+  "filename": "hardware/arduino/firmwares/wifishield/scripts/ArduinoWifiShield_upgrade_mac.sh",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d460dd6683550818012809980267275dd5297865/hardware%2Farduino%2Ffirmwares%2Fwifishield%2Fscripts%2FArduinoWifiShield_upgrade_mac.sh",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d460dd6683550818012809980267275dd5297865/hardware%2Farduino%2Ffirmwares%2Fwifishield%2Fscripts%2FArduinoWifiShield_upgrade_mac.sh",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Ffirmwares%2Fwifishield%2Fscripts%2FArduinoWifiShield_upgrade_mac.sh?ref=d460dd6683550818012809980267275dd5297865",
+  "patch": "@@ -1,6 +1,6 @@\n #!/bin/sh\n \n-WIFI_FW_PATH=\"/hardware/arduino/firmwares/wifi-shield\"\n+WIFI_FW_PATH=\"/hardware/arduino/firmwares/wifishield/binary\"\n AVR_TOOLS_PATH=\"/hardware/tools/avr/bin\"\n \n progname=$0"
+ }
+]

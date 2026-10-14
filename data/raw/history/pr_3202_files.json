@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "07bccd8fa7d097f40c4dcdabd5960585df877aa0",
+  "filename": "hardware/arduino/avr/cores/arduino/Arduino.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0051eadd2a5c7c81c24363b9dfa966c098c6a046/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FArduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0051eadd2a5c7c81c24363b9dfa966c098c6a046/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FArduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FArduino.h?ref=0051eadd2a5c7c81c24363b9dfa966c098c6a046",
+  "patch": "@@ -239,7 +239,7 @@ void noTone(uint8_t _pin);\n // WMath prototypes\n long random(long);\n long random(long, long);\n-void randomSeed(unsigned int);\n+void randomSeed(unsigned long);\n long map(long, long, long, long, long);\n \n #endif"
+ },
+ {
+  "sha": "214ccdc5f317e67891aad596e3ea497ae839e783",
+  "filename": "hardware/arduino/avr/cores/arduino/WMath.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0051eadd2a5c7c81c24363b9dfa966c098c6a046/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWMath.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0051eadd2a5c7c81c24363b9dfa966c098c6a046/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWMath.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWMath.cpp?ref=0051eadd2a5c7c81c24363b9dfa966c098c6a046",
+  "patch": "@@ -27,7 +27,7 @@ extern \"C\" {\n   #include \"stdlib.h\"\n }\n \n-void randomSeed(unsigned int seed)\n+void randomSeed(unsigned long seed)\n {\n   if (seed != 0) {\n     srandom(seed);"
+ }
+]

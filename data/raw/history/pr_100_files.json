@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "00a5989edabf539db78a97187c7234f2b50e4393",
+  "filename": "app/src/processing/app/Preferences.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 4,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1750ff0266662c9bbbbfcea7ebae9619166325a0/app%2Fsrc%2Fprocessing%2Fapp%2FPreferences.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1750ff0266662c9bbbbfcea7ebae9619166325a0/app%2Fsrc%2Fprocessing%2Fapp%2FPreferences.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FPreferences.java?ref=1750ff0266662c9bbbbfcea7ebae9619166325a0",
+  "patch": "@@ -734,11 +734,10 @@ static protected void save() {\n     // Fix for 0163 to properly use Unicode when writing preferences.txt\n     PrintWriter writer = PApplet.createWriter(preferencesFile);\n \n-    Enumeration e = table.keys(); //properties.propertyNames();\n-    while (e.hasMoreElements()) {\n-      String key = (String) e.nextElement();\n+    String[] keys = (String[])table.keySet().toArray(new String[0]);\n+    Arrays.sort(keys);\n+    for (String key: keys)\n       writer.println(key + \"=\" + ((String) table.get(key)));\n-    }\n \n     writer.flush();\n     writer.close();"
+ }
+]

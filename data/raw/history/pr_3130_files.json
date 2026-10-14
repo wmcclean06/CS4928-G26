@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "82d2d01ff7d753b51a7f0fa3aec084e2dfa651c1",
+  "filename": "arduino-core/src/processing/app/packages/UserLibrary.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0210c6b53ae290ce16ce8b6b181d540b6a1bf7df/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FUserLibrary.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0210c6b53ae290ce16ce8b6b181d540b6a1bf7df/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FUserLibrary.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FUserLibrary.java?ref=0210c6b53ae290ce16ce8b6b181d540b6a1bf7df",
+  "patch": "@@ -131,9 +131,9 @@ public static UserLibrary create(File libFolder) throws IOException {\n     if (category == null)\n       category = \"Uncategorized\";\n     if (!CATEGORIES.contains(category)) {\n-      category = \"Uncategorized\";\n       System.out.println(\"WARNING: Category '\" + category + \"' in library \" +\n               properties.get(\"name\") + \" is not valid. Setting to 'Uncategorized'\");\n+      category = \"Uncategorized\";\n     }\n \n     String license = properties.get(\"license\");"
+ }
+]

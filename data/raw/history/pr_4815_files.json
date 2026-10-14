@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "aace515fb7c0a46eda30ca3ee8f4c2ea0e6f3294",
+  "filename": "app/src/processing/app/syntax/SketchTextArea.java",
+  "status": "modified",
+  "additions": 11,
+  "deletions": 0,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a70bab3ea0a2490fc21f46aa94e5840ec5c581f6/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextArea.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a70bab3ea0a2490fc21f46aa94e5840ec5c581f6/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextArea.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextArea.java?ref=a70bab3ea0a2490fc21f46aa94e5840ec5c581f6",
+  "patch": "@@ -30,6 +30,9 @@\n \n package processing.app.syntax;\n \n+import java.awt.event.InputEvent;\n+import java.awt.event.KeyEvent;\n+import javax.swing.KeyStroke;\n import org.apache.commons.compress.utils.IOUtils;\n import org.fife.ui.rsyntaxtextarea.*;\n import org.fife.ui.rsyntaxtextarea.Token;\n@@ -56,6 +59,7 @@\n import java.net.URL;\n import java.util.Map;\n import java.util.logging.Logger;\n+import processing.app.helpers.OSUtils;\n \n /**\n  * Arduino Sketch code editor based on RSyntaxTextArea (http://fifesoft.com/rsyntaxtextarea)\n@@ -72,6 +76,7 @@ public class SketchTextArea extends RSyntaxTextArea {\n   public SketchTextArea(PdeKeywords pdeKeywords) throws IOException {\n     this.pdeKeywords = pdeKeywords;\n     installFeatures();\n+    fixCtrlDeleteBehavior();\n   }\n \n   public void setKeywords(PdeKeywords keywords) {\n@@ -389,4 +394,10 @@ private void stopScanningForLinks() {\n   protected RTextAreaUI createRTextAreaUI() {\n     return new SketchTextAreaUI(this);\n   }\n+\n+  private void fixCtrlDeleteBehavior() {\n+    int modifier = OSUtils.isMacOS()? InputEvent.ALT_MASK : InputEvent.CTRL_MASK;\n+    KeyStroke keyStroke = KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, modifier);\n+    getInputMap().put(keyStroke, SketchTextAreaEditorKit.rtaDeleteNextWordAction);\n+  }\n }"
+ }
+]

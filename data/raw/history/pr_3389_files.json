@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "18dc268b878467dd2f2c4777e08a095a5504bb1b",
+  "filename": "app/src/processing/app/AbstractMonitor.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/db75e677da18d10b5f55f3bdca877b14c196c089/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/db75e677da18d10b5f55f3bdca877b14c196c089/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java?ref=db75e677da18d10b5f55f3bdca877b14c196c089",
+  "patch": "@@ -140,7 +140,7 @@ public void actionPerformed(ActionEvent event) {\n     }\n     lineEndings.setMaximumSize(lineEndings.getMinimumSize());\n \n-    String[] serialRateStrings = {\"300\", \"1200\", \"2400\", \"4800\", \"9600\", \"19200\", \"38400\", \"57600\", \"115200\", \"230400\", \"250000\"};\n+    String[] serialRateStrings = {\"300\", \"1200\", \"2400\", \"4800\", \"9600\", \"19200\", \"38400\", \"57600\", \"74880\", \"115200\", \"230400\", \"250000\"};\n \n     serialRates = new JComboBox();\n     for (String rate : serialRateStrings) {"
+ }
+]

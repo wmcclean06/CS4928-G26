@@ -1,0 +1,110 @@
+[
+ {
+  "sha": "1daa455e4e00beabc168176b9ca91d5c548b9cbc",
+  "filename": ".gitignore",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/41a993def79d9f007aa345de8b70b61032db7c5c/.gitignore",
+  "raw_url": "https://github.com/arduino/Arduino/raw/41a993def79d9f007aa345de8b70b61032db7c5c/.gitignore",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/.gitignore?ref=41a993def79d9f007aa345de8b70b61032db7c5c",
+  "patch": "@@ -33,8 +33,8 @@ build/macosx/libastylej*\n build/macosx/appbundler*.jar\n build/macosx/appbundler*.zip\n build/macosx/appbundler\n-build/macosx/appbundler-1.0ea-arduino2\n-build/macosx/appbundler-1.0ea-upstream1\n+build/macosx/appbundler-1.0ea-arduino*.zip\n+build/macosx/appbundler-1.0ea-upstream*.zip\n build/linux/work/\n build/linux/dist/*.tar.gz\n build/linux/dist/*.tar.bz2"
+ },
+ {
+  "sha": "6dbba24a0d2703fbcf84d5f2786c8b4c421ff637",
+  "filename": "arduino-core/src/processing/app/BaseNoGui.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 20,
+  "changes": 22,
+  "blob_url": "https://github.com/arduino/Arduino/blob/41a993def79d9f007aa345de8b70b61032db7c5c/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/41a993def79d9f007aa345de8b70b61032db7c5c/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java?ref=41a993def79d9f007aa345de8b70b61032db7c5c",
+  "patch": "@@ -186,21 +186,8 @@ static public PreferencesMap getBoardPreferences() {\n   }\n \n   static public File getContentFile(String name) {\n-    File path = new File(System.getProperty(\"user.dir\"));\n-\n-    if (OSUtils.isMacOS()) {\n-      if (System.getProperty(\"WORK_DIR\") != null) {\n-        path = new File(System.getProperty(\"WORK_DIR\"));\n-      } else {\n-        try {\n-          path = new File(BaseNoGui.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile();\n-        } catch (URISyntaxException e) {\n-          throw new RuntimeException(e);\n-        }\n-      }\n-    }\n-\n-    return new File(path, name);\n+    File installationFolder = new File(System.getProperty(\"APP_DIR\"));\n+    return new File(installationFolder, name);\n   }\n \n   static public TargetPlatform getCurrentTargetPlatformFromPackage(String pack) {\n@@ -976,11 +963,6 @@ static public void initParameters(String args[]) throws IOException {\n         preferencesFile = args[i];\n         continue;\n       }\n-      if (args[i].equals(\"--curdir\")) {\n-        i++;\n-        currentDirectory = args[i];\n-        continue;\n-      }\n     }\n \n     // run static initialization that grabs all the prefs"
+ },
+ {
+  "sha": "e4a23fece1d26b13a3a30d6bc9a9ab807aa6e159",
+  "filename": "arduino-core/src/processing/app/helpers/CommandlineParser.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 5,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/41a993def79d9f007aa345de8b70b61032db7c5c/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FCommandlineParser.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/41a993def79d9f007aa345de8b70b61032db7c5c/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FCommandlineParser.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FCommandlineParser.java?ref=41a993def79d9f007aa345de8b70b61032db7c5c",
+  "patch": "@@ -146,11 +146,8 @@ public void parseArgumentsPhase1() {\n         continue;\n       }\n       if (args[i].equals(\"--curdir\")) {\n-        i++;\n-        if (i >= args.length)\n-          BaseNoGui.showError(null, _(\"Argument required for --curdir\"), 3);\n-        // Argument should be already processed by Base.main(...)\n-        continue;\n+        BaseNoGui.showError(null, _(\"--curdir no longer supported\"), 3);\n+        return;\n       }\n       if (args[i].equals(\"--buildpath\")) {\n         i++;"
+ },
+ {
+  "sha": "2adb126dc65db95e54724fe989031a5406c7d126",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 10,
+  "deletions": 7,
+  "changes": 17,
+  "blob_url": "https://github.com/arduino/Arduino/blob/41a993def79d9f007aa345de8b70b61032db7c5c/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/41a993def79d9f007aa345de8b70b61032db7c5c/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=41a993def79d9f007aa345de8b70b61032db7c5c",
+  "patch": "@@ -305,16 +305,17 @@\n     <mkdir dir=\"${staging_folder}/work\" />\n \n     <antcall target=\"unzip\">\n-      <param name=\"archive_file\" value=\"${staging_folder}/appbundler-1.0ea-upstream1.jar.zip\" />\n-      <param name=\"archive_url\" value=\"http://downloads.arduino.cc/appbundler-1.0ea-upstream1.jar.zip\" />\n-      <param name=\"final_folder\" value=\"${staging_folder}/appbundler-1.0ea-upstream1\" />\n-      <param name=\"dest_folder\" value=\"${staging_folder}/appbundler-1.0ea-upstream1\" />\n+      <param name=\"archive_file\" value=\"${staging_folder}/appbundler-1.0ea-arduino3.jar.zip\" />\n+      <param name=\"archive_url\" value=\"http://downloads.arduino.cc/appbundler-1.0ea-arduino3.jar.zip\" />\n+      <param name=\"final_folder\" value=\"${staging_folder}/appbundler-1.0ea-arduino3\" />\n+      <param name=\"dest_folder\" value=\"${staging_folder}/appbundler-1.0ea-arduino3\" />\n     </antcall>\n \n-    <taskdef name=\"bundleapp\" classname=\"com.oracle.appbundler.AppBundlerTask\" classpath=\"${staging_folder}/appbundler-1.0ea-upstream1/appbundler-1.0ea-upstream1.jar\"/>\n+    <taskdef name=\"bundleapp\" classname=\"com.oracle.appbundler.AppBundlerTask\" classpath=\"${staging_folder}/appbundler-1.0ea-arduino3/appbundler-1.0ea-arduino3.jar\"/>\n \n     <bundleapp\n             jvmRequired=\"1.8\"\n+            jrepreferred=\"true\"\n             outputdirectory=\"${staging_folder}/work\"\n             name=\"Arduino\"\n             displayname=\"Arduino\"\n@@ -326,6 +327,7 @@\n             icon=\"macosx/template.app/Contents/Resources/processing.icns\"\n             mainclassname=\"processing.app.Base\"\n             copyright=\"Arduino LLC\"\n+            applicationCategory=\"public.app-category.education\"\n             minimumsystemversion=\"10.7\"\n             highresolutioncapable=\"true\">\n \n@@ -336,11 +338,12 @@\n \n       <classpath refid=\"runtime.jars\"/>\n \n-      <option value=\"-Dapple.awt.application.name=Arduino\" />\n+      <option value=\"-Dapple.awt.application.name=Arduino\"/>\n       <option value=\"-Dapple.laf.useScreenMenuBar=true\"/>\n       <option value=\"-Dcom.apple.macos.use-file-dialog-packages=true\"/>\n       <option value=\"-Dcom.apple.smallTabs=true\"/>\n-      <option value=\"-Dcom.apple.macos.useScreenMenuBar=true\" />\n+      <option value=\"-Dcom.apple.macos.useScreenMenuBar=true\"/>\n+      <option value=\"-DAPP_DIR=$APP_ROOT/Contents/Java\"/>\n \n       <!--\n       <option value=\"-Dapple.awt.showGrowBox=false\"/>"
+ },
+ {
+  "sha": "48bf7456ad0db13cf9fa43bd634b4c037896b704",
+  "filename": "build/linux/dist/arduino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/41a993def79d9f007aa345de8b70b61032db7c5c/build%2Flinux%2Fdist%2Farduino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/41a993def79d9f007aa345de8b70b61032db7c5c/build%2Flinux%2Fdist%2Farduino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Farduino?ref=41a993def79d9f007aa345de8b70b61032db7c5c",
+  "patch": "@@ -33,4 +33,5 @@ if [ -x ./java/bin/java ]; then\n   JAVA=./java/bin/java\n fi\n \n-$JAVA -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel $SPLASH processing.app.Base --curdir \"$CURDIR\" \"$@\"\n+$JAVA -DAPP_DIR=\"$APPDIR\" -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel $SPLASH processing.app.Base --curdir \"$CURDIR\" \"$@\"\n+"
+ },
+ {
+  "sha": "71aec86b5be533da553cc89adc091a49daad1a65",
+  "filename": "build/macosx/appbundler-1.0ea-arduino3.jar.zip.sha",
+  "status": "added",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/41a993def79d9f007aa345de8b70b61032db7c5c/build%2Fmacosx%2Fappbundler-1.0ea-arduino3.jar.zip.sha",
+  "raw_url": "https://github.com/arduino/Arduino/raw/41a993def79d9f007aa345de8b70b61032db7c5c/build%2Fmacosx%2Fappbundler-1.0ea-arduino3.jar.zip.sha",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fmacosx%2Fappbundler-1.0ea-arduino3.jar.zip.sha?ref=41a993def79d9f007aa345de8b70b61032db7c5c",
+  "patch": "@@ -0,0 +1 @@\n+247d19a71672171ce2eda25704121375f04c5e1f"
+ },
+ {
+  "sha": "b8179c64cf89a375a73f61c749615e3d820dbc44",
+  "filename": "build/macosx/appbundler-1.0ea-upstream1.jar.zip.sha",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1d8fbd4b5dba34b5b7dc05bb6cd17f6975c0cb3c/build%2Fmacosx%2Fappbundler-1.0ea-upstream1.jar.zip.sha",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1d8fbd4b5dba34b5b7dc05bb6cd17f6975c0cb3c/build%2Fmacosx%2Fappbundler-1.0ea-upstream1.jar.zip.sha",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fmacosx%2Fappbundler-1.0ea-upstream1.jar.zip.sha?ref=1d8fbd4b5dba34b5b7dc05bb6cd17f6975c0cb3c",
+  "patch": "@@ -1 +0,0 @@\n-5bb6377a65edf7af7b5b3820711bab0e377bdee1"
+ },
+ {
+  "sha": "edf8bc52be837db94a9151b03d648b2a51ed5a39",
+  "filename": "build/windows/launcher/config.xml",
+  "status": "modified",
+  "additions": 27,
+  "deletions": 28,
+  "changes": 55,
+  "blob_url": "https://github.com/arduino/Arduino/blob/41a993def79d9f007aa345de8b70b61032db7c5c/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/41a993def79d9f007aa345de8b70b61032db7c5c/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig.xml?ref=41a993def79d9f007aa345de8b70b61032db7c5c",
+  "patch": "@@ -1,45 +1,44 @@\n <launch4jConfig>\n   <dontWrapJar>true</dontWrapJar>\n   <headerType>gui</headerType>\n-  <jar>lib</jar>\n   <outfile>arduino.exe</outfile>\n-  <chdir>.</chdir>\n   <errTitle>Arduino</errTitle>\n   <downloadUrl>http://www.oracle.com/technetwork/java/javase/downloads/index.html</downloadUrl>\n   <icon>application.ico</icon>\n   <classPath>\n     <mainClass>processing.app.Base</mainClass>\n-    <cp>lib/antlr.jar</cp>\n-    <cp>lib/apple.jar</cp>\n-    <cp>lib/arduino-core.jar</cp>\n-    <cp>lib/bcpg-jdk15on-152.jar</cp>\n-    <cp>lib/bcprov-jdk15on-152.jar</cp>\n-    <cp>lib/commons-codec-1.7.jar</cp>\n-    <cp>lib/commons-compress-1.8.jar</cp>\n-    <cp>lib/commons-exec-1.1.jar</cp>\n-    <cp>lib/commons-httpclient-3.1.jar</cp>\n-    <cp>lib/commons-lang3-3.3.2.jar</cp>\n-    <cp>lib/commons-logging-1.0.4.jar</cp>\n-    <cp>lib/ecj.jar</cp>\n-    <cp>lib/guava-18.0.jar</cp>\n-    <cp>lib/jackson-annotations-2.2.3.jar</cp>\n-    <cp>lib/jackson-core-2.2.3.jar</cp>\n-    <cp>lib/jackson-databind-2.2.3.jar</cp>\n-    <cp>lib/jackson-module-mrbean-2.2.3.jar</cp>\n-    <cp>lib/java-semver-0.8.0.jar</cp>\n-    <cp>lib/jmdns-3.4.1.jar</cp>\n-    <cp>lib/jna-4.1.0.jar</cp>\n-    <cp>lib/jna-platform-4.1.0.jar</cp>\n-    <cp>lib/jsch-0.1.50.jar</cp>\n-    <cp>lib/jssc-2.8.0.jar</cp>\n-    <cp>lib/pde.jar</cp>\n-    <cp>lib/rsyntaxtextarea-2.5.6.1+arduino.jar</cp>\n+    <cp>%EXEDIR%/lib/antlr.jar</cp>\n+    <cp>%EXEDIR%/lib/apple.jar</cp>\n+    <cp>%EXEDIR%/lib/arduino-core.jar</cp>\n+    <cp>%EXEDIR%/lib/bcpg-jdk15on-152.jar</cp>\n+    <cp>%EXEDIR%/lib/bcprov-jdk15on-152.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-codec-1.7.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-compress-1.8.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-exec-1.1.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-httpclient-3.1.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-lang3-3.3.2.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-logging-1.0.4.jar</cp>\n+    <cp>%EXEDIR%/lib/ecj.jar</cp>\n+    <cp>%EXEDIR%/lib/guava-18.0.jar</cp>\n+    <cp>%EXEDIR%/lib/jackson-annotations-2.2.3.jar</cp>\n+    <cp>%EXEDIR%/lib/jackson-core-2.2.3.jar</cp>\n+    <cp>%EXEDIR%/lib/jackson-databind-2.2.3.jar</cp>\n+    <cp>%EXEDIR%/lib/jackson-module-mrbean-2.2.3.jar</cp>\n+    <cp>%EXEDIR%/lib/java-semver-0.8.0.jar</cp>\n+    <cp>%EXEDIR%/lib/jmdns-3.4.1.jar</cp>\n+    <cp>%EXEDIR%/lib/jna-4.1.0.jar</cp>\n+    <cp>%EXEDIR%/lib/jna-platform-4.1.0.jar</cp>\n+    <cp>%EXEDIR%/lib/jsch-0.1.50.jar</cp>\n+    <cp>%EXEDIR%/lib/jssc-2.8.0.jar</cp>\n+    <cp>%EXEDIR%/lib/pde.jar</cp>\n+    <cp>%EXEDIR%/lib/rsyntaxtextarea-2.5.6.1+arduino.jar</cp>\n   </classPath>\n   <jre>\n     <path>java</path>\n     <runtimeBits>32</runtimeBits>\n-    <opt>-splash:./lib/splash.png</opt>\n+    <opt>-splash:\"%EXEDIR%/lib/splash.png\"</opt>\n     <opt>-Dsun.java2d.d3d=false</opt>\n+    <opt>-DAPP_DIR=\"%EXEDIR%\"</opt>\n   </jre>\n   <versionInfo>\n     <fileDescription>Arduino IDE</fileDescription>"
+ },
+ {
+  "sha": "f4183ad851a5e800dddb28719930055cc1753e63",
+  "filename": "build/windows/launcher/config_debug.xml",
+  "status": "modified",
+  "additions": 26,
+  "deletions": 27,
+  "changes": 53,
+  "blob_url": "https://github.com/arduino/Arduino/blob/41a993def79d9f007aa345de8b70b61032db7c5c/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/41a993def79d9f007aa345de8b70b61032db7c5c/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig_debug.xml?ref=41a993def79d9f007aa345de8b70b61032db7c5c",
+  "patch": "@@ -1,44 +1,43 @@\n <launch4jConfig>\n   <dontWrapJar>true</dontWrapJar>\n   <headerType>console</headerType>\n-  <jar>lib</jar>\n   <outfile>arduino_debug.exe</outfile>\n-  <chdir>.</chdir>\n   <errTitle>Arduino</errTitle>\n   <downloadUrl>http://www.oracle.com/technetwork/java/javase/downloads/index.html</downloadUrl>\n   <icon>application.ico</icon>\n   <classPath>\n     <mainClass>processing.app.Base</mainClass>\n-    <cp>lib/antlr.jar</cp>\n-    <cp>lib/apple.jar</cp>\n-    <cp>lib/arduino-core.jar</cp>\n-    <cp>lib/bcpg-jdk15on-152.jar</cp>\n-    <cp>lib/bcprov-jdk15on-152.jar</cp>\n-    <cp>lib/commons-codec-1.7.jar</cp>\n-    <cp>lib/commons-compress-1.8.jar</cp>\n-    <cp>lib/commons-exec-1.1.jar</cp>\n-    <cp>lib/commons-httpclient-3.1.jar</cp>\n-    <cp>lib/commons-lang3-3.3.2.jar</cp>\n-    <cp>lib/commons-logging-1.0.4.jar</cp>\n-    <cp>lib/ecj.jar</cp>\n-    <cp>lib/guava-18.0.jar</cp>\n-    <cp>lib/jackson-annotations-2.2.3.jar</cp>\n-    <cp>lib/jackson-core-2.2.3.jar</cp>\n-    <cp>lib/jackson-databind-2.2.3.jar</cp>\n-    <cp>lib/jackson-module-mrbean-2.2.3.jar</cp>\n-    <cp>lib/java-semver-0.8.0.jar</cp>\n-    <cp>lib/jmdns-3.4.1.jar</cp>\n-    <cp>lib/jna-4.1.0.jar</cp>\n-    <cp>lib/jna-platform-4.1.0.jar</cp>\n-    <cp>lib/jsch-0.1.50.jar</cp>\n-    <cp>lib/jssc-2.8.0.jar</cp>\n-    <cp>lib/pde.jar</cp>\n-    <cp>lib/rsyntaxtextarea-2.5.6.1+arduino.jar</cp>\n+    <cp>%EXEDIR%/lib/antlr.jar</cp>\n+    <cp>%EXEDIR%/lib/apple.jar</cp>\n+    <cp>%EXEDIR%/lib/arduino-core.jar</cp>\n+    <cp>%EXEDIR%/lib/bcpg-jdk15on-152.jar</cp>\n+    <cp>%EXEDIR%/lib/bcprov-jdk15on-152.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-codec-1.7.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-compress-1.8.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-exec-1.1.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-httpclient-3.1.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-lang3-3.3.2.jar</cp>\n+    <cp>%EXEDIR%/lib/commons-logging-1.0.4.jar</cp>\n+    <cp>%EXEDIR%/lib/ecj.jar</cp>\n+    <cp>%EXEDIR%/lib/guava-18.0.jar</cp>\n+    <cp>%EXEDIR%/lib/jackson-annotations-2.2.3.jar</cp>\n+    <cp>%EXEDIR%/lib/jackson-core-2.2.3.jar</cp>\n+    <cp>%EXEDIR%/lib/jackson-databind-2.2.3.jar</cp>\n+    <cp>%EXEDIR%/lib/jackson-module-mrbean-2.2.3.jar</cp>\n+    <cp>%EXEDIR%/lib/java-semver-0.8.0.jar</cp>\n+    <cp>%EXEDIR%/lib/jmdns-3.4.1.jar</cp>\n+    <cp>%EXEDIR%/lib/jna-4.1.0.jar</cp>\n+    <cp>%EXEDIR%/lib/jna-platform-4.1.0.jar</cp>\n+    <cp>%EXEDIR%/lib/jsch-0.1.50.jar</cp>\n+    <cp>%EXEDIR%/lib/jssc-2.8.0.jar</cp>\n+    <cp>%EXEDIR%/lib/pde.jar</cp>\n+    <cp>%EXEDIR%/lib/rsyntaxtextarea-2.5.6.1+arduino.jar</cp>\n   </classPath>\n   <jre>\n     <path>java</path>\n     <runtimeBits>32</runtimeBits>\n     <opt>-Dsun.java2d.d3d=false</opt>\n+    <opt>-DAPP_DIR=\"%EXEDIR%\"</opt>\n   </jre>\n   <versionInfo>\n     <fileDescription>Arduino IDE</fileDescription>"
+ }
+]

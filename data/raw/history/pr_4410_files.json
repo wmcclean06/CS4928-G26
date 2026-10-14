@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "bf798abad7362495e1ca0a7b99eb90148a0bd727",
+  "filename": "libraries/Ethernet/examples/WebServer/WebServer.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e6f85b70582a5edc581cb130ba404afe0d9aee9c/libraries%2FEthernet%2Fexamples%2FWebServer%2FWebServer.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e6f85b70582a5edc581cb130ba404afe0d9aee9c/libraries%2FEthernet%2Fexamples%2FWebServer%2FWebServer.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FWebServer%2FWebServer.ino?ref=e6f85b70582a5edc581cb130ba404afe0d9aee9c",
+  "patch": "@@ -97,7 +97,6 @@ void loop() {\n     // close the connection:\n     client.stop();\n     Serial.println(\"client disconnected\");\n-    Ethernet.maintain();\n   }\n }\n "
+ }
+]

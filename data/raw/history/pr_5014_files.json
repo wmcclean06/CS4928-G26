@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "171af73037fdbe2f54c76a427772f95140b48969",
+  "filename": "hardware/arduino/avr/libraries/Wire/src/utility/twi.c",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ab4e1146240e3a38981860fc27540671f6fe9394/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2Futility%2Ftwi.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ab4e1146240e3a38981860fc27540671f6fe9394/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2Futility%2Ftwi.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2Futility%2Ftwi.c?ref=ab4e1146240e3a38981860fc27540671f6fe9394",
+  "patch": "@@ -304,7 +304,7 @@ uint8_t twi_transmit(const uint8_t* data, uint8_t length)\n   uint8_t i;\n \n   // ensure data will fit into buffer\n-  if(TWI_BUFFER_LENGTH < length){\n+  if(TWI_BUFFER_LENGTH < (twi_txBufferLength+length)){\n     return 1;\n   }\n   \n@@ -314,10 +314,10 @@ uint8_t twi_transmit(const uint8_t* data, uint8_t length)\n   }\n   \n   // set length and copy data into tx buffer\n-  twi_txBufferLength = length;\n   for(i = 0; i < length; ++i){\n-    twi_txBuffer[i] = data[i];\n+    twi_txBuffer[twi_txBufferLength+i] = data[i];\n   }\n+  twi_txBufferLength += length;\n   \n   return 0;\n }"
+ }
+]

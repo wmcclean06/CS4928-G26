@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "1f19b2a6b201acb89ef31ac99be4373971df1dae",
+  "filename": "libraries/Ethernet/keywords.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4d7723fb95f01c11e364d6aac9c9de8dd1b21658/libraries%2FEthernet%2Fkeywords.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4d7723fb95f01c11e364d6aac9c9de8dd1b21658/libraries%2FEthernet%2Fkeywords.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fkeywords.txt?ref=4d7723fb95f01c11e364d6aac9c9de8dd1b21658",
+  "patch": "@@ -31,6 +31,8 @@ parsePacket\tKEYWORD2\n remoteIP\tKEYWORD2\n remotePort\tKEYWORD2\n getSocketNumber\tKEYWORD2\n+localIP\tKEYWORD2\n+maintain\tKEYWORD2\n \n #######################################\n # Constants (LITERAL1)"
+ }
+]

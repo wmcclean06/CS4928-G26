@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "d1cdea8c8fc9a5a22d60c903c3e3bd5def5a5e68",
+  "filename": "build/shared/examples/05.Control/Arrays/Arrays.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a6022df4221bc02892607466866513e88a45e121/build%2Fshared%2Fexamples%2F05.Control%2FArrays%2FArrays.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a6022df4221bc02892607466866513e88a45e121/build%2Fshared%2Fexamples%2F05.Control%2FArrays%2FArrays.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F05.Control%2FArrays%2FArrays.ino?ref=a6022df4221bc02892607466866513e88a45e121",
+  "patch": "@@ -27,7 +27,6 @@ int ledPins[] = {\n int pinCount = 6;           // the number of pins (i.e. the length of the array)\n \n void setup() {\n-  int thisPin;\n   // the array elements are numbered from 0 to (pinCount - 1).\n   // use a for loop to initialize each pin as an output:\n   for (int thisPin = 0; thisPin < pinCount; thisPin++)  {"
+ }
+]

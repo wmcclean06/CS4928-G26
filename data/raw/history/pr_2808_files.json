@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "c9b49247f41994b27d6581ab18f9a50a8681c0a2",
+  "filename": "libraries/SD/src/utility/Sd2Card.cpp",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a6be90f98346b24137bbbd77f70fc2d04ffc03fe/libraries%2FSD%2Fsrc%2Futility%2FSd2Card.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a6be90f98346b24137bbbd77f70fc2d04ffc03fe/libraries%2FSD%2Fsrc%2Futility%2FSd2Card.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fsrc%2Futility%2FSd2Card.cpp?ref=a6be90f98346b24137bbbd77f70fc2d04ffc03fe",
+  "patch": "@@ -283,7 +283,7 @@ uint8_t Sd2Card::init(uint8_t sckRateID, uint8_t chipSelectPin) {\n \r\n   // command to go idle in SPI mode\r\n   while ((status_ = cardCommand(CMD0, 0)) != R1_IDLE_STATE) {\r\n-    if (((uint16_t)millis() - t0) > SD_INIT_TIMEOUT) {\r\n+    if (((uint16_t)(millis() - t0)) > SD_INIT_TIMEOUT) {\r\n       error(SD_CARD_ERROR_CMD0);\r\n       goto fail;\r\n     }\r\n@@ -305,7 +305,7 @@ uint8_t Sd2Card::init(uint8_t sckRateID, uint8_t chipSelectPin) {\n \r\n   while ((status_ = cardAcmd(ACMD41, arg)) != R1_READY_STATE) {\r\n     // check for timeout\r\n-    if (((uint16_t)millis() - t0) > SD_INIT_TIMEOUT) {\r\n+    if (((uint16_t)(millis() - t0)) > SD_INIT_TIMEOUT) {\r\n       error(SD_CARD_ERROR_ACMD41);\r\n       goto fail;\r\n     }\r"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "c2c5b0ff6247db8fb3a80e409952b7b9d20b0219",
+  "filename": "arduino-core/src/cc/arduino/Compiler.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 12,
+  "changes": 19,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3d4b026b506afd56d516144cf3c558d956c75758/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3d4b026b506afd56d516144cf3c558d956c75758/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java?ref=3d4b026b506afd56d516144cf3c558d956c75758",
+  "patch": "@@ -134,7 +134,7 @@ enum BuilderAction {\n     }\n   }\n \n-  private static final Pattern ERROR_FORMAT = Pattern.compile(\"(.+\\\\.\\\\w+):(\\\\d+)(:\\\\d+)*:\\\\s*(fatal)?\\\\s*error:\\\\s*(.*)\\\\s*\", Pattern.MULTILINE | Pattern.DOTALL);\n+  private static final Pattern ERROR_FORMAT = Pattern.compile(\"(.+\\\\.\\\\w+):(\\\\d+)(:\\\\d+)*:\\\\s*((fatal)?\\\\s*error:\\\\s*)(.*)\\\\s*\", Pattern.MULTILINE | Pattern.DOTALL);\n \n   private final File pathToSketch;\n   private final Sketch sketch;\n@@ -516,16 +516,14 @@ public void message(String s) {\n \n     if (pieces != null) {\n       String msg = \"\";\n-      int errorIdx = pieces.length - 1;\n-      String error = pieces[errorIdx];\n       String filename = pieces[1];\n       int line = PApplet.parseInt(pieces[2]);\n-      int col;\n-      if (errorIdx > 3) {\n+      int col = -1;\n+      if (pieces[3] != null) {\n         col = PApplet.parseInt(pieces[3].substring(1));\n-      } else {\n-        col = -1;\n       }\n+      String errorPrefix = pieces[4];\n+      String error = pieces[6];\n \n       if (error.trim().equals(\"SPI.h: No such file or directory\")) {\n         error = tr(\"Please import the SPI library from the Sketch > Import Library menu.\");\n@@ -585,11 +583,8 @@ public void message(String s) {\n         String fileName = ex.getCodeFile().getPrettyName();\n         int lineNum = ex.getCodeLine() + 1;\n         int colNum = ex.getCodeColumn();\n-        if (colNum != -1) {\n-          s = fileName + \":\" + lineNum + \":\" + colNum + \": error: \" + error + msg;\n-        } else {\n-          s = fileName + \":\" + lineNum + \": error: \" + error + msg;\n-        }\n+        String column = (colNum != -1) ? (\":\" + colNum) : \"\";\n+        s = fileName + \":\" + lineNum + column + \": \" + errorPrefix + error + msg;\n       }\n \n       if (ex != null) {"
+ }
+]

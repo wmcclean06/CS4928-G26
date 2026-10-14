@@ -1,0 +1,43 @@
+{
+ "pr": 2626,
+ "base_sha": "00941453db2a7896b31d50237b57d8f4e91a46d7",
+ "head_sha": "a49963d0ad5ad8356591c1c111d1152378cb06d5",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 0,
+   "old_sha": "3794c0f2a38db66f0c6afd5f9ffe435befdd0b7a",
+   "new_sha": "76f5ca05564a6db36718ca6a11a3cf43c2bb1d82",
+   "head_sha_check": "76f5ca05564a6db36718ca6a11a3cf43c2bb1d82",
+   "loc_at_head": 2387,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/Platform.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 5,
+   "deletions": 0,
+   "old_sha": "0ee14fe6983c952255f35a0e2d8e47fb766d209d",
+   "new_sha": "97f25aae6bd0ff74c03eea417e0735557e8e53c5",
+   "head_sha_check": "97f25aae6bd0ff74c03eea417e0735557e8e53c5",
+   "loc_at_head": 179,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/macosx/Platform.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 19,
+   "deletions": 1,
+   "old_sha": "486a986ad43a3f02bcce6bc09caa85815de77a29",
+   "new_sha": "21ee82e082a65b6698632bd00685a28c6eb7b98a",
+   "head_sha_check": "21ee82e082a65b6698632bd00685a28c6eb7b98a",
+   "loc_at_head": 210,
+   "notes": ""
+  }
+ ]
+}

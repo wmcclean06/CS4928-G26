@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "37e5740e1539ecbb11c954360531e5e4f07da3f3",
+  "filename": "build/shared/examples/09.USB/KeyboardAndMouseControl/KeyboardAndMouseControl.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/07f3915d8f59862230380350dc243b6f94d45405/build%2Fshared%2Fexamples%2F09.USB%2FKeyboardAndMouseControl%2FKeyboardAndMouseControl.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/07f3915d8f59862230380350dc243b6f94d45405/build%2Fshared%2Fexamples%2F09.USB%2FKeyboardAndMouseControl%2FKeyboardAndMouseControl.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F09.USB%2FKeyboardAndMouseControl%2FKeyboardAndMouseControl.ino?ref=07f3915d8f59862230380350dc243b6f94d45405",
+  "patch": "@@ -22,8 +22,6 @@\n  \n  */\n \n-// set pin numbers for the five buttons:\n-\n // set pin numbers for the five buttons:\n const int upButton = 2;     \n const int downButton = 3;        "
+ }
+]

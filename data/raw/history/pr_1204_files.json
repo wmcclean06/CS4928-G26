@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "79d9e76d335265a57520aec02df2d8d6d222e05b",
+  "filename": ".gitignore",
+  "status": "added",
+  "additions": 21,
+  "deletions": 0,
+  "changes": 21,
+  "blob_url": "https://github.com/arduino/Arduino/blob/9f4e1fc5ad40946320703f8ca2fb3fd48f2a9684/.gitignore",
+  "raw_url": "https://github.com/arduino/Arduino/raw/9f4e1fc5ad40946320703f8ca2fb3fd48f2a9684/.gitignore",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/.gitignore?ref=9f4e1fc5ad40946320703f8ca2fb3fd48f2a9684",
+  "patch": "@@ -0,0 +1,21 @@\n+app/bin/\n+app/pde.jar\n+build/macosx/work/\n+core/bin/\n+core/core.jar\n+hardware/arduino/bootloaders/caterina_LUFA/Descriptors.o\n+hardware/arduino/bootloaders/caterina_LUFA/Descriptors.lst\n+hardware/arduino/bootloaders/caterina_LUFA/Caterina.sym\n+hardware/arduino/bootloaders/caterina_LUFA/Caterina.o\n+hardware/arduino/bootloaders/caterina_LUFA/Caterina.map\n+hardware/arduino/bootloaders/caterina_LUFA/Caterina.lst\n+hardware/arduino/bootloaders/caterina_LUFA/Caterina.lss\n+hardware/arduino/bootloaders/caterina_LUFA/Caterina.elf\n+hardware/arduino/bootloaders/caterina_LUFA/Caterina.eep\n+hardware/arduino/bootloaders/caterina_LUFA/.dep/\n+build/windows/work/\n+build/linux/work/\n+build/linux/dist/*.tar.gz\n+build/linux/*.tgz\n+test-bin\n+*.iml"
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "9975303c8e1b12bba67417793237953c8cbe7025",
+  "filename": "hardware/arduino/avr/cores/arduino/WString.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f49c7ae3dea1b2c29c4f1f5f796e05ee1cf0bdbc/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWString.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f49c7ae3dea1b2c29c4f1f5f796e05ee1cf0bdbc/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWString.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWString.cpp?ref=f49c7ae3dea1b2c29c4f1f5f796e05ee1cf0bdbc",
+  "patch": "@@ -193,7 +193,7 @@ String & String::copy(const __FlashStringHelper *pstr, unsigned int length)\n void String::move(String &rhs)\n {\n \tif (buffer) {\n-\t\tif (capacity >= rhs.len) {\n+\t\tif (rhs && capacity >= rhs.len) {\n \t\t\tstrcpy(buffer, rhs.buffer);\n \t\t\tlen = rhs.len;\n \t\t\trhs.len = 0;"
+ },
+ {
+  "sha": "533298225e4e7ee9d867b9af89444fa355dc8422",
+  "filename": "hardware/arduino/sam/cores/arduino/WString.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f49c7ae3dea1b2c29c4f1f5f796e05ee1cf0bdbc/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWString.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f49c7ae3dea1b2c29c4f1f5f796e05ee1cf0bdbc/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWString.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWString.cpp?ref=f49c7ae3dea1b2c29c4f1f5f796e05ee1cf0bdbc",
+  "patch": "@@ -195,7 +195,7 @@ String & String::copy(const __FlashStringHelper *pstr, unsigned int length)\n void String::move(String &rhs)\n {\n \tif (buffer) {\n-\t\tif (capacity >= rhs.len) {\n+\t\tif (rhs && capacity >= rhs.len) {\n \t\t\tstrcpy(buffer, rhs.buffer);\n \t\t\tlen = rhs.len;\n \t\t\trhs.len = 0;"
+ }
+]

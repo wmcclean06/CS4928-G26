@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "61ce88c62962b98f55bd461876fec791b7554414",
+  "filename": "hardware/arduino/avr/libraries/SoftwareSerial/examples/SoftwareSerialExample/SoftwareSerialExample.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0272252e6aee03d0ee82a0495bc3d7419ef99f30/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fexamples%2FSoftwareSerialExample%2FSoftwareSerialExample.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0272252e6aee03d0ee82a0495bc3d7419ef99f30/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fexamples%2FSoftwareSerialExample%2FSoftwareSerialExample.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fexamples%2FSoftwareSerialExample%2FSoftwareSerialExample.ino?ref=0272252e6aee03d0ee82a0495bc3d7419ef99f30",
+  "patch": "@@ -13,7 +13,7 @@\n  so only the following can be used for RX:\n  10, 11, 12, 13, 50, 51, 52, 53, 62, 63, 64, 65, 66, 67, 68, 69\n \n- Not all pins on the Leonardo support change interrupts,\n+ Not all pins on the Leonardo and Micro support change interrupts,\n  so only the following can be used for RX:\n  8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI).\n "
+ }
+]

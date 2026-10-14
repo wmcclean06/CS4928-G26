@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "1839ceca2681091996451e1410e3f21b14458ab9",
+  "filename": "build/shared/examples/01.Basics/Fade/Fade.ino",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 2,
+  "changes": 9,
+  "blob_url": "https://github.com/arduino/Arduino/blob/aaccec74862d77072498b123f24a02324b86f8bc/build%2Fshared%2Fexamples%2F01.Basics%2FFade%2FFade.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/aaccec74862d77072498b123f24a02324b86f8bc/build%2Fshared%2Fexamples%2F01.Basics%2FFade%2FFade.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F01.Basics%2FFade%2FFade.ino?ref=aaccec74862d77072498b123f24a02324b86f8bc",
+  "patch": "@@ -4,10 +4,16 @@\n  This example shows how to fade an LED on pin 9\n  using the analogWrite() function.\n \n+ The analogWrite() function uses PWM, so if\n+ you want to change the pin you're using, be\n+ sure to use another PWM capable pin. On most\n+ Arduino, the PWM pins are identified with \n+ a \"~\" sign, like ~3, ~5, ~6, ~9, ~10 and ~11.\n+\n  This example code is in the public domain.\n  */\n \n-int led = 9;           // the pin that the LED is attached to\n+int led = 9;           // the PWM pin the LED is attached to\n int brightness = 0;    // how bright the LED is\n int fadeAmount = 5;    // how many points to fade the LED by\n \n@@ -32,4 +38,3 @@ void loop() {\n   // wait for 30 milliseconds to see the dimming effect\n   delay(30);\n }\n-"
+ }
+]

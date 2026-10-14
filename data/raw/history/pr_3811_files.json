@@ -1,0 +1,74 @@
+[
+ {
+  "sha": "c489d9f1af2c9ceb148977f1c1a0c22e87395cda",
+  "filename": "hardware/arduino/avr/cores/arduino/PluggableUSB.cpp",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 0,
+  "changes": 9,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.cpp?ref=b945df9220e09461520bb19decf0a540fbd9c9fb",
+  "patch": "@@ -50,6 +50,15 @@ int PluggableUSB_::getDescriptor(USBSetup& setup)\n \treturn 0;\n }\n \n+void PluggableUSB_::getShortName(char *iSerialNum)\n+{\n+\tPluggableUSBModule* node;\n+\tfor (node = rootNode; node; node = node->next) {\n+\t\tiSerialNum += node->getShortName(iSerialNum);\n+\t}\n+\t*iSerialNum = 0;\n+}\n+\n bool PluggableUSB_::setup(USBSetup& setup)\n {\n \tPluggableUSBModule* node;"
+ },
+ {
+  "sha": "507f0df9b35657f0f154ae088eda37487289abc3",
+  "filename": "hardware/arduino/avr/cores/arduino/PluggableUSB.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h?ref=b945df9220e09461520bb19decf0a540fbd9c9fb",
+  "patch": "@@ -35,6 +35,7 @@ class PluggableUSBModule {\n   virtual bool setup(USBSetup& setup) = 0;\n   virtual int getInterface(uint8_t* interfaceCount) = 0;\n   virtual int getDescriptor(USBSetup& setup) = 0;\n+  virtual uint8_t getShortName(char *name) { name[0] = 'A'+pluggedInterface; return 1; }\n \n   uint8_t pluggedInterface;\n   uint8_t pluggedEndpoint;\n@@ -55,6 +56,7 @@ class PluggableUSB_ {\n   int getInterface(uint8_t* interfaceCount);\n   int getDescriptor(USBSetup& setup);\n   bool setup(USBSetup& setup);\n+  void getShortName(char *iSerialNum);\n \n private:\n   uint8_t lastIf;"
+ },
+ {
+  "sha": "3c6610cd6f6c340f8b47a0dc6e77e5b6c440cbaa",
+  "filename": "hardware/arduino/avr/cores/arduino/USBCore.cpp",
+  "status": "modified",
+  "additions": 15,
+  "deletions": 6,
+  "changes": 21,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp?ref=b945df9220e09461520bb19decf0a540fbd9c9fb",
+  "patch": "@@ -18,6 +18,7 @@\n \n #include \"USBAPI.h\"\n #include \"PluggableUSB.h\"\n+#include <stdlib.h>\n \n #if defined(USBCON)\n \n@@ -69,10 +70,10 @@ const u8 STRING_MANUFACTURER[] PROGMEM = USB_MANUFACTURER;\n \n //\tDEVICE DESCRIPTOR\n const DeviceDescriptor USB_DeviceDescriptor =\n-\tD_DEVICE(0x00,0x00,0x00,64,USB_VID,USB_PID,0x100,IMANUFACTURER,IPRODUCT,0,1);\n+\tD_DEVICE(0x00,0x00,0x00,64,USB_VID,USB_PID,0x100,IMANUFACTURER,IPRODUCT,ISERIAL,1);\n \n const DeviceDescriptor USB_DeviceDescriptorB =\n-\tD_DEVICE(0xEF,0x02,0x01,64,USB_VID,USB_PID,0x100,IMANUFACTURER,IPRODUCT,0,1);\n+\tD_DEVICE(0xEF,0x02,0x01,64,USB_VID,USB_PID,0x100,IMANUFACTURER,IPRODUCT,ISERIAL,1);\n \n //==================================================================\n //==================================================================\n@@ -409,11 +410,12 @@ int USB_SendControl(u8 flags, const void* d, int len)\n // Send a USB descriptor string. The string is stored in PROGMEM as a\n // plain ASCII string but is sent out as UTF-16 with the correct 2-byte\n // prefix\n-static bool USB_SendStringDescriptor(const u8*string_P, u8 string_len) {\n+static bool USB_SendStringDescriptor(const u8*string_P, u8 string_len, uint8_t flags) {\n         SendControl(2 + string_len * 2);\n         SendControl(3);\n+        bool pgm = flags & TRANSFER_PGM;\n         for(u8 i = 0; i < string_len; i++) {\n-                bool r = SendControl(pgm_read_byte(&string_P[i]));\n+                bool r = SendControl(pgm ? pgm_read_byte(&string_P[i]) : string_P[i]);\n                 r &= SendControl(0); // high byte\n                 if(!r) {\n                         return false;\n@@ -495,10 +497,17 @@ bool SendDescriptor(USBSetup& setup)\n \t\t\tdesc_addr = (const u8*)&STRING_LANGUAGE;\n \t\t}\n \t\telse if (setup.wValueL == IPRODUCT) {\n-\t\t\treturn USB_SendStringDescriptor(STRING_PRODUCT, strlen(USB_PRODUCT));\n+\t\t\treturn USB_SendStringDescriptor(STRING_PRODUCT, strlen(USB_PRODUCT), TRANSFER_PGM);\n \t\t}\n \t\telse if (setup.wValueL == IMANUFACTURER) {\n-\t\t\treturn USB_SendStringDescriptor(STRING_MANUFACTURER, strlen(USB_MANUFACTURER));\n+\t\t\treturn USB_SendStringDescriptor(STRING_MANUFACTURER, strlen(USB_MANUFACTURER), TRANSFER_PGM);\n+\t\t}\n+\t\telse if (setup.wValueL == ISERIAL) {\n+#ifdef PLUGGABLE_USB_ENABLED\n+\t\t\tchar name[ISERIAL_MAX_LEN];\n+\t\t\tPluggableUSB().getShortName(name);\n+\t\t\treturn USB_SendStringDescriptor((uint8_t*)name, strlen(name), 0);\n+#endif\n \t\t}\n \t\telse\n \t\t\treturn false;"
+ },
+ {
+  "sha": "c0dce079ebc96b4cac82e6335dd32ca8069be292",
+  "filename": "hardware/arduino/avr/cores/arduino/USBDesc.h",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 3,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBDesc.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBDesc.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBDesc.h?ref=b945df9220e09461520bb19decf0a540fbd9c9fb",
+  "patch": "@@ -24,6 +24,8 @@\n #define USB_ENDPOINTS 5 // AtMegaxxU2\n #endif\n \n+#define ISERIAL_MAX_LEN     20\n+\n #define CDC_INTERFACE_COUNT\t2\n #define CDC_ENPOINT_COUNT\t3\n \n@@ -39,6 +41,6 @@\n #define CDC_RX CDC_ENDPOINT_OUT\n #define CDC_TX CDC_ENDPOINT_IN\n \n-#define IMANUFACTURER\t1\n-#define IPRODUCT\t\t2\n-\n+#define IMANUFACTURER   1\n+#define IPRODUCT        2\n+#define ISERIAL         3\n\\ No newline at end of file"
+ },
+ {
+  "sha": "1a432fffd4e1f06836f639a18b208a5fe77dd38d",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.cpp",
+  "status": "modified",
+  "additions": 10,
+  "deletions": 0,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp?ref=b945df9220e09461520bb19decf0a540fbd9c9fb",
+  "patch": "@@ -57,6 +57,16 @@ int HID_::getDescriptor(USBSetup& setup)\n \treturn total;\n }\n \n+uint8_t HID_::getShortName(char *name)\n+{\n+\tname[0] = 'H';\n+\tname[1] = 'I';\n+\tname[2] = 'D';\n+\tname[3] = 'A' + (descriptorSize & 0x0F);\n+\tname[4] = 'A' + ((descriptorSize >> 4) & 0x0F);\n+\treturn 5;\n+}\n+\n void HID_::AppendDescriptor(HIDSubDescriptor *node)\n {\n \tif (!rootNode) {"
+ },
+ {
+  "sha": "b6638c889ecd35debecfa3f581e92a03ed7af557",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b945df9220e09461520bb19decf0a540fbd9c9fb/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h?ref=b945df9220e09461520bb19decf0a540fbd9c9fb",
+  "patch": "@@ -96,6 +96,7 @@ class HID_ : public PluggableUSBModule\n   int getInterface(uint8_t* interfaceCount);\n   int getDescriptor(USBSetup& setup);\n   bool setup(USBSetup& setup);\n+  uint8_t getShortName(char* name);\n \n private:\n   uint8_t epType[1];"
+ }
+]

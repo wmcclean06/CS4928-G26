@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "51f447af961e0a18cb219060ffa3dfb3134d9892",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c530558009b4c5c849b4a489e2f9dd590c09a1b2/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c530558009b4c5c849b4a489e2f9dd590c09a1b2/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=c530558009b4c5c849b4a489e2f9dd590c09a1b2",
+  "patch": "@@ -196,6 +196,10 @@\n       <param name=\"dest_folder\" value=\"${target.path}/reference/\" />\n     </antcall>\n \n+    <!-- Fix wrong permissions from zip file root folder -->\n+    <chmod perm=\"755\" dir=\"${target.path}/reference/Galileo_help_files\" />\n+    <chmod perm=\"755\" dir=\"${target.path}/reference/Edison_help_files\" />\n+\n     <!-- Write the revision file! -->\n     <echo file=\"${target.path}/lib/version.txt\" message=\"${version}\" />\n "
+ }
+]

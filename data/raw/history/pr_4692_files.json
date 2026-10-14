@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "aa680b869f37ad2afc9db6dcd29bca24c5702605",
+  "filename": "arduino-core/src/cc/arduino/contributions/packages/ContributionsIndexer.java",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 2,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/9dba7f0da0ef50692adc4b03941f3cae02d56cd6/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/9dba7f0da0ef50692adc4b03941f3cae02d56cd6/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java?ref=9dba7f0da0ef50692adc4b03941f3cae02d56cd6",
+  "patch": "@@ -36,6 +36,8 @@\n import cc.arduino.contributions.SignatureVerifier;\n import cc.arduino.contributions.filters.BuiltInPredicate;\n import cc.arduino.contributions.filters.InstalledPredicate;\n+\n+import com.fasterxml.jackson.core.JsonProcessingException;\n import com.fasterxml.jackson.databind.DeserializationFeature;\n import com.fasterxml.jackson.databind.ObjectMapper;\n import com.fasterxml.jackson.module.mrbean.MrBeanModule;\n@@ -87,8 +89,13 @@ public void parseIndex() throws Exception {\n     File[] indexFiles = preferencesFolder.listFiles(new TestPackageIndexFilenameFilter(new PackageIndexFilenameFilter(Constants.DEFAULT_INDEX_FILE_NAME)));\n \n     for (File indexFile : indexFiles) {\n-      ContributionsIndex contributionsIndex = parseIndex(indexFile);\n-      mergeContributions(contributionsIndex, indexFile);\n+      try {\n+\t      ContributionsIndex contributionsIndex = parseIndex(indexFile);\n+\t      mergeContributions(contributionsIndex, indexFile);\n+      } catch (JsonProcessingException e) {\n+    \t  System.err.println(I18n.format(\"Skipping contributed index file {0}, parsing error occured:\", indexFile));\n+    \t  System.err.println(e);\n+      }\n     }\n \n     List<ContributedPackage> packages = index.getPackages();"
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "pr": 8184,
+ "base_sha": "799879e8ae9f0cb76c7a76f4e945347b92d6352d",
+ "head_sha": "b71a4969af16ea24bb313198650ab9965d109062",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 11,
+   "deletions": 27,
+   "old_sha": "26c7f67f4c8ae8d46694fa6c9ac138299e89d3bc",
+   "new_sha": "b118dbae256bd3df6a5886f59b6dca1f3d926e75",
+   "head_sha_check": "b118dbae256bd3df6a5886f59b6dca1f3d926e75",
+   "loc_at_head": 1982,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/Uploader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "54b5c7abd1ee6f99be028136ff592905900e88d8",
+   "new_sha": "f2e2126d54bf27d228630f7878a59c2aa6ee1cd9",
+   "head_sha_check": "f2e2126d54bf27d228630f7878a59c2aa6ee1cd9",
+   "loc_at_head": 159,
+   "notes": ""
+  }
+ ]
+}

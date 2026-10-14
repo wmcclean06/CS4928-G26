@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "83d849dd6efae97e4686aa5e0be0905928266a5c",
+  "filename": "app/src/cc/arduino/packages/MonitorFactory.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 1,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/53dfc0d022ac247a102a1d9beed08aa18bddedca/app%2Fsrc%2Fcc%2Farduino%2Fpackages%2FMonitorFactory.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/53dfc0d022ac247a102a1d9beed08aa18bddedca/app%2Fsrc%2Fcc%2Farduino%2Fpackages%2FMonitorFactory.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fpackages%2FMonitorFactory.java?ref=53dfc0d022ac247a102a1d9beed08aa18bddedca",
+  "patch": "@@ -37,7 +37,13 @@ public class MonitorFactory {\n \n   public AbstractMonitor newMonitor(BoardPort port) {\n     if (\"network\".equals(port.getProtocol())) {\n-      return new NetworkMonitor(port);\n+      if (\"yes\".equals(port.getPrefs().get(\"ssh_upload\"))) {\n+        // the board is SSH capable\n+        return new NetworkMonitor(port); \n+      } else {\n+        // SSH not supported, no monitor support\n+        return null;\n+      }\n     }\n \n     return new SerialMonitor(port);"
+ },
+ {
+  "sha": "7d26271953b985455526e85f5865711d5797bfec",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 0,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/53dfc0d022ac247a102a1d9beed08aa18bddedca/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/53dfc0d022ac247a102a1d9beed08aa18bddedca/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=53dfc0d022ac247a102a1d9beed08aa18bddedca",
+  "patch": "@@ -2318,6 +2318,14 @@ public void handleSerial() {\n     }\n \n     serialMonitor = new MonitorFactory().newMonitor(port);\n+    \n+    if (serialMonitor == null) {\n+      String board = port.getPrefs().get(\"board\");\n+      String boardName = BaseNoGui.getPlatform().resolveDeviceByBoardID(BaseNoGui.packages, board);\n+      statusError(I18n.format(tr(\"Serial monitor is not supported on network ports such as {0} for the {1} in this release\"), PreferencesData.get(\"serial.port\"), boardName));\n+      return;\n+    }\n+    \n     Base.setIcon(serialMonitor);\n \n     // If currently uploading, disable the monitor (it will be later"
+ }
+]

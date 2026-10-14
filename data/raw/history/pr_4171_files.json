@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "1df3061e3ed6e837b140e45486b2fe5fad3a3131",
+  "filename": "hardware/arduino/sam/cores/arduino/USB/CDC.cpp",
+  "status": "modified",
+  "additions": 30,
+  "deletions": 0,
+  "changes": 30,
+  "blob_url": "https://github.com/arduino/Arduino/blob/9759f2cc607a1d65eccb49e5271cb686b99442e3/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FCDC.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/9759f2cc607a1d65eccb49e5271cb686b99442e3/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FCDC.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FCDC.cpp?ref=9759f2cc607a1d65eccb49e5271cb686b99442e3",
+  "patch": "@@ -55,6 +55,8 @@ static volatile LineInfo _usbLineInfo = {\n     0x00   // lineState\n };\n \n+static volatile int32_t breakValue = -1;\n+\n _Pragma(\"pack(1)\")\n static const CDCDescriptor _cdcInterface =\n {\n@@ -141,6 +143,12 @@ bool WEAK CDC_Setup(USBSetup& setup)\n \t\t\t}\n \t\t\treturn true;\n \t\t}\n+\n+\t\tif (CDC_SEND_BREAK == r)\n+\t\t{\n+\t\t\tbreakValue = ((uint16_t)setup.wValueH << 8) | setup.wValueL;\n+\t\t\treturn true;\n+\t\t}\n \t}\n \treturn false;\n }\n@@ -300,6 +308,28 @@ Serial_::operator bool()\n \treturn result;\n }\n \n+int32_t Serial_::readBreak() {\n+\tuint8_t enableInterrupts = ((__get_PRIMASK() & 0x1) == 0 && \n+\t\t\t\t\t\t\t\t(__get_FAULTMASK() & 0x1) == 0);\n+\n+\t// disable interrupts,\n+\t// to avoid clearing a breakValue that might occur \n+\t// while processing the current break value\n+\t__disable_irq();\n+\n+\tint ret = breakValue;\n+\n+\tbreakValue = -1;\n+\n+\tif (enableInterrupts)\n+\t{\n+\t\t// re-enable the interrupts\n+\t\t__enable_irq();\n+\t}\n+\n+\treturn ret;\n+}\n+\n unsigned long Serial_::baud() {\n \treturn _usbLineInfo.dwDTERate;\n }"
+ },
+ {
+  "sha": "2eeaca08e880e4ca4b204e4f6e8a0e02a66854c5",
+  "filename": "hardware/arduino/sam/cores/arduino/USB/USBAPI.h",
+  "status": "modified",
+  "additions": 17,
+  "deletions": 0,
+  "changes": 17,
+  "blob_url": "https://github.com/arduino/Arduino/blob/9759f2cc607a1d65eccb49e5271cb686b99442e3/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBAPI.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/9759f2cc607a1d65eccb49e5271cb686b99442e3/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBAPI.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBAPI.h?ref=9759f2cc607a1d65eccb49e5271cb686b99442e3",
+  "patch": "@@ -63,6 +63,23 @@ class Serial_ : public Stream\n \tusing Print::write; // pull in write(str) from Print\n \toperator bool();\n \n+\t// This method allows processing \"SEND_BREAK\" requests sent by\n+\t// the USB host. Those requests indicate that the host wants to\n+\t// send a BREAK signal and are accompanied by a single uint16_t\n+\t// value, specifying the duration of the break. The value 0\n+\t// means to end any current break, while the value 0xffff means\n+\t// to start an indefinite break.\n+\t// readBreak() will return the value of the most recent break\n+\t// request, but will return it at most once, returning -1 when\n+\t// readBreak() is called again (until another break request is\n+\t// received, which is again returned once).\n+\t// This also mean that if two break requests are received\n+\t// without readBreak() being called in between, the value of the\n+\t// first request is lost.\n+\t// Note that the value returned is a long, so it can return\n+\t// 0-0xffff as well as -1.\n+\tint32_t readBreak();\n+\n \t// These return the settings specified by the USB host for the\n \t// serial port. These aren't really used, but are offered here\n \t// in case a sketch wants to act on these settings."
+ },
+ {
+  "sha": "465c71de1d5d7c98dd5ea315dcebf0662e2933c7",
+  "filename": "hardware/arduino/sam/cores/arduino/USB/USBCore.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/9759f2cc607a1d65eccb49e5271cb686b99442e3/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBCore.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/9759f2cc607a1d65eccb49e5271cb686b99442e3/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBCore.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBCore.h?ref=9759f2cc607a1d65eccb49e5271cb686b99442e3",
+  "patch": "@@ -55,6 +55,7 @@\n #define CDC_SET_LINE_CODING\t\t\t0x20\n #define CDC_GET_LINE_CODING\t\t\t0x21\n #define CDC_SET_CONTROL_LINE_STATE\t0x22\n+#define CDC_SEND_BREAK\t\t\t\t0x23\n \n #define MSC_RESET\t\t\t\t\t0xFF\n #define MSC_GET_MAX_LUN\t\t\t\t0xFE"
+ }
+]

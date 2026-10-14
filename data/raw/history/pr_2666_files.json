@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "8c7ec1db3813ddc0ab3a7d08e5301ad700e5e324",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 8,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/6d2aa17051311b8f31e2cdf53aa3003cb3a63199/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/6d2aa17051311b8f31e2cdf53aa3003cb3a63199/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=6d2aa17051311b8f31e2cdf53aa3003cb3a63199",
+  "patch": "@@ -1365,6 +1365,7 @@ public UndoAction() {\n     public void actionPerformed(ActionEvent e) {\n       try {\n         undo.undo();\n+        sketch.setModified(true);\n       } catch (CannotUndoException ex) {\n         //System.out.println(\"Unable to undo: \" + ex);\n         //ex.printStackTrace();\n@@ -1386,17 +1387,11 @@ protected void updateUndoState() {\n         undoItem.setEnabled(true);\n         undoItem.setText(undo.getUndoPresentationName());\n         putValue(Action.NAME, undo.getUndoPresentationName());\n-        if (sketch != null) {\n-          sketch.setModified(true);  // 0107\n-        }\n       } else {\n         this.setEnabled(false);\n         undoItem.setEnabled(false);\n         undoItem.setText(_(\"Undo\"));\n         putValue(Action.NAME, \"Undo\");\n-        if (sketch != null) {\n-          sketch.setModified(false);  // 0107\n-        }\n       }\n     }\n   }\n@@ -1411,6 +1406,7 @@ public RedoAction() {\n     public void actionPerformed(ActionEvent e) {\n       try {\n         undo.redo();\n+        sketch.setModified(true);\n       } catch (CannotRedoException ex) {\n         //System.out.println(\"Unable to redo: \" + ex);\n         //ex.printStackTrace();\n@@ -1697,10 +1693,12 @@ protected void setCode(SketchCodeDocument codeDoc) {\n       document.addUndoableEditListener(new UndoableEditListener() {\n         public void undoableEditHappened(UndoableEditEvent e) {\n           if (compoundEdit != null) {\n-            compoundEdit.addEdit(e.getEdit());\n-\n+            compoundEdit.addEdit(new CaretAwareUndoableEdit(e.getEdit(), textarea));\n           } else if (undo != null) {\n             undo.addEdit(new CaretAwareUndoableEdit(e.getEdit(), textarea));\n+          }\n+          if (compoundEdit != null || undo != null) {\n+            sketch.setModified(true);\n             undoAction.updateUndoState();\n             redoAction.updateRedoState();\n           }"
+ },
+ {
+  "sha": "555a03fcc8d67859fa879a361000b97dffc75b6f",
+  "filename": "app/test/processing/app/BlockCommentGeneratesOneUndoActionTest.java",
+  "status": "added",
+  "additions": 41,
+  "deletions": 0,
+  "changes": 41,
+  "blob_url": "https://github.com/arduino/Arduino/blob/6d2aa17051311b8f31e2cdf53aa3003cb3a63199/app%2Ftest%2Fprocessing%2Fapp%2FBlockCommentGeneratesOneUndoActionTest.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/6d2aa17051311b8f31e2cdf53aa3003cb3a63199/app%2Ftest%2Fprocessing%2Fapp%2FBlockCommentGeneratesOneUndoActionTest.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Ftest%2Fprocessing%2Fapp%2FBlockCommentGeneratesOneUndoActionTest.java?ref=6d2aa17051311b8f31e2cdf53aa3003cb3a63199",
+  "patch": "@@ -0,0 +1,41 @@\n+package processing.app;\n+\n+import org.fest.swing.edt.GuiActionRunner;\n+import org.fest.swing.edt.GuiQuery;\n+import org.fest.swing.fixture.JMenuItemFixture;\n+import org.junit.Test;\n+import processing.app.helpers.JEditTextAreaFixture;\n+\n+import java.awt.*;\n+\n+import static org.junit.Assert.assertEquals;\n+\n+public class BlockCommentGeneratesOneUndoActionTest extends AbstractGUITest {\n+\n+  @Test\n+  public void shouldUndoAndRedo() throws Exception {\n+    JMenuItemFixture menuEditUndo = window.menuItem(\"menuEditUndo\");\n+    menuEditUndo.requireDisabled();\n+\n+    JEditTextAreaFixture jEditTextArea = window.jEditTextArea(\"editor\");\n+    String previousText = jEditTextArea.getText();\n+\n+    jEditTextArea.selectAll();\n+\n+    GuiActionRunner.execute(new GuiQuery<Frame>() {\n+\n+      protected Frame executeInEDT() {\n+        window.getEditor().handleCommentUncomment();\n+        return window.getEditor();\n+      }\n+\n+    });\n+\n+    menuEditUndo.requireEnabled();\n+    menuEditUndo.click();\n+\n+    assertEquals(previousText, jEditTextArea.getText());\n+\n+    menuEditUndo.requireDisabled();\n+  }\n+}"
+ },
+ {
+  "sha": "a5832a904768f4c85a42ed89e462004606ccdd7e",
+  "filename": "app/test/processing/app/helpers/ArduinoFrameFixture.java",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 16,
+  "changes": 25,
+  "blob_url": "https://github.com/arduino/Arduino/blob/6d2aa17051311b8f31e2cdf53aa3003cb3a63199/app%2Ftest%2Fprocessing%2Fapp%2Fhelpers%2FArduinoFrameFixture.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/6d2aa17051311b8f31e2cdf53aa3003cb3a63199/app%2Ftest%2Fprocessing%2Fapp%2Fhelpers%2FArduinoFrameFixture.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Ftest%2Fprocessing%2Fapp%2Fhelpers%2FArduinoFrameFixture.java?ref=6d2aa17051311b8f31e2cdf53aa3003cb3a63199",
+  "patch": "@@ -1,30 +1,23 @@\n package processing.app.helpers;\n \n-import org.fest.swing.core.Robot;\n import org.fest.swing.fixture.FrameFixture;\n+import processing.app.Editor;\n import processing.app.syntax.JEditTextArea;\n \n-import java.awt.*;\n-\n public class ArduinoFrameFixture extends FrameFixture {\n \n-  public ArduinoFrameFixture(Frame target) {\n-    super(target);\n-  }\n-\n-  public ArduinoFrameFixture(org.fest.swing.core.Robot robot, Frame target) {\n-    super(robot, target);\n-  }\n-\n-  public ArduinoFrameFixture(Robot robot, String name) {\n-    super(robot, name);\n-  }\n+  private final Editor editor;\n \n-  public ArduinoFrameFixture(String name) {\n-    super(name);\n+  public ArduinoFrameFixture(Editor editor) {\n+    super(editor);\n+    this.editor = editor;\n   }\n \n   public JEditTextAreaFixture jEditTextArea(String name) {\n     return new JEditTextAreaFixture(robot, (JEditTextArea) this.robot.finder().find(new JEditTextAreaComponentMatcher(name)));\n   }\n+\n+  public Editor getEditor() {\n+    return editor;\n+  }\n }"
+ }
+]

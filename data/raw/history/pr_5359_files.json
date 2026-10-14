@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "5a7c091683ac0af7b0b1278b8724814aa0160465",
+  "filename": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellJPanel.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c5d9ae3c818f2f1e907bbd96cfb229cf129581bb/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c5d9ae3c818f2f1e907bbd96cfb229cf129581bb/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java?ref=c5d9ae3c818f2f1e907bbd96cfb229cf129581bb",
+  "patch": "@@ -221,6 +221,7 @@ private JTextPane makeNewDescription() {\n       StyleSheet s = html.getStyleSheet();\n       s.addRule(\"body { margin: 0; padding: 0;\"\n                 + \"font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;\"\n+                + \"color: black;\"\n                 + \"font-size: \" + 10 * Theme.getScale() / 100 + \"; }\");\n     }\n     description.setOpaque(false);"
+ }
+]

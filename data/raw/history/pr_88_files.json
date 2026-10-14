@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "33e368da00a9d7729e8cda09ca43cf7b99cf0ee6",
+  "filename": "app/src/processing/app/Preferences.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/354685bbffd3923f031f179382d616ce90920c60/app%2Fsrc%2Fprocessing%2Fapp%2FPreferences.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/354685bbffd3923f031f179382d616ce90920c60/app%2Fsrc%2Fprocessing%2Fapp%2FPreferences.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FPreferences.java?ref=354685bbffd3923f031f179382d616ce90920c60",
+  "patch": "@@ -138,7 +138,7 @@ public class Preferences {\n                         \"lv\",\n                         \"lt\",\n                         \"mr\",\n-                        \"no\",\n+                        \"no_nb\",\n                         \"fa\",\n                         \"pl\",\n                         \"pt_br\","
+ }
+]

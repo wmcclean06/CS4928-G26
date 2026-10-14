@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "1a2bcf0a7512796563af521c497f693c32f80eca",
+  "filename": "libraries/Ethernet/examples/BarometricPressureWebServer/BarometricPressureWebServer.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/30a5847eebfc7c2e02ddc831101a3870b4eb4438/libraries%2FEthernet%2Fexamples%2FBarometricPressureWebServer%2FBarometricPressureWebServer.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/30a5847eebfc7c2e02ddc831101a3870b4eb4438/libraries%2FEthernet%2Fexamples%2FBarometricPressureWebServer%2FBarometricPressureWebServer.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FBarometricPressureWebServer%2FBarometricPressureWebServer.ino?ref=30a5847eebfc7c2e02ddc831101a3870b4eb4438",
+  "patch": "@@ -4,7 +4,6 @@\n  Serves the output of a Barometric Pressure Sensor as a web page.\n  Uses the SPI library. For details on the sensor, see:\n  http://www.sparkfun.com/commerce/product_info.php?products_id=8161\n- http://www.vti.fi/en/support/obsolete_products/pressure_sensors/\n \n  This sketch adapted from Nathan Seidle's SCP1000 example for PIC:\n  http://www.sparkfun.com/datasheets/Sensors/SCP1000-Testing.zip"
+ }
+]

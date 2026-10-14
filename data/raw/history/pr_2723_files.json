@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "e33789b36ea6553fa2c773cf06d64e10a59a2196",
+  "filename": "app/src/processing/app/EditorToolbar.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 9,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b7b8a354045a581be66b7f64b3508e20f54d211b/app%2Fsrc%2Fprocessing%2Fapp%2FEditorToolbar.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b7b8a354045a581be66b7f64b3508e20f54d211b/app%2Fsrc%2Fprocessing%2Fapp%2FEditorToolbar.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorToolbar.java?ref=b7b8a354045a581be66b7f64b3508e20f54d211b",
+  "patch": "@@ -43,7 +43,7 @@ public class EditorToolbar extends JComponent implements MouseInputListener, Key\n \n   /** Titles for each button when the shift key is pressed. */ \n   static final String titleShift[] = {\n-    _(\"Verify\"), _(\"Upload Using Programmer\"), _(\"New Editor Window\"), _(\"Open in Another Window\"), _(\"Save\"), _(\"Serial Monitor\")\n+    _(\"Verify\"), _(\"Upload Using Programmer\"), _(\"New\"), _(\"Open in Another Window\"), _(\"Save\"), _(\"Serial Monitor\")\n   };\n \n   static final int BUTTON_COUNT  = title.length;\n@@ -334,14 +334,10 @@ public void mousePressed(MouseEvent e) {\n       break;\n \n     case NEW:\n-      if (shiftPressed) {\n-        try {\n-          editor.base.handleNew();\n-        } catch (Exception e1) {\n-          e1.printStackTrace();\n-        }\n-      } else {\n-        editor.base.handleNewReplace();\n+      try {\n+        editor.base.handleNew();\n+      } catch (Exception e1) {\n+        throw new RuntimeException(e1);\n       }\n       break;\n "
+ }
+]

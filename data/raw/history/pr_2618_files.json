@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "16e2500bc3751a97a4f26aee1900bedaa8009ce5",
+  "filename": "libraries/Ethernet/src/EthernetClient.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/eb0c2c9baa7db4f96a5b9e5b69b677552f7ce6b9/libraries%2FEthernet%2Fsrc%2FEthernetClient.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/eb0c2c9baa7db4f96a5b9e5b69b677552f7ce6b9/libraries%2FEthernet%2Fsrc%2FEthernetClient.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fsrc%2FEthernetClient.h?ref=eb0c2c9baa7db4f96a5b9e5b69b677552f7ce6b9",
+  "patch": "@@ -24,6 +24,8 @@ class EthernetClient : public Client {\n   virtual void stop();\n   virtual uint8_t connected();\n   virtual operator bool();\n+  virtual bool operator==(const bool value) { return bool() == value; }\n+  virtual bool operator!=(const bool value) { return bool() != value; }\n   virtual bool operator==(const EthernetClient&);\n   virtual bool operator!=(const EthernetClient& rhs) { return !this->operator==(rhs); };\n "
+ }
+]

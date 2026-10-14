@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "6963f8064a0d5b40d85dd4cfecd85eb2b9410a0f",
+  "filename": "libraries/Ethernet/keywords.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e75d029c811cf99efc08c27b33b13acfae61677f/libraries%2FEthernet%2Fkeywords.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e75d029c811cf99efc08c27b33b13acfae61677f/libraries%2FEthernet%2Fkeywords.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fkeywords.txt?ref=e75d029c811cf99efc08c27b33b13acfae61677f",
+  "patch": "@@ -30,6 +30,7 @@ endPacket\tKEYWORD2\n parsePacket\tKEYWORD2\n remoteIP\tKEYWORD2\n remotePort\tKEYWORD2\n+getSocketNumber\tKEYWORD2\n \n #######################################\n # Constants (LITERAL1)"
+ },
+ {
+  "sha": "a4950a155278e156f91bc9d991cf8fa88dd5e578",
+  "filename": "libraries/Ethernet/src/EthernetClient.cpp",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e75d029c811cf99efc08c27b33b13acfae61677f/libraries%2FEthernet%2Fsrc%2FEthernetClient.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e75d029c811cf99efc08c27b33b13acfae61677f/libraries%2FEthernet%2Fsrc%2FEthernetClient.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fsrc%2FEthernetClient.cpp?ref=e75d029c811cf99efc08c27b33b13acfae61677f",
+  "patch": "@@ -171,3 +171,7 @@ EthernetClient::operator bool() {\n bool EthernetClient::operator==(const EthernetClient& rhs) {\n   return _sock == rhs._sock && _sock != MAX_SOCK_NUM && rhs._sock != MAX_SOCK_NUM;\n }\n+\n++uint8_t EthernetClient::getSocketNumber () {\n++\treturn _sock;\n++}"
+ },
+ {
+  "sha": "52a3b8f4284dd9ae7f08fefeebd9d44d82bf0944",
+  "filename": "libraries/Ethernet/src/EthernetClient.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e75d029c811cf99efc08c27b33b13acfae61677f/libraries%2FEthernet%2Fsrc%2FEthernetClient.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e75d029c811cf99efc08c27b33b13acfae61677f/libraries%2FEthernet%2Fsrc%2FEthernetClient.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fsrc%2FEthernetClient.h?ref=e75d029c811cf99efc08c27b33b13acfae61677f",
+  "patch": "@@ -28,6 +28,7 @@ class EthernetClient : public Client {\n   virtual bool operator!=(const bool value) { return bool() != value; }\n   virtual bool operator==(const EthernetClient&);\n   virtual bool operator!=(const EthernetClient& rhs) { return !this->operator==(rhs); };\n+  uint8_t getSocketNumber();\n \n   friend class EthernetServer;\n   "
+ }
+]

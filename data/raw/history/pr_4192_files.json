@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "7c00a17b65efbc409570badbabb586d6a0c5ddd4",
+  "filename": "build/shared/revisions.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e46375c0891e047796056ca693be8985a445a4d7/build%2Fshared%2Frevisions.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e46375c0891e047796056ca693be8985a445a4d7/build%2Fshared%2Frevisions.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Frevisions.txt?ref=e46375c0891e047796056ca693be8985a445a4d7",
+  "patch": "@@ -15,6 +15,7 @@ ARDUINO 1.6.7\n \n [core]\n * Fixed wrong timings for HardwareSerial::flush() in SAM core. Thanks @borisff\n+* Leonardo/Micro (and other atmega32u4 based boards) now have SerialUSB alias for Serial\n \n ARDUINO 1.6.6 - 2015.11.03\n "
+ },
+ {
+  "sha": "115974eaf01a6538b0d5f50498d101c735390805",
+  "filename": "hardware/arduino/avr/variants/leonardo/pins_arduino.h",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e46375c0891e047796056ca693be8985a445a4d7/hardware%2Farduino%2Favr%2Fvariants%2Fleonardo%2Fpins_arduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e46375c0891e047796056ca693be8985a445a4d7/hardware%2Farduino%2Favr%2Fvariants%2Fleonardo%2Fpins_arduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fvariants%2Fleonardo%2Fpins_arduino.h?ref=e46375c0891e047796056ca693be8985a445a4d7",
+  "patch": "@@ -356,4 +356,7 @@ const uint8_t PROGMEM analog_pin_to_channel_PGM[] = {\n #define SERIAL_PORT_HARDWARE       Serial1\n #define SERIAL_PORT_HARDWARE_OPEN  Serial1\n \n+// Alias SerialUSB to Serial\n+#define SerialUSB SERIAL_PORT_USBVIRTUAL\n+\n #endif /* Pins_Arduino_h */"
+ }
+]

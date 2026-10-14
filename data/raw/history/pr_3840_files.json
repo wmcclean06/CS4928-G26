@@ -1,0 +1,74 @@
+[
+ {
+  "sha": "8533f08ed402f5a91dde2f0d47c680b8fb97255a",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.cpp",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp?ref=401c4f0cf87b4cac320bccd1bfa4eb836fd37955",
+  "patch": "@@ -61,7 +61,7 @@ int HID_GetDescriptor(int8_t t)\n \t\tHIDDescriptorListNode* current = rootNode;\n \t\tint total = 0;\n \t\twhile(current != NULL) {\n-\t\t\ttotal += USB_SendControl(TRANSFER_PGM,current->cb->descriptor,current->cb->length);\n+\t\t\ttotal += USB_SendControl(TRANSFER_PGM,current->data,current->length);\n \t\t\tcurrent = current->next;\n \t\t}\n \t\treturn total;\n@@ -82,7 +82,7 @@ void HID_::AppendDescriptor(HIDDescriptorListNode *node)\n \t\tcurrent->next = node;\n \t}\n \tmodules_count++;\n-\tsizeof_hidReportDescriptor += (uint16_t)node->cb->length;\n+\tsizeof_hidReportDescriptor += (uint16_t)node->length;\n }\n \n void HID_::SendReport(u8 id, const void* data, int len)"
+ },
+ {
+  "sha": "1a87bb7cb2bc32a8558b1dbcfc60c94e373437f1",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.h",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 7,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h?ref=401c4f0cf87b4cac320bccd1bfa4eb836fd37955",
+  "patch": "@@ -44,16 +44,13 @@\n #define HID_REPORT_DESCRIPTOR_TYPE      0x22\n #define HID_PHYSICAL_DESCRIPTOR_TYPE    0x23\n \n-typedef struct __attribute__((packed)) {\n-  uint16_t length;\n-  const void* descriptor;\n-} HID_Descriptor;\n-\n class HIDDescriptorListNode {\n public:\n   HIDDescriptorListNode *next = NULL;\n-  const HID_Descriptor * cb;\n-  HIDDescriptorListNode(const HID_Descriptor *ncb) {cb = ncb;}\n+  HIDDescriptorListNode(const void *d, uint16_t l) : data(d), length(l) { }\n+\n+  const void* data;\n+  uint16_t length;\n };\n \n class HID_"
+ },
+ {
+  "sha": "b2a79423e35b69fce0c80feba9b513d0024ec21d",
+  "filename": "hardware/arduino/sam/libraries/HID/HID.cpp",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/hardware%2Farduino%2Fsam%2Flibraries%2FHID%2FHID.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/hardware%2Farduino%2Fsam%2Flibraries%2FHID%2FHID.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Flibraries%2FHID%2FHID.cpp?ref=401c4f0cf87b4cac320bccd1bfa4eb836fd37955",
+  "patch": "@@ -68,7 +68,7 @@ int HID_GetDescriptor(int8_t t)\n \t\tHIDDescriptorListNode* current = rootNode;\n \t\tint total = 0;\n \t\twhile(current != NULL) {\n-\t\t\ttotal += USBD_SendControl(0,current->cb->descriptor,current->cb->length);\n+\t\t\ttotal += USBD_SendControl(0,current->data,current->length);\n \t\t\tcurrent = current->next;\n \t\t}\n \t\treturn total;\n@@ -89,7 +89,7 @@ void HID_::AppendDescriptor(HIDDescriptorListNode *node)\n \t\tcurrent->next = node;\n \t}\n \tmodules_count++;\n-\tsizeof_hidReportDescriptor += node->cb->length;\n+\tsizeof_hidReportDescriptor += node->length;\n }\n \n void HID_::SendReport(uint8_t id, const void* data, int len)\n@@ -165,4 +165,4 @@ HID_::HID_(void)\n int HID_::begin(void)\n {\n \treturn 0;\n-}\n\\ No newline at end of file\n+}"
+ },
+ {
+  "sha": "5c8313b5d11941ff97b1de41e185c877f40e04f3",
+  "filename": "hardware/arduino/sam/libraries/HID/HID.h",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 8,
+  "changes": 12,
+  "blob_url": "https://github.com/arduino/Arduino/blob/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/hardware%2Farduino%2Fsam%2Flibraries%2FHID%2FHID.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/hardware%2Farduino%2Fsam%2Flibraries%2FHID%2FHID.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Flibraries%2FHID%2FHID.h?ref=401c4f0cf87b4cac320bccd1bfa4eb836fd37955",
+  "patch": "@@ -42,16 +42,12 @@\n #define HID_REPORT_DESCRIPTOR_TYPE      0x22\n #define HID_PHYSICAL_DESCRIPTOR_TYPE    0x23\n \n-typedef struct __attribute__((packed)) {\n-  uint8_t length;\n-  const void* descriptor;\n-} HID_Descriptor;\n-\n class HIDDescriptorListNode {\n public:\n   HIDDescriptorListNode *next = NULL;\n-  const HID_Descriptor * cb;\n-  HIDDescriptorListNode(const HID_Descriptor *ncb) {cb = ncb;}\n+  HIDDescriptorListNode(const void *d, uint16_t l) : data(d), length(l) { }\n+  uint8_t length;\n+  const void* data;\n };\n \n class HID_\n@@ -90,4 +86,4 @@ typedef struct\n \n #define WEAK __attribute__ ((weak))\n \n-#endif\n\\ No newline at end of file\n+#endif"
+ },
+ {
+  "sha": "468891de7f68b02cd90ec63bccd300ddbfdd6cd7",
+  "filename": "libraries/Keyboard/src/Keyboard.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 5,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/libraries%2FKeyboard%2Fsrc%2FKeyboard.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/libraries%2FKeyboard%2Fsrc%2FKeyboard.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FKeyboard%2Fsrc%2FKeyboard.cpp?ref=401c4f0cf87b4cac320bccd1bfa4eb836fd37955",
+  "patch": "@@ -62,11 +62,7 @@ static const uint8_t _hidReportDescriptor[] PROGMEM = {\n \n Keyboard_::Keyboard_(void) \n {\n-\tstatic HID_Descriptor cb = {\n-\t\t.length = sizeof(_hidReportDescriptor),\n-\t\t.descriptor = _hidReportDescriptor,\n-\t};\n-\tstatic HIDDescriptorListNode node(&cb);\n+\tstatic HIDDescriptorListNode node(_hidReportDescriptor, sizeof(_hidReportDescriptor));\n \tHID.AppendDescriptor(&node);\n }\n "
+ },
+ {
+  "sha": "0cb5b2908fb73a9a0f3c1ce33459b9bc7477f832",
+  "filename": "libraries/Mouse/src/Mouse.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 5,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/libraries%2FMouse%2Fsrc%2FMouse.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/401c4f0cf87b4cac320bccd1bfa4eb836fd37955/libraries%2FMouse%2Fsrc%2FMouse.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FMouse%2Fsrc%2FMouse.cpp?ref=401c4f0cf87b4cac320bccd1bfa4eb836fd37955",
+  "patch": "@@ -62,11 +62,7 @@ static const uint8_t _hidReportDescriptor[] PROGMEM = {\n \n Mouse_::Mouse_(void) : _buttons(0)\n {\n-    const static HID_Descriptor cb = {\n-        .length = sizeof(_hidReportDescriptor),\n-        .descriptor = _hidReportDescriptor,\n-    };\n-    static HIDDescriptorListNode node(&cb);\n+    static HIDDescriptorListNode node(_hidReportDescriptor, sizeof(_hidReportDescriptor));\n     HID.AppendDescriptor(&node);\n }\n "
+ }
+]

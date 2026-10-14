@@ -1,0 +1,31 @@
+{
+ "pr": 5383,
+ "base_sha": "c1291eeddedfa270727bef5f8484e8092d1e58d8",
+ "head_sha": "1efa07f01058c249117d7f2b05984df86c156f2b",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/view/findreplace/FindReplace.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 8,
+   "deletions": 15,
+   "old_sha": "f5e6a81f1843d80b1f78b8c700c9f5f89e77f25a",
+   "new_sha": "6af1f397bdbada0e952715f9eddc552b3cdf3b37",
+   "head_sha_check": "6af1f397bdbada0e952715f9eddc552b3cdf3b37",
+   "loc_at_head": 383,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/EditorTab.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 1,
+   "old_sha": "0a72783431cc79c10a471eba0cb438a621ed75f8",
+   "new_sha": "988b7813657fba29fd6b05409933af3c43aa83ac",
+   "head_sha_check": "988b7813657fba29fd6b05409933af3c43aa83ac",
+   "loc_at_head": 521,
+   "notes": ""
+  }
+ ]
+}

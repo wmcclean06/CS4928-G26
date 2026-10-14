@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "8bf415385b5ebd874f61217ba633bb4a6265b4d0",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/76f4668f02e149efc69334009ff8f8124b2111a0/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/76f4668f02e149efc69334009ff8f8124b2111a0/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=76f4668f02e149efc69334009ff8f8124b2111a0",
+  "patch": "@@ -761,6 +761,7 @@ public void actionPerformed(ActionEvent e) {\n       portMenu = new JMenu(tr(\"Port\"));\n     populatePortMenu();\n     toolsMenu.add(portMenu);\n+    MenuScroller.setScrollerFor(portMenu);\n     item = new JMenuItem(tr(\"Get Board Info\"));\n     item.addActionListener(e -> handleBoardInfo());\n     toolsMenu.add(item);"
+ }
+]

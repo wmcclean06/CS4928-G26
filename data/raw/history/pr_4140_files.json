@@ -1,0 +1,25 @@
+[
+ {
+  "sha": "ab5254a8b100bfd4e4994362abc42d832a0b7f5d",
+  "filename": "build/hs_err_pid4156.log",
+  "status": "added",
+  "additions": 1259,
+  "deletions": 0,
+  "changes": 1259,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d5078b76f6564103b635a76cc9ee4d7f61f5d59c/build%2Fhs_err_pid4156.log",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d5078b76f6564103b635a76cc9ee4d7f61f5d59c/build%2Fhs_err_pid4156.log",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fhs_err_pid4156.log?ref=d5078b76f6564103b635a76cc9ee4d7f61f5d59c"
+ },
+ {
+  "sha": "696dc6cd4713839f263552c8231c90b86069c4db",
+  "filename": "build/shared/lib/keywords.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d5078b76f6564103b635a76cc9ee4d7f61f5d59c/build%2Fshared%2Flib%2Fkeywords.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d5078b76f6564103b635a76cc9ee4d7f61f5d59c/build%2Fshared%2Flib%2Fkeywords.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Flib%2Fkeywords.txt?ref=d5078b76f6564103b635a76cc9ee4d7f61f5d59c",
+  "patch": "@@ -113,6 +113,7 @@ lowByte\tKEYWORD2\tLowByte\n \n analogReference\tKEYWORD2\tAnalogReference\n analogRead\tKEYWORD2\tAnalogRead\n+analogReadResolution\tKEYWORD2\tAnalogReadResolution\n analogWrite\tKEYWORD2\tAnalogWrite\n attachInterrupt\tKEYWORD2\tAttachInterrupt\n detachInterrupt\tKEYWORD2\tDetachInterrupt"
+ }
+]

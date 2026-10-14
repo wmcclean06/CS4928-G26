@@ -1,0 +1,43 @@
+{
+ "pr": 4327,
+ "base_sha": "fa4876b7b1845d5e7b93590e066ad976125aa7c3",
+ "head_sha": "07903b8585a6af8f28fea7b13500bc0ca5bbad20",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 21,
+   "old_sha": "9a30f5250b8c0aa9ee3a24e24e1d478f70302af0",
+   "new_sha": "3fe6618952f183307d58042d6b55d1824b0f3da3",
+   "head_sha_check": "3fe6618952f183307d58042d6b55d1824b0f3da3",
+   "loc_at_head": 2494,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/syntax/SketchTextAreaDefaultInputMap.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 2,
+   "old_sha": "f713e26d5eda424cca94588d0a48ba7b0c9d24b8",
+   "new_sha": "5e3b59646f1282241822a92ab36b403a040b9669",
+   "head_sha_check": "5e3b59646f1282241822a92ab36b403a040b9669",
+   "loc_at_head": 53,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/syntax/SketchTextAreaEditorKit.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 35,
+   "deletions": 0,
+   "old_sha": "41379ae0b0a43f7139e7025206906326bd2e0640",
+   "new_sha": "35574b16ca988a5925882c89f7887bd42de87cba",
+   "head_sha_check": "35574b16ca988a5925882c89f7887bd42de87cba",
+   "loc_at_head": 220,
+   "notes": ""
+  }
+ ]
+}

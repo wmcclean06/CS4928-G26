@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "45faaecd00ff0c11da0b991784f767543e133d9b",
+  "filename": "libraries/Stepper/src/Stepper.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d31826af1f4644d2622bec061a26a3fd8f82731a/libraries%2FStepper%2Fsrc%2FStepper.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d31826af1f4644d2622bec061a26a3fd8f82731a/libraries%2FStepper%2Fsrc%2FStepper.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FStepper%2Fsrc%2FStepper.cpp?ref=d31826af1f4644d2622bec061a26a3fd8f82731a",
+  "patch": "@@ -72,7 +72,7 @@\n  *\n  * The circuits can be found at\n  *\n- * http://www.arduino.cc/en/Tutorial/Stepper\n+ * http://www.arduino.cc/en/Reference/Stepper\n  */\n \n #include \"Arduino.h\""
+ },
+ {
+  "sha": "7b77e729fcffcdf409064313e2213e2d66482ebf",
+  "filename": "libraries/Stepper/src/Stepper.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d31826af1f4644d2622bec061a26a3fd8f82731a/libraries%2FStepper%2Fsrc%2FStepper.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d31826af1f4644d2622bec061a26a3fd8f82731a/libraries%2FStepper%2Fsrc%2FStepper.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FStepper%2Fsrc%2FStepper.h?ref=d31826af1f4644d2622bec061a26a3fd8f82731a",
+  "patch": "@@ -72,7 +72,7 @@\n  *\n  * The circuits can be found at\n  *\n- * http://www.arduino.cc/en/Tutorial/Stepper\n+ * http://www.arduino.cc/en/Reference/Stepper\n  */\n \n // ensure this library description is only included once"
+ }
+]

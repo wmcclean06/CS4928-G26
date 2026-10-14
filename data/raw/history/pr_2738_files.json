@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "dd5d7128f65b050219d8f46e7794e76a466ed911",
+  "filename": "arduino-core/src/processing/app/debug/Compiler.java",
+  "status": "modified",
+  "additions": 23,
+  "deletions": 0,
+  "changes": 23,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0644bdc51cbdca0afd7fd42c4e557a9e22873d74/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0644bdc51cbdca0afd7fd42c4e557a9e22873d74/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java?ref=0644bdc51cbdca0afd7fd42c4e557a9e22873d74",
+  "patch": "@@ -183,6 +183,9 @@ public Compiler(SketchData _sketch, String _buildPath, String _primaryClassName)\n     sketch = _sketch;\n     prefs = createBuildPreferences(_buildPath, _primaryClassName);\n \n+    // provide access to the source tree\n+    prefs.put(\"build.source.path\", _sketch.getFolder().getAbsolutePath());\n+\n     // Start with an empty progress listener\n     progressListener = new ProgressListener() {\n       @Override\n@@ -346,6 +349,10 @@ public boolean compile(boolean _verbose) throws RunnerException, PreferencesMapE\n     \n     verbose = _verbose || PreferencesData.getBoolean(\"build.verbose\");\n     sketchIsCompiled = false;\n+\n+    // Hook runs at Start of Compilation\n+    runActions(\"hooks.prebuild\", prefs);\n+\n     objectFiles = new ArrayList<File>();\n \n     // 0. include paths for core + all libraries\n@@ -413,6 +420,10 @@ public boolean compile(boolean _verbose) throws RunnerException, PreferencesMapE\n     }\n \n     progressListener.progress(90);\n+\n+    // Hook runs at End of Compilation\n+    runActions(\"hooks.postbuild\", prefs);\n+\n     return true;\n   }\n \n@@ -1034,6 +1045,18 @@ void compileLink()\n     execAsynchronously(cmdArray);\n   }\n \n+  void runActions(String recipeClass, PreferencesMap prefs) throws RunnerException, PreferencesMapException {\n+    List<String> patterns = new ArrayList<String>();\n+    for (String key : prefs.keySet()) {\n+    if (key.startsWith(\"recipe.\"+recipeClass) && key.endsWith(\".pattern\"))\n+      patterns.add(key);\n+    }\n+    Collections.sort(patterns);\n+    for (String recipe : patterns) {\n+      runRecipe(recipe);\n+    }\n+  }\n+\n   void runRecipe(String recipe) throws RunnerException, PreferencesMapException {\n     PreferencesMap dict = new PreferencesMap(prefs);\n     dict.put(\"ide_version\", \"\" + BaseNoGui.REVISION);"
+ }
+]

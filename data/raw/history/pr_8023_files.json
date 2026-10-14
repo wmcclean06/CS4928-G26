@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "62057e71b76351ac23bd3a49a491dfd8e24cecc8",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 4,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/36da22c08646d8ac62245ac0b2c05bb8e009ca06/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/36da22c08646d8ac62245ac0b2c05bb8e009ca06/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=36da22c08646d8ac62245ac0b2c05bb8e009ca06",
+  "patch": "@@ -49,6 +49,7 @@\n import processing.app.debug.TargetPackage;\n import processing.app.debug.TargetPlatform;\n import processing.app.helpers.*;\n+import processing.app.helpers.OSUtils;\n import processing.app.helpers.filefilters.OnlyDirs;\n import processing.app.helpers.filefilters.OnlyFilesWithExtension;\n import processing.app.javax.swing.filechooser.FileNameExtensionFilter;\n@@ -931,15 +932,14 @@ public boolean handleClose(Editor editor) {\n     }\n \n     if (editors.size() == 1) {\n-\n+      editor.setVisible(false);\n+      editors.remove(editor);\n       handleQuit();\n-\n     } else {\n       // More than one editor window open,\n       // proceed with closing the current window.\n       editor.setVisible(false);\n       editor.dispose();\n-\n       editors.remove(editor);\n     }\n     return true;\n@@ -974,7 +974,7 @@ public boolean handleQuit() {\n       // Save out the current prefs state\n       PreferencesData.save();\n \n-      if (!OSUtils.hasMacOSStyleMenus()) {\n+      if (!OSUtils.isMacOS()) {\n         // If this was fired from the menu or an AppleEvent (the Finder),\n         // then Mac OS X will send the terminate signal itself.\n         System.exit(0);"
+ },
+ {
+  "sha": "590196ace959a2add2ad4f49d7f7cca5123f339a",
+  "filename": "app/src/processing/app/macosx/ThinkDifferent.java",
+  "status": "modified",
+  "additions": 16,
+  "deletions": 0,
+  "changes": 16,
+  "blob_url": "https://github.com/arduino/Arduino/blob/36da22c08646d8ac62245ac0b2c05bb8e009ca06/app%2Fsrc%2Fprocessing%2Fapp%2Fmacosx%2FThinkDifferent.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/36da22c08646d8ac62245ac0b2c05bb8e009ca06/app%2Fsrc%2Fprocessing%2Fapp%2Fmacosx%2FThinkDifferent.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fmacosx%2FThinkDifferent.java?ref=36da22c08646d8ac62245ac0b2c05bb8e009ca06",
+  "patch": "@@ -23,6 +23,8 @@\n package processing.app.macosx;\n \n import com.apple.eawt.*;\n+import com.apple.eawt.AppEvent.AppReOpenedEvent;\n+\n import processing.app.Base;\n import processing.app.Editor;\n \n@@ -45,6 +47,20 @@ public class ThinkDifferent {\n \n   static public void init() {\n     Application application = Application.getApplication();\n+\n+    application.addAppEventListener(new AppReOpenedListener() {\n+      @Override\n+        public void appReOpened(AppReOpenedEvent aroe) {\n+          try {\n+            if (Base.INSTANCE.getEditors().size() == 0) {\n+              Base.INSTANCE.handleNew();\n+            }\n+          } catch (Exception e) {\n+            // TODO Auto-generated catch block\n+            e.printStackTrace();\n+          }\n+      }\n+    });\n     application.setAboutHandler(new AboutHandler() {\n       @Override\n       public void handleAbout(AppEvent.AboutEvent aboutEvent) {"
+ }
+]

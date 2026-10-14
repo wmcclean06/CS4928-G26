@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "fefae472fd94d4aee712c2dd21b9673d011c41a4",
+  "filename": "build/shared/revisions.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/800cdd0fe04c807febb456dba96d402d5a90244e/build%2Fshared%2Frevisions.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/800cdd0fe04c807febb456dba96d402d5a90244e/build%2Fshared%2Frevisions.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Frevisions.txt?ref=800cdd0fe04c807febb456dba96d402d5a90244e",
+  "patch": "@@ -15,6 +15,8 @@ ARDUINO 1.6.4\n \n [libraries]\n * Bridge fixes\n+* SD: allow multiple SD instances (@squelched)\n+* SD: fix examples with Ethernet shield\n \n ARDUINO 1.6.3 - 2015.04.02\n "
+ }
+]

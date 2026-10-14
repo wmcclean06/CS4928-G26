@@ -1,0 +1,19 @@
+{
+ "pr": 6897,
+ "base_sha": "4b374dc16dc5237daeac6f6ead9f76aaf9b26941",
+ "head_sha": "303e199dca56e9d987dbee4c0dfbb0a9378011fc",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/Compiler.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 20,
+   "deletions": 5,
+   "old_sha": "be942ec79af895857d4c9d4370cc2ffaba50f3e6",
+   "new_sha": "464686cf90f3d18f79384d91e22755eda17b5736",
+   "head_sha_check": "464686cf90f3d18f79384d91e22755eda17b5736",
+   "loc_at_head": 532,
+   "notes": ""
+  }
+ ]
+}

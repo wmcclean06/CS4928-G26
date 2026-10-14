@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "afbbedcd4d8074b0079994092a88c1387ddd0da4",
+  "filename": "build/linux/dist/appdata.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/21559ef0a5728a90d812a6b0170e0350297b83f8/build%2Flinux%2Fdist%2Fappdata.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/21559ef0a5728a90d812a6b0170e0350297b83f8/build%2Flinux%2Fdist%2Fappdata.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Fappdata.xml?ref=21559ef0a5728a90d812a6b0170e0350297b83f8",
+  "patch": "@@ -36,6 +36,7 @@\n   <content_rating type=\"oars-1.1\" />\n \n   <releases>\n+    <release date=\"2018-08-23\" version=\"1.8.6\"/>\n     <release date=\"2017-10-02\" version=\"1.8.5\"/>\n     <release date=\"2017-08-21\" version=\"1.8.4\"/>\n     <release date=\"2017-06-05\" version=\"1.8.3\"/>"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "df75f7fe98c0908d7beea10bffd917cde983c6c9",
+  "filename": "libraries/LiquidCrystal/examples/setCursor/setCursor.ino",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c3d3016049855f8624bee23452ac71635c15d4e8/libraries%2FLiquidCrystal%2Fexamples%2FsetCursor%2FsetCursor.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c3d3016049855f8624bee23452ac71635c15d4e8/libraries%2FLiquidCrystal%2Fexamples%2FsetCursor%2FsetCursor.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FLiquidCrystal%2Fexamples%2FsetCursor%2FsetCursor.ino?ref=c3d3016049855f8624bee23452ac71635c15d4e8",
+  "patch": "@@ -7,7 +7,7 @@\n  can usually tell them by the 16-pin interface.\n \n  This sketch prints to all the positions of the LCD using the\n- setCursor(0 method:\n+ setCursor() method:\n \n   The circuit:\n  * LCD RS pin to digital pin 12\n@@ -56,9 +56,9 @@ void loop() {\n   // loop from ASCII 'a' to ASCII 'z':\n   for (int thisLetter = 'a'; thisLetter <= 'z'; thisLetter++) {\n     // loop over the columns:\n-    for (int thisCol = 0; thisCol < numRows; thisCol++) {\n+    for (int  thisRow = 0; thisRow < numRows; thisRow++) {\n       // loop over the rows:\n-      for (int thisRow = 0; thisRow < numCols; thisRow++) {\n+      for (int thisCol = 0; thisCol < numCols; thisCol++) {\n         // set the cursor position:\n         lcd.setCursor(thisCol, thisRow);\n         // print the letter:"
+ }
+]

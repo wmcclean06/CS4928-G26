@@ -1,0 +1,31 @@
+{
+ "pr": 8647,
+ "base_sha": "20e177084225813dea9cb172b22c2c358bd9d46f",
+ "head_sha": "6f7676af14e35f60b6a7df29bc4c4a2f8053c1ac",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 0,
+   "old_sha": "62ebfc2acafcbf3b9aec0031cb4ec26092833396",
+   "new_sha": "02802c4cd7ac6e680e2852019c20fdf81859ecbb",
+   "head_sha_check": "02802c4cd7ac6e680e2852019c20fdf81859ecbb",
+   "loc_at_head": 1991,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/UIHelper.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 119,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "1763a4e1ed20fe366f62456e1946386d9b525df8",
+   "head_sha_check": "1763a4e1ed20fe366f62456e1946386d9b525df8",
+   "loc_at_head": 108,
+   "notes": "added"
+  }
+ ]
+}

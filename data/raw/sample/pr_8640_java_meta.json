@@ -1,0 +1,31 @@
+{
+ "pr": 8640,
+ "base_sha": "a87024dcd49cf591c3c5cbd93e8b6f32d39399be",
+ "head_sha": "14fb22775a41179c8a4481e18ab84d8323517b15",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/AbstractTextMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 9,
+   "deletions": 0,
+   "old_sha": "64a0928e55e76af272e5ca51d1695f48e8857c11",
+   "new_sha": "4e950b36b04fd9a44cf9bcf181ec6523f56d8785",
+   "head_sha_check": "4e950b36b04fd9a44cf9bcf181ec6523f56d8785",
+   "loc_at_head": 189,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/SerialMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 10,
+   "deletions": 1,
+   "old_sha": "d4f59019eaedfcf06b18309f19521853353e31b8",
+   "new_sha": "bc66af2fd21f9e18548c2baa570099dd95085653",
+   "head_sha_check": "bc66af2fd21f9e18548c2baa570099dd95085653",
+   "loc_at_head": 103,
+   "notes": ""
+  }
+ ]
+}

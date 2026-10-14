@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "09c14489506ad45e55cc1cf624253d3e4d420074",
+  "filename": "hardware/arduino/avr/cores/arduino/Arduino.h",
+  "status": "modified",
+  "additions": 12,
+  "deletions": 4,
+  "changes": 16,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a2a17a0c83afdd6812664f32161db0ccdb535ad6/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FArduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a2a17a0c83afdd6812664f32161db0ccdb535ad6/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FArduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FArduino.h?ref=a2a17a0c83afdd6812664f32161db0ccdb535ad6",
+  "patch": "@@ -61,10 +61,18 @@ void yield(void);\n #define FALLING 2\n #define RISING 3\n \n-#if defined(__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__) || defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__)\n-#define DEFAULT 0\n-#define EXTERNAL 1\n-#define INTERNAL 2\n+#if defined(__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__)\n+  #define DEFAULT 0\n+  #define EXTERNAL 1\n+  #define INTERNAL1V1 2\n+  #define INTERNAL INTERNAL1V1\n+#elif defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__)\n+  #define DEFAULT 0\n+  #define EXTERNAL 4\n+  #define INTERNAL1V1 8\n+  #define INTERNAL INTERNAL1V1\n+  #define INTERNAL2V56 9\n+  #define INTERNAL2V56_EXTCAP 13\n #else  \n #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__)\n #define INTERNAL1V1 2"
+ },
+ {
+  "sha": "967c2b9761faf4765a4d262c81e50ef0cd57610a",
+  "filename": "hardware/arduino/avr/cores/arduino/wiring_analog.c",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a2a17a0c83afdd6812664f32161db0ccdb535ad6/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring_analog.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a2a17a0c83afdd6812664f32161db0ccdb535ad6/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring_analog.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring_analog.c?ref=a2a17a0c83afdd6812664f32161db0ccdb535ad6",
+  "patch": "@@ -64,7 +64,11 @@ int analogRead(uint8_t pin)\n \t// channel (low 4 bits).  this also sets ADLAR (left-adjust result)\n \t// to 0 (the default).\n #if defined(ADMUX)\n+#if defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__)\n+\tADMUX = (analog_reference << 4) | (pin & 0x07);\n+#else\n \tADMUX = (analog_reference << 6) | (pin & 0x07);\n+#endif\n #endif\n \n \t// without a delay, we seem to read from the wrong channel"
+ }
+]

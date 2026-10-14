@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "41a2eef89533bac24ebef2feccddd14856facf4b",
+  "filename": "README.md",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1f128e06da8f98b75413a483269d181d916e3019/README.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1f128e06da8f98b75413a483269d181d916e3019/README.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/README.md?ref=1f128e06da8f98b75413a483269d181d916e3019",
+  "patch": "@@ -47,7 +47,7 @@ Arduino uses\n [avrdude](http://www.nongnu.org/avrdude/),\n [bossac](http://www.shumatech.com/web/products/bossa),\n [openOCD](http://openocd.org/)\n-and code from [Processing](http://www.processing.org)\n+and code from [Processing](https://www.processing.org)\n and [Wiring](http://wiring.org.co).\n \n Icon and about image designed by [ToDo](https://www.todo.to.it/)"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "fef81c3d10b27729f68e2c2b116975d14c6b7dad",
+  "filename": "build/readme.md",
+  "status": "renamed",
+  "additions": 0,
+  "deletions": 0,
+  "changes": 0,
+  "blob_url": "https://github.com/arduino/Arduino/blob/36d597f93e7f3d7be2e87f8c88c04e651a9969c5/build%2Freadme.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/36d597f93e7f3d7be2e87f8c88c04e651a9969c5/build%2Freadme.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Freadme.md?ref=36d597f93e7f3d7be2e87f8c88c04e651a9969c5",
+  "previous_filename": "build/howto.txt"
+ }
+]

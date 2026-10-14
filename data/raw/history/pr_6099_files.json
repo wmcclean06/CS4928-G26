@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "82056cfff810d8bb1bc8cd7ebd9e2d86489b4eb5",
+  "filename": "hardware/arduino/avr/boards.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b2b710e477ccbdb44939538794bcf7691c8673e4/hardware%2Farduino%2Favr%2Fboards.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b2b710e477ccbdb44939538794bcf7691c8673e4/hardware%2Farduino%2Favr%2Fboards.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fboards.txt?ref=b2b710e477ccbdb44939538794bcf7691c8673e4",
+  "patch": "@@ -1046,7 +1046,7 @@ unowifi.bootloader.file=optiboot/optiboot_atmega328.hex\n \n unowifi.build.mcu=atmega328p\n unowifi.build.f_cpu=16000000L\n-unowifi.build.board=AVR_UNO_WIFI\n+unowifi.build.board=AVR_UNO_WIFI_DEV_ED\n unowifi.build.core=arduino\n unowifi.build.variant=standard\n unowifi.build.esp_ch_uart_br=19200"
+ }
+]

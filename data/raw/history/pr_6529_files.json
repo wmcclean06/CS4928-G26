@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "712205716125d7ae4ce073dc9c6572559e5881a0",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0e0467677559296215e80b8adf8e680e59e88b40/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0e0467677559296215e80b8adf8e680e59e88b40/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=0e0467677559296215e80b8adf8e680e59e88b40",
+  "patch": "@@ -261,6 +261,10 @@ public Base(String[] args) throws Exception {\n     if (!isCommandLine()) {\n       rebuildBoardsMenu();\n       rebuildProgrammerMenu();\n+    } else {\n+      TargetBoard lastSelectedBoard = BaseNoGui.getTargetBoard();\n+      if (lastSelectedBoard != null)\n+        BaseNoGui.selectBoard(lastSelectedBoard);\n     }\n \n     // Setup board-dependent variables."
+ },
+ {
+  "sha": "372070e01c8dada8f0894075163d8bee0e31ec80",
+  "filename": "build/shared/revisions.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0e0467677559296215e80b8adf8e680e59e88b40/build%2Fshared%2Frevisions.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0e0467677559296215e80b8adf8e680e59e88b40/build%2Fshared%2Frevisions.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Frevisions.txt?ref=0e0467677559296215e80b8adf8e680e59e88b40",
+  "patch": "@@ -3,6 +3,7 @@ ARDUINO 1.8.4\n [ide]\n * Environment variable LIBRARY_INDEX_URL is now correctly parsed (LIBRARY_INDEX_URL_GZ can also be optinally specified). Thanks @xardael\n * Added per-board generic option in config file boards.txt for disabling control of dtr+rts. Thanks @d-a-v\n+* CLI: fixed missing \"runtime.platform.path\" when running without the `--board` option\n \n ARDUINO 1.8.3 2017.05.31\n "
+ }
+]

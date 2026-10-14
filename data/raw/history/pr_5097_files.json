@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "f156444742cec2399df9ed7aa38474f5bc669c74",
+  "filename": "build/windows/launcher/config.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/76029ae542c96d7a0a9467d7dc3e608e99f7c28b/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/76029ae542c96d7a0a9467d7dc3e608e99f7c28b/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig.xml?ref=76029ae542c96d7a0a9467d7dc3e608e99f7c28b",
+  "patch": "@@ -57,6 +57,7 @@\n     <runtimeBits>32</runtimeBits>\n     <opt>-splash:\"%EXEDIR%/lib/splash.png\"</opt>\n     <opt>-Dsun.java2d.d3d=false</opt>\n+    <opt>-Djna.nosys=true</opt>\n     <opt>-DAPP_DIR=\"%EXEDIR%\"</opt>\n   </jre>\n   <versionInfo>"
+ },
+ {
+  "sha": "c0f492a00c41e77cd12d59b96851faec09a2a14b",
+  "filename": "build/windows/launcher/config_debug.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/76029ae542c96d7a0a9467d7dc3e608e99f7c28b/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/76029ae542c96d7a0a9467d7dc3e608e99f7c28b/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig_debug.xml?ref=76029ae542c96d7a0a9467d7dc3e608e99f7c28b",
+  "patch": "@@ -56,6 +56,7 @@\n     <path>java</path>\n     <runtimeBits>32</runtimeBits>\n     <opt>-Dsun.java2d.d3d=false</opt>\n+    <opt>-Djna.nosys=true</opt>\n     <opt>-DAPP_DIR=\"%EXEDIR%\"</opt>\n     <opt>-DDEBUG=true</opt>\n   </jre>"
+ }
+]

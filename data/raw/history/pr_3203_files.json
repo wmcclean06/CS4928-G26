@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "be3c4d0b5c7c80853df1e63f3d69ac8a89e5a460",
+  "filename": "build/shared/examples/04.Communication/SerialEvent/SerialEvent.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4648330a7febbd7b7f4d28b75a0256b25b751532/build%2Fshared%2Fexamples%2F04.Communication%2FSerialEvent%2FSerialEvent.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4648330a7febbd7b7f4d28b75a0256b25b751532/build%2Fshared%2Fexamples%2F04.Communication%2FSerialEvent%2FSerialEvent.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F04.Communication%2FSerialEvent%2FSerialEvent.ino?ref=4648330a7febbd7b7f4d28b75a0256b25b751532",
+  "patch": "@@ -28,6 +28,7 @@ void setup() {\n }\n \n void loop() {\n+  serialEvent(); //call the function\n   // print the string when a newline arrives:\n   if (stringComplete) {\n     Serial.println(inputString);"
+ }
+]

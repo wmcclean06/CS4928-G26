@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "90759449397c7567b6b0be7998e762f8ea81392f",
+  "filename": "app/src/cc/arduino/contributions/ui/FilterJTextField.java",
+  "status": "modified",
+  "additions": 29,
+  "deletions": 9,
+  "changes": 38,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8f5f4f594d679408863933ecd6bbdcec03c900dc/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FFilterJTextField.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8f5f4f594d679408863933ecd6bbdcec03c900dc/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FFilterJTextField.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FFilterJTextField.java?ref=8f5f4f594d679408863933ecd6bbdcec03c900dc",
+  "patch": "@@ -33,6 +33,8 @@\n import javax.swing.event.DocumentEvent;\n import javax.swing.event.DocumentListener;\n import java.awt.*;\n+import java.awt.event.ActionEvent;\n+import java.awt.event.ActionListener;\n import java.awt.event.FocusEvent;\n import java.awt.event.FocusListener;\n \n@@ -41,13 +43,21 @@ public class FilterJTextField extends JTextField {\n   private final String filterHint;\n \n   private boolean showingHint;\n+  private Timer timer;\n \n   public FilterJTextField(String hint) {\n     super(hint);\n     filterHint = hint;\n \n     showingHint = true;\n     updateStyle();\n+    timer = new Timer(1000, new ActionListener() {\n+      @Override\n+      public void actionPerformed(ActionEvent e) {\n+        applyFilter();\n+        timer.stop();\n+      }\n+    });\n \n     addFocusListener(new FocusListener() {\n       public void focusLost(FocusEvent focusEvent) {\n@@ -68,33 +78,43 @@ public void focusGained(FocusEvent focusEvent) {\n \n     getDocument().addDocumentListener(new DocumentListener() {\n       public void removeUpdate(DocumentEvent e) {\n-        applyFilter();\n+        spawnTimer();\n       }\n \n       public void insertUpdate(DocumentEvent e) {\n-        applyFilter();\n+        spawnTimer();\n       }\n \n       public void changedUpdate(DocumentEvent e) {\n+\n+      }\n+    });\n+\n+    addActionListener(new ActionListener() {\n+      @Override\n+      public void actionPerformed(ActionEvent e) {\n+        if (timer.isRunning()) {\n+          timer.stop();\n+        }\n         applyFilter();\n       }\n     });\n   }\n \n-  private String lastFilter = \"\";\n+  private void spawnTimer() {\n+    if (timer.isRunning()) {\n+      timer.stop();\n+    }\n+    timer.start();\n+  }\n \n-  private void applyFilter() {\n+  public void applyFilter() {\n     String filter = showingHint ? \"\" : getText();\n     filter = filter.toLowerCase();\n \n     // Replace anything but 0-9, a-z, or : with a space\n     filter = filter.replaceAll(\"[^\\\\x30-\\\\x39^\\\\x61-\\\\x7a^\\\\x3a]\", \" \");\n \n-    // Fire event only if the filter is changed\n-    if (filter.equals(lastFilter))\n-      return;\n-\n-    lastFilter = filter;\n     onFilter(filter.split(\" \"));\n   }\n "
+ },
+ {
+  "sha": "466bd0dfafcad6c77d6aafe87d2f1e43aaf36c91",
+  "filename": "app/src/cc/arduino/contributions/ui/InstallerJDialog.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8f5f4f594d679408863933ecd6bbdcec03c900dc/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FInstallerJDialog.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8f5f4f594d679408863933ecd6bbdcec03c900dc/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FInstallerJDialog.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FInstallerJDialog.java?ref=8f5f4f594d679408863933ecd6bbdcec03c900dc",
+  "patch": "@@ -320,6 +320,7 @@ public void setFilterText(String filterText) {\n       listener.focusGained(new FocusEvent(filterField, FocusEvent.FOCUS_GAINED));\n     }\n     filterField.setText(filterText);\n+    filterField.applyFilter();\n   }\n \n   public void selectDropdownItemByClassName(String dropdownItem) {"
+ }
+]

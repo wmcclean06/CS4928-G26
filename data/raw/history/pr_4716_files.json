@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "8d7f93e8f2e5863f5cfe0d8a29782e4a3f2f783f",
+  "filename": "hardware/arduino/avr/libraries/SoftwareSerial/examples/TwoPortReceive/TwoPortReceive.ino",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 5,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c2499b8377715e3118e8eff071007006fd831c43/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fexamples%2FTwoPortReceive%2FTwoPortReceive.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c2499b8377715e3118e8eff071007006fd831c43/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fexamples%2FTwoPortReceive%2FTwoPortReceive.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fexamples%2FTwoPortReceive%2FTwoPortReceive.ino?ref=c2499b8377715e3118e8eff071007006fd831c43",
+  "patch": "@@ -13,8 +13,8 @@\n \n  The circuit:\n  Two devices which communicate serially are needed.\n- * First serial device's TX attached to digital pin 2, RX to pin 3\n- * Second serial device's TX attached to digital pin 4, RX to pin 5\n+ * First serial device's TX attached to digital pin 10(RX), RX to pin 11(TX)\n+ * Second serial device's TX attached to digital pin 8(RX), RX to pin 9(TX)\n \n  Note:\n  Not all pins on the Mega and Mega 2560 support change interrupts,\n@@ -26,7 +26,7 @@\n  8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI).\n \n  created 18 Apr. 2011\n- modified 25 May 2012\n+ modified 19 March 2016\n  by Tom Igoe\n  based on Mikal Hart's twoPortRXExample\n \n@@ -35,10 +35,10 @@\n  */\n \n #include <SoftwareSerial.h>\n-// software serial #1: TX = digital pin 10, RX = digital pin 11\n+// software serial #1: RX = digital pin 10, TX = digital pin 11\n SoftwareSerial portOne(10, 11);\n \n-// software serial #2: TX = digital pin 8, RX = digital pin 9\n+// software serial #2: RX = digital pin 8, TX = digital pin 9\n // on the Mega, use other pins instead, since 8 and 9 don't work on the Mega\n SoftwareSerial portTwo(8, 9);\n "
+ }
+]

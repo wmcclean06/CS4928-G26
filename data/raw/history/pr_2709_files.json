@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "86524f773c6261bcfdfd664d3562bba27c991015",
+  "filename": "arduino-core/src/cc/arduino/packages/uploaders/SerialUploader.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a6909bdb49d99253b4e684365e72e5dce31a49a7/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a6909bdb49d99253b4e684365e72e5dce31a49a7/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java?ref=a6909bdb49d99253b4e684365e72e5dce31a49a7",
+  "patch": "@@ -116,7 +116,7 @@ public boolean uploadUsingPreferences(File sourcePath, String buildPath, String\n           if (verbose)\n             System.out.println(\n               I18n.format(_(\"Forcing reset using 1200bps open/close on port {0}\"), uploadPort));\n-          Serial.touchPort(uploadPort, 1200);\n+          Serial.touchForCDCReset(uploadPort);\n         }\n         Thread.sleep(400);\n         if (waitForUploadPort) {"
+ },
+ {
+  "sha": "53d0601ae7bc823117a8404360aea18df598567e",
+  "filename": "arduino-core/src/processing/app/Serial.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 2,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a6909bdb49d99253b4e684365e72e5dce31a49a7/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSerial.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a6909bdb49d99253b4e684365e72e5dce31a49a7/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSerial.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSerial.java?ref=a6909bdb49d99253b4e684365e72e5dce31a49a7",
+  "patch": "@@ -80,11 +80,12 @@ public Serial(String iname) throws SerialException {\n             new Float(PreferencesData.get(\"serial.stopbits\")).floatValue());\n   }\n \n-  public static boolean touchPort(String iname, int irate) throws SerialException {\n+  public static boolean touchForCDCReset(String iname) throws SerialException {\n     SerialPort serialPort = new SerialPort(iname);\n     try {\n       serialPort.openPort();\n-      serialPort.setParams(irate, 8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);\n+      serialPort.setParams(1200, 8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);\n+      serialPort.setDTR(false);\n       serialPort.closePort();\n       return true;\n     } catch (SerialPortException e) {"
+ }
+]

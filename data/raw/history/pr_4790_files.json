@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "129ae030ccf1785411ea67732be6d6a0c15f8efa",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 15,
+  "deletions": 2,
+  "changes": 17,
+  "blob_url": "https://github.com/arduino/Arduino/blob/baa8a6e8a3e847c246ce78f3be9bb9e268f6b808/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/baa8a6e8a3e847c246ce78f3be9bb9e268f6b808/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=baa8a6e8a3e847c246ce78f3be9bb9e268f6b808",
+  "patch": "@@ -1369,8 +1369,6 @@ private JMenu buildEditMenu() {\n \n     menu.addSeparator();\n \n-    // TODO \"cut\" and \"copy\" should really only be enabled\n-    // if some text is currently selected\n     JMenuItem cutItem = newJMenuItem(tr(\"Cut\"), 'X');\n     cutItem.addActionListener(new ActionListener() {\n         public void actionPerformed(ActionEvent e) {\n@@ -1515,6 +1513,21 @@ public void actionPerformed(ActionEvent e) {\n       menu.add(useSelectionForFindItem);\n     }\n \n+    menu.addMenuListener(new MenuListener() {\n+      @Override\n+      public void menuSelected(MenuEvent e) {\n+        boolean enabled = textarea.getSelectedText() != null;\n+        cutItem.setEnabled(enabled);\n+        copyItem.setEnabled(enabled);\n+      }\n+\n+      @Override\n+      public void menuDeselected(MenuEvent e) {}\n+\n+      @Override\n+      public void menuCanceled(MenuEvent e) {}\n+    });\n+\n     return menu;\n   }\n "
+ }
+]

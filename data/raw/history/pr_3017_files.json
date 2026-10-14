@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "c98d3eab7bc3c3dda359b284f94a6c282f35c9ff",
+  "filename": "arduino-core/src/cc/arduino/packages/uploaders/SerialUploader.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a7e6a39f4eb3e0f176f8f76bf83ade02ba06c669/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a7e6a39f4eb3e0f176f8f76bf83ade02ba06c669/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java?ref=a7e6a39f4eb3e0f176f8f76bf83ade02ba06c669",
+  "patch": "@@ -253,8 +253,8 @@ public boolean uploadUsingProgrammer(String buildPath, String className) throws\n     if (programmerPrefs == null)\n       throw new RunnerException(\n           _(\"Please select a programmer from Tools->Programmer menu\"));\n+    prefs.putAll(targetPlatform.getTool(programmerPrefs.getOrExcept(\"program.tool\")));\n     prefs.putAll(programmerPrefs);\n-    prefs.putAll(targetPlatform.getTool(prefs.getOrExcept(\"program.tool\")));\n \n     prefs.put(\"build.path\", buildPath);\n     prefs.put(\"build.project_name\", className);"
+ }
+]

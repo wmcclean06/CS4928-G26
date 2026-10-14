@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "15de01c83837863ca6eeec449abbb9b8116e49ac",
+  "filename": "libraries/Ethernet/src/utility/w5100.h",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0873b36aa53590e2ace81a3b0535ead7c668bcbb/libraries%2FEthernet%2Fsrc%2Futility%2Fw5100.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0873b36aa53590e2ace81a3b0535ead7c668bcbb/libraries%2FEthernet%2Fsrc%2Futility%2Fw5100.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fsrc%2Futility%2Fw5100.h?ref=0873b36aa53590e2ace81a3b0535ead7c668bcbb",
+  "patch": "@@ -344,6 +344,10 @@ class W5100Class {\n       inline static void setSS()     { PORTB &= ~_BV(2); };\n       inline static void resetSS()   { PORTB |=  _BV(2); };\n     #endif\n+  #elif defined(__ARDUINO_ARC__)\n+\tinline static void initSS() { pinMode(10, OUTPUT); };\n+\tinline static void setSS() { digitalWrite(10, LOW); };\n+\tinline static void resetSS() { digitalWrite(10, HIGH); };\n   #else\n     inline static void initSS() {\n       *portModeRegister(digitalPinToPort(ETHERNET_SHIELD_SPI_CS)) |= digitalPinToBitMask(ETHERNET_SHIELD_SPI_CS);"
+ }
+]

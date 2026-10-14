@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "9500ddd695a15961568d78a4012821ff78fde494",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 5,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2f3a561c6158bb92553231e4a02da0cf7a3bc98c/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2f3a561c6158bb92553231e4a02da0cf7a3bc98c/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=2f3a561c6158bb92553231e4a02da0cf7a3bc98c",
+  "patch": "@@ -262,8 +262,6 @@ public void windowActivated(WindowEvent e) {\n         // added for 1.0.5\n         // http://dev.processing.org/bugs/show_bug.cgi?id=1260\n         public void windowDeactivated(WindowEvent e) {\n-          fileMenu.remove(sketchbookMenu);\n-          fileMenu.remove(examplesMenu);\n           List<Component> toolsMenuItemsToRemove = new LinkedList<>();\n           for (Component menuItem : toolsMenu.getMenuComponents()) {\n             if (menuItem instanceof JComponent) {\n@@ -504,11 +502,11 @@ private void buildMenuBar() {\n     fileMenu.addMenuListener(new StubMenuListener() {\n       @Override\n       public void menuSelected(MenuEvent e) {\n-        List<Component> components = Arrays.asList(fileMenu.getComponents());\n+        List<Component> components = Arrays.asList(fileMenu.getMenuComponents());\n         if (!components.contains(sketchbookMenu)) {\n           fileMenu.insert(sketchbookMenu, 3);\n         }\n-        if (!components.contains(sketchbookMenu)) {\n+        if (!components.contains(examplesMenu)) {\n           fileMenu.insert(examplesMenu, 4);\n         }\n         fileMenu.revalidate();\n@@ -537,7 +535,7 @@ public void menuSelected(MenuEvent e) {\n     toolsMenu.addMenuListener(new StubMenuListener() {\n       @Override\n       public void menuSelected(MenuEvent e) {\n-        List<Component> components = Arrays.asList(toolsMenu.getComponents());\n+        List<Component> components = Arrays.asList(toolsMenu.getMenuComponents());\n         int offset = 0;\n         for (JMenu menu : base.getBoardsCustomMenus()) {\n           if (!components.contains(menu)) {"
+ }
+]

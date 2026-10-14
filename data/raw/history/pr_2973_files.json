@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "88d8545f9b3ad32e928450fea34a264291bb222b",
+  "filename": "app/src/processing/app/Preferences.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f7fe11c8258ecd5d7c3da8de45f09ceb729e31a1/app%2Fsrc%2Fprocessing%2Fapp%2FPreferences.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f7fe11c8258ecd5d7c3da8de45f09ceb729e31a1/app%2Fsrc%2Fprocessing%2Fapp%2FPreferences.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FPreferences.java?ref=f7fe11c8258ecd5d7c3da8de45f09ceb729e31a1",
+  "patch": "@@ -377,7 +377,7 @@ public void actionPerformed(ActionEvent e) {\n     box = Box.createHorizontalBox();\n     label = new JLabel(_(\"Compiler warnings: \"));\n     box.add(label);\n-    WarningItem[] warningItems = new WarningItem[]{new WarningItem(\"none\", _(\"none\")), new WarningItem(\"normal\", _(\"normal\")), new WarningItem(\"all\", _(\"all\")), new WarningItem(\"extra\", _(\"extra\")), };\n+    WarningItem[] warningItems = new WarningItem[]{new WarningItem(\"none\", _(\"None\")), new WarningItem(\"default\", _(\"Default\")), new WarningItem(\"more\", _(\"More\")), new WarningItem(\"all\", _(\"All\")), };\n     comboWarnings = new JComboBox(warningItems);\n     String currentWarningLevel = PreferencesData.get(\"compiler.warning_flags\", \"none\");\n     for (WarningItem item : warningItems) {"
+ },
+ {
+  "sha": "a64209bf2769a42691f5f3a557caa79ac6678b2e",
+  "filename": "hardware/arduino/avr/platform.txt",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f7fe11c8258ecd5d7c3da8de45f09ceb729e31a1/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f7fe11c8258ecd5d7c3da8de45f09ceb729e31a1/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fplatform.txt?ref=f7fe11c8258ecd5d7c3da8de45f09ceb729e31a1",
+  "patch": "@@ -12,9 +12,9 @@ version=1.6.3\n # --------------------- \n \n compiler.warning_flags.none=-w\n-compiler.warning_flags.normal=\n-compiler.warning_flags.all=-Wall\n-compiler.warning_flags.extra=-Wall -Wextra\n+compiler.warning_flags.default=\n+compiler.warning_flags.more=-Wall\n+compiler.warning_flags.all=-Wall -Wextra\n \n # Default \"compiler.path\" is correct, change only if you want to overidde the initial value\n compiler.path={runtime.tools.avr-gcc.path}/bin/"
+ },
+ {
+  "sha": "b7978fbd6e9210d00a9d6067d3acff876b0bcff5",
+  "filename": "hardware/arduino/sam/platform.txt",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f7fe11c8258ecd5d7c3da8de45f09ceb729e31a1/hardware%2Farduino%2Fsam%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f7fe11c8258ecd5d7c3da8de45f09ceb729e31a1/hardware%2Farduino%2Fsam%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fplatform.txt?ref=f7fe11c8258ecd5d7c3da8de45f09ceb729e31a1",
+  "patch": "@@ -12,9 +12,9 @@ version=1.6.3\n # ----------------------\n \n compiler.warning_flags.none=-w\n-compiler.warning_flags.normal=\n-compiler.warning_flags.all=-Wall\n-compiler.warning_flags.extra=-Wall -Wextra\n+compiler.warning_flags.default=\n+compiler.warning_flags.more=-Wall\n+compiler.warning_flags.all=-Wall -Wextra\n \n compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/\n compiler.c.cmd=arm-none-eabi-gcc"
+ }
+]

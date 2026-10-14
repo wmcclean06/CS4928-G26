@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "fa588746fb2610c7536a69cd35e13e51e9943c85",
+  "filename": "hardware/arduino/avr/platform.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/408b500b1cb8753da450847520b4fef8d3058051/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/408b500b1cb8753da450847520b4fef8d3058051/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fplatform.txt?ref=408b500b1cb8753da450847520b4fef8d3058051",
+  "patch": "@@ -102,7 +102,7 @@ tools.avrdude.upload.params.quiet=-q -q\n # tools.avrdude.upload.verify is needed for backwards compatibility with IDE 1.6.8 or older, IDE 1.6.9 or newer overrides this value\n tools.avrdude.upload.verify=\n tools.avrdude.upload.params.noverify=-V\n-tools.avrdude.upload.pattern=\"{cmd.path}\" \"-C{config.path}\" {upload.verbose} {upload.verify} -p{build.mcu} -c{upload.protocol} -P{serial.port} -b{upload.speed} -D \"-Uflash:w:{build.path}/{build.project_name}.hex:i\"\n+tools.avrdude.upload.pattern=\"{cmd.path}\" \"-C{config.path}\" {upload.verbose} {upload.verify} -p{build.mcu} -c{upload.protocol} \"-P{serial.port}\" -b{upload.speed} -D \"-Uflash:w:{build.path}/{build.project_name}.hex:i\"\n \n tools.avrdude.program.params.verbose=-v\n tools.avrdude.program.params.quiet=-q -q"
+ }
+]

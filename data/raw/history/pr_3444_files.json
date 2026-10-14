@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "8c6cdf0a6f787b083ddc7ae2d2ece0e4ebbd945d",
+  "filename": "libraries/LiquidCrystal/src/LiquidCrystal.cpp",
+  "status": "modified",
+  "additions": 13,
+  "deletions": 15,
+  "changes": 28,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b0278f4c156816092d30ffdaa9b40fc3a9d3cb61/libraries%2FLiquidCrystal%2Fsrc%2FLiquidCrystal.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b0278f4c156816092d30ffdaa9b40fc3a9d3cb61/libraries%2FLiquidCrystal%2Fsrc%2FLiquidCrystal.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FLiquidCrystal%2Fsrc%2FLiquidCrystal.cpp?ref=b0278f4c156816092d30ffdaa9b40fc3a9d3cb61",
+  "patch": "@@ -67,13 +67,6 @@ void LiquidCrystal::init(uint8_t fourbitmode, uint8_t rs, uint8_t rw, uint8_t en\n   _data_pins[6] = d6;\n   _data_pins[7] = d7; \n \n-  pinMode(_rs_pin, OUTPUT);\n-  // we can save 1 pin by not using RW. Indicate by passing 255 instead of pin#\n-  if (_rw_pin != 255) { \n-    pinMode(_rw_pin, OUTPUT);\n-  }\n-  pinMode(_enable_pin, OUTPUT);\n-  \n   if (fourbitmode)\n     _displayfunction = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;\n   else \n@@ -95,6 +88,19 @@ void LiquidCrystal::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) {\n     _displayfunction |= LCD_5x10DOTS;\n   }\n \n+  pinMode(_rs_pin, OUTPUT);\n+  // we can save 1 pin by not using RW. Indicate by passing 255 instead of pin#\n+  if (_rw_pin != 255) { \n+    pinMode(_rw_pin, OUTPUT);\n+  }\n+  pinMode(_enable_pin, OUTPUT);\n+  \n+  // Do these once, instead of every time a character is drawn for speed reasons.\n+  for (int i=0; i<((_displayfunction & LCD_8BITMODE) ? 8 : 4); ++i)\n+  {\n+    pinMode(_data_pins[i], OUTPUT);\n+   } \n+\n   // SEE PAGE 45/46 FOR INITIALIZATION SPECIFICATION!\n   // according to datasheet, we need at least 40ms after power rises above 2.7V\n   // before sending commands. Arduino can turn on way before 4.5V so we'll wait 50\n@@ -158,12 +164,6 @@ void LiquidCrystal::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) {\n \n }\n \n-/*\n-   in some 16x4 LCD when line 3 and 4 are not placed correctly you may try:\n-     setRowOffsets(0x00, 0x40, 0x14, 0x54)\n-   or\n-     setRowOffsets(0x00, 0x40, 0x10, 0x50)\n- */\n void LiquidCrystal::setRowOffsets(int row0, int row1, int row2, int row3)\n {\n   _row_offsets[0] = row0;\n@@ -311,7 +311,6 @@ void LiquidCrystal::pulseEnable(void) {\n \n void LiquidCrystal::write4bits(uint8_t value) {\n   for (int i = 0; i < 4; i++) {\n-    pinMode(_data_pins[i], OUTPUT);\n     digitalWrite(_data_pins[i], (value >> i) & 0x01);\n   }\n \n@@ -320,7 +319,6 @@ void LiquidCrystal::write4bits(uint8_t value) {\n \n void LiquidCrystal::write8bits(uint8_t value) {\n   for (int i = 0; i < 8; i++) {\n-    pinMode(_data_pins[i], OUTPUT);\n     digitalWrite(_data_pins[i], (value >> i) & 0x01);\n   }\n   "
+ }
+]

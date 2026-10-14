@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "5e3d2b1ca444ac5d495e1246bd14dd9891722199",
+  "filename": "hardware/arduino/avr/libraries/Wire/keywords.txt",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d21e0548368dc21a9b5545e51d6675176400a96f/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fkeywords.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d21e0548368dc21a9b5545e51d6675176400a96f/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fkeywords.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fkeywords.txt?ref=d21e0548368dc21a9b5545e51d6675176400a96f",
+  "patch": "@@ -15,8 +15,6 @@ setClock\tKEYWORD2\n beginTransmission\tKEYWORD2\n endTransmission\tKEYWORD2\n requestFrom\tKEYWORD2\n-send\tKEYWORD2\n-receive\tKEYWORD2\n onReceive\tKEYWORD2\n onRequest\tKEYWORD2\n "
+ },
+ {
+  "sha": "47ffd52d02b2ff49582a2d4b4abda6a6ac972667",
+  "filename": "hardware/arduino/sam/libraries/Wire/keywords.txt",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d21e0548368dc21a9b5545e51d6675176400a96f/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2Fkeywords.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d21e0548368dc21a9b5545e51d6675176400a96f/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2Fkeywords.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2Fkeywords.txt?ref=d21e0548368dc21a9b5545e51d6675176400a96f",
+  "patch": "@@ -15,8 +15,6 @@ setClock\tKEYWORD2\n beginTransmission\tKEYWORD2\n endTransmission\tKEYWORD2\n requestFrom\tKEYWORD2\n-send\tKEYWORD2\n-receive\tKEYWORD2\n onReceive\tKEYWORD2\n onRequest\tKEYWORD2\n "
+ }
+]

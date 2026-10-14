@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "a277b148450f7583ab74c6d84f915f41e28fa5ae",
+  "filename": "hardware/arduino/avr/cores/arduino/wiring_private.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/53db22001615e2c506c4c021cf0bfb12e9a0e921/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring_private.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/53db22001615e2c506c4c021cf0bfb12e9a0e921/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring_private.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring_private.h?ref=53db22001615e2c506c4c021cf0bfb12e9a0e921",
+  "patch": "@@ -52,7 +52,8 @@ uint32_t countPulseASM(volatile uint8_t *port, uint8_t bit, uint8_t stateMask, u\n #define EXTERNAL_INT_6 6\n #define EXTERNAL_INT_7 7\n \n-#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega128RFA1__) || defined(__AVR_ATmega256RFR2__)\n+#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega128RFA1__) || defined(__AVR_ATmega256RFR2__) || \\\n+    defined(__AVR_AT90USB82__) || defined(__AVR_AT90USB162__) || defined(__AVR_ATmega32U2__) || defined(__AVR_ATmega16U2__) || defined(__AVR_ATmega8U2__)\n #define EXTERNAL_NUM_INTERRUPTS 8\n #elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__)\n #define EXTERNAL_NUM_INTERRUPTS 3"
+ }
+]

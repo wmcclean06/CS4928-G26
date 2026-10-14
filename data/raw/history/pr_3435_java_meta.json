@@ -1,0 +1,31 @@
+{
+ "pr": 3435,
+ "base_sha": "149f90653792d7d779fea9a7dd606b2fdb6879cc",
+ "head_sha": "ecb4eaf8613211173ee713d376d1f840482cef7a",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/utils/Pair.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 42,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "2586fd62f34663780b02217260a57b0437b47e98",
+   "head_sha_check": "2586fd62f34663780b02217260a57b0437b47e98",
+   "loc_at_head": 37,
+   "notes": "added"
+  },
+  {
+   "path": "arduino-core/src/processing/app/debug/Compiler.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 30,
+   "deletions": 15,
+   "old_sha": "9609dd65ece4eb918ac20942c32fbcefce6d3c31",
+   "new_sha": "a26f6e59f0ddd77f1ddbe03d116d6d9c073dbce9",
+   "head_sha_check": "a26f6e59f0ddd77f1ddbe03d116d6d9c073dbce9",
+   "loc_at_head": 1239,
+   "notes": ""
+  }
+ ]
+}

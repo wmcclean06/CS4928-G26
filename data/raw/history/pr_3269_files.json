@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "15f6761f0013d38cc20f60c1ebc82d387f201097",
+  "filename": "hardware/arduino/avr/cores/arduino/Stream.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ed1b8eb486d39b4227af6f950b3ef4b7ab515adb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FStream.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ed1b8eb486d39b4227af6f950b3ef4b7ab515adb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FStream.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FStream.h?ref=ed1b8eb486d39b4227af6f950b3ef4b7ab515adb",
+  "patch": "@@ -64,6 +64,8 @@ class Stream : public Print\n   bool find(uint8_t *target, size_t length) { return find ((char *)target, length); }\n   // returns true if target string is found, false if timed out\n \n+  bool find(char target) { return find (&target, 1); }\n+\n   bool findUntil(char *target, char *terminator);   // as find but search ends if the terminator string is found\n   bool findUntil(uint8_t *target, char *terminator) { return findUntil((char *)target, terminator); }\n "
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "8c6299f2b64629c87a56997db3a07e363f647e02",
+  "filename": "app/src/processing/app/syntax/SketchTextAreaDefaultInputMap.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1bd1c14d81970fa8ed6643f4a175632910af7744/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1bd1c14d81970fa8ed6643f4a175632910af7744/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java?ref=1bd1c14d81970fa8ed6643f4a175632910af7744",
+  "patch": "@@ -39,8 +39,8 @@ public SketchTextAreaDefaultInputMap() {\n       put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, defaultModifier), DefaultEditorKit.beginAction);\n       put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, defaultModifier), DefaultEditorKit.endAction);\n \n-      put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, defaultModifier | shift), DefaultEditorKit.selectLineAction);\n-      put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, defaultModifier | shift), DefaultEditorKit.selectLineAction);\n+      put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, defaultModifier | shift), DefaultEditorKit.selectionBeginLineAction);\n+      put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, defaultModifier | shift), DefaultEditorKit.selectionEndLineAction);\n \n       remove(KeyStroke.getKeyStroke(KeyEvent.VK_J, defaultModifier));\n "
+ }
+]

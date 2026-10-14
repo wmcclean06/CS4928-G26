@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "c99325f984a342a5863940013150a7bde0623713",
+  "filename": "hardware/arduino/cores/arduino/wiring_analog.c",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 8,
+  "changes": 16,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dbd584e4381efd5566f7fc5e31d98238fbf4ba5b/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_analog.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dbd584e4381efd5566f7fc5e31d98238fbf4ba5b/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_analog.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_analog.c?ref=dbd584e4381efd5566f7fc5e31d98238fbf4ba5b",
+  "patch": "@@ -41,22 +41,22 @@ int analogRead(uint8_t pin)\n {\n \tuint8_t low, high;\n \n-#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)\n+#if defined(analogPinToChannel)\n+#if defined(__AVR_ATmega32U4__)\n+\tif (pin >= 18) pin -= 18; // allow for channel or pin numbers\n+#endif\n+\tpin = analogPinToChannel(pin);\n+#elif defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)\n \tif (pin >= 54) pin -= 54; // allow for channel or pin numbers\n #elif defined(__AVR_ATmega32U4__)\n \tif (pin >= 18) pin -= 18; // allow for channel or pin numbers\n #elif defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644P__)\n \tif (pin >= 24) pin -= 24; // allow for channel or pin numbers\n-#elif defined(analogPinToChannel) && (defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__))\n-\tpin = analogPinToChannel(pin);\n #else\n \tif (pin >= 14) pin -= 14; // allow for channel or pin numbers\n #endif\n-\t\n-#if defined(__AVR_ATmega32U4__)\n-\tpin = analogPinToChannel(pin);\n-\tADCSRB = (ADCSRB & ~(1 << MUX5)) | (((pin >> 3) & 0x01) << MUX5);\n-#elif defined(ADCSRB) && defined(MUX5)\n+\n+#if defined(ADCSRB) && defined(MUX5)\n \t// the MUX5 bit of ADCSRB selects whether we're reading from channels\n \t// 0 to 7 (MUX5 low) or 8 to 15 (MUX5 high).\n \tADCSRB = (ADCSRB & ~(1 << MUX5)) | (((pin >> 3) & 0x01) << MUX5);"
+ }
+]

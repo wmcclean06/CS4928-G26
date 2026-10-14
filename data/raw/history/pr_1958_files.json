@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "0c0e417515737d5ac409846a14cfd1ad04702f78",
+  "filename": "README.md",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/860da6fe0d2b3db0bdc99311bef54ee5e5c5a669/README.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/860da6fe0d2b3db0bdc99311bef54ee5e5c5a669/README.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/README.md?ref=860da6fe0d2b3db0bdc99311bef54ee5e5c5a669",
+  "patch": "@@ -40,5 +40,5 @@ Gianluca Martino, Daniela Antonietti, and David A. Mellis.\n Arduino uses the [GNU avr-gcc toolchain](http://gcc.gnu.org/wiki/avr-gcc), [avrdude](http://www.nongnu.org/avrdude/), [avr-libc](http://www.nongnu.org/avr-libc/), and code from\n [Processing](http://www.processing.org) and [Wiring](http://wiring.org.co).\n \n-Icon and about image designed by ToDo: http://www.todo.to.it/\n+Icon and about image designed by [ToDo](http://www.todo.to.it/)\n "
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "e85c6131b1a0bb918482794ce46950484c64d399",
+  "filename": "hardware/arduino/avr/cores/arduino/USBCore.cpp",
+  "status": "modified",
+  "additions": 19,
+  "deletions": 7,
+  "changes": 26,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a540126c930f0c4510ae58a400a16c7db6fa5b41/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a540126c930f0c4510ae58a400a16c7db6fa5b41/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp?ref=a540126c930f0c4510ae58a400a16c7db6fa5b41",
+  "patch": "@@ -256,9 +256,7 @@ u8 USB_SendSpace(u8 ep)\n \tLockEP lock(ep);\n \tif (!ReadWriteAllowed())\n \t\treturn 0;\n-\t// subtract 1 from the EP size to never send a full packet,\n-\t// this avoids dealing with ZLP's in USB_Send\n-\treturn USB_EP_SIZE - 1 - FifoByteCount();\n+\treturn USB_EP_SIZE - FifoByteCount();\n }\n \n //\tBlocking Send of data to an endpoint\n@@ -275,7 +273,9 @@ int USB_Send(u8 ep, const void* d, int len)\n \tint r = len;\n \tconst u8* data = (const u8*)d;\n \tu8 timeout = 250;\t\t// 250ms timeout on send? TODO\n-\twhile (len)\n+\tbool sendZlp = false;\n+\n+\twhile (len || sendZlp)\n \t{\n \t\tu8 n = USB_SendSpace(ep);\n \t\tif (n == 0)\n@@ -286,13 +286,16 @@ int USB_Send(u8 ep, const void* d, int len)\n \t\t\tcontinue;\n \t\t}\n \n-\t\tif (n > len)\n+\t\tif (n > len) {\n \t\t\tn = len;\n+\t\t}\n+\n \t\t{\n \t\t\tLockEP lock(ep);\n \t\t\t// Frame may have been released by the SOF interrupt handler\n \t\t\tif (!ReadWriteAllowed())\n \t\t\t\tcontinue;\n+\n \t\t\tlen -= n;\n \t\t\tif (ep & TRANSFER_ZERO)\n \t\t\t{\n@@ -309,8 +312,17 @@ int USB_Send(u8 ep, const void* d, int len)\n \t\t\t\twhile (n--)\n \t\t\t\t\tSend8(*data++);\n \t\t\t}\n-\t\t\tif (!ReadWriteAllowed() || ((len == 0) && (ep & TRANSFER_RELEASE)))\t// Release full buffer\n+\n+\t\t\tif (sendZlp) {\n+\t\t\t\tReleaseTX();\n+\t\t\t\tsendZlp = false;\n+\t\t\t} else if (!ReadWriteAllowed()) { // ...release if buffer is full...\n \t\t\t\tReleaseTX();\n+\t\t\t\tif (len == 0) sendZlp = true;\n+\t\t\t} else if ((len == 0) && (ep & TRANSFER_RELEASE)) { // ...or if forced with TRANSFER_RELEASE\n+\t\t\t\t// XXX: TRANSFER_RELEASE is never used can be removed?\n+\t\t\t\tReleaseTX();\n+\t\t\t}\n \t\t}\n \t}\n \tTXLED1;\t\t\t\t\t// light the TX LED\n@@ -475,7 +487,7 @@ static\n bool SendConfiguration(int maxlen)\n {\n \t//\tCount and measure interfaces\n-\tInitControl(0);\t\n+\tInitControl(0);\n \tu8 interfaces = SendInterfaces();\n \tConfigDescriptor config = D_CONFIG(_cmark + sizeof(ConfigDescriptor),interfaces);\n "
+ }
+]

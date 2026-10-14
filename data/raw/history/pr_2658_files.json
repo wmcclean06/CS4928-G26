@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "6f593571ad3a3e7dfdb15ab0ad5c2d7c8dd74d7f",
+  "filename": "arduino-core/src/cc/arduino/packages/discoverers/NetworkDiscovery.java",
+  "status": "modified",
+  "additions": 21,
+  "deletions": 8,
+  "changes": 29,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0990f98b1430bdd79022d48981f91ddf354bae78/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fdiscoverers%2FNetworkDiscovery.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0990f98b1430bdd79022d48981f91ddf354bae78/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fdiscoverers%2FNetworkDiscovery.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fdiscoverers%2FNetworkDiscovery.java?ref=0990f98b1430bdd79022d48981f91ddf354bae78",
+  "patch": "@@ -58,19 +58,32 @@ public NetworkDiscovery() {\n \n   @Override\n   public List<BoardPort> discovery() {\n-    List<BoardPort> ports = clonePortsList();\n-    Iterator<BoardPort> iterator = ports.iterator();\n-    while (iterator.hasNext()) {\n+    List<BoardPort> boardPorts = clonePortsList();\n+    Iterator<BoardPort> boardPortIterator = boardPorts.iterator();\n+    while (boardPortIterator.hasNext()) {\n       try {\n-        BoardPort board = iterator.next();\n-        if (!NetUtils.isReachable(InetAddress.getByName(board.getAddress()), Integer.parseInt(board.getPrefs().get(\"port\")))) {\n-          iterator.remove();\n+        BoardPort board = boardPortIterator.next();\n+\n+        InetAddress inetAddress = InetAddress.getByName(board.getAddress());\n+        int broadcastedPort = Integer.valueOf(board.getPrefs().get(\"port\"));\n+\n+        List<Integer> ports = new LinkedList<Integer>();\n+        ports.add(broadcastedPort);\n+\n+        //dirty code: allows non up to date yuns to be discovered. Newer yuns will broadcast port 22\n+        if (broadcastedPort == 80) {\n+          ports.add(0, 22);\n+        }\n+\n+        boolean reachable = NetUtils.isReachable(inetAddress, ports);\n+        if (!reachable) {\n+          boardPortIterator.remove();\n         }\n       } catch (UnknownHostException e) {\n-        iterator.remove();\n+        boardPortIterator.remove();\n       }\n     }\n-    return ports;\n+    return boardPorts;\n   }\n \n   private List<BoardPort> clonePortsList() {"
+ },
+ {
+  "sha": "67201bf3d9f087952f8f41cbba716978b0180a63",
+  "filename": "arduino-core/src/processing/app/helpers/NetUtils.java",
+  "status": "modified",
+  "additions": 28,
+  "deletions": 1,
+  "changes": 29,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0990f98b1430bdd79022d48981f91ddf354bae78/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FNetUtils.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0990f98b1430bdd79022d48981f91ddf354bae78/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FNetUtils.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FNetUtils.java?ref=0990f98b1430bdd79022d48981f91ddf354bae78",
+  "patch": "@@ -4,14 +4,41 @@\n import java.net.InetAddress;\n import java.net.InetSocketAddress;\n import java.net.Socket;\n+import java.util.Arrays;\n+import java.util.List;\n \n public abstract class NetUtils {\n \n+  private static boolean isReachableByEcho(InetAddress address) {\n+    try {\n+      return address.isReachable(100);\n+    } catch (IOException e) {\n+      return false;\n+    }\n+  }\n+\n   public static boolean isReachable(InetAddress address, int port) {\n+    return isReachable(address, Arrays.asList(port));\n+  }\n+\n+  public static boolean isReachable(InetAddress address, List<Integer> ports) {\n+    if (isReachableByEcho(address)) {\n+      return true;\n+    }\n+\n+    boolean reachable = false;\n+    for (Integer port : ports) {\n+      reachable = reachable || isPortOpen(address, port);\n+    }\n+\n+    return reachable;\n+  }\n+\n+  private static boolean isPortOpen(InetAddress address, int port) {\n     Socket socket = null;\n     try {\n       socket = new Socket();\n-      socket.connect(new InetSocketAddress(address, port), 100);\n+      socket.connect(new InetSocketAddress(address, port), 300);\n       return true;\n     } catch (IOException e) {\n       return false;"
+ }
+]

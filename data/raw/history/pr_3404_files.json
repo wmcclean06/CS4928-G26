@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "8aeffcc157b450dcb76a2bb7a1df8e1bb45c899d",
+  "filename": "arduino-core/src/processing/app/BaseNoGui.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ea55a2edc33550d2ec0b2366dec4c55ce391f6a4/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ea55a2edc33550d2ec0b2366dec4c55ce391f6a4/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java?ref=ea55a2edc33550d2ec0b2366dec4c55ce391f6a4",
+  "patch": "@@ -962,7 +962,7 @@ static public void populateImportToLibraryTable() {\n     }\n   }\n \n-  static public void initParameters(String args[]) {\n+  static public void initParameters(String args[]) throws IOException {\n     String preferencesFile = null;\n \n     // Do a first pass over the commandline arguments, the rest of them"
+ },
+ {
+  "sha": "dee2df4513856f2327aaf4a588a4245ac7b058ae",
+  "filename": "arduino-core/src/processing/app/Platform.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ea55a2edc33550d2ec0b2366dec4c55ce391f6a4/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ea55a2edc33550d2ec0b2366dec4c55ce391f6a4/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPlatform.java?ref=ea55a2edc33550d2ec0b2366dec4c55ce391f6a4",
+  "patch": "@@ -245,4 +245,8 @@ public void chmod(File file, int mode) throws IOException, InterruptedException\n     Process process = Runtime.getRuntime().exec(new String[]{\"chmod\", Integer.toOctalString(mode), file.getAbsolutePath()}, null, null);\n     process.waitFor();\n   }\n+\n+  public void fixSettingsLocation() throws IOException {\n+    //noop\n+  }\n }"
+ },
+ {
+  "sha": "8e49c2f1b989ca39d4e4c8614280a1d70d5a0cdc",
+  "filename": "arduino-core/src/processing/app/PreferencesData.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 1,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ea55a2edc33550d2ec0b2366dec4c55ce391f6a4/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ea55a2edc33550d2ec0b2366dec4c55ce391f6a4/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java?ref=ea55a2edc33550d2ec0b2366dec4c55ce391f6a4",
+  "patch": "@@ -31,7 +31,10 @@ public class PreferencesData {\n   static boolean doSave = true;\n \n \n-  static public void init(File file) {\n+  static public void init(File file) throws IOException {\n+    if (file == null) {\n+      BaseNoGui.getPlatform().fixSettingsLocation();\n+    }\n     if (file != null) {\n       preferencesFile = file;\n     } else {"
+ },
+ {
+  "sha": "b1f726ca96b3cef94ea6943372ce7307589f50ee",
+  "filename": "arduino-core/src/processing/app/windows/Platform.java",
+  "status": "modified",
+  "additions": 23,
+  "deletions": 1,
+  "changes": 24,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ea55a2edc33550d2ec0b2366dec4c55ce391f6a4/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ea55a2edc33550d2ec0b2366dec4c55ce391f6a4/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java?ref=ea55a2edc33550d2ec0b2366dec4c55ce391f6a4",
+  "patch": "@@ -35,6 +35,9 @@\n import java.io.ByteArrayOutputStream;\n import java.io.File;\n import java.io.IOException;\n+import java.nio.file.Files;\n+import java.nio.file.Path;\n+import java.nio.file.Paths;\n import java.util.LinkedList;\n import java.util.List;\n import java.util.Map;\n@@ -54,7 +57,7 @@ public void init() throws IOException {\n   }\n \n   private void recoverSettingsFolderPath() throws IOException {\n-    String path = Advapi32Util.registryGetStringValue(WinReg.HKEY_CURRENT_USER, \"Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\Shell Folders\", \"AppData\");\n+    String path = Advapi32Util.registryGetStringValue(WinReg.HKEY_CURRENT_USER, \"Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\Shell Folders\", \"Local AppData\");\n     this.settingsFolder = new File(path, \"Arduino15\");\n   }\n \n@@ -220,4 +223,23 @@ public void link(File something, File somewhere) throws IOException, Interrupted\n \n   public void chmod(File file, int mode) throws IOException, InterruptedException {\n   }\n+\n+  @Override\n+  public void fixSettingsLocation() throws IOException {\n+    String path = Advapi32Util.registryGetStringValue(WinReg.HKEY_CURRENT_USER, \"Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\Shell Folders\", \"AppData\");\n+    Path previousSettingsFolder = Paths.get(path, \"Arduino15\");\n+    if (!Files.exists(previousSettingsFolder)) {\n+      return;\n+    }\n+\n+    if (!Files.exists(previousSettingsFolder.resolve(Paths.get(\"preferences.txt\")))) {\n+      return;\n+    }\n+\n+    if (settingsFolder.exists()) {\n+      return;\n+    }\n+\n+    Files.move(previousSettingsFolder, settingsFolder.toPath());\n+  }\n }"
+ }
+]

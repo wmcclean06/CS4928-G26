@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "037e567f33bc6d41dd70e0b24427b6c01b9e4dc0",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 13,
+  "deletions": 5,
+  "changes": 18,
+  "blob_url": "https://github.com/arduino/Arduino/blob/27f717fa8492ffc168669f63c6b3ea6674e75400/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/27f717fa8492ffc168669f63c6b3ea6674e75400/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=27f717fa8492ffc168669f63c6b3ea6674e75400",
+  "patch": "@@ -133,11 +133,18 @@ public boolean test(SketchController controller) {\n     }\n   }\n \n-  private static class ShouldSaveReadOnly implements Predicate<SketchController> {\n+  private static class CanExportInSketchFolder\n+      implements Predicate<SketchController> {\n \n     @Override\n-    public boolean test(SketchController sketch) {\n-      return sketch.isReadOnly();\n+    public boolean test(SketchController controller) {\n+      if (controller.isReadOnly()) {\n+        return false;\n+      }\n+      if (controller.getSketch().isModified()) {\n+        return PreferencesData.getBoolean(\"editor.save_on_verify\");\n+      }\n+      return true;\n     }\n   }\n \n@@ -666,11 +673,12 @@ private void buildSketchMenu(JMenu sketchMenu) {\n \n     item = newJMenuItemAlt(tr(\"Export compiled Binary\"), 'S');\n     item.addActionListener(event -> {\n-      if (new ShouldSaveReadOnly().test(sketchController) && !handleSave(true)) {\n+      if (!(new CanExportInSketchFolder().test(sketchController))) {\n         System.out.println(tr(\"Export canceled, changes must first be saved.\"));\n         return;\n       }\n-      handleRun(false, new ShouldSaveReadOnly(), presentAndSaveHandler, runAndSaveHandler);\n+      handleRun(false, new CanExportInSketchFolder(), presentAndSaveHandler, runAndSaveHandler);\n+\n     });\n     sketchMenu.add(item);\n "
+ }
+]

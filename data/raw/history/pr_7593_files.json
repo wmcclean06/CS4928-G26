@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "78cf8772d1025023eefaa4c335c6d8d4363e7222",
+  "filename": "build/linux/dist/install.sh",
+  "status": "modified",
+  "additions": 24,
+  "deletions": 0,
+  "changes": 24,
+  "blob_url": "https://github.com/arduino/Arduino/blob/69c5765398f0404adb8831ac562f1631b0fcd9e8/build%2Flinux%2Fdist%2Finstall.sh",
+  "raw_url": "https://github.com/arduino/Arduino/raw/69c5765398f0404adb8831ac562f1631b0fcd9e8/build%2Flinux%2Fdist%2Finstall.sh",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Finstall.sh?ref=69c5765398f0404adb8831ac562f1631b0fcd9e8",
+  "patch": "@@ -66,6 +66,12 @@ xdg_install_f() {\n   # Make Arduino IDE the default application for *.ino\n   xdg-mime default ${RESOURCE_NAME}.desktop text/x-arduino\n \n+  # Add symlink for arduino so it's in users path\n+  echo \"\" # Ensure password request message is on new line\n+  if ! ln -s ${SCRIPT_PATH}/arduino /usr/local/bin/arduino; then\n+      echo \"Adding symlink failed. Hope that's OK. If not then rerun as root with sudo.\"\n+  fi\n+\n   # Clean up\n   rm \"${TMP_DIR}/${RESOURCE_NAME}.desktop\"\n   rmdir \"$TMP_DIR\"\n@@ -98,6 +104,12 @@ simple_install_f() {\n    chmod u+x \"${XDG_DESKTOP_DIR}/${RESOURCE_NAME}.desktop\"\n   fi\n \n+  # Add symlink for arduino so it's in users path\n+  echo \"\" # Ensure password request message is on new line\n+  if ! ln -s ${SCRIPT_PATH}/arduino /usr/local/bin/arduino; then\n+      echo \"Adding symlink failed. Hope that's OK. If not then rerun as root with sudo.\"\n+  fi\n+\n   # Clean up temp dir\n   rm \"${TMP_DIR}/${RESOURCE_NAME}.desktop\"\n   rmdir \"${TMP_DIR}\"\n@@ -138,6 +150,12 @@ xdg_uninstall_f() {\n   # Remove Arduino MIME type\n   xdg-mime uninstall \"${SCRIPT_PATH}/lib/${RESOURCE_NAME}.xml\"\n \n+  # Remove symlink for arduino\n+  echo \"\" # Ensure password request message is on new line\n+  if ! rm /usr/local/bin/arduino; then\n+      echo \"Removing symlink failed. Hope that's OK. If not then rerun as root with sudo.\"\n+  fi\n+\n }\n \n # Uninstall by simply removing desktop files (fallback), incl. old one\n@@ -169,6 +187,12 @@ simple_uninstall_f() {\n     rm \"${XDG_DESKTOP_DIR}/${RESOURCE_NAME}.desktop\"\n   fi\n \n+  # Remove symlink for arduino\n+  echo \"\" # Ensure password request message is on new line\n+  if ! rm /usr/local/bin/arduino; then\n+      echo \"Removing symlink failed. Hope that's OK. If not then rerun as root with sudo.\"\n+  fi\n+\n }\n \n # Update desktop file and mime databases (if possible)"
+ }
+]

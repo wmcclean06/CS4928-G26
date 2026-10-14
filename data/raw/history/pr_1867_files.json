@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ad95c157f6c0bd01dcac3a5ddc4f29fd3ea63e43",
+  "filename": "README.md",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 4,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/fd2ecf71b8a3124017f6fb00c8c6c89a31b0dd7e/README.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/fd2ecf71b8a3124017f6fb00c8c6c89a31b0dd7e/README.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/README.md?ref=fd2ecf71b8a3124017f6fb00c8c6c89a31b0dd7e",
+  "patch": "@@ -24,21 +24,21 @@ to work on them. That way you can coordinate with the Arduino Team and others,\n giving your work a higher chance of being integrated into the official release\n https://groups.google.com/a/arduino.cc/forum/#!forum/developers\n \n-INSTALLATION\n+Installation\n ------------\n Detailed instructions are in reference/Guide_Windows.html and\n reference/Guide_MacOSX.html.  For Linux, see the Arduino playground:\n http://www.arduino.cc/playground/Learning/Linux\n \n-CREDITS\n+Credits\n --------\n Arduino is an open source project, supported by many.\n \n The Arduino team is composed of Massimo Banzi, David Cuartielles, Tom Igoe,\n Gianluca Martino, Daniela Antonietti, and David A. Mellis.\n \n-Arduino uses the GNU avr-gcc toolchain, avrdude, avr-libc, and code from\n-Processing and Wiring.\n+Arduino uses the [GNU avr-gcc toolchain](http://gcc.gnu.org/wiki/avr-gcc), [avrdude](http://www.nongnu.org/avrdude/), [avr-libc](http://www.nongnu.org/avr-libc/), and code from\n+[Processing](http://www.processing.org) and [Wiring](http://wiring.org.co).\n \n Icon and about image designed by ToDo: http://www.todo.to.it/\n "
+ }
+]

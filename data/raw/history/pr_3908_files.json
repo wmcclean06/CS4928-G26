@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "e69cd2d1b10b2db4dfbcda32839852ea101ef17a",
+  "filename": "hardware/arduino/sam/libraries/Wire/Wire.cpp",
+  "status": "modified",
+  "additions": 18,
+  "deletions": 20,
+  "changes": 38,
+  "blob_url": "https://github.com/arduino/Arduino/blob/77179d78d0bdd13574305346ff2b99319a068851/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2FWire.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/77179d78d0bdd13574305346ff2b99319a068851/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2FWire.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2FWire.cpp?ref=77179d78d0bdd13574305346ff2b99319a068851",
+  "patch": "@@ -321,27 +321,25 @@ void TwoWire::onService(void) {\n \t\t}\n \t}\n \n-\tif (status != SLAVE_IDLE) {\n-\t\tif (TWI_STATUS_TXCOMP(sr) && TWI_STATUS_EOSACC(sr)) {\n-\t\t\tif (status == SLAVE_RECV && onReceiveCallback) {\n-\t\t\t\t// Copy data into rxBuffer\n-\t\t\t\t// (allows to receive another packet while the\n-\t\t\t\t// user program reads actual data)\n-\t\t\t\tfor (uint8_t i = 0; i < srvBufferLength; ++i)\n-\t\t\t\t\trxBuffer[i] = srvBuffer[i];\n-\t\t\t\trxBufferIndex = 0;\n-\t\t\t\trxBufferLength = srvBufferLength;\n-\n-\t\t\t\t// Alert calling program\n-\t\t\t\tonReceiveCallback( rxBufferLength);\n-\t\t\t}\n-\n-\t\t\t// Transfer completed\n-\t\t\tTWI_EnableIt(twi, TWI_SR_SVACC);\n-\t\t\tTWI_DisableIt(twi, TWI_IDR_RXRDY | TWI_IDR_GACC | TWI_IDR_NACK\n-\t\t\t\t\t| TWI_IDR_EOSACC | TWI_IDR_SCL_WS | TWI_IER_TXCOMP);\n-\t\t\tstatus = SLAVE_IDLE;\n+\tif (status != SLAVE_IDLE && TWI_STATUS_EOSACC(sr)) {\n+\t\tif (status == SLAVE_RECV && onReceiveCallback) {\n+\t\t\t// Copy data into rxBuffer\n+\t\t\t// (allows to receive another packet while the\n+\t\t\t// user program reads actual data)\n+\t\t\tfor (uint8_t i = 0; i < srvBufferLength; ++i)\n+\t\t\t\trxBuffer[i] = srvBuffer[i];\n+\t\t\trxBufferIndex = 0;\n+\t\t\trxBufferLength = srvBufferLength;\n+\n+\t\t\t// Alert calling program\n+\t\t\tonReceiveCallback( rxBufferLength);\n \t\t}\n+\n+\t\t// Transfer completed\n+\t\tTWI_EnableIt(twi, TWI_SR_SVACC);\n+\t\tTWI_DisableIt(twi, TWI_IDR_RXRDY | TWI_IDR_GACC | TWI_IDR_NACK\n+\t\t\t\t| TWI_IDR_EOSACC | TWI_IDR_SCL_WS | TWI_IER_TXCOMP);\n+\t\tstatus = SLAVE_IDLE;\n \t}\n \n \tif (status == SLAVE_RECV) {"
+ }
+]

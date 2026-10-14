@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "3833ea08869cc8d6a8fbb0c5154b14f084b9124c",
+  "filename": "libraries/SD/src/utility/Sd2Card.h",
+  "status": "modified",
+  "additions": 13,
+  "deletions": 6,
+  "changes": 19,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dde6f09e148661a93dc6f9c5b6068d5e46cae3fd/libraries%2FSD%2Fsrc%2Futility%2FSd2Card.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dde6f09e148661a93dc6f9c5b6068d5e46cae3fd/libraries%2FSD%2Fsrc%2Futility%2FSd2Card.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fsrc%2Futility%2FSd2Card.h?ref=dde6f09e148661a93dc6f9c5b6068d5e46cae3fd",
+  "patch": "@@ -33,7 +33,7 @@ uint8_t const SPI_HALF_SPEED = 1;\n uint8_t const SPI_QUARTER_SPEED = 2;\r\n /**\r\n  * USE_SPI_LIB: if set, use the SPI library bundled with Arduino IDE, otherwise\r\n- * run with a standalone driver for AVR.\n+ * run with a standalone driver for AVR.\r\n  */\r\n #define USE_SPI_LIB\r\n /**\r\n@@ -54,6 +54,10 @@ uint8_t const SPI_QUARTER_SPEED = 2;\n //\r\n #ifndef SOFTWARE_SPI\r\n // hardware pin defs\r\n+\r\n+// include pins_arduino.h or variant.h depending on architecture, via Arduino.h\r\n+#include <Arduino.h>\r\n+\r\n /**\r\n  * SD Chip Select pin\r\n  *\r\n@@ -62,14 +66,17 @@ uint8_t const SPI_QUARTER_SPEED = 2;\n  * master unless SS is set to output mode.\r\n  */\r\n /** The default chip select pin for the SD card is SS. */\r\n-uint8_t const  SD_CHIP_SELECT_PIN = SS_PIN;\r\n-// The following three pins must not be redefined for hardware SPI.\r\n+uint8_t const  SD_CHIP_SELECT_PIN = SS;\r\n+\r\n+// The following three pins must not be redefined for hardware SPI,\r\n+// so ensure that they are taken from pins_arduino.h or variant.h, depending on architecture.\r\n /** SPI Master Out Slave In pin */\r\n-uint8_t const  SPI_MOSI_PIN = MOSI_PIN;\r\n+uint8_t const  SPI_MOSI_PIN = MOSI;\r\n /** SPI Master In Slave Out pin */\r\n-uint8_t const  SPI_MISO_PIN = MISO_PIN;\r\n+uint8_t const  SPI_MISO_PIN = MISO;\r\n /** SPI Clock pin */\r\n-uint8_t const  SPI_SCK_PIN = SCK_PIN;\r\n+uint8_t const  SPI_SCK_PIN = SCK;\r\n+\r\n /** optimize loops for hardware SPI */\r\n #ifndef USE_SPI_LIB\r\n #define OPTIMIZE_HARDWARE_SPI\r"
+ }
+]

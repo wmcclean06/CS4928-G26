@@ -1,0 +1,74 @@
+[
+ {
+  "sha": "ddd0fad52f380e443d6e52817fa723ed440a053a",
+  "filename": "arduino-core/src/cc/arduino/Compiler.java",
+  "status": "modified",
+  "additions": 25,
+  "deletions": 0,
+  "changes": 25,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java?ref=1d634b87b2621144db8e350e18184d1e082c181a",
+  "patch": "@@ -96,6 +96,31 @@ public class Compiler implements MessageConsumer {\n     tr(\"Warning: platform.txt from core '{0}' misses property '{1}', using default value '{2}'. Consider upgrading this core.\");\n     tr(\"Warning: platform.txt from core '{0}' contains deprecated {1}, automatically converted to {2}. Consider upgrading this core.\");\n     tr(\"WARNING: Spurious {0} folder in '{1}' library\");\n+    tr(\"Sketch uses {0} bytes ({2}%%) of program storage space. Maximum is {1} bytes.\");\n+    tr(\"Couldn't determine program size: {0}\");\n+    tr(\"Global variables use {0} bytes ({2}%%) of dynamic memory, leaving {3} bytes for local variables. Maximum is {1} bytes.\");\n+    tr(\"Global variables use {0} bytes of dynamic memory.\");\n+    tr(\"Sketch too big; see http://www.arduino.cc/en/Guide/Troubleshooting#size for tips on reducing it.\");\n+    tr(\"Not enough memory; see http://www.arduino.cc/en/Guide/Troubleshooting#size for tips on reducing your footprint.\");\n+    tr(\"Low memory available, stability problems may occur.\");\n+    tr(\"An error occurred while verifying the sketch\");\n+    tr(\"An error occurred while verifying/uploading the sketch\");\n+    tr(\"Can't find the sketch in the specified path\");\n+    tr(\"Done compiling\");\n+    tr(\"Done uploading\");\n+    tr(\"Error while uploading\");\n+    tr(\"Error while verifying\");\n+    tr(\"Error while verifying/uploading\");\n+    tr(\"Mode not supported\");\n+    tr(\"Multiple files not supported\");\n+    tr(\"No command line parameters found\");\n+    tr(\"No parameters\");\n+    tr(\"No sketch\");\n+    tr(\"No sketchbook\");\n+    tr(\"Only --verify, --upload or --get-pref are supported\");\n+    tr(\"Sketchbook path not defined\");\n+    tr(\"The --upload option supports only one file at a time\");\n+    tr(\"Verifying and uploading...\");\n   }\n \n   enum BuilderAction {"
+ },
+ {
+  "sha": "bf0ec34e8eec62030cf4e2d4b4afc6074a8fc066",
+  "filename": "arduino-core/src/processing/app/i18n/python/pull.py",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Fpull.py",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Fpull.py",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Fpull.py?ref=1d634b87b2621144db8e350e18184d1e082c181a",
+  "patch": "@@ -1,4 +1,4 @@\n-#!/usr/bin/env python\n+#!/usr/bin/env python2\n #vim:set fileencoding=utf-8 sw=2 expandtab\n \n from transifex import Transifex"
+ },
+ {
+  "sha": "b156decd2673b24ead7a56e62095deba676055f0",
+  "filename": "arduino-core/src/processing/app/i18n/python/push.py",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Fpush.py",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Fpush.py",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Fpush.py?ref=1d634b87b2621144db8e350e18184d1e082c181a",
+  "patch": "@@ -1,4 +1,4 @@\n-#!/usr/bin/env python\n+#!/usr/bin/env python2\n #vim:set fileencoding=utf-8 sw=2 expandtab\n \n from transifex import Transifex"
+ },
+ {
+  "sha": "472de4084a178b946db6b45c943fc47f7035c188",
+  "filename": "arduino-core/src/processing/app/i18n/python/transifex.py",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Ftransifex.py",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Ftransifex.py",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Ftransifex.py?ref=1d634b87b2621144db8e350e18184d1e082c181a",
+  "patch": "@@ -1,4 +1,4 @@\n-#!/usr/bin/env python\n+#!/usr/bin/env python2\n #vim:set fileencoding=utf-8 sw=2 expandtab\n \n import update"
+ },
+ {
+  "sha": "afcada35b31627b9b1ac3f47c5734e6d57b2ac79",
+  "filename": "arduino-core/src/processing/app/i18n/python/update.py",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Fupdate.py",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Fupdate.py",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fpython%2Fupdate.py?ref=1d634b87b2621144db8e350e18184d1e082c181a",
+  "patch": "@@ -1,4 +1,4 @@\n-#!/usr/bin/env python\n+#!/usr/bin/env python2\n #vim:set fileencoding=utf-8 sw=2 expandtab\n \n def unquote(s):"
+ },
+ {
+  "sha": "bc050e66e384bf1be582208e573989f27c0cdf1c",
+  "filename": "arduino-core/src/processing/app/i18n/update.sh",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fupdate.sh",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1d634b87b2621144db8e350e18184d1e082c181a/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fupdate.sh",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2Fupdate.sh?ref=1d634b87b2621144db8e350e18184d1e082c181a",
+  "patch": "@@ -28,7 +28,7 @@ catalog()\n update()\n {\n   echo -e \"Updating $1...\\c\"\n-  cat \"$catalog\" | python python/update.py \"$1\"\n+  cat \"$catalog\" | python2 python/update.py \"$1\"\n   msgcat -p \"$1\" > $(basename \"$1\" .po).properties\n   # msgcat may complain about \"CHARSET\" if you didn't replace \"CHARSET\" with\n   # your correct charset."
+ }
+]

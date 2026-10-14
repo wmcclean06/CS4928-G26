@@ -1,0 +1,67 @@
+{
+ "pr": 5528,
+ "base_sha": "de9bd89a01323d7358bfc1c20834e77a7642d3f4",
+ "head_sha": "10dcc1d932664abc8d110a5c49bc875f19a08f69",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 5,
+   "deletions": 1,
+   "old_sha": "87547022090ed68ed72d79d063861e5a551ebddb",
+   "new_sha": "16332cfc4a6baee9afec70dfe2518ad422333c96",
+   "head_sha_check": "16332cfc4a6baee9afec70dfe2518ad422333c96",
+   "loc_at_head": 1953,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 13,
+   "deletions": 0,
+   "old_sha": "ff245b931b8bc37ed5b27eee29930cf1237a4c0c",
+   "new_sha": "ec9cf30689a1c00d40c3e0a47e4f5dfcb9f325b8",
+   "head_sha_check": "ec9cf30689a1c00d40c3e0a47e4f5dfcb9f325b8",
+   "loc_at_head": 2319,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/SketchController.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 0,
+   "old_sha": "1666e438da6faa5517cee92a7eab247fc3074bb9",
+   "new_sha": "086d4dae928891d953d3b558f65d085641f3f494",
+   "head_sha_check": "086d4dae928891d953d3b558f65d085641f3f494",
+   "loc_at_head": 701,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/BaseNoGui.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 9,
+   "deletions": 4,
+   "old_sha": "482daa86398622a3971d2beb910c871196f2fd3d",
+   "new_sha": "8bb95f5bb1cacc5d80cd2cef39f4024a5b8427b1",
+   "head_sha_check": "8bb95f5bb1cacc5d80cd2cef39f4024a5b8427b1",
+   "loc_at_head": 991,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/Sketch.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "11b57ab3bbbf9c0c8669702ba0f623a26d0bcc1f",
+   "new_sha": "fa6a38bf04182b0a6717546ed8dc47881f85eacb",
+   "head_sha_check": "fa6a38bf04182b0a6717546ed8dc47881f85eacb",
+   "loc_at_head": 316,
+   "notes": ""
+  }
+ ]
+}

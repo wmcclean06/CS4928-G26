@@ -1,0 +1,19 @@
+{
+ "pr": 6459,
+ "base_sha": "cba0435367557f895d676c17e9197f89be7a7ebf",
+ "head_sha": "2191315123b4c04e80eb243f6c84c420fb53c7c5",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/view/preferences/Preferences.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 3,
+   "deletions": 5,
+   "old_sha": "2ea7c0295b1d443867641243473492d2ff891462",
+   "new_sha": "b9aa0d771b90933ca2f192c6df194a09b7acfe6e",
+   "head_sha_check": "b9aa0d771b90933ca2f192c6df194a09b7acfe6e",
+   "loc_at_head": 792,
+   "notes": ""
+  }
+ ]
+}

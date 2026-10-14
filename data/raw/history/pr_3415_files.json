@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "686f3411c7e8fc1e4c6661ed6a8962d12b87a6c2",
+  "filename": "arduino-core/src/cc/arduino/contributions/libraries/ContributedLibrary.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 1,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ba09c7511c3c5be9bc41efa0317cc791fcf65890/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FContributedLibrary.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ba09c7511c3c5be9bc41efa0317cc791fcf65890/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FContributedLibrary.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FContributedLibrary.java?ref=ba09c7511c3c5be9bc41efa0317cc791fcf65890",
+  "patch": "@@ -142,7 +142,10 @@ public boolean equals(Object obj) {\n     String thisVersion = getParsedVersion();\n     String otherVersion = ((ContributedLibrary) obj).getParsedVersion();\n \n-    boolean versionEquals = thisVersion != null && otherVersion != null && thisVersion.equals(otherVersion);\n+    // Important: for legacy libs, versions are null.  Two legacy libs must\n+    // always pass this test.\n+    boolean versionEquals = thisVersion == otherVersion ||\n+      (thisVersion != null && otherVersion != null && thisVersion.equals(otherVersion));\n \n     String thisName = getName();\n     String otherName = ((ContributedLibrary) obj).getName();"
+ }
+]

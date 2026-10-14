@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "be15eefd17ec55da4387934ec58e875e96224838",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f89f90fd777d24f3c72f22d4b9e56ac4865a8fb4/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f89f90fd777d24f3c72f22d4b9e56ac4865a8fb4/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=f89f90fd777d24f3c72f22d4b9e56ac4865a8fb4",
+  "patch": "@@ -1432,7 +1432,7 @@ public void actionPerformed(ActionEvent actionevent) {\n     boardMenu.add(new JSeparator());\n \n     // Generate custom menus for all platforms\n-    Set<String> customMenusTitles = new HashSet<>();\n+    Set<String> customMenusTitles = new LinkedHashSet<>();\n     for (TargetPackage targetPackage : BaseNoGui.packages.values()) {\n       for (TargetPlatform targetPlatform : targetPackage.platforms()) {\n         customMenusTitles.addAll(targetPlatform.getCustomMenus().values());"
+ }
+]

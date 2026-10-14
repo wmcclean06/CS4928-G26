@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "b118dbae256bd3df6a5886f59b6dca1f3d926e75",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 11,
+  "deletions": 27,
+  "changes": 38,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b71a4969af16ea24bb313198650ab9965d109062/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b71a4969af16ea24bb313198650ab9965d109062/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=b71a4969af16ea24bb313198650ab9965d109062",
+  "patch": "@@ -26,6 +26,7 @@\n import cc.arduino.Constants;\n import cc.arduino.UpdatableBoardsLibsFakeURLsHandler;\n import cc.arduino.UploaderUtils;\n+import cc.arduino.packages.Uploader;\n import cc.arduino.contributions.*;\n import cc.arduino.contributions.libraries.*;\n import cc.arduino.contributions.libraries.ui.LibraryManagerUI;\n@@ -925,45 +926,20 @@ public void actionPerformed(ActionEvent actionEvent) {\n    */\n   public boolean handleClose(Editor editor) {\n     // Check if modified\n-//    boolean immediate = editors.size() == 1;\n     if (!editor.checkModified()) {\n       return false;\n     }\n \n     if (editors.size() == 1) {\n-      storeScreenDimensions();\n-      storeSketches();\n-\n-      // This will store the sketch count as zero\n-      editors.remove(editor);\n-      try {\n-        Editor.serialMonitor.close();\n-      } catch (Exception e) {\n-        //ignore\n-      }\n-      rebuildRecentSketchesMenuItems();\n \n-      // Save out the current prefs state\n-      PreferencesData.save();\n-\n-      // Since this wasn't an actual Quit event, call System.exit()\n-      System.exit(0);\n+      handleQuit();\n \n     } else {\n       // More than one editor window open,\n       // proceed with closing the current window.\n       editor.setVisible(false);\n       editor.dispose();\n-//      for (int i = 0; i < editorCount; i++) {\n-//        if (editor == editors[i]) {\n-//          for (int j = i; j < editorCount-1; j++) {\n-//            editors[j] = editors[j+1];\n-//          }\n-//          editorCount--;\n-//          // Set to null so that garbage collection occurs\n-//          editors[editorCount] = null;\n-//        }\n-//      }\n+\n       editors.remove(editor);\n     }\n     return true;\n@@ -986,6 +962,14 @@ public boolean handleQuit() {\n       // ignore\n     }\n \n+    // kill uploader (if still alive)\n+    UploaderUtils uploaderInstance = new UploaderUtils();\n+    Uploader uploader = uploaderInstance.getUploaderByPreferences(false);\n+    if (uploader != null && uploader.programmerPid != null && uploader.programmerPid.isAlive()) {\n+        // kill the stuck programmer\n+        uploader.programmerPid.destroyForcibly();\n+    }\n+\n     if (handleQuitEach()) {\n       // Save out the current prefs state\n       PreferencesData.save();"
+ },
+ {
+  "sha": "f2e2126d54bf27d228630f7878a59c2aa6ee1cd9",
+  "filename": "arduino-core/src/cc/arduino/packages/Uploader.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b71a4969af16ea24bb313198650ab9965d109062/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b71a4969af16ea24bb313198650ab9965d109062/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploader.java?ref=b71a4969af16ea24bb313198650ab9965d109062",
+  "patch": "@@ -106,7 +106,7 @@ public String getAuthorizationKey() {\n   }\n \n   // static field for last executed programmer process ID\n-  static protected Process programmerPid;\n+  static public Process programmerPid;\n \n   protected boolean executeUploadCommand(Collection<String> command) throws Exception {\n     return executeUploadCommand(command.toArray(new String[command.size()]));"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "a682da3794eb870f854b1ab95a1f572b29e6d874",
+  "filename": "build/shared/lib/theme/theme.txt",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 6,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5adcbe0b409cc37c808f9f7709b8cb5a7ef73012/build%2Fshared%2Flib%2Ftheme%2Ftheme.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5adcbe0b409cc37c808f9f7709b8cb5a7ef73012/build%2Fshared%2Flib%2Ftheme%2Ftheme.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Flib%2Ftheme%2Ftheme.txt?ref=5adcbe0b409cc37c808f9f7709b8cb5a7ef73012",
+  "patch": "@@ -37,16 +37,19 @@ buttons.status.font = SansSerif,plain,12\n buttons.status.color = #ffffff\n \n # GUI - PLOTTING\n-# color cycle created via colorbrewer2.org\n plotting.bgcolor = #ffffff\n plotting.color = #ffffff\n plotting.gridcolor = #f0f0f0\n plotting.boundscolor = #000000\n-plotting.graphcolor.size = 4\n-plotting.graphcolor.00 = #2c7bb6\n-plotting.graphcolor.01 = #fdae61\n-plotting.graphcolor.02 = #d7191c\n-plotting.graphcolor.03 = #abd9e9\n+plotting.graphcolor.size = 8\n+plotting.graphcolor.00 = #0000FF\n+plotting.graphcolor.01 = #FF0000\n+plotting.graphcolor.02 = #009900\n+plotting.graphcolor.03 = #FF9900\n+plotting.graphcolor.04 = #CC00CC\n+plotting.graphcolor.05 = #666666\n+plotting.graphcolor.06 = #00CCFF\n+plotting.graphcolor.07 = #000000\n \n # GUI - LINESTATUS   \n linestatus.color = #ffffff"
+ }
+]

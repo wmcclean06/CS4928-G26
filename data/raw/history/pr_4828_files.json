@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "d45d9c638f23d16bf75c997a5fc5e88f5f110e94",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c28c8549368ee6c74bbeb1b23e18c0abdea70cc8/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c28c8549368ee6c74bbeb1b23e18c0abdea70cc8/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=c28c8549368ee6c74bbeb1b23e18c0abdea70cc8",
+  "patch": "@@ -82,6 +82,7 @@ public class Base {\n \n   public static final Predicate<UserLibrary> CONTRIBUTED = library -> library.getTypes() == null || library.getTypes().isEmpty() || library.getTypes().contains(\"Contributed\");\n   public static final Predicate<UserLibrary> RETIRED = library -> library.getTypes() != null && library.getTypes().contains(\"Retired\");\n+  public static final Predicate<UserLibrary> COMPATIBLE = library -> library.getArchitectures() != null && (library.getArchitectures().contains(\"*\") || library.getArchitectures().contains(BaseNoGui.getTargetPlatform().getId()));\n \n   private static final int RECENT_SKETCHES_MAX_SIZE = 10;\n \n@@ -1104,6 +1105,7 @@ public LibraryList getIDELibs() {\n     List<UserLibrary> libs = installedLibraries.stream()\n       .filter(CONTRIBUTED.negate())\n       .filter(RETIRED.negate())\n+      .filter(COMPATIBLE)\n       .collect(Collectors.toList());\n     return new LibraryList(libs);\n   }"
+ },
+ {
+  "sha": "93c981c9aaadbf2eb7e54108be939ccfffdec949",
+  "filename": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndexer.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c28c8549368ee6c74bbeb1b23e18c0abdea70cc8/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c28c8549368ee6c74bbeb1b23e18c0abdea70cc8/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java?ref=c28c8549368ee6c74bbeb1b23e18c0abdea70cc8",
+  "patch": "@@ -187,11 +187,11 @@ private void scanLibrary(File folder, boolean isSketchbook) throws IOException {\n     if (headers.length == 0) {\n       throw new IOException(lib.getSrcFolder().getAbsolutePath());\n     }\n-    installedLibraries.addOrReplace(lib);\n+    installedLibraries.addOrReplaceArchAware(lib);\n     if (isSketchbook) {\n       installedLibrariesWithDuplicates.add(lib);\n     } else {\n-      installedLibrariesWithDuplicates.addOrReplace(lib);\n+      installedLibrariesWithDuplicates.addOrReplaceArchAware(lib);\n     }\n \n     // Check if we can find the same library in the index"
+ },
+ {
+  "sha": "b83e5265ef22c85569a65c649b815b81ac99fa30",
+  "filename": "arduino-core/src/processing/app/packages/LibraryList.java",
+  "status": "modified",
+  "additions": 15,
+  "deletions": 5,
+  "changes": 20,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c28c8549368ee6c74bbeb1b23e18c0abdea70cc8/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FLibraryList.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c28c8549368ee6c74bbeb1b23e18c0abdea70cc8/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FLibraryList.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FLibraryList.java?ref=c28c8549368ee6c74bbeb1b23e18c0abdea70cc8",
+  "patch": "@@ -57,15 +57,25 @@ public synchronized UserLibrary getByName(String name) {\n     return null;\n   }\n \n+  public synchronized void addOrReplaceArchAware(UserLibrary lib) {\n+    addOrReplace(lib, true);\n+  }\n+\n   public synchronized void addOrReplace(UserLibrary lib) {\n-    remove(lib);\n+    addOrReplace(lib, false);\n+  }\n+\n+  public synchronized void addOrReplace(UserLibrary lib, boolean archAware) {\n+    remove(lib, archAware);\n     add(lib);\n   }\n-  \n-  public synchronized void remove(UserLibrary lib) {\n+\n+  public synchronized void remove(UserLibrary lib, boolean archAware) {\n     UserLibrary l = getByName(lib.getName());\n-    if (l != null)\n-      super.remove(l);\n+    if (l != null) {\n+      if (!archAware || lib.getArchitectures().contains(\"*\") || lib.getArchitectures().containsAll(l.getArchitectures()))\n+        super.remove(l);\n+    }\n   }\n \n   public synchronized void sort() {"
+ }
+]

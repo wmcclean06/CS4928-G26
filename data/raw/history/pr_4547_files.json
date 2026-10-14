@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "9794c8ef623b533a0c189641e8353dd68e6c44f7",
+  "filename": "libraries/Servo/src/avr/ServoTimers.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/28afa8c5a86992c86df9e25be76177e7c0330ca2/libraries%2FServo%2Fsrc%2Favr%2FServoTimers.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/28afa8c5a86992c86df9e25be76177e7c0330ca2/libraries%2FServo%2Fsrc%2Favr%2FServoTimers.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FServo%2Fsrc%2Favr%2FServoTimers.h?ref=28afa8c5a86992c86df9e25be76177e7c0330ca2",
+  "patch": "@@ -47,7 +47,7 @@ typedef enum { _timer1, _Nbr_16timers } timer16_Sequence_t;\n #define _useTimer1\n typedef enum { _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t;\n \n-#elif defined(__AVR_ATmega128__) ||defined(__AVR_ATmega1281__)||defined(__AVR_ATmega2561__)\n+#elif defined(__AVR_ATmega128__) || defined(__AVR_ATmega1281__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega2561__)\n #define _useTimer3\n #define _useTimer1\n typedef enum { _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t;"
+ }
+]

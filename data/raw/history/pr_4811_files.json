@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "1445ce14fb76f6533c2c457c0757583251f0aa01",
+  "filename": "hardware/arduino/sam/variants/arduino_due_x/variant.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/aabdb852b545656ed88ed899822f5c88c802648c/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/aabdb852b545656ed88ed899822f5c88c802648c/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.h?ref=aabdb852b545656ed88ed899822f5c88c802648c",
+  "patch": "@@ -58,6 +58,7 @@ extern \"C\"{\n #define PINS_COUNT           (79u)\n #define NUM_DIGITAL_PINS     (54u)\n #define NUM_ANALOG_INPUTS    (12u)\n+#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + NUM_DIGITAL_PINS : -1)\n \n #define digitalPinToPort(P)        ( g_APinDescription[P].pPort )\n #define digitalPinToBitMask(P)     ( g_APinDescription[P].ulPin )"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "e386d6f67ab311e593cf61afcc23842bbbdc2b35",
+  "filename": "build/shared/lib/preferences.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/94a0c80e77a9075937ba720353ac22b119624149/build%2Fshared%2Flib%2Fpreferences.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/94a0c80e77a9075937ba720353ac22b119624149/build%2Fshared%2Flib%2Fpreferences.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Flib%2Fpreferences.txt?ref=94a0c80e77a9075937ba720353ac22b119624149",
+  "patch": "@@ -24,6 +24,8 @@\n # You'll have problems running Processing if you incorrectly \n # modify lines in this file.\n \n+# This file DOES NOT CONTAIN settings for autoformatter (A-Style).\n+# Look for the file \"formatter.conf\" and follow instructions at top.\n \n # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n "
+ }
+]

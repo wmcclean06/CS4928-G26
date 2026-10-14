@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "b88f6a8297777ac085dbeb9b0e7c7e0cec69a576",
+  "filename": "app/src/processing/app/debug/AvrdudeUploader.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ec3c8123bf5f707a9b3d08a4c65eda75a9831405/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FAvrdudeUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ec3c8123bf5f707a9b3d08a4c65eda75a9831405/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FAvrdudeUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FAvrdudeUploader.java?ref=ec3c8123bf5f707a9b3d08a4c65eda75a9831405",
+  "patch": "@@ -85,7 +85,7 @@ private boolean uploadViaBootloader(String buildPath, String className)\n     // this wait a moment for the bootloader to enumerate. On Windows, also must\n     // deal with the fact that the COM port number changes from bootloader to\n     // sketch.\n-    if (boardPreferences.get(\"bootloader.path\").equals(\"caterina\")) {\n+    if (boardPreferences.get(\"bootloader.path\") != null && boardPreferences.get(\"bootloader.path\").equals(\"caterina\")) {\n       String caterinaUploadPort = null;\n       try {\n         // Toggle 1200 bps on selected serial port to force board reset.\n@@ -178,7 +178,7 @@ private boolean uploadViaBootloader(String buildPath, String className)\n \t// port reconnects (or timeout after a few seconds if the sketch port never comes back).\n \t// Doing this saves users from accidentally opening Serial Monitor on the soon-to-be-orphaned\n \t// bootloader port.\n-    if (true == avrdudeResult && boardPreferences.get(\"bootloader.path\").equals(\"caterina\")) {\n+    if (true == avrdudeResult && boardPreferences.get(\"bootloader.path\") != null && boardPreferences.get(\"bootloader.path\").equals(\"caterina\")) {\n     \ttry {\n     \t\tThread.sleep(500);\n     \t} catch (InterruptedException ex) { } "
+ }
+]

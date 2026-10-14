@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "723edb3c8283350651770a54299dd2d7538ca304",
+  "filename": "hardware/arduino/avr/cores/arduino/USBCore.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b23e7193befa3fc29cbfa5ade5f8b71e82c27e50/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b23e7193befa3fc29cbfa5ade5f8b71e82c27e50/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp?ref=b23e7193befa3fc29cbfa5ade5f8b71e82c27e50",
+  "patch": "@@ -399,7 +399,7 @@ bool SendControl(u8 d)\n \t}\n \t_cmark++;\n \treturn true;\n-};\n+}\n \n //\tClipped by _cmark/_cend\n int USB_SendControl(u8 flags, const void* d, int len)"
+ }
+]

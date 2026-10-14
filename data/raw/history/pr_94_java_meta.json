@@ -1,0 +1,19 @@
+{
+ "pr": 94,
+ "base_sha": "a9fedabe3cbd374cfc607314880e2abdd4ee28ea",
+ "head_sha": "ec3c8123bf5f707a9b3d08a4c65eda75a9831405",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/debug/AvrdudeUploader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 2,
+   "old_sha": "213e17896e12d7b7cd87b49eb46cdd559a08564b",
+   "new_sha": "b88f6a8297777ac085dbeb9b0e7c7e0cec69a576",
+   "head_sha_check": "b88f6a8297777ac085dbeb9b0e7c7e0cec69a576",
+   "loc_at_head": 269,
+   "notes": ""
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+[
+ {
+  "sha": "592a00e488c339f961f39bea1b060a5cf360769b",
+  "filename": "libraries/Ethernet/examples/AdvancedChatServer/AdvancedChatServer.ino",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 4,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FAdvancedChatServer%2FAdvancedChatServer.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FAdvancedChatServer%2FAdvancedChatServer.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FAdvancedChatServer%2FAdvancedChatServer.ino?ref=7f4c29927db35a8cec7f7c7cb81774406ed2ec6f",
+  "patch": "@@ -3,13 +3,12 @@\n \n  A more advanced server that distributes any incoming messages\n  to all connected clients but the client the message comes from.\n- To use telnet to  your device's IP address and type.\n+ To use, telnet to your device's IP address and type.\n  You can see the client's input in the serial monitor as well.\n  Using an Arduino Wiznet Ethernet shield.\n \n  Circuit:\n  * Ethernet shield attached to pins 10, 11, 12, 13\n- * Analog inputs attached to pins A0 through A5 (optional)\n \n  created 18 Dec 2009\n  by David A. Mellis\n@@ -41,7 +40,7 @@ EthernetServer server(23);\n EthernetClient clients[4];\n \n void setup() {\n-  // initialize the ethernet device\n+  // initialize the Ethernet device\n   Ethernet.begin(mac, ip, myDns, gateway, subnet);\n   // start listening for clients\n   server.begin();\n@@ -77,7 +76,7 @@ void loop() {\n       for (byte i = 0; i < 4; i++) {\n         if (!clients[i] && clients[i] != client) {\n           clients[i] = client;\n-          // clead out the input buffer:\n+          // clear out the input buffer:\n           client.flush();\n           Serial.println(\"We have a new client\");\n           client.print(\"Hello, client number: \");"
+ },
+ {
+  "sha": "794e22444d2f04bd949f3a600758ef87343e1d62",
+  "filename": "libraries/Ethernet/examples/BarometricPressureWebServer/BarometricPressureWebServer.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FBarometricPressureWebServer%2FBarometricPressureWebServer.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FBarometricPressureWebServer%2FBarometricPressureWebServer.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FBarometricPressureWebServer%2FBarometricPressureWebServer.ino?ref=7f4c29927db35a8cec7f7c7cb81774406ed2ec6f",
+  "patch": "@@ -26,7 +26,7 @@\n #include <SPI.h>\n \n \n-// assign a MAC address for the ethernet controller.\n+// assign a MAC address for the Ethernet controller.\n // fill in your address here:\n byte mac[] = {\n   0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED"
+ },
+ {
+  "sha": "fe501d6ab7442877576e1a3e6e61fe71f8206358",
+  "filename": "libraries/Ethernet/examples/ChatServer/ChatServer.ino",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 4,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FChatServer%2FChatServer.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FChatServer%2FChatServer.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FChatServer%2FChatServer.ino?ref=7f4c29927db35a8cec7f7c7cb81774406ed2ec6f",
+  "patch": "@@ -1,14 +1,13 @@\n /*\n- Chat  Server\n+ Chat Server\n \n  A simple server that distributes any incoming messages to all\n- connected clients.  To use telnet to  your device's IP address and type.\n+ connected clients.  To use, telnet to your device's IP address and type.\n  You can see the client's input in the serial monitor as well.\n  Using an Arduino Wiznet Ethernet shield.\n \n  Circuit:\n  * Ethernet shield attached to pins 10, 11, 12, 13\n- * Analog inputs attached to pins A0 through A5 (optional)\n \n  created 18 Dec 2009\n  by David A. Mellis\n@@ -59,7 +58,7 @@ void loop() {\n   // when the client sends the first byte, say hello:\n   if (client) {\n     if (!alreadyConnected) {\n-      // clead out the input buffer:\n+      // clear out the input buffer:\n       client.flush();\n       Serial.println(\"We have a new client\");\n       client.println(\"Hello, client!\");"
+ },
+ {
+  "sha": "4cfb5945d2cadcef3b57d3700c591c4f31625c4e",
+  "filename": "libraries/Ethernet/examples/DhcpChatServer/DhcpChatServer.ino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FDhcpChatServer%2FDhcpChatServer.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FDhcpChatServer%2FDhcpChatServer.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FDhcpChatServer%2FDhcpChatServer.ino?ref=7f4c29927db35a8cec7f7c7cb81774406ed2ec6f",
+  "patch": "@@ -2,7 +2,7 @@\n  DHCP Chat  Server\n \n  A simple server that distributes any incoming messages to all\n- connected clients.  To use telnet to  your device's IP address and type.\n+ connected clients.  To use, telnet to your device's IP address and type.\n  You can see the client's input in the serial monitor as well.\n  Using an Arduino Wiznet Ethernet shield.\n \n@@ -51,7 +51,7 @@ void setup() {\n   Serial.println(\"Trying to get an IP address using DHCP\");\n   if (Ethernet.begin(mac) == 0) {\n     Serial.println(\"Failed to configure Ethernet using DHCP\");\n-    // initialize the ethernet device not using DHCP:\n+    // initialize the Ethernet device not using DHCP:\n     Ethernet.begin(mac, ip, myDns, gateway, subnet);\n   }\n   // print your local IP address:"
+ },
+ {
+  "sha": "c9249b7945607316404753f34781088031d09c73",
+  "filename": "libraries/Ethernet/examples/TelnetClient/TelnetClient.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FTelnetClient%2FTelnetClient.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FTelnetClient%2FTelnetClient.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FTelnetClient%2FTelnetClient.ino?ref=7f4c29927db35a8cec7f7c7cb81774406ed2ec6f",
+  "patch": "@@ -34,7 +34,7 @@ IPAddress server(1, 1, 1, 1);\n // Initialize the Ethernet client library\n // with the IP address and port of the server\n // that you want to connect to (port 23 is default for telnet;\n-// if you're using Processing's ChatServer, use  port 10002):\n+// if you're using Processing's ChatServer, use port 10002):\n EthernetClient client;\n \n void setup() {"
+ },
+ {
+  "sha": "62d008ff50b56e4564e7b22b2fd289b07e3b698f",
+  "filename": "libraries/Ethernet/examples/UDPSendReceiveString/UDPSendReceiveString.ino",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FUDPSendReceiveString%2FUDPSendReceiveString.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FUDPSendReceiveString%2FUDPSendReceiveString.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FUDPSendReceiveString%2FUDPSendReceiveString.ino?ref=7f4c29927db35a8cec7f7c7cb81774406ed2ec6f",
+  "patch": "@@ -1,5 +1,5 @@\n /*\n-  UDPSendReceive.pde:\n+ UDPSendReceiveString:\n  This sketch receives UDP message strings, prints them to the serial port\n  and sends an \"acknowledge\" string back to the sender\n \n@@ -28,7 +28,7 @@ IPAddress ip(192, 168, 1, 177);\n unsigned int localPort = 8888;      // local port to listen on\n \n // buffers for receiving and sending data\n-char packetBuffer[UDP_TX_PACKET_MAX_SIZE]; //buffer to hold incoming packet,\n+char packetBuffer[UDP_TX_PACKET_MAX_SIZE];  //buffer to hold incoming packet,\n char  ReplyBuffer[] = \"acknowledged\";       // a string to send back\n \n // An EthernetUDP instance to let us send and receive packets over UDP\n@@ -64,7 +64,7 @@ void loop() {\n     Serial.println(\"Contents:\");\n     Serial.println(packetBuffer);\n \n-    // send a reply, to the IP address and port that sent us the packet we received\n+    // send a reply to the IP address and port that sent us the packet we received\n     Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());\n     Udp.write(ReplyBuffer);\n     Udp.endPacket();"
+ },
+ {
+  "sha": "157136cf8338b73ff83ceda71458f968f7d68ef5",
+  "filename": "libraries/Ethernet/examples/UdpNtpClient/UdpNtpClient.ino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FUdpNtpClient%2FUdpNtpClient.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FUdpNtpClient%2FUdpNtpClient.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FUdpNtpClient%2FUdpNtpClient.ino?ref=7f4c29927db35a8cec7f7c7cb81774406ed2ec6f",
+  "patch": "@@ -66,8 +66,8 @@ void loop() {\n     // We've received a packet, read the data from it\n     Udp.read(packetBuffer, NTP_PACKET_SIZE); // read the packet into the buffer\n \n-    //the timestamp starts at byte 40 of the received packet and is four bytes,\n-    // or two words, long. First, esxtract the two words:\n+    // the timestamp starts at byte 40 of the received packet and is four bytes,\n+    // or two words, long. First, extract the two words:\n \n     unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);\n     unsigned long lowWord = word(packetBuffer[42], packetBuffer[43]);"
+ },
+ {
+  "sha": "5e265a77cfd76a89701e8ced497f699a65b82be5",
+  "filename": "libraries/Ethernet/examples/WebClient/WebClient.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 2,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FWebClient%2FWebClient.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f4c29927db35a8cec7f7c7cb81774406ed2ec6f/libraries%2FEthernet%2Fexamples%2FWebClient%2FWebClient.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FWebClient%2FWebClient.ino?ref=7f4c29927db35a8cec7f7c7cb81774406ed2ec6f",
+  "patch": "@@ -43,7 +43,6 @@ void setup() {\n   // start the Ethernet connection:\n   if (Ethernet.begin(mac) == 0) {\n     Serial.println(\"Failed to configure Ethernet using DHCP\");\n-    // no point in carrying on, so do nothing forevermore:\n     // try to congifure using IP address instead of DHCP:\n     Ethernet.begin(mac, ip);\n   }\n@@ -60,7 +59,7 @@ void setup() {\n     client.println(\"Connection: close\");\n     client.println();\n   } else {\n-    // kf you didn't get a connection to the server:\n+    // if you didn't get a connection to the server:\n     Serial.println(\"connection failed\");\n   }\n }"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "e955c4d4a2238cae3d453b5bab98a05186d6a468",
+  "filename": "libraries/Ethernet/examples/WebClientRepeating/WebClientRepeating.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 3,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/89294855fe9a2a3d90e74a53dc45524347ad35c1/libraries%2FEthernet%2Fexamples%2FWebClientRepeating%2FWebClientRepeating.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/89294855fe9a2a3d90e74a53dc45524347ad35c1/libraries%2FEthernet%2Fexamples%2FWebClientRepeating%2FWebClientRepeating.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FWebClientRepeating%2FWebClientRepeating.ino?ref=89294855fe9a2a3d90e74a53dc45524347ad35c1",
+  "patch": "@@ -89,7 +89,7 @@ void httpRequest() {\n   // if there's a successful connection:\n   if (client.connect(server, 80)) {\n     Serial.println(\"connecting...\");\n-    // send the HTTP PUT request:\n+    // send the HTTP GET request:\n     client.println(\"GET /latest.txt HTTP/1.1\");\n     client.println(\"Host: www.arduino.cc\");\n     client.println(\"User-Agent: arduino-ethernet\");\n@@ -103,5 +103,3 @@ void httpRequest() {\n     Serial.println(\"connection failed\");\n   }\n }\n-\n-"
+ }
+]

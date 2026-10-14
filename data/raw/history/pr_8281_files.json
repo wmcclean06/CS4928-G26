@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "5dede700a78c482fcd7534422abc644ece330ba3",
+  "filename": "app/src/processing/app/EditorToolbar.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3b2e41fd6e8212e48fba15da3d3e1c0f6a8c42d1/app%2Fsrc%2Fprocessing%2Fapp%2FEditorToolbar.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3b2e41fd6e8212e48fba15da3d3e1c0f6a8c42d1/app%2Fsrc%2Fprocessing%2Fapp%2FEditorToolbar.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorToolbar.java?ref=3b2e41fd6e8212e48fba15da3d3e1c0f6a8c42d1",
+  "patch": "@@ -31,6 +31,7 @@\n import com.thizzer.jtouchbar.item.TouchBarItem;\n import com.thizzer.jtouchbar.item.view.TouchBarButton;\n \n+import cc.arduino.contributions.VersionComparator;\n import processing.app.helpers.OSUtils;\n \n import java.awt.*;\n@@ -149,7 +150,7 @@ public EditorToolbar(Editor editor, JMenu menu) {\n     statusFont = Theme.getFont(\"buttons.status.font\");\n     statusColor = Theme.getColor(\"buttons.status.color\");\n \n-    if (OSUtils.isMacOS()) {\n+    if (OSUtils.isMacOS() && VersionComparator.greaterThanOrEqual(OSUtils.version(), \"10.12\")) {\n       editor.addWindowListener(new WindowAdapter() {\n         public void windowActivated(WindowEvent e) {\n           if (touchBar == null) {"
+ },
+ {
+  "sha": "c9ec5ca81b979dc4dd41a0ce5db0b6c341af2464",
+  "filename": "arduino-core/src/cc/arduino/contributions/VersionComparator.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3b2e41fd6e8212e48fba15da3d3e1c0f6a8c42d1/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FVersionComparator.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3b2e41fd6e8212e48fba15da3d3e1c0f6a8c42d1/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FVersionComparator.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FVersionComparator.java?ref=3b2e41fd6e8212e48fba15da3d3e1c0f6a8c42d1",
+  "patch": "@@ -61,6 +61,10 @@ public int compare(String a, String b) {\n   public static boolean greaterThan(String a, String b) {\n     return compareTo(a, b) > 0;\n   }\n+  \n+  public static boolean greaterThanOrEqual(String a, String b) {\n+    return compareTo(a, b) >= 0;\n+  }\n \n   public static String max(String a, String b) {\n     return greaterThan(a, b) ? a : b;"
+ },
+ {
+  "sha": "b063b18deb7ce256f9dfdacd9cdd136813362f06",
+  "filename": "arduino-core/src/processing/app/helpers/OSUtils.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3b2e41fd6e8212e48fba15da3d3e1c0f6a8c42d1/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FOSUtils.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3b2e41fd6e8212e48fba15da3d3e1c0f6a8c42d1/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FOSUtils.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FOSUtils.java?ref=3b2e41fd6e8212e48fba15da3d3e1c0f6a8c42d1",
+  "patch": "@@ -29,4 +29,8 @@ static public boolean isMacOS() {\n   static public boolean hasMacOSStyleMenus() {\n     return OSUtils.isMacOS() && \"true\".equals(System.getProperty(\"apple.laf.useScreenMenuBar\"));\n   }\n+\n+  static public String version() {\n+    return System.getProperty(\"os.version\");\n+  }\n }"
+ }
+]

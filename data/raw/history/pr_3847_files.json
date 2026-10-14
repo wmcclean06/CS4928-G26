@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "2ef29d54ea0f39cfb7b3742abde96145558168f9",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 17,
+  "deletions": 1,
+  "changes": 18,
+  "blob_url": "https://github.com/arduino/Arduino/blob/46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e",
+  "patch": "@@ -117,7 +117,7 @@ public class Base {\n   private List<JMenu> boardsCustomMenus;\n   private List<JMenuItem> programmerMenus;\n \n-  private final PdeKeywords pdeKeywords;\n+  private PdeKeywords pdeKeywords;\n   private final List<JMenuItem> recentSketchesMenuItems;\n \n   static public void main(String args[]) throws Exception {\n@@ -1250,9 +1250,25 @@ public void rebuildExamplesMenu(JMenu menu) {\n     }\n   }\n \n+  private static String priorPlatformFolder;\n+\n   public void onBoardOrPortChange() {\n     BaseNoGui.onBoardOrPortChange();\n \n+    // reload keywords when package/platform changes\n+    TargetPlatform tp = BaseNoGui.getTargetPlatform();\n+    if (tp != null) {\n+      String platformFolder = tp.getFolder().getAbsolutePath();\n+      if (priorPlatformFolder == null || !priorPlatformFolder.equals(platformFolder)) {\n+        pdeKeywords = new PdeKeywords();\n+        pdeKeywords.reload();\n+        priorPlatformFolder = platformFolder;\n+        for (Editor editor : editors) {\n+          editor.updateKeywords(pdeKeywords);\n+        }\n+      }\n+    }\n+\n     // Update editors status bar\n     for (Editor editor : editors) {\n       editor.onBoardOrPortChange();"
+ },
+ {
+  "sha": "cbe11c8c906457d6722f9fa556a84e13b90a35b8",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 10,
+  "deletions": 0,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e",
+  "patch": "@@ -40,6 +40,7 @@\n import processing.app.helpers.OSUtils;\n import processing.app.helpers.PreferencesMapException;\n import processing.app.legacy.PApplet;\n+import processing.app.syntax.PdeKeywords;\n import processing.app.syntax.ArduinoTokenMakerFactory;\n import processing.app.syntax.SketchTextArea;\n import processing.app.tools.DiscourseFormat;\n@@ -1060,6 +1061,15 @@ public void caretUpdate(CaretEvent e) {\n     return textArea;\n   }\n \n+  public void updateKeywords(PdeKeywords keywords) {\n+    // update GUI for \"Find In Reference\"\n+    textarea.setKeywords(keywords);\n+    // update document for syntax highlighting\n+    RSyntaxDocument document = (RSyntaxDocument) textarea.getDocument();\n+    document.setTokenMakerFactory(new ArduinoTokenMakerFactory(keywords));\n+    document.setSyntaxStyle(RSyntaxDocument.SYNTAX_STYLE_CPLUSPLUS);\n+  }\n+\n   private JMenuItem createToolMenuItem(String className) {\n     try {\n       Class<?> toolClass = Class.forName(className);"
+ },
+ {
+  "sha": "176e5795e1429834b9079046d51cc78fc7ab257d",
+  "filename": "app/src/processing/app/syntax/PdeKeywords.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 0,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FPdeKeywords.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FPdeKeywords.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FPdeKeywords.java?ref=46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e",
+  "patch": "@@ -31,6 +31,7 @@\n import processing.app.Base;\n import processing.app.BaseNoGui;\n import processing.app.legacy.PApplet;\n+import processing.app.debug.TargetPlatform;\n \n import java.io.BufferedReader;\n import java.io.File;\n@@ -84,6 +85,11 @@ public PdeKeywords() {\n   public void reload() {\n     try {\n       parseKeywordsTxt(new File(BaseNoGui.getContentFile(\"lib\"), \"keywords.txt\"));\n+      TargetPlatform tp = BaseNoGui.getTargetPlatform();\n+      if (tp != null) {\n+        File platformKeywords = new File(tp.getFolder(), \"keywords.txt\");\n+        if (platformKeywords.exists()) parseKeywordsTxt(platformKeywords);\n+      }\n       for (ContributedLibrary lib : Base.getLibraries()) {\n         File keywords = new File(lib.getInstalledFolder(), \"keywords.txt\");\n         if (keywords.exists()) {"
+ },
+ {
+  "sha": "50d946a06a5c866e774aa143b0f8366e8397a086",
+  "filename": "app/src/processing/app/syntax/SketchTextArea.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 1,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextArea.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextArea.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextArea.java?ref=46cfb7f2d49d040f9d71ec5c1d069ff75779ea3e",
+  "patch": "@@ -74,13 +74,18 @@ public class SketchTextArea extends RSyntaxTextArea {\n \n   private EditorListener editorListener;\n \n-  private final PdeKeywords pdeKeywords;\n+  private PdeKeywords pdeKeywords;\n \n   public SketchTextArea(PdeKeywords pdeKeywords) throws IOException {\n     this.pdeKeywords = pdeKeywords;\n     installFeatures();\n   }\n \n+  public void setKeywords(PdeKeywords keywords) {\n+    pdeKeywords = keywords;\n+    setLinkGenerator(new DocLinkGenerator(pdeKeywords));\n+  }\n+\n   private void installFeatures() throws IOException {\n     setTheme(PreferencesData.get(\"editor.syntax_theme\", \"default\"));\n "
+ }
+]

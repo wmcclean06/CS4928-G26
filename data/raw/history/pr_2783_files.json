@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "5ba10129106b82da84c563b6689f347420826b29",
+  "filename": "build/windows/launcher/config.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8da868d47adf7c4e3aaffdf61b94287745e77ad6/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8da868d47adf7c4e3aaffdf61b94287745e77ad6/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig.xml?ref=8da868d47adf7c4e3aaffdf61b94287745e77ad6",
+  "patch": "@@ -33,6 +33,7 @@\n     <maxVersion></maxVersion>\n     <jdkPreference>preferJre</jdkPreference>\n     <opt>-splash:./lib/splash.png</opt>\n+    <opt>-Dsun.java2d.d3d=false</opt>\n   </jre>\n   <messages>\n     <startupErr>An error occurred while starting the application.</startupErr>"
+ },
+ {
+  "sha": "f9ee97869aca31ba2008f33c3dc8827a22aa2932",
+  "filename": "build/windows/launcher/config_debug.xml",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8da868d47adf7c4e3aaffdf61b94287745e77ad6/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8da868d47adf7c4e3aaffdf61b94287745e77ad6/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig_debug.xml?ref=8da868d47adf7c4e3aaffdf61b94287745e77ad6",
+  "patch": "@@ -32,12 +32,13 @@\n     <minVersion>1.8.0</minVersion>\n     <maxVersion></maxVersion>\n     <jdkPreference>preferJre</jdkPreference>\n+    <opt>-Dsun.java2d.d3d=false</opt>\n   </jre>\n   <messages>\n     <startupErr>An error occurred while starting the application.</startupErr>\n     <bundledJreErr>This application was configured to use a bundled Java Runtime Environment but the runtime is missing or corrupted.</bundledJreErr>\n     <jreVersionErr>This application requires at least Java Development Kit</jreVersionErr>\n-    <launcherErr>The registry refers to a nonexistent Java Development Kit  installation or the runtime is corrupted.</launcherErr>\n+    <launcherErr>The registry refers to a nonexistent Java Development Kit installation or the runtime is corrupted.</launcherErr>\n     <instanceAlreadyExistsMsg>An application instance is already running.</instanceAlreadyExistsMsg>\n   </messages>\n </launch4jConfig>"
+ }
+]

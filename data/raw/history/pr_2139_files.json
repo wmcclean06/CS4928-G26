@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "919da722df69f1db0c1cd21bf866626d03514f27",
+  "filename": "app/src/processing/app/debug/Compiler.java",
+  "status": "modified",
+  "additions": 22,
+  "deletions": 13,
+  "changes": 35,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bb095a2a59f0b2a1acabac4f019297e6edb4bfae/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bb095a2a59f0b2a1acabac4f019297e6edb4bfae/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java?ref=bb095a2a59f0b2a1acabac4f019297e6edb4bfae",
+  "patch": "@@ -186,19 +186,28 @@ public boolean compile(Sketch sketch,\n      includePaths.remove(includePaths.size() - 1);\n    }\n \n-   // 3. compile the core, outputting .o files to <buildPath> and then\n-   // collecting them into the core.a library file.\n-\n-   sketch.setCompilingProgress(50);\n-  includePaths.clear();\n-  includePaths.add(corePath);  // include path for core only\n-  if (variantPath != null) includePaths.add(variantPath);\n-  List<File> coreObjectFiles =\n-    compileFiles(avrBasePath, buildPath, includePaths,\n-              findFilesInPath(corePath, \"S\", true),\n-              findFilesInPath(corePath, \"c\", true),\n-              findFilesInPath(corePath, \"cpp\", true),\n-              boardPreferences);\n+    // 3. compile the core, outputting .o files to <buildPath> and then\n+    // collecting them into the core.a library file.\n+\n+    sketch.setCompilingProgress(50);\n+    includePaths.clear();\n+    includePaths.add(corePath); // include path for core only\n+    if (variantPath != null)\n+      includePaths.add(variantPath);\n+    List<File> coreObjectFiles = compileFiles( //\n+        avrBasePath, buildPath, includePaths, //\n+        findFilesInPath(corePath, \"S\", true), //\n+        findFilesInPath(corePath, \"c\", true), //\n+        findFilesInPath(corePath, \"cpp\", true), //\n+        boardPreferences);\n+\n+    if (variantPath != null)\n+      objectFiles.addAll(compileFiles( //\n+          avrBasePath, buildPath, includePaths, //\n+          findFilesInPath(variantPath, \"S\", true), //\n+          findFilesInPath(variantPath, \"c\", true), //\n+          findFilesInPath(variantPath, \"cpp\", true), //\n+          boardPreferences));\n \n    String runtimeLibraryName = buildPath + File.separator + \"core.a\";\n    List baseCommandAR = new ArrayList(Arrays.asList(new String[] {"
+ },
+ {
+  "sha": "425dfcb8d5aa5eb9beed6863db3c4ff7a01cd82f",
+  "filename": "hardware/arduino/cores/arduino/Arduino.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bb095a2a59f0b2a1acabac4f019297e6edb4bfae/hardware%2Farduino%2Fcores%2Farduino%2FArduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bb095a2a59f0b2a1acabac4f019297e6edb4bfae/hardware%2Farduino%2Fcores%2Farduino%2FArduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FArduino.h?ref=bb095a2a59f0b2a1acabac4f019297e6edb4bfae",
+  "patch": "@@ -113,6 +113,7 @@ typedef uint8_t boolean;\n typedef uint8_t byte;\n \n void init(void);\n+void initVariant(void);\n \n void pinMode(uint8_t, uint8_t);\n void digitalWrite(uint8_t, uint8_t);"
+ },
+ {
+  "sha": "091c365fcef3b40f4e6dfd15ff346445a4589bdb",
+  "filename": "hardware/arduino/cores/arduino/main.cpp",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 0,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bb095a2a59f0b2a1acabac4f019297e6edb4bfae/hardware%2Farduino%2Fcores%2Farduino%2Fmain.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bb095a2a59f0b2a1acabac4f019297e6edb4bfae/hardware%2Farduino%2Fcores%2Farduino%2Fmain.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2Fmain.cpp?ref=bb095a2a59f0b2a1acabac4f019297e6edb4bfae",
+  "patch": "@@ -19,10 +19,17 @@\n \n #include <Arduino.h>\n \n+// Weak empty variant initialization function.\n+// May be redefined by variant files.\n+void initVariant() __attribute__((weak));\n+void initVariant() { }\n+\n int main(void)\n {\n \tinit();\n \n+\tinitVariant();\n+\n #if defined(USBCON)\n \tUSBDevice.attach();\n #endif"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "35f315c7f512eb61fa3cf2db24917aad52bfc1e1",
+  "filename": "build/shared/examples/08.Strings/StringLength/StringLength.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/76ccaa50828a158b6a668178eadfcad53291a9b7/build%2Fshared%2Fexamples%2F08.Strings%2FStringLength%2FStringLength.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/76ccaa50828a158b6a668178eadfcad53291a9b7/build%2Fshared%2Fexamples%2F08.Strings%2FStringLength%2FStringLength.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F08.Strings%2FStringLength%2FStringLength.ino?ref=76ccaa50828a158b6a668178eadfcad53291a9b7",
+  "patch": "@@ -13,7 +13,7 @@\n  */\n \n String txtMsg = \"\";                         // a string for incoming text\n-int lastStringLength = txtMsg.length();     // previous length of the String\n+unsigned int lastStringLength = txtMsg.length();     // previous length of the String\n \n void setup() {\n   // Open serial communications and wait for port to open:"
+ }
+]

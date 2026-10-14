@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "727d1484b21f0bd02375fea005678740c6c94f67",
+  "filename": "build/shared/examples/01.Basics/Fade/Fade.ino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/df8d22a440acd8f01099f51af399c40563268607/build%2Fshared%2Fexamples%2F01.Basics%2FFade%2FFade.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/df8d22a440acd8f01099f51af399c40563268607/build%2Fshared%2Fexamples%2F01.Basics%2FFade%2FFade.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F01.Basics%2FFade%2FFade.ino?ref=df8d22a440acd8f01099f51af399c40563268607",
+  "patch": "@@ -32,8 +32,8 @@ void loop() {\n   brightness = brightness + fadeAmount;\n \n   // reverse the direction of the fading at the ends of the fade:\n-  if (brightness == 0 || brightness == 255) {\n-    fadeAmount = -fadeAmount ;\n+  if (brightness <= 0 || brightness >= 255) {\n+    fadeAmount = -fadeAmount;\n   }\n   // wait for 30 milliseconds to see the dimming effect\n   delay(30);"
+ }
+]

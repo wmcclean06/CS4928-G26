@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "77681994af55862c2c74000ad2170dced32ee53d",
+  "filename": "app/src/processing/app/AbstractMonitor.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a6184cb03d580be487579ec38972f580f4447e4d/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a6184cb03d580be487579ec38972f580f4447e4d/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java?ref=a6184cb03d580be487579ec38972f580f4447e4d",
+  "patch": "@@ -40,6 +40,8 @@ public abstract class AbstractMonitor extends JFrame implements ActionListener {\n   private Timer updateTimer;\n \n   private BoardPort boardPort;\n+  \n+  protected String[] serialRateStrings = {\"300\", \"1200\", \"2400\", \"4800\", \"9600\", \"19200\", \"38400\", \"57600\", \"74880\", \"115200\", \"230400\", \"250000\"};\n \n   public AbstractMonitor(BoardPort boardPort) {\n     super(boardPort.getLabel());"
+ },
+ {
+  "sha": "5f720d702f979b5e32f18457bfbdc95694bd389e",
+  "filename": "app/src/processing/app/AbstractTextMonitor.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 5,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a6184cb03d580be487579ec38972f580f4447e4d/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a6184cb03d580be487579ec38972f580f4447e4d/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java?ref=a6184cb03d580be487579ec38972f580f4447e4d",
+  "patch": "@@ -109,11 +109,6 @@ public void actionPerformed(ActionEvent event) {\n     }\n     lineEndings.setMaximumSize(lineEndings.getMinimumSize());\n \n-    String[] serialRateStrings = {\n-            \"300\", \"1200\", \"2400\", \"4800\", \"9600\",\n-            \"19200\", \"38400\", \"57600\", \"115200\", \"230400\", \"250000\"\n-    };\n-\n     serialRates = new JComboBox();\n     for (String rate : serialRateStrings) {\n       serialRates.addItem(rate + \" \" + _(\"baud\"));"
+ },
+ {
+  "sha": "c6eb395ab651b52feb158da13aac6c5d6ed0a319",
+  "filename": "app/src/processing/app/SerialPlotter.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 5,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a6184cb03d580be487579ec38972f580f4447e4d/app%2Fsrc%2Fprocessing%2Fapp%2FSerialPlotter.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a6184cb03d580be487579ec38972f580f4447e4d/app%2Fsrc%2Fprocessing%2Fapp%2FSerialPlotter.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSerialPlotter.java?ref=a6184cb03d580be487579ec38972f580f4447e4d",
+  "patch": "@@ -163,11 +163,6 @@ protected void onCreateWindow(Container mainPane) {\n     JPanel pane = new JPanel();\n     pane.setLayout(new BoxLayout(pane, BoxLayout.X_AXIS));\n     pane.setBorder(new EmptyBorder(4, 4, 4, 4));\n-         \n-    String[] serialRateStrings = {\n-      \"300\",\"1200\",\"2400\",\"4800\",\"9600\",\"14400\",\n-      \"19200\",\"28800\",\"38400\",\"57600\",\"115200\"\n-    };\n     \n     serialRates = new JComboBox();\n     for (int i = 0; i < serialRateStrings.length; i++)"
+ }
+]

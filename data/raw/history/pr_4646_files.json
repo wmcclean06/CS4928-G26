@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "3b20032675ecc6804c6a23e0540bef983dc9721f",
+  "filename": "hardware/arduino/avr/libraries/EEPROM/library.properties",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1eabcfbefa7d898f92add129be38f59292bc3b3a/hardware%2Farduino%2Favr%2Flibraries%2FEEPROM%2Flibrary.properties",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1eabcfbefa7d898f92add129be38f59292bc3b3a/hardware%2Farduino%2Favr%2Flibraries%2FEEPROM%2Flibrary.properties",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FEEPROM%2Flibrary.properties?ref=1eabcfbefa7d898f92add129be38f59292bc3b3a",
+  "patch": "@@ -3,7 +3,7 @@ version=2.0\n author=Arduino, Christopher Andrews\n maintainer=Arduino <info@arduino.cc>\n sentence=Enables reading and writing to the permanent board storage.\n-paragraph=\n+paragraph=This library allows to read and write data in a memory type, the EEPROM, that keeps its content also when the board is powered off. The amount of EEPROM available depends on the microcontroller type.\n category=Data Storage\n url=http://www.arduino.cc/en/Reference/EEPROM\n architectures=avr"
+ }
+]

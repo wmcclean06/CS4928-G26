@@ -1,0 +1,62 @@
+[
+ {
+  "sha": "87ef9cee46564fea099b5bac60222836fb35ac54",
+  "filename": "arduino-core/src/cc/arduino/contributions/DownloadableContribution.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 4,
+  "changes": 9,
+  "blob_url": "https://github.com/arduino/Arduino/blob/fb5ed00547ae394784bee2bd9f617fdf4f54ebf5/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FDownloadableContribution.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/fb5ed00547ae394784bee2bd9f617fdf4f54ebf5/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FDownloadableContribution.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FDownloadableContribution.java?ref=fb5ed00547ae394784bee2bd9f617fdf4f54ebf5",
+  "patch": "@@ -32,6 +32,7 @@\n import com.github.zafarkhaja.semver.Version;\n \n import java.io.File;\n+import java.util.Optional;\n \n public abstract class DownloadableContribution {\n \n@@ -66,10 +67,10 @@ public void setDownloadedFile(File downloadedFile) {\n   }\n \n   public String getParsedVersion() {\n-    Version version = VersionHelper.valueOf(getVersion());\n-    if (version == null) {\n-      return null;\n+    Optional<Version> version = VersionHelper.valueOf(getVersion());\n+    if (version.isPresent()) {\n+      return version.get().toString();\n     }\n-    return version.toString();\n+    return null;\n   }\n }"
+ },
+ {
+  "sha": "ba0ebb639c7b080421cc121d7ca9d9b4a9c031e2",
+  "filename": "arduino-core/src/cc/arduino/contributions/VersionComparator.java",
+  "status": "modified",
+  "additions": 19,
+  "deletions": 29,
+  "changes": 48,
+  "blob_url": "https://github.com/arduino/Arduino/blob/fb5ed00547ae394784bee2bd9f617fdf4f54ebf5/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FVersionComparator.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/fb5ed00547ae394784bee2bd9f617fdf4f54ebf5/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FVersionComparator.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FVersionComparator.java?ref=fb5ed00547ae394784bee2bd9f617fdf4f54ebf5",
+  "patch": "@@ -34,41 +34,32 @@\n import cc.arduino.contributions.libraries.ContributedLibrary;\n \n import java.util.Comparator;\n+import java.util.Optional;\n \n public class VersionComparator implements Comparator<String> {\n \n-  @Override\n-  public int compare(String a, String b) {\n-    // null is always less than any other value\n-    if (a == null && b == null)\n-      return 0;\n-    if (a == null)\n-      return -1;\n-    if (b == null)\n-      return 1;\n-\n-    Version versionA = VersionHelper.valueOf(a);\n-    Version versionB = VersionHelper.valueOf(b);\n-\n-    return versionA.compareTo(versionB);\n-  }\n-\n-  public static boolean greaterThan(String a, String b) {\n-    // null is always less than any other value\n-    if (a == null && b == null) {\n-      return false;\n+  public static int compareTo(String a, String b) {\n+    Optional<Version> versionA = VersionHelper.valueOf(a);\n+    Optional<Version> versionB = VersionHelper.valueOf(b);\n+    if (versionA.isPresent() && versionB.isPresent()) {\n+      return versionA.get().compareTo(versionB.get());\n     }\n-    if (a == null) {\n-      return false;\n+    if (versionA.isPresent()) {\n+      return 1;\n     }\n-    if (b == null) {\n-      return true;\n+    if (versionB.isPresent()) {\n+      return -1;\n     }\n+    return 0;\n+  }\n \n-    Version versionA = VersionHelper.valueOf(a);\n-    Version versionB = VersionHelper.valueOf(b);\n+  @Override\n+  public int compare(String a, String b) {\n+    return compareTo(a, b);\n+  }\n \n-    return versionA.greaterThan(versionB);\n+  public static boolean greaterThan(String a, String b) {\n+    return compareTo(a, b) > 0;\n   }\n \n   public static String max(String a, String b) {\n@@ -79,8 +70,7 @@ public static ContributedLibrary max(ContributedLibrary a, ContributedLibrary b)\n     return greaterThan(a, b) ? a : b;\n   }\n \n-  public static boolean greaterThan(ContributedLibrary a,\n-                                    ContributedLibrary b) {\n+  public static boolean greaterThan(ContributedLibrary a, ContributedLibrary b) {\n     return greaterThan(a.getParsedVersion(), b.getParsedVersion());\n   }\n }"
+ },
+ {
+  "sha": "caf98c8f1202a34acc9f2a0c2b648b76bf2a1792",
+  "filename": "arduino-core/src/cc/arduino/contributions/VersionHelper.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 6,
+  "changes": 13,
+  "blob_url": "https://github.com/arduino/Arduino/blob/fb5ed00547ae394784bee2bd9f617fdf4f54ebf5/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FVersionHelper.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/fb5ed00547ae394784bee2bd9f617fdf4f54ebf5/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FVersionHelper.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FVersionHelper.java?ref=fb5ed00547ae394784bee2bd9f617fdf4f54ebf5",
+  "patch": "@@ -29,13 +29,15 @@\n \n package cc.arduino.contributions;\n \n+import java.util.Optional;\n+\n import com.github.zafarkhaja.semver.Version;\n \n public class VersionHelper {\n \n-  public static Version valueOf(String ver) {\n+  public static Optional<Version> valueOf(String ver) {\n     if (ver == null) {\n-      return null;\n+      return Optional.empty();\n     }\n     try {\n       // Allow x.y-something, assuming x.y.0-something\n@@ -49,18 +51,17 @@ public static Version valueOf(String ver) {\n       }\n       String[] parts = version.split(\"\\\\.\");\n       if (parts.length >= 3) {\n-        return Version.valueOf(ver);\n+        return Optional.of(Version.valueOf(ver));\n       }\n       if (parts.length == 2) {\n         version += \".0\";\n       }\n       if (parts.length == 1) {\n         version += \".0.0\";\n       }\n-      return Version.valueOf(version + extra);\n+      return Optional.of(Version.valueOf(version + extra));\n     } catch (Exception e) {\n-      System.err.println(\"Invalid version found: \" + ver);\n-      return null;\n+      return Optional.empty();\n     }\n   }\n "
+ },
+ {
+  "sha": "8b7acae748c4090297ecfbf087d1758df136c181",
+  "filename": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndexer.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 2,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/fb5ed00547ae394784bee2bd9f617fdf4f54ebf5/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/fb5ed00547ae394784bee2bd9f617fdf4f54ebf5/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java?ref=fb5ed00547ae394784bee2bd9f617fdf4f54ebf5",
+  "patch": "@@ -54,6 +54,7 @@\n import java.util.List;\n import java.util.Optional;\n \n+import static processing.app.I18n.format;\n import static processing.app.I18n.tr;\n \n public class LibrariesIndexer {\n@@ -203,7 +204,7 @@ private void scanLibrary(UserLibraryFolder folderDesc) throws IOException {\n       LegacyUserLibrary lib = LegacyUserLibrary.create(folderDesc);\n       String[] headers = BaseNoGui.headerListFromIncludePath(lib.getSrcFolder());\n       if (headers.length == 0) {\n-        throw new IOException(lib.getSrcFolder().getAbsolutePath());\n+        throw new IOException(format(tr(\"no headers files (.h) found in {0}\"), lib.getSrcFolder()));\n       }\n       addToInstalledLibraries(lib);\n       return;\n@@ -213,7 +214,7 @@ private void scanLibrary(UserLibraryFolder folderDesc) throws IOException {\n     UserLibrary lib = UserLibrary.create(folderDesc);\n     String[] headers = BaseNoGui.headerListFromIncludePath(lib.getSrcFolder());\n     if (headers.length == 0) {\n-      throw new IOException(lib.getSrcFolder().getAbsolutePath());\n+      throw new IOException(format(tr(\"no headers files (.h) found in {0}\"), lib.getSrcFolder()));\n     }\n     addToInstalledLibraries(lib);\n "
+ },
+ {
+  "sha": "e22ae36eb290ed5aa5e4133dab5487a01e0ecdd9",
+  "filename": "arduino-core/src/processing/app/packages/UserLibrary.java",
+  "status": "modified",
+  "additions": 15,
+  "deletions": 7,
+  "changes": 22,
+  "blob_url": "https://github.com/arduino/Arduino/blob/fb5ed00547ae394784bee2bd9f617fdf4f54ebf5/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FUserLibrary.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/fb5ed00547ae394784bee2bd9f617fdf4f54ebf5/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FUserLibrary.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FUserLibrary.java?ref=fb5ed00547ae394784bee2bd9f617fdf4f54ebf5",
+  "patch": "@@ -28,11 +28,8 @@\n  */\n package processing.app.packages;\n \n-import cc.arduino.Constants;\n-import cc.arduino.contributions.VersionHelper;\n-import cc.arduino.contributions.libraries.ContributedLibraryReference;\n-import processing.app.helpers.PreferencesMap;\n-import processing.app.packages.UserLibraryFolder.Location;\n+import static processing.app.I18n.format;\n+import static processing.app.I18n.tr;\n \n import java.io.File;\n import java.io.IOException;\n@@ -41,9 +38,16 @@\n import java.util.ArrayList;\n import java.util.LinkedList;\n import java.util.List;\n+import java.util.Optional;\n \n import com.github.zafarkhaja.semver.Version;\n \n+import cc.arduino.Constants;\n+import cc.arduino.contributions.VersionHelper;\n+import cc.arduino.contributions.libraries.ContributedLibraryReference;\n+import processing.app.helpers.PreferencesMap;\n+import processing.app.packages.UserLibraryFolder.Location;\n+\n public class UserLibrary {\n \n   private String name;\n@@ -148,12 +152,16 @@ public static UserLibrary create(UserLibraryFolder libFolderDesc) throws IOExcep\n     }\n \n     String declaredVersion = properties.get(\"version\").trim();\n-    Version version = VersionHelper.valueOf(declaredVersion);\n+    Optional<Version> version = VersionHelper.valueOf(declaredVersion);\n+    if (!version.isPresent()) {\n+      System.out.println(\n+          format(tr(\"Invalid version '{0}' for library in: {1}\"), declaredVersion, libFolder.getAbsolutePath()));\n+    }\n \n     UserLibrary res = new UserLibrary();\n     res.installedFolder = libFolder;\n     res.name = properties.get(\"name\").trim();\n-    res.version = version.toString();\n+    res.version = version.isPresent() ? version.get().toString() : declaredVersion;\n     res.author = properties.get(\"author\").trim();\n     res.maintainer = properties.get(\"maintainer\").trim();\n     res.sentence = properties.get(\"sentence\").trim();"
+ }
+]

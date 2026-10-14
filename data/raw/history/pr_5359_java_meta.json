@@ -1,0 +1,19 @@
+{
+ "pr": 5359,
+ "base_sha": "2bfe164b9a5835e8cb6e194b928538a9093be333",
+ "head_sha": "c5d9ae3c818f2f1e907bbd96cfb229cf129581bb",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellJPanel.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 0,
+   "old_sha": "a9bd20a921064d15139c8f76c6bd460921f03514",
+   "new_sha": "5a7c091683ac0af7b0b1278b8724814aa0160465",
+   "head_sha_check": "5a7c091683ac0af7b0b1278b8724814aa0160465",
+   "loc_at_head": 205,
+   "notes": ""
+  }
+ ]
+}

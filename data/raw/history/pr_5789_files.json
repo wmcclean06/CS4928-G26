@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "17000c2ccca94196b633cdf2ecbb2838db7aa7cd",
+  "filename": "hardware/arduino/avr/cores/arduino/HardwareSerial.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/36b121acbfb39605d98594be6538333bad2da13b/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/36b121acbfb39605d98594be6538333bad2da13b/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.h?ref=36b121acbfb39605d98594be6538333bad2da13b",
+  "patch": "@@ -124,7 +124,7 @@ class HardwareSerial : public Stream\n     virtual int available(void);\n     virtual int peek(void);\n     virtual int read(void);\n-    int availableForWrite(void);\n+    virtual int availableForWrite(void);\n     virtual void flush(void);\n     virtual size_t write(uint8_t);\n     inline size_t write(unsigned long n) { return write((uint8_t)n); }"
+ },
+ {
+  "sha": "4d8a2f58c837d1179e181ab70228bc91b325a2d0",
+  "filename": "hardware/arduino/avr/cores/arduino/Print.h",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 1,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/36b121acbfb39605d98594be6538333bad2da13b/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/36b121acbfb39605d98594be6538333bad2da13b/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.h?ref=36b121acbfb39605d98594be6538333bad2da13b",
+  "patch": "@@ -22,6 +22,7 @@\n \n #include <inttypes.h>\n #include <stdio.h> // for size_t\n+#include <limits.h> // for INT_MAX\n \n #include \"WString.h\"\n #include \"Printable.h\"\n@@ -57,7 +58,11 @@ class Print\n     size_t write(const char *buffer, size_t size) {\n       return write((const uint8_t *)buffer, size);\n     }\n-    \n+\n+    // default to zero, meaning \"a single write may block\"\n+    // should be overriden by subclasses with buffering\n+    virtual int availableForWrite() { return 0; }\n+\n     size_t print(const __FlashStringHelper *);\n     size_t print(const String &);\n     size_t print(const char[]);"
+ },
+ {
+  "sha": "479ced9c84c341c9dcb366ad34a7dad817299657",
+  "filename": "hardware/arduino/avr/cores/arduino/USBAPI.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/36b121acbfb39605d98594be6538333bad2da13b/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/36b121acbfb39605d98594be6538333bad2da13b/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h?ref=36b121acbfb39605d98594be6538333bad2da13b",
+  "patch": "@@ -98,7 +98,7 @@ class Serial_ : public Stream\n \tvirtual int available(void);\n \tvirtual int peek(void);\n \tvirtual int read(void);\n-\tint availableForWrite(void);\n+\tvirtual int availableForWrite(void);\n \tvirtual void flush(void);\n \tvirtual size_t write(uint8_t);\n \tvirtual size_t write(const uint8_t*, size_t);"
+ }
+]

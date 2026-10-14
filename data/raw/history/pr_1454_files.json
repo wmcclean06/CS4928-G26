@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "aab2a54762a5ff66459a5968e1e2fba23505baa7",
+  "filename": "hardware/arduino/cores/arduino/WString.cpp",
+  "status": "modified",
+  "additions": 16,
+  "deletions": 0,
+  "changes": 16,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0778f8a3f3afa6c714a0126830600ca9450cbd28/hardware%2Farduino%2Fcores%2Farduino%2FWString.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0778f8a3f3afa6c714a0126830600ca9450cbd28/hardware%2Farduino%2Fcores%2Farduino%2FWString.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FWString.cpp?ref=0778f8a3f3afa6c714a0126830600ca9450cbd28",
+  "patch": "@@ -604,6 +604,22 @@ void String::replace(const String& find, const String& replace)\n \t}\n }\n \n+void String::remove(unsigned int index){\n+\tif (index >= len) { return; }\n+\tint count = len - index;\n+\tremove(index, count);\n+}\n+\n+void String::remove(unsigned int index, unsigned int count){\n+\tif (index >= len) { return; }\n+\tif (count <= 0) { return; }\n+\tif (index + count > len) { count = len - index; }\n+\tchar *writeTo = buffer + index;\n+\tlen = len - count;\n+\tstrncpy(writeTo, buffer + index + count,len - index);\n+\tbuffer[len] = 0;\n+}\n+\n void String::toLowerCase(void)\n {\n \tif (!buffer) return;"
+ },
+ {
+  "sha": "b587a3d62be3bd0d03f502305f36680857b3913a",
+  "filename": "hardware/arduino/cores/arduino/WString.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0778f8a3f3afa6c714a0126830600ca9450cbd28/hardware%2Farduino%2Fcores%2Farduino%2FWString.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0778f8a3f3afa6c714a0126830600ca9450cbd28/hardware%2Farduino%2Fcores%2Farduino%2FWString.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FWString.h?ref=0778f8a3f3afa6c714a0126830600ca9450cbd28",
+  "patch": "@@ -164,6 +164,8 @@ class String\n \t// modification\n \tvoid replace(char find, char replace);\n \tvoid replace(const String& find, const String& replace);\n+\tvoid remove(unsigned int index);\n+\tvoid remove(unsigned int index, unsigned int count);\n \tvoid toLowerCase(void);\n \tvoid toUpperCase(void);\n \tvoid trim(void);"
+ }
+]

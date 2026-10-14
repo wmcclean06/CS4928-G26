@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "53b9eead433f0cfb2c08dd6b53bda0024fc00acd",
+  "filename": "libraries/Bridge/examples/YunSerialTerminal/YunSerialTerminal.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/256f39b4d854060c4cea12219daeee5f43b1b8b0/libraries%2FBridge%2Fexamples%2FYunSerialTerminal%2FYunSerialTerminal.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/256f39b4d854060c4cea12219daeee5f43b1b8b0/libraries%2FBridge%2Fexamples%2FYunSerialTerminal%2FYunSerialTerminal.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FBridge%2Fexamples%2FYunSerialTerminal%2FYunSerialTerminal.ino?ref=256f39b4d854060c4cea12219daeee5f43b1b8b0",
+  "patch": "@@ -15,7 +15,7 @@\n  '~' followed by '1' -> Set the UART speed to 115200 baud\n  '~' followed by '2' -> Set the UART speed to 250000 baud\n  '~' followed by '3' -> Set the UART speed to 500000 baud\n- '~' followeb by '~' -> Sends the bridge's shutdown command to\n+ '~' followed by '~' -> Sends the bridge's shutdown command to\n                         obtain the console.\n \n  The circuit:"
+ }
+]

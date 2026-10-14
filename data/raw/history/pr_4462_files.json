@@ -1,0 +1,98 @@
+[
+ {
+  "sha": "ecbd54938a68199ba924b82e815f88d42b3dc833",
+  "filename": "app/src/processing/app/Sketch.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3d47995915e08b4ba07a828b562fb6342ed858c6/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3d47995915e08b4ba07a828b562fb6342ed858c6/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java?ref=3d47995915e08b4ba07a828b562fb6342ed858c6",
+  "patch": "@@ -27,7 +27,6 @@\n import cc.arduino.CompilerProgressListener;\n import cc.arduino.UploaderUtils;\n import cc.arduino.packages.Uploader;\n-import org.apache.commons.codec.digest.DigestUtils;\n import processing.app.debug.RunnerException;\n import processing.app.forms.PasswordAuthorizationDialog;\n import processing.app.helpers.FileUtils;"
+ },
+ {
+  "sha": "1bc5befe4b468c89b4603a23f0fbe258f62d5eb7",
+  "filename": "arduino-core/src/cc/arduino/packages/uploaders/GenericNetworkUploader.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FGenericNetworkUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FGenericNetworkUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FGenericNetworkUploader.java?ref=3d47995915e08b4ba07a828b562fb6342ed858c6",
+  "patch": "@@ -38,8 +38,6 @@\n import java.io.File;\n import java.util.List;\n \n-import static processing.app.I18n.tr;\n-\n public class GenericNetworkUploader extends Uploader {\n \n   private final BoardPort port;"
+ },
+ {
+  "sha": "2702767dbaed0416c89d4da851d1634de9e45e79",
+  "filename": "arduino-core/src/cc/arduino/utils/network/FileDownloader.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 1,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2Fnetwork%2FFileDownloader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2Fnetwork%2FFileDownloader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2Fnetwork%2FFileDownloader.java?ref=3d47995915e08b4ba07a828b562fb6342ed858c6",
+  "patch": "@@ -207,8 +207,10 @@ private void downloadFile() throws InterruptedException {\n         file.write(buffer, 0, read);\n         setDownloaded(getDownloaded() + read);\n \n-        if (Thread.interrupted())\n+        if (Thread.interrupted()) {\n+          file.close();\n           throw new InterruptedException();\n+        }\n       }\n \n       if (getDownloadSize() != null) {"
+ },
+ {
+  "sha": "0ab961aa9ed1e51026dd1fc122f1701b70018443",
+  "filename": "arduino-core/src/processing/app/I18n.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 5,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FI18n.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FI18n.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FI18n.java?ref=3d47995915e08b4ba07a828b562fb6342ed858c6",
+  "patch": "@@ -70,11 +70,6 @@ static protected void init(String language) throws MissingResourceException {\n     PROMPT_BROWSE = tr(\"Browse\");\n   }\n \n-  @Deprecated\n-  public static String _(String s) {\n-    return tr(s);\n-  }\n-\n   public static String tr(String s) {\n     String res;\n     try {"
+ },
+ {
+  "sha": "db0f95af07f4da105c87fea28003573b60e2261e",
+  "filename": "arduino-core/src/processing/app/SketchCode.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java?ref=3d47995915e08b4ba07a828b562fb6342ed858c6",
+  "patch": "@@ -28,7 +28,6 @@\n import java.io.IOException;\n import java.nio.file.Files;\n import java.nio.file.Path;\n-import java.nio.file.Paths;\n import java.util.Arrays;\n import java.util.List;\n import java.util.stream.Collectors;"
+ },
+ {
+  "sha": "505b9cf88b520a10fb6d76ef49a76b2a4916dfda",
+  "filename": "arduino-core/src/processing/app/linux/Platform.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 8,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flinux%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flinux%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flinux%2FPlatform.java?ref=3d47995915e08b4ba07a828b562fb6342ed858c6",
+  "patch": "@@ -22,18 +22,10 @@\n \n package processing.app.linux;\n \n-import org.apache.commons.exec.CommandLine;\n-import org.apache.commons.exec.DefaultExecutor;\n-import org.apache.commons.exec.Executor;\n-import org.apache.commons.exec.PumpStreamHandler;\n import processing.app.PreferencesData;\n-import processing.app.debug.TargetPackage;\n import processing.app.legacy.PConstants;\n \n-import java.io.ByteArrayOutputStream;\n import java.io.File;\n-import java.io.IOException;\n-import java.util.Map;\n \n \n /**"
+ },
+ {
+  "sha": "0325b5d50d9c3935b77cbcfd6c3cc0259bc4710a",
+  "filename": "arduino-core/src/processing/app/macosx/Platform.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fmacosx%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fmacosx%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fmacosx%2FPlatform.java?ref=3d47995915e08b4ba07a828b562fb6342ed858c6",
+  "patch": "@@ -29,7 +29,6 @@\n import org.apache.commons.exec.Executor;\n import org.apache.commons.exec.PumpStreamHandler;\n import org.apache.commons.lang3.StringUtils;\n-import processing.app.debug.TargetPackage;\n import processing.app.legacy.PApplet;\n import processing.app.legacy.PConstants;\n \n@@ -41,7 +40,6 @@\n import java.net.URI;\n import java.util.LinkedList;\n import java.util.List;\n-import java.util.Map;\n \n \n /**"
+ },
+ {
+  "sha": "790be03ed9b769fa9abc8ccc9276b9ecb26a508d",
+  "filename": "arduino-core/src/processing/app/windows/Platform.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 8,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3d47995915e08b4ba07a828b562fb6342ed858c6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java?ref=3d47995915e08b4ba07a828b562fb6342ed858c6",
+  "patch": "@@ -24,24 +24,16 @@\n \n import cc.arduino.os.windows.FolderFinderInWindowsEnvVar;\n import cc.arduino.os.windows.FolderFinderInWindowsRegistry;\n-import org.apache.commons.exec.CommandLine;\n-import org.apache.commons.exec.DefaultExecutor;\n-import org.apache.commons.exec.Executor;\n-import org.apache.commons.exec.PumpStreamHandler;\n-import processing.app.BaseNoGui;\n-import processing.app.debug.TargetPackage;\n import processing.app.legacy.PApplet;\n import processing.app.legacy.PConstants;\n \n-import java.io.ByteArrayOutputStream;\n import java.io.File;\n import java.io.IOException;\n import java.nio.file.Files;\n import java.nio.file.Path;\n import java.nio.file.Paths;\n import java.util.LinkedList;\n import java.util.List;\n-import java.util.Map;\n \n \n public class Platform extends processing.app.Platform {"
+ }
+]

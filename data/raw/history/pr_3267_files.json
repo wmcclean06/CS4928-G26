@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "042cdec8e3c283a13db7a7f87fe83bae27acfef1",
+  "filename": "build/shared/examples/10.StarterKit/p12_KnockLock/p12_KnockLock.ino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0d4f208f1a143125309d95df180464031301d502/build%2Fshared%2Fexamples%2F10.StarterKit%2Fp12_KnockLock%2Fp12_KnockLock.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0d4f208f1a143125309d95df180464031301d502/build%2Fshared%2Fexamples%2F10.StarterKit%2Fp12_KnockLock%2Fp12_KnockLock.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F10.StarterKit%2Fp12_KnockLock%2Fp12_KnockLock.ino?ref=0d4f208f1a143125309d95df180464031301d502",
+  "patch": "@@ -140,6 +140,8 @@ void loop() {\n       digitalWrite(greenLed, HIGH);\n       digitalWrite(redLed, LOW);\n       Serial.println(\"the box is unlocked!\");\n+\n+      numberOfKnocks = 0;\n     }\n   }\n }"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "bdf3bdeae25320b5f0229fb5c8197dca3487620b",
+  "filename": "build/shared/examples/02.Digital/Debounce/Debounce.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dc165ce46ee2bcc5fbfcb1a8d42686162eb4acb6/build%2Fshared%2Fexamples%2F02.Digital%2FDebounce%2FDebounce.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dc165ce46ee2bcc5fbfcb1a8d42686162eb4acb6/build%2Fshared%2Fexamples%2F02.Digital%2FDebounce%2FDebounce.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F02.Digital%2FDebounce%2FDebounce.ino?ref=dc165ce46ee2bcc5fbfcb1a8d42686162eb4acb6",
+  "patch": "@@ -41,7 +41,7 @@ int buttonState;             // the current reading from the input pin\n int lastButtonState = LOW;   // the previous reading from the input pin\n \n // the following variables are unsigned long's because the time, measured in miliseconds,\n-// will quickly become a bigger number than can't be stored in an int.\n+// will quickly become a bigger number than can be stored in an int.\n unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled\n unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers\n "
+ }
+]

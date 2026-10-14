@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ee1b1d0a697ddd89360f8268a498f21b2c1b6856",
+  "filename": "arduino-core/src/processing/app/BaseNoGui.java",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 5,
+  "changes": 19,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e360f82cae38254d9e299db5e66e4fdbbe074bc1/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e360f82cae38254d9e299db5e66e4fdbbe074bc1/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java?ref=e360f82cae38254d9e299db5e66e4fdbbe074bc1",
+  "patch": "@@ -154,18 +154,27 @@ static public PreferencesMap getBoardPreferences() {\n     TargetBoard board = getTargetBoard();\n     if (board == null)\n       return null;\n+    String boardId = board.getId();\n     \n     PreferencesMap prefs = new PreferencesMap(board.getPreferences());\n+\n+    String extendedName = prefs.get(\"name\");\n     for (String menuId : board.getMenuIds()) {\n+      if (!board.hasMenu(menuId))\n+        continue;\n+\n+      // Get \"custom_[MENU_ID]\" preference (for example \"custom_cpu\")\n       String entry = PreferencesData.get(\"custom_\" + menuId);\n-      if (board.hasMenu(menuId) && entry != null &&\n-          entry.startsWith(board.getId())) {\n-        String selectionId = entry.substring(entry.indexOf(\"_\") + 1);\n+      if (entry != null && entry.startsWith(boardId)) {\n+\n+        String selectionId = entry.substring(boardId.length() + 1);\n         prefs.putAll(board.getMenuPreferences(menuId, selectionId));\n-        prefs.put(\"name\", prefs.get(\"name\") + \", \" +\n-            board.getMenuLabel(menuId, selectionId));\n+\n+        // Update the name with the extended configuration\n+        extendedName += \", \" + board.getMenuLabel(menuId, selectionId);\n       }\n     }\n+    prefs.put(\"name\", extendedName);\n     return prefs;\n   }\n "
+ }
+]

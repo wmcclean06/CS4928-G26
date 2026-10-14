@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "af95a8fccf597c16f91e94c29eccb8067d2c8583",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 0,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e385f67fce1f7e68579420410a32ff6c5df9e4ef/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e385f67fce1f7e68579420410a32ff6c5df9e4ef/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=e385f67fce1f7e68579420410a32ff6c5df9e4ef",
+  "patch": "@@ -26,6 +26,7 @@\n \n import com.jcraft.jsch.JSchException;\n \n+import jssc.SerialPortException;\n import processing.app.debug.*;\n import processing.app.forms.PasswordAuthorizationDialog;\n import processing.app.helpers.OSUtils;\n@@ -2572,6 +2573,12 @@ public void handleSerial() {\n         statusError(_(\"Unable to connect: is the sketch using the bridge?\"));\n       } catch (JSchException e) {\n         statusError(_(\"Unable to connect: wrong password?\"));\n+      } catch (SerialException e) {\n+        String errorMessage = e.getMessage();\n+        if (e.getCause() != null && e.getCause() instanceof SerialPortException) {\n+          errorMessage += \" (\" + ((SerialPortException) e.getCause()).getExceptionType() + \")\";\n+        }\n+        statusError(errorMessage);\n       } catch (Exception e) {\n         statusError(e);\n       } finally {"
+ }
+]

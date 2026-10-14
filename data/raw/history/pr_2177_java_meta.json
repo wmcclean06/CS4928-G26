@@ -1,0 +1,103 @@
+{
+ "pr": 2177,
+ "base_sha": "1d8fbd4b5dba34b5b7dc05bb6cd17f6975c0cb3c",
+ "head_sha": "4bd62deba143c766f3ca542aa7627845fa6024fb",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/AbstractMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 12,
+   "deletions": 127,
+   "old_sha": "18dc268b878467dd2f2c4777e08a095a5504bb1b",
+   "new_sha": "1b07460b90c0950e8f7fbe645f6b750247d3d115",
+   "head_sha_check": "1b07460b90c0950e8f7fbe645f6b750247d3d115",
+   "loc_at_head": 158,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/AbstractTextMonitor.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 165,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "09aba8c5b9d390ec821d98736f0b2c56475876bd",
+   "head_sha_check": "09aba8c5b9d390ec821d98736f0b2c56475876bd",
+   "loc_at_head": 135,
+   "notes": "added"
+  },
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 152,
+   "deletions": 3,
+   "old_sha": "917a47e8cca2cd265986992ef161fe544ae89669",
+   "new_sha": "de5688bd01512800831c6e92c2c3e2514577233b",
+   "head_sha_check": "de5688bd01512800831c6e92c2c3e2514577233b",
+   "loc_at_head": 2491,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/NetworkMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "716c9f0fc0b6ae32d9a20b17a78b076b316fdfc8",
+   "new_sha": "4a3e4adeae3c2507ea03cfde6a0041441cb43715",
+   "head_sha_check": "4a3e4adeae3c2507ea03cfde6a0041441cb43715",
+   "loc_at_head": 136,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/SerialMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "9e4184855681aedf710efc4db9ad2d6f7b15457b",
+   "new_sha": "8a3d5c046d7ac432e9711a6778ed86a9570aa7a8",
+   "head_sha_check": "8a3d5c046d7ac432e9711a6778ed86a9570aa7a8",
+   "loc_at_head": 95,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/SerialPlotter.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 242,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "70de04579e0c97154bdf9b8e5b5d04133f5ad9bd",
+   "head_sha_check": "70de04579e0c97154bdf9b8e5b5d04133f5ad9bd",
+   "loc_at_head": 196,
+   "notes": "added"
+  },
+  {
+   "path": "app/src/processing/app/helpers/CircularBuffer.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 81,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "6239822042d1b12de5933b8f748500a7f436a92a",
+   "head_sha_check": "6239822042d1b12de5933b8f748500a7f436a92a",
+   "loc_at_head": 63,
+   "notes": "added"
+  },
+  {
+   "path": "app/src/processing/app/helpers/Ticks.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 46,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "a4b32a2c31064c6682adb23af37c0cb176ff94a7",
+   "head_sha_check": "a4b32a2c31064c6682adb23af37c0cb176ff94a7",
+   "loc_at_head": 37,
+   "notes": "added"
+  }
+ ]
+}

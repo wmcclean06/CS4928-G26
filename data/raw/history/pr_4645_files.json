@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "4ed8db90e99528a5cd068d1adea5e966a0b8be3b",
+  "filename": "hardware/arduino/avr/libraries/SPI/library.properties",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/65eac8e892ea798714495f38f403c1d3d52e3b83/hardware%2Farduino%2Favr%2Flibraries%2FSPI%2Flibrary.properties",
+  "raw_url": "https://github.com/arduino/Arduino/raw/65eac8e892ea798714495f38f403c1d3d52e3b83/hardware%2Farduino%2Favr%2Flibraries%2FSPI%2Flibrary.properties",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FSPI%2Flibrary.properties?ref=65eac8e892ea798714495f38f403c1d3d52e3b83",
+  "patch": "@@ -3,7 +3,7 @@ version=1.0\n author=Arduino\n maintainer=Arduino <info@arduino.cc>\n sentence=Enables the communication with devices that use the Serial Peripheral Interface (SPI) Bus.  \n-paragraph=\n+paragraph=SPI is a synchronous serial data protocol used by microcontrollers for communicating with one or more peripheral devices quickly over short distances. It uses three lines common to all devices (MISO, MOSI and SCK) and one specific for each device.\n category=Communication\n url=http://www.arduino.cc/en/Reference/SPI\n architectures=avr"
+ }
+]

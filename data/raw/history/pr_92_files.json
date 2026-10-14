@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "62efc9cadba19d76c925fd5c851fc677653c6db9",
+  "filename": "hardware/arduino/cores/arduino/WInterrupts.c",
+  "status": "modified",
+  "additions": 30,
+  "deletions": 6,
+  "changes": 36,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dab4d8dee6d6f63fe2439098fd623729b7f426a2/hardware%2Farduino%2Fcores%2Farduino%2FWInterrupts.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dab4d8dee6d6f63fe2439098fd623729b7f426a2/hardware%2Farduino%2Fcores%2Farduino%2FWInterrupts.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FWInterrupts.c?ref=dab4d8dee6d6f63fe2439098fd623729b7f426a2",
+  "patch": "@@ -59,6 +59,14 @@ void attachInterrupt(uint8_t interruptNum, void (*userFunc)(void), int mode) {\n \t\tEICRA = (EICRA & ~((1<<ISC10) | (1<<ISC11))) | (mode << ISC10);\n \t\tEIMSK |= (1<<INT1);\n \t\tbreak;\t\n+    case 2:\n+        EICRA = (EICRA & ~((1<<ISC20) | (1<<ISC21))) | (mode << ISC20);\n+        EIMSK |= (1<<INT2);\n+        break;\n+    case 3:\n+        EICRA = (EICRA & ~((1<<ISC30) | (1<<ISC31))) | (mode << ISC30);\n+        EIMSK |= (1<<INT3);\n+        break;\n #elif defined(EICRA) && defined(EICRB) && defined(EIMSK)\n     case 2:\n       EICRA = (EICRA & ~((1 << ISC00) | (1 << ISC01))) | (mode << ISC00);\n@@ -147,12 +155,18 @@ void detachInterrupt(uint8_t interruptNum) {\n     // ATmega8.  There, INT0 is 6 and INT1 is 7.)\n     switch (interruptNum) {\n #if defined(__AVR_ATmega32U4__)\n-\tcase 0:\n-\t\tEIMSK &= ~(1<<INT0);\n-\t\tbreak;\n-\tcase 1:\n-\t\tEIMSK &= ~(1<<INT1);\n-\t\tbreak;\t\t\n+    case 0:\n+        EIMSK &= ~(1<<INT0);\n+        break;\n+    case 1:\n+        EIMSK &= ~(1<<INT1);\n+        break;\n+    case 2:\n+        EIMSK &= ~(1<<INT2);\n+        break;\n+    case 3:\n+        EIMSK &= ~(1<<INT3);\n+        break;\t\t\n #elif defined(EICRA) && defined(EICRB) && defined(EIMSK)\n     case 2:\n       EIMSK &= ~(1 << INT0);\n@@ -226,6 +240,16 @@ SIGNAL(INT1_vect) {\n \t\tintFunc[EXTERNAL_INT_1]();\n }\n \n+SIGNAL(INT2_vect) {\n+    if(intFunc[EXTERNAL_INT_2])\n+\t\tintFunc[EXTERNAL_INT_2]();\n+}\n+\n+SIGNAL(INT3_vect) {\n+    if(intFunc[EXTERNAL_INT_3])\n+\t\tintFunc[EXTERNAL_INT_3]();\n+}\n+\n #elif defined(EICRA) && defined(EICRB)\n \n SIGNAL(INT0_vect) {"
+ },
+ {
+  "sha": "026ce1a019a2a1cc8382c2b178e53d16eeaa1813",
+  "filename": "hardware/arduino/cores/arduino/wiring_private.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dab4d8dee6d6f63fe2439098fd623729b7f426a2/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_private.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dab4d8dee6d6f63fe2439098fd623729b7f426a2/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_private.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_private.h?ref=dab4d8dee6d6f63fe2439098fd623729b7f426a2",
+  "patch": "@@ -56,6 +56,8 @@ extern \"C\"{\n #define EXTERNAL_NUM_INTERRUPTS 8\n #elif defined(__AVR_ATmega1284P__) \n #define EXTERNAL_NUM_INTERRUPTS 3\n+#elif defined(__AVR_ATmega32U4__)\n+#define EXTERNAL_NUM_INTERRUPTS 4\n #else\n #define EXTERNAL_NUM_INTERRUPTS 2\n #endif"
+ }
+]

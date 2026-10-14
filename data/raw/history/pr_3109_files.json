@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "2d2419b323f80a5b83374c1b25afb6bc41ec2ade",
+  "filename": "hardware/arduino/avr/libraries/Wire/examples/master_reader/master_reader.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5199b0f6d35facdfe561525db45ec29bea830fd5/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fmaster_reader%2Fmaster_reader.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5199b0f6d35facdfe561525db45ec29bea830fd5/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fmaster_reader%2Fmaster_reader.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fmaster_reader%2Fmaster_reader.ino?ref=5199b0f6d35facdfe561525db45ec29bea830fd5",
+  "patch": "@@ -20,7 +20,7 @@ void setup()\n \n void loop()\n {\n-  Wire.requestFrom(2, 6);    // request 6 bytes from slave device #2\n+  Wire.requestFrom(8, 6);    // request 6 bytes from slave device #8\n \n   while (Wire.available())   // slave may send less than requested\n   {"
+ },
+ {
+  "sha": "9933cc2cdd6ae3b592e6c8c7b4d448c1fede508f",
+  "filename": "hardware/arduino/avr/libraries/Wire/examples/master_writer/master_writer.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5199b0f6d35facdfe561525db45ec29bea830fd5/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fmaster_writer%2Fmaster_writer.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5199b0f6d35facdfe561525db45ec29bea830fd5/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fmaster_writer%2Fmaster_writer.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fmaster_writer%2Fmaster_writer.ino?ref=5199b0f6d35facdfe561525db45ec29bea830fd5",
+  "patch": "@@ -21,7 +21,7 @@ byte x = 0;\n \n void loop()\n {\n-  Wire.beginTransmission(4); // transmit to device #4\n+  Wire.beginTransmission(8); // transmit to device #8\n   Wire.write(\"x is \");        // sends five bytes\n   Wire.write(x);              // sends one byte\n   Wire.endTransmission();    // stop transmitting"
+ },
+ {
+  "sha": "53df27449fccbb843c02f5392e76fb69d99c9f61",
+  "filename": "hardware/arduino/avr/libraries/Wire/examples/slave_receiver/slave_receiver.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5199b0f6d35facdfe561525db45ec29bea830fd5/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fslave_receiver%2Fslave_receiver.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5199b0f6d35facdfe561525db45ec29bea830fd5/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fslave_receiver%2Fslave_receiver.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fslave_receiver%2Fslave_receiver.ino?ref=5199b0f6d35facdfe561525db45ec29bea830fd5",
+  "patch": "@@ -14,7 +14,7 @@\n \n void setup()\n {\n-  Wire.begin(4);                // join i2c bus with address #4\n+  Wire.begin(8);                // join i2c bus with address #8\n   Wire.onReceive(receiveEvent); // register event\n   Serial.begin(9600);           // start serial for output\n }"
+ },
+ {
+  "sha": "26b9e52608913e69ad80fa4508303730987f91c2",
+  "filename": "hardware/arduino/avr/libraries/Wire/examples/slave_sender/slave_sender.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5199b0f6d35facdfe561525db45ec29bea830fd5/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fslave_sender%2Fslave_sender.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5199b0f6d35facdfe561525db45ec29bea830fd5/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fslave_sender%2Fslave_sender.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fexamples%2Fslave_sender%2Fslave_sender.ino?ref=5199b0f6d35facdfe561525db45ec29bea830fd5",
+  "patch": "@@ -14,7 +14,7 @@\n \n void setup()\n {\n-  Wire.begin(2);                // join i2c bus with address #2\n+  Wire.begin(8);                // join i2c bus with address #8\n   Wire.onRequest(requestEvent); // register event\n }\n "
+ }
+]

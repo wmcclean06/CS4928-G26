@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "186141cf595ca5f5dd879dc1eeae74cebb4c0763",
+  "filename": "arduino-core/src/processing/app/helpers/FileUtils.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 5,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/971bd770585c4612604ceda3372a082d20ad946c/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FFileUtils.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/971bd770585c4612604ceda3372a082d20ad946c/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FFileUtils.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FFileUtils.java?ref=971bd770585c4612604ceda3372a082d20ad946c",
+  "patch": "@@ -85,7 +85,7 @@ public static void recursiveDelete(File file) {\n         recursiveDelete(current);\n       }\n     }\n-    deleteIfExists(file);\n+    file.delete();\n   }\n \n   public static File createTempFolder() throws IOException {\n@@ -274,10 +274,6 @@ public static boolean deleteIfExists(File file) {\n       return true;\n     }\n \n-    if (!file.exists()) {\n-      return false;\n-    }\n-\n     return file.delete();\n   }\n "
+ }
+]

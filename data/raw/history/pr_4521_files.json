@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "cef1106e03b163098e2d8b9eed7b0a93ada5c41a",
+  "filename": "hardware/arduino/avr/cores/arduino/WInterrupts.c",
+  "status": "modified",
+  "additions": 21,
+  "deletions": 59,
+  "changes": 80,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0ab9245f41c5444e5d6f685cb539694fa8175f7b/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWInterrupts.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0ab9245f41c5444e5d6f685cb539694fa8175f7b/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWInterrupts.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWInterrupts.c?ref=0ab9245f41c5444e5d6f685cb539694fa8175f7b",
+  "patch": "@@ -280,75 +280,37 @@ void attachInterruptTwi(void (*userFunc)(void) ) {\n }\n */\n \n-#if defined(__AVR_ATmega32U4__)\n-ISR(INT0_vect) {\n-    intFunc[EXTERNAL_INT_0]();\n-}\n-\n-ISR(INT1_vect) {\n-    intFunc[EXTERNAL_INT_1]();\n-}\n-\n-ISR(INT2_vect) {\n-    intFunc[EXTERNAL_INT_2]();\n-}\n+#define IMPLEMENT_ISR(vect, interrupt) \\\n+  ISR(vect) { \\\n+    intFunc[interrupt](); \\\n+  }\n \n-ISR(INT3_vect) {\n-    intFunc[EXTERNAL_INT_3]();\n-}\n+#if defined(__AVR_ATmega32U4__)\n \n-ISR(INT6_vect) {\n-    intFunc[EXTERNAL_INT_4]();\n-}\n+IMPLEMENT_ISR(INT0_vect, EXTERNAL_INT_0)\n+IMPLEMENT_ISR(INT1_vect, EXTERNAL_INT_1)\n+IMPLEMENT_ISR(INT2_vect, EXTERNAL_INT_2)\n+IMPLEMENT_ISR(INT3_vect, EXTERNAL_INT_3)\n+IMPLEMENT_ISR(INT6_vect, EXTERNAL_INT_4)\n \n #elif defined(EICRA) && defined(EICRB)\n \n-ISR(INT0_vect) {\n-    intFunc[EXTERNAL_INT_2]();\n-}\n-\n-ISR(INT1_vect) {\n-    intFunc[EXTERNAL_INT_3]();\n-}\n-\n-ISR(INT2_vect) {\n-    intFunc[EXTERNAL_INT_4]();\n-}\n-\n-ISR(INT3_vect) {\n-    intFunc[EXTERNAL_INT_5]();\n-}\n-\n-ISR(INT4_vect) {\n-    intFunc[EXTERNAL_INT_0]();\n-}\n-\n-ISR(INT5_vect) {\n-    intFunc[EXTERNAL_INT_1]();\n-}\n-\n-ISR(INT6_vect) {\n-    intFunc[EXTERNAL_INT_6]();\n-}\n-\n-ISR(INT7_vect) {\n-    intFunc[EXTERNAL_INT_7]();\n-}\n+IMPLEMENT_ISR(INT0_vect, EXTERNAL_INT_2)\n+IMPLEMENT_ISR(INT1_vect, EXTERNAL_INT_3)\n+IMPLEMENT_ISR(INT2_vect, EXTERNAL_INT_4)\n+IMPLEMENT_ISR(INT3_vect, EXTERNAL_INT_5)\n+IMPLEMENT_ISR(INT4_vect, EXTERNAL_INT_0)\n+IMPLEMENT_ISR(INT5_vect, EXTERNAL_INT_1)\n+IMPLEMENT_ISR(INT6_vect, EXTERNAL_INT_6)\n+IMPLEMENT_ISR(INT7_vect, EXTERNAL_INT_7)\n \n #else\n \n-ISR(INT0_vect) {\n-    intFunc[EXTERNAL_INT_0]();\n-}\n-\n-ISR(INT1_vect) {\n-    intFunc[EXTERNAL_INT_1]();\n-}\n+IMPLEMENT_ISR(INT0_vect, EXTERNAL_INT_0)\n+IMPLEMENT_ISR(INT1_vect, EXTERNAL_INT_1)\n \n #if defined(EICRA) && defined(ISC20)\n-ISR(INT2_vect) {\n-    intFunc[EXTERNAL_INT_2]();\n-}\n+IMPLEMENT_ISR(INT2_vect, EXTERNAL_INT_2)\n #endif\n \n #endif"
+ }
+]

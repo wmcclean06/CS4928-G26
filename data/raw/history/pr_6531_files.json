@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "8c507234795ff89e2899701811ab90cf6a19524c",
+  "filename": "arduino-core/src/processing/app/linux/Platform.java",
+  "status": "modified",
+  "additions": 18,
+  "deletions": 0,
+  "changes": 18,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3168d728d3cbd8aa2207ad0af52d11d8be453f23/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flinux%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3168d728d3cbd8aa2207ad0af52d11d8be453f23/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flinux%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Flinux%2FPlatform.java?ref=3168d728d3cbd8aa2207ad0af52d11d8be453f23",
+  "patch": "@@ -25,8 +25,11 @@\n import processing.app.PreferencesData;\n import processing.app.legacy.PConstants;\n \n+import java.awt.Font;\n import java.io.File;\n \n+import javax.swing.UIManager;\n+\n \n /**\n  * Used by Base for platform-specific tweaking, for instance finding the\n@@ -117,4 +120,19 @@ public void openFolder(File file) throws Exception {\n   public String getName() {\n     return PConstants.platformNames[PConstants.LINUX];\n   }\n+\n+  private int detectedDpi = -1;\n+\n+  @Override\n+  public int getSystemDPI() {\n+    if (detectedDpi != -1)\n+      return detectedDpi;\n+\n+    // we observed that JMenu fonts in java follows the\n+    // System DPI settings, so we compare it to the standard\n+    // font size (12) to obtain a rough estimate of DPI.\n+    Font menuFont = UIManager.getFont(\"Menu.font\");\n+    detectedDpi = menuFont.getSize() * 96 / 12;\n+    return detectedDpi;\n+  }\n }"
+ }
+]

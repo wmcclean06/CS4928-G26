@@ -1,0 +1,91 @@
+{
+ "pr": 3637,
+ "base_sha": "5b3d16fa787d3e9a2415904f534844df7cf9a166",
+ "head_sha": "5e518b9929a984459020e65e850983ff577fe197",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/view/preferences/Preferences.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 375,
+   "deletions": 57,
+   "old_sha": "e5b19c3328160d21c4f92c9bec3d984acef1ac57",
+   "new_sha": "0b2227711c411391dbc10a231205fa8ac7b1a337",
+   "head_sha_check": "0b2227711c411391dbc10a231205fa8ac7b1a337",
+   "loc_at_head": 805,
+   "notes": ""
+  },
+  {
+   "path": "app/test/cc/arduino/net/CustomProxySelectorTest.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 169,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "005f5cce822f767959a51237994823b234c03184",
+   "head_sha_check": "005f5cce822f767959a51237994823b234c03184",
+   "loc_at_head": 138,
+   "notes": "added"
+  },
+  {
+   "path": "app/test/cc/arduino/net/PACSupportMethodsTest.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 28,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "7029132ea13ec88de25307f03e739306db2a07ed",
+   "head_sha_check": "7029132ea13ec88de25307f03e739306db2a07ed",
+   "loc_at_head": 21,
+   "notes": "added"
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/Constants.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 16,
+   "deletions": 1,
+   "old_sha": "098caab971f7ce31abe0dccfc78fa430080f4b88",
+   "new_sha": "d6bfe48d90ac496991cdd809b35e9245b8994958",
+   "head_sha_check": "d6bfe48d90ac496991cdd809b35e9245b8994958",
+   "loc_at_head": 73,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/net/CustomProxySelector.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 171,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "a6606ac147bd562dd1f469d52e14b4078f77d2d6",
+   "head_sha_check": "a6606ac147bd562dd1f469d52e14b4078f77d2d6",
+   "loc_at_head": 150,
+   "notes": "added"
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/net/PACSupportMethods.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 103,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "5ff9f53aebef02c08de85f5d31c97ec0ecdcceff",
+   "head_sha_check": "5ff9f53aebef02c08de85f5d31c97ec0ecdcceff",
+   "loc_at_head": 87,
+   "notes": "added"
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/utils/network/FileDownloader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 6,
+   "deletions": 1,
+   "old_sha": "c874c556d836f385c0ff058daa85e3eac7a7efde",
+   "new_sha": "73e9ec5fedcdd4f95deef029a7f19f62ee62e939",
+   "head_sha_check": "73e9ec5fedcdd4f95deef029a7f19f62ee62e939",
+   "loc_at_head": 187,
+   "notes": ""
+  }
+ ]
+}

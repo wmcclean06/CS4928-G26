@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "715a4cbcbbec1d6a44de11f3a4b40793d6d3d98a",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 5,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/38c9ed4ce446336da478832c72e990097f91a445/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/38c9ed4ce446336da478832c72e990097f91a445/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=38c9ed4ce446336da478832c72e990097f91a445",
+  "patch": "@@ -387,13 +387,13 @@\n     <mkdir dir=\"${staging_folder}/work\" />\n \n     <antcall target=\"unzip\">\n-      <param name=\"archive_file\" value=\"${staging_folder}/appbundler-1.0ea-arduino5.jar.zip\" />\n-      <param name=\"archive_url\" value=\"https://downloads.arduino.cc/appbundler-1.0ea-arduino5.jar.zip\" />\n-      <param name=\"final_folder\" value=\"${staging_folder}/appbundler-1.0ea-arduino5\" />\n-      <param name=\"dest_folder\" value=\"${staging_folder}/appbundler-1.0ea-arduino5\" />\n+      <param name=\"archive_file\" value=\"${staging_folder}/appbundler-1.0ea-arduino8.jar.zip\" />\n+      <param name=\"archive_url\" value=\"https://downloads.arduino.cc/appbundler-1.0ea-arduino8.jar.zip\" />\n+      <param name=\"final_folder\" value=\"${staging_folder}/appbundler-1.0ea-arduino8\" />\n+      <param name=\"dest_folder\" value=\"${staging_folder}/appbundler-1.0ea-arduino8\" />\n     </antcall>\n \n-    <taskdef name=\"bundleapp\" classname=\"com.oracle.appbundler.AppBundlerTask\" classpath=\"${staging_folder}/appbundler-1.0ea-arduino5/appbundler-1.0ea-arduino5.jar\"/>\n+    <taskdef name=\"bundleapp\" classname=\"com.oracle.appbundler.AppBundlerTask\" classpath=\"${staging_folder}/appbundler-1.0ea-arduino8/appbundler-1.0ea-arduino8.jar\"/>\n \n     <bundleapp\n             jvmRequired=\"1.8\""
+ },
+ {
+  "sha": "3dc241c57740213e552ce4e603c329205004a664",
+  "filename": "build/macosx/appbundler-1.0ea-arduino5.jar.zip.sha",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bd0e74345a4796757e48a1ee4b41f5a23b2cbc73/build%2Fmacosx%2Fappbundler-1.0ea-arduino5.jar.zip.sha",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bd0e74345a4796757e48a1ee4b41f5a23b2cbc73/build%2Fmacosx%2Fappbundler-1.0ea-arduino5.jar.zip.sha",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fmacosx%2Fappbundler-1.0ea-arduino5.jar.zip.sha?ref=bd0e74345a4796757e48a1ee4b41f5a23b2cbc73",
+  "patch": "@@ -1 +0,0 @@\n-d7734ca84b802d2b65137b9fc0ee01c5f2108ff0"
+ },
+ {
+  "sha": "4047b645c0eed4f1bc9b26edae2822d3983c793c",
+  "filename": "build/macosx/appbundler-1.0ea-arduino8.jar.zip.sha",
+  "status": "added",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/38c9ed4ce446336da478832c72e990097f91a445/build%2Fmacosx%2Fappbundler-1.0ea-arduino8.jar.zip.sha",
+  "raw_url": "https://github.com/arduino/Arduino/raw/38c9ed4ce446336da478832c72e990097f91a445/build%2Fmacosx%2Fappbundler-1.0ea-arduino8.jar.zip.sha",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fmacosx%2Fappbundler-1.0ea-arduino8.jar.zip.sha?ref=38c9ed4ce446336da478832c72e990097f91a445",
+  "patch": "@@ -0,0 +1 @@\n+5e947cc988e82bcca71c60d57121529ee6ff770d"
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "1e4c99a655242bcdd1485a88135ddeca31fe04b0",
+  "filename": "hardware/arduino/avr/cores/arduino/Print.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e6a3b99697291892587117eded56cfc30ebd2531/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e6a3b99697291892587117eded56cfc30ebd2531/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.cpp?ref=e6a3b99697291892587117eded56cfc30ebd2531",
+  "patch": "@@ -250,7 +250,7 @@ size_t Print::printFloat(double number, uint8_t digits)\n \n   // Print the decimal point, but only if there are digits beyond\n   if (digits > 0) {\n-    n += print(\".\"); \n+    n += print('.'); \n   }\n \n   // Extract digits from the remainder one at a time"
+ },
+ {
+  "sha": "881722e8962f908d55bb7da3beec7f482560753f",
+  "filename": "hardware/arduino/sam/cores/arduino/Print.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e6a3b99697291892587117eded56cfc30ebd2531/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FPrint.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e6a3b99697291892587117eded56cfc30ebd2531/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FPrint.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FPrint.cpp?ref=e6a3b99697291892587117eded56cfc30ebd2531",
+  "patch": "@@ -242,7 +242,7 @@ size_t Print::printFloat(double number, uint8_t digits)\n \n   // Print the decimal point, but only if there are digits beyond\n   if (digits > 0) {\n-    n += print(\".\"); \n+    n += print('.'); \n   }\n \n   // Extract digits from the remainder one at a time"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "d558c98f4ffce2cc161b7614efe502113458d9df",
+  "filename": "app/src/processing/app/syntax/SketchTextAreaDefaultInputMap.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 0,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/24c9f8c2713a19e55fdc3f0afd55a13c5bc02e9d/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/24c9f8c2713a19e55fdc3f0afd55a13c5bc02e9d/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java?ref=24c9f8c2713a19e55fdc3f0afd55a13c5bc02e9d",
+  "patch": "@@ -16,6 +16,7 @@ public class SketchTextAreaDefaultInputMap extends RSyntaxTextAreaDefaultInputMa\n   public SketchTextAreaDefaultInputMap() {\n     int defaultModifier = getDefaultModifier();\n     int alt = InputEvent.ALT_MASK;\n+    int shift = InputEvent.SHIFT_MASK;\n     boolean isOSX = RTextArea.isOSX();\n     int moveByWordMod = isOSX ? alt : defaultModifier;\n \n@@ -38,10 +39,16 @@ public SketchTextAreaDefaultInputMap() {\n       put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, defaultModifier), DefaultEditorKit.beginAction);\n       put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, defaultModifier), DefaultEditorKit.endAction);\n \n+      put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, defaultModifier | shift), DefaultEditorKit.selectLineAction);\n+      put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, defaultModifier | shift), DefaultEditorKit.selectLineAction);\n+\n       remove(KeyStroke.getKeyStroke(KeyEvent.VK_J, defaultModifier));\n \n       put(KeyStroke.getKeyStroke(KeyEvent.VK_OPEN_BRACKET, defaultModifier), DefaultEditorKit.insertTabAction);\n       put(KeyStroke.getKeyStroke(KeyEvent.VK_CLOSE_BRACKET, defaultModifier), RSyntaxTextAreaEditorKit.rstaDecreaseIndentAction);\n+\n+      put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, defaultModifier | shift), DefaultEditorKit.selectionBeginAction);\n+      put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, defaultModifier | shift), DefaultEditorKit.selectionEndAction);\n     }\n \n     put(KeyStroke.getKeyStroke(KeyEvent.VK_DIVIDE, defaultModifier), RSyntaxTextAreaEditorKit.rstaToggleCommentAction);"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "217a778823cb63a5bc00fb440a39a6e87b6473dc",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8ee35d0c52a54c21780985914a02bc1ece176b01/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8ee35d0c52a54c21780985914a02bc1ece176b01/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=8ee35d0c52a54c21780985914a02bc1ece176b01",
+  "patch": "@@ -801,7 +801,7 @@ public void menuSelected(MenuEvent e) {\n             if (sel == null) {\n               if (!name.equals(basename)) menu.setText(basename);\n             } else {\n-              if (sel.length() > 17) sel = sel.substring(0, 16) + \"...\";\n+              if (sel.length() > 50) sel = sel.substring(0, 50) + \"...\";\n               String newname = basename + \": \\\"\" + sel + \"\\\"\";\n               if (!name.equals(newname)) menu.setText(newname);\n             }"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "1e89c4e87c4474ee0db7bfc400de70086ae30d38",
+  "filename": "libraries/Ethernet/EthernetClient.cpp",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c01172cd1bb066215fc7fdcf20c890683f39961c/libraries%2FEthernet%2FEthernetClient.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c01172cd1bb066215fc7fdcf20c890683f39961c/libraries%2FEthernet%2FEthernetClient.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2FEthernetClient.cpp?ref=c01172cd1bb066215fc7fdcf20c890683f39961c",
+  "patch": "@@ -12,7 +12,7 @@ extern \"C\" {\n #include \"EthernetServer.h\"\n #include \"Dns.h\"\n \n-uint16_t EthernetClient::_srcport = 1024;\n+uint16_t EthernetClient::_srcport = 49152;      //Use IANA recommended ephemeral port range 49152-65535\n \n EthernetClient::EthernetClient() : _sock(MAX_SOCK_NUM) {\n }\n@@ -51,7 +51,7 @@ int EthernetClient::connect(IPAddress ip, uint16_t port) {\n     return 0;\n \n   _srcport++;\n-  if (_srcport == 0) _srcport = 1024;\n+  if (_srcport == 0) _srcport = 49152;          //Use IANA recommended ephemeral port range 49152-65535\n   socket(_sock, SnMR::TCP, _srcport, 0);\n \n   if (!::connect(_sock, rawIPAddress(ip), port)) {"
+ }
+]

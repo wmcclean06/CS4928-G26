@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "3b9ccca366920a6b5eab2c01c47a36a96715e119",
+  "filename": "hardware/arduino/cores/arduino/Arduino.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/be9462e41eeb1aa6c45c412141e6939faea88f55/hardware%2Farduino%2Fcores%2Farduino%2FArduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/be9462e41eeb1aa6c45c412141e6939faea88f55/hardware%2Farduino%2Fcores%2Farduino%2FArduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FArduino.h?ref=be9462e41eeb1aa6c45c412141e6939faea88f55",
+  "patch": "@@ -46,7 +46,7 @@ extern \"C\"{\n #define EXTERNAL 1\n #define INTERNAL 2\n #else  \n-#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644P__)\n+#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__)\n #define INTERNAL1V1 2\n #define INTERNAL2V56 3\n #else"
+ },
+ {
+  "sha": "7ed0e4e1c4a81cdf83b3de4149f66f4cdad7f0c2",
+  "filename": "hardware/arduino/cores/arduino/wiring_analog.c",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/be9462e41eeb1aa6c45c412141e6939faea88f55/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_analog.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/be9462e41eeb1aa6c45c412141e6939faea88f55/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_analog.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_analog.c?ref=be9462e41eeb1aa6c45c412141e6939faea88f55",
+  "patch": "@@ -45,7 +45,7 @@ int analogRead(uint8_t pin)\n \tif (pin >= 54) pin -= 54; // allow for channel or pin numbers\n #elif defined(__AVR_ATmega32U4__)\n \tif (pin >= 18) pin -= 18; // allow for channel or pin numbers\n-#elif defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644P__)\n+#elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__)\n \tif (pin >= 24) pin -= 24; // allow for channel or pin numbers\n #elif defined(analogPinToChannel) && (defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__))\n \tpin = analogPinToChannel(pin);"
+ },
+ {
+  "sha": "90dbf2cf46d943edc1a968f9247b7d6ec1148b6c",
+  "filename": "hardware/arduino/cores/arduino/wiring_private.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/be9462e41eeb1aa6c45c412141e6939faea88f55/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_private.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/be9462e41eeb1aa6c45c412141e6939faea88f55/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_private.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2Fwiring_private.h?ref=be9462e41eeb1aa6c45c412141e6939faea88f55",
+  "patch": "@@ -54,7 +54,7 @@ extern \"C\"{\n \n #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)\n #define EXTERNAL_NUM_INTERRUPTS 8\n-#elif defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644P__)\n+#elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__)\n #define EXTERNAL_NUM_INTERRUPTS 3\n #elif defined(__AVR_ATmega32U4__)\n #define EXTERNAL_NUM_INTERRUPTS 4"
+ }
+]

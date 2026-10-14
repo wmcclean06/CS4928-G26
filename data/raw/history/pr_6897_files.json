@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "464686cf90f3d18f79384d91e22755eda17b5736",
+  "filename": "arduino-core/src/cc/arduino/Compiler.java",
+  "status": "modified",
+  "additions": 20,
+  "deletions": 5,
+  "changes": 25,
+  "blob_url": "https://github.com/arduino/Arduino/blob/303e199dca56e9d987dbee4c0dfbb0a9378011fc/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/303e199dca56e9d987dbee4c0dfbb0a9378011fc/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java?ref=303e199dca56e9d987dbee4c0dfbb0a9378011fc",
+  "patch": "@@ -515,7 +515,17 @@ public void message(String s) {\n     String[] pieces = PApplet.match(s, ERROR_FORMAT);\n \n     if (pieces != null) {\n-      String error = pieces[pieces.length - 1], msg = \"\";\n+      String msg = \"\";\n+      int errorIdx = pieces.length - 1;\n+      String error = pieces[errorIdx];\n+      String filename = pieces[1];\n+      int line = PApplet.parseInt(pieces[2]);\n+      int col;\n+      if (errorIdx > 3) {\n+        col = PApplet.parseInt(pieces[3].substring(1));\n+      } else {\n+        col = -1;\n+      }\n \n       if (error.trim().equals(\"SPI.h: No such file or directory\")) {\n         error = tr(\"Please import the SPI library from the Sketch > Import Library menu.\");\n@@ -569,12 +579,17 @@ public void message(String s) {\n         //msg = _(\"\\nThe 'Keyboard' class is only supported on the Arduino Leonardo.\\n\\n\");\n       }\n \n-      RunnerException ex = placeException(error, pieces[1], PApplet.parseInt(pieces[2]) - 1);\n+      RunnerException ex = placeException(error, filename, line - 1, col);\n \n       if (ex != null) {\n         String fileName = ex.getCodeFile().getPrettyName();\n         int lineNum = ex.getCodeLine() + 1;\n-        s = fileName + \":\" + lineNum + \": error: \" + error + msg;\n+        int colNum = ex.getCodeColumn();\n+        if (colNum != -1) {\n+          s = fileName + \":\" + lineNum + \":\" + colNum + \": error: \" + error + msg;\n+        } else {\n+          s = fileName + \":\" + lineNum + \": error: \" + error + msg;\n+        }\n       }\n \n       if (ex != null) {\n@@ -600,10 +615,10 @@ public void message(String s) {\n     System.err.println(s);\n   }\n \n-  private RunnerException placeException(String message, String fileName, int line) {\n+  private RunnerException placeException(String message, String fileName, int line, int col) {\n     for (SketchFile file : sketch.getFiles()) {\n       if (new File(fileName).getName().equals(file.getFileName())) {\n-        return new RunnerException(message, file, line);\n+        return new RunnerException(message, file, line, col);\n       }\n     }\n     return null;"
+ }
+]

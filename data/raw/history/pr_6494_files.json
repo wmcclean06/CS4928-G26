@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ea06902402c268892e6b7253de39e1ade2c54368",
+  "filename": "arduino-core/src/cc/arduino/Constants.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 1,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d282258d59f58f404dee03224454bbd5d10ab2dd/arduino-core%2Fsrc%2Fcc%2Farduino%2FConstants.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d282258d59f58f404dee03224454bbd5d10ab2dd/arduino-core%2Fsrc%2Fcc%2Farduino%2FConstants.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2FConstants.java?ref=d282258d59f58f404dee03224454bbd5d10ab2dd",
+  "patch": "@@ -80,10 +80,15 @@ public class Constants {\n     String externalLibraryIndexUrl = System.getProperty(\"LIBRARY_INDEX_URL\");\n     if (externalLibraryIndexUrl != null && !\"\".equals(externalLibraryIndexUrl)) {\n       LIBRARY_INDEX_URL = externalLibraryIndexUrl;\n+      LIBRARY_INDEX_URL_GZ = \"\";\n+      String externalLibraryIndexUrlGz = System.getProperty(\"LIBRARY_INDEX_URL_GZ\");\n+      if (externalLibraryIndexUrlGz != null && !\"\".equals(externalLibraryIndexUrlGz)) {\n+        LIBRARY_INDEX_URL_GZ = externalLibraryIndexUrlGz;\n+      }\n     } else {\n       LIBRARY_INDEX_URL = \"http://downloads.arduino.cc/libraries/library_index.json\";\n+      LIBRARY_INDEX_URL_GZ = \"http://downloads.arduino.cc/libraries/library_index.json.gz\";\n     }\n-    LIBRARY_INDEX_URL_GZ = \"http://downloads.arduino.cc/libraries/library_index.json.gz\";\n   }\n \n }"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "23713f47b9ff763d2f3913ea9998b8f6ef07bad8",
+  "filename": "libraries/LiquidCrystal/LiquidCrystal.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bcefe3c44c9fdd99514a6cc7a26953e9a4498850/libraries%2FLiquidCrystal%2FLiquidCrystal.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bcefe3c44c9fdd99514a6cc7a26953e9a4498850/libraries%2FLiquidCrystal%2FLiquidCrystal.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FLiquidCrystal%2FLiquidCrystal.cpp?ref=bcefe3c44c9fdd99514a6cc7a26953e9a4498850",
+  "patch": "@@ -122,7 +122,7 @@ void LiquidCrystal::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) {\n     write4bits(0x03); \n     delayMicroseconds(150);\n \n-    // finally, set to 8-bit interface\n+    // finally, set to 4-bit interface\n     write4bits(0x02); \n   } else {\n     // this is according to the hitachi HD44780 datasheet"
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "dea6bd2b9211ec1cb35a7569f2a0f5eab440e628",
+  "filename": "hardware/arduino/sam/cores/arduino/USB/CDC.cpp",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 0,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d69c3729864f7813c1afe9964e9d3fd3e924e6de/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FCDC.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d69c3729864f7813c1afe9964e9d3fd3e924e6de/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FCDC.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FCDC.cpp?ref=d69c3729864f7813c1afe9964e9d3fd3e924e6de",
+  "patch": "@@ -214,6 +214,13 @@ int Serial_::available(void)\n \treturn (unsigned int)(CDC_SERIAL_BUFFER_SIZE + buffer->head - buffer->tail) % CDC_SERIAL_BUFFER_SIZE;\n }\n \n+int Serial_::availableForWrite(void)\n+{\n+\t// return the number of bytes left in the current bank,\n+\t// always EP size - 1, because bank is flushed on every write\n+\treturn (EPX_SIZE - 1);\n+}\n+\n int Serial_::peek(void)\n {\n \tring_buffer *buffer = &cdc_rx_buffer;"
+ },
+ {
+  "sha": "0a70634233c95c839c5e7e4601e828a04fa71044",
+  "filename": "hardware/arduino/sam/cores/arduino/USB/USBAPI.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d69c3729864f7813c1afe9964e9d3fd3e924e6de/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBAPI.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d69c3729864f7813c1afe9964e9d3fd3e924e6de/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBAPI.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBAPI.h?ref=d69c3729864f7813c1afe9964e9d3fd3e924e6de",
+  "patch": "@@ -54,6 +54,7 @@ class Serial_ : public Stream\n \tvoid end(void);\n \n \tvirtual int available(void);\n+\tvirtual int availableForWrite(void);\n \tvirtual void accept(void);\n \tvirtual int peek(void);\n \tvirtual int read(void);"
+ }
+]

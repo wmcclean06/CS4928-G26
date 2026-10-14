@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "7efcc5a477061768e12fa8eb8d3030ff456c47ef",
+  "filename": "hardware/arduino/avr/libraries/Wire/utility/twi.c",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f13f63599a967df59a98a11b1a65b87ca3f04dc/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Futility%2Ftwi.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f13f63599a967df59a98a11b1a65b87ca3f04dc/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Futility%2Ftwi.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Futility%2Ftwi.c?ref=7f13f63599a967df59a98a11b1a65b87ca3f04dc",
+  "patch": "@@ -165,7 +165,7 @@ uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length, uint8_t sen\n     // We need to remove ourselves from the repeated start state before we enable interrupts,\n     // since the ISR is ASYNC, and we could get confused if we hit the ISR before cleaning\n     // up. Also, don't enable the START interrupt. There may be one pending from the \n-    // repeated start that we sent outselves, and that would really confuse things.\n+    // repeated start that we sent ourselves, and that would really confuse things.\n     twi_inRepStart = false;\t\t\t// remember, we're dealing with an ASYNC ISR\n     do {\n       TWDR = twi_slarw;"
+ }
+]

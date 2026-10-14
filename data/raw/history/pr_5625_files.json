@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "87fa0686f9217357ab3185f6eee9e040a2946b38",
+  "filename": "build/cmd/dist.sh",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 68,
+  "changes": 68,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c209e33e97a27e336f0555cd11b9aae4dee48217/build%2Fcmd%2Fdist.sh",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c209e33e97a27e336f0555cd11b9aae4dee48217/build%2Fcmd%2Fdist.sh",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fcmd%2Fdist.sh?ref=c209e33e97a27e336f0555cd11b9aae4dee48217",
+  "patch": "@@ -1,68 +0,0 @@\n-#!/bin/sh\n-\n-# only needed for core.jar and pde.jar, hmm\n-ARCH=`uname`\n-if [ $ARCH == \"Darwin\" ]\n-then\n-    BUILD=../macosx\n-    REVISION=`head -1 ../../todo.txt | cut -c 1-4`\n-elif [ $ARCH == \"Cygwin\" ]\n-then\n-    BUILD=../windows\n-    REVISION=`head -c 4 ../../todo.txt`\n-else \n-    BUILD=../linux\n-    REVISION=`head -c 4 ../../todo.txt`\n-fi\n-\n-echo Creating command-line distribution for revision $REVISION...\n-\n-# remove any old boogers\n-rm -rf processing\n-rm -rf processing-*\n-\n-mkdir processing\n-cp -r ../shared/lib processing/\n-cp -r ../shared/libraries processing/\n-cp ../../app/lib/ecj.jar processing/lib/\n-cp ../shared/revisions.txt processing/\n-\n-# add the libraries folder with source\n-cp -r ../../net processing/libraries/\n-cp -r ../../opengl processing/libraries/\n-cp -r ../../serial processing/libraries/\n-cp -r ../../pdf processing/libraries/\n-cp -r ../../dxf processing/libraries/\n-cp -r ../../xml processing/libraries/\n-cp -r ../../candy processing/libraries/\n-cp -r ../../video processing/libraries/\n-\n-# grab pde.jar and export from the working dir\n-cp $BUILD/work/lib/pde.jar processing/lib/\n-cp $BUILD/work/lib/core.jar processing/lib/\n-\n-# get platform-specific goodies from the dist dir\n-install -m 755 dist/processing processing/processing\n-\n-# remove boogers\n-find processing -name \"*~\" -exec rm -f {} ';'\n-find processing -name \".DS_Store\" -exec rm -f {} ';'\n-find processing -name \"._*\" -exec rm -f {} ';'\n-find processing -name \"Thumbs.db\" -exec rm -f {} ';'\n-\n-# clean out the cvs entries\n-find processing -name \"CVS\" -exec rm -rf {} ';' 2> /dev/null\n-find processing -name \".cvsignore\" -exec rm -rf {} ';'\n-find processing -name \".svn\" -exec rm -rf {} 2> /dev/null ';'\n-\n-# zip it all up for release\n-echo Creating tarball and finishing...\n-P5=processing-cmd-$REVISION\n-mv processing $P5\n-\n-zip -rq $P5.zip $P5\n-#tar cfz $P5.tgz $P5\n-# nah, keep the new directory around\n-#rm -rf $P5\n-\n-#echo Done."
+ },
+ {
+  "sha": "8f69441540973f40afa04523fa54ca0d11c308a9",
+  "filename": "build/cmd/dist/processing",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 20,
+  "changes": 20,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c209e33e97a27e336f0555cd11b9aae4dee48217/build%2Fcmd%2Fdist%2Fprocessing",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c209e33e97a27e336f0555cd11b9aae4dee48217/build%2Fcmd%2Fdist%2Fprocessing",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fcmd%2Fdist%2Fprocessing?ref=c209e33e97a27e336f0555cd11b9aae4dee48217",
+  "patch": "@@ -1,20 +0,0 @@\n- #!/bin/sh\n- \n-APPDIR=\"$(dirname -- \"${0}\")\"\n-\n-# includes java/* in case a Java install is available\n-for LIB in \\\n-    java/lib/rt.jar \\\n-    java/lib/tools.jar \\\n-    lib/*.jar \\\n-    ;\n-do\n-    CLASSPATH=\"${CLASSPATH}:${APPDIR}/${LIB}\"\n-done\n-export CLASSPATH\n-\n-export PATH=\"${APPDIR}/java/bin:${PATH}\"\n-\n-#java processing.app.Commander $*\n-# if you know a better way to do this, submit it to dev.processing.org/bugs\n-java processing.app.Commander \"$1\" \"$2\" \"$3\" \"$4\" \"$5\" \"$6\" \"$7\" \"$8\" \"$9\""
+ }
+]

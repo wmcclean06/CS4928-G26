@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "a11e5036c528298db8f34a8efe372b482f917e94",
+  "filename": "build/shared/examples/08.Strings/StringAdditionOperator/StringAdditionOperator.ino",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f0e3ec56a39cc9947390bd696d0019ce84e8065e/build%2Fshared%2Fexamples%2F08.Strings%2FStringAdditionOperator%2FStringAdditionOperator.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f0e3ec56a39cc9947390bd696d0019ce84e8065e/build%2Fshared%2Fexamples%2F08.Strings%2FStringAdditionOperator%2FStringAdditionOperator.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F08.Strings%2FStringAdditionOperator%2FStringAdditionOperator.ino?ref=f0e3ec56a39cc9947390bd696d0019ce84e8065e",
+  "patch": "@@ -23,7 +23,7 @@ void setup() {\n     ; // wait for serial port to connect. Needed for native USB port only\n   }\n \n-  stringOne = String(\"stringThree = \");\n+  stringOne = String(\"You added \");\n   stringTwo = String(\"this string\");\n   stringThree = String();\n   // send an intro:\n@@ -34,11 +34,11 @@ void setup() {\n void loop() {\n   // adding a constant integer to a string:\n   stringThree =  stringOne + 123;\n-  Serial.println(stringThree);    // prints \"stringThree = 123\"\n+  Serial.println(stringThree);    // prints \"You added 123\"\n \n   // adding a constant long interger to a string:\n   stringThree = stringOne + 123456789;\n-  Serial.println(stringThree);    // prints \" You added 123456789\"\n+  Serial.println(stringThree);    // prints \"You added 123456789\"\n \n   // adding a constant character to a string:\n   stringThree =  stringOne + 'A';"
+ }
+]

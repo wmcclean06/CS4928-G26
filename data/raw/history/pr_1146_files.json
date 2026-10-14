@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "64496febb25c94ad1065baecf9400e6f3e9775b8",
+  "filename": "libraries/SoftwareSerial/SoftwareSerial.cpp",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 2,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/9554c1d3cd90ec7ef292d88088d63de5cd843ab1/libraries%2FSoftwareSerial%2FSoftwareSerial.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/9554c1d3cd90ec7ef292d88088d63de5cd843ab1/libraries%2FSoftwareSerial%2FSoftwareSerial.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSoftwareSerial%2FSoftwareSerial.cpp?ref=9554c1d3cd90ec7ef292d88088d63de5cd843ab1",
+  "patch": "@@ -40,8 +40,8 @@ The latest version of this library can always be found at\n // \r\n #include <avr/interrupt.h>\r\n #include <avr/pgmspace.h>\r\n-#include \"Arduino.h\"\r\n-#include \"SoftwareSerial.h\"\r\n+#include <Arduino.h>\r\n+#include <SoftwareSerial.h>\r\n //\r\n // Lookup table\r\n //\r\n@@ -70,6 +70,7 @@ static const DELAY_TABLE PROGMEM table[] =\n   { 4800,     233,       474,       474,      471,   },\r\n   { 2400,     471,       950,       950,      947,   },\r\n   { 1200,     947,       1902,      1902,     1899,  },\r\n+  { 600,      1902,      3804,      3804,     3800,  },\r\n   { 300,      3804,      7617,      7617,     7614,  },\r\n };\r\n \r\n@@ -91,6 +92,7 @@ static const DELAY_TABLE table[] PROGMEM =\n   { 4800,     110,        233,       233,    230,    },\r\n   { 2400,     229,        472,       472,    469,    },\r\n   { 1200,     467,        948,       948,    945,    },\r\n+  { 600,      948,        1895,      1895,   1890,   },\r\n   { 300,      1895,       3805,      3805,   3802,   },\r\n };\r\n \r\n@@ -115,6 +117,7 @@ static const DELAY_TABLE PROGMEM table[] =\n   { 4800,     296,        595,       595,    592,    },\r\n   { 2400,     592,        1189,      1189,   1186,   },\r\n   { 1200,     1187,       2379,      2379,   2376,   },\r\n+  { 600,      2379,       4759,      4759,   4755,   },\r\n   { 300,      4759,       9523,      9523,   9520,   },\r\n };\r\n \r"
+ }
+]

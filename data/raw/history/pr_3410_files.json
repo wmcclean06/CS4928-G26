@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "0938dc862a713be04e73c493f54d966b9b6643f7",
+  "filename": "arduino-core/src/processing/app/windows/Platform.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/cac568f44c3dd007d29d24c9aedd6cc86804fffc/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/cac568f44c3dd007d29d24c9aedd6cc86804fffc/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java?ref=cac568f44c3dd007d29d24c9aedd6cc86804fffc",
+  "patch": "@@ -134,7 +134,7 @@ public void openURL(String url) throws Exception {\n       // open dos prompt, give it 'start' command, which will\n       // open the url properly. start by itself won't work since\n       // it appears to need cmd\n-      Runtime.getRuntime().exec(\"cmd /c start \" + url);\n+      Runtime.getRuntime().exec(\"cmd /c start \\\"\\\" \\\"\" + url + \"\\\"\");\n     } else {\n       // just launching the .html file via the shell works\n       // but make sure to chmod +x the .html files first"
+ }
+]

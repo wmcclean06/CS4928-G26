@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "6b6f3812327d8d648e2829024ebd30049305e5e2",
+  "filename": "arduino-core/src/cc/arduino/contributions/GZippedJsonDownloader.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 2,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/cce61f6aad3c7007f1f269464094fd9121e57833/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FGZippedJsonDownloader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/cce61f6aad3c7007f1f269464094fd9121e57833/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FGZippedJsonDownloader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FGZippedJsonDownloader.java?ref=cce61f6aad3c7007f1f269464094fd9121e57833",
+  "patch": "@@ -51,10 +51,14 @@ public GZippedJsonDownloader(DownloadableContributionsDownloader downloader, URL\n \n   public void download(File tmpFile, Progress progress, String statusText, ProgressListener progressListener) throws Exception {\n     try {\n-      new JsonDownloader(downloader, gzippedUrl).download(tmpFile, progress, statusText, progressListener);\n       File gzipTmpFile = new File(tmpFile.getParentFile(), GzipUtils.getCompressedFilename(tmpFile.getName()));\n-      tmpFile.renameTo(gzipTmpFile);\n+      // remove eventual leftovers from previous downloads\n+      if (gzipTmpFile.exists()) {\n+        gzipTmpFile.delete();\n+      }\n+      new JsonDownloader(downloader, gzippedUrl).download(gzipTmpFile, progress, statusText, progressListener);\n       decompress(gzipTmpFile, tmpFile);\n+      gzipTmpFile.delete();\n     } catch (Exception e) {\n       new JsonDownloader(downloader, url).download(tmpFile, progress, statusText, progressListener);\n     }"
+ }
+]

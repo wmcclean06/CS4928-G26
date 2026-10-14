@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "392422c592322986f1c42d01170d8d61f67f12a6",
+  "filename": "app/src/processing/app/SketchController.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7cd579150f923df552c52de1eba8c3923aeb39ed/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7cd579150f923df552c52de1eba8c3923aeb39ed/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java?ref=7cd579150f923df552c52de1eba8c3923aeb39ed",
+  "patch": "@@ -709,6 +709,10 @@ private boolean upload(String suggestedClassName, boolean usingProgrammer) throw\n \n     UploaderUtils uploaderInstance = new UploaderUtils();\n     Uploader uploader = uploaderInstance.getUploaderByPreferences(false);\n+    if (uploader == null) {\n+      editor.statusError(tr(\"Please select a Port before Upload\"));\n+      return false;\n+    }\n \n     EditorConsole.setCurrentEditorConsole(editor.console);\n "
+ },
+ {
+  "sha": "108d7c137b30ffbb72d1d2cf4402124161ff1534",
+  "filename": "arduino-core/src/cc/arduino/UploaderUtils.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 1,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7cd579150f923df552c52de1eba8c3923aeb39ed/arduino-core%2Fsrc%2Fcc%2Farduino%2FUploaderUtils.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7cd579150f923df552c52de1eba8c3923aeb39ed/arduino-core%2Fsrc%2Fcc%2Farduino%2FUploaderUtils.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2FUploaderUtils.java?ref=7cd579150f923df552c52de1eba8c3923aeb39ed",
+  "patch": "@@ -50,7 +50,11 @@ public Uploader getUploaderByPreferences(boolean noUploadPort) {\n \n     BoardPort boardPort = null;\n     if (!noUploadPort) {\n-      boardPort = BaseNoGui.getDiscoveryManager().find(PreferencesData.get(\"serial.port\"));\n+      String port = PreferencesData.get(\"serial.port\");\n+      if (port == null || port.isEmpty()) {\n+        return null;\n+      }\n+      boardPort = BaseNoGui.getDiscoveryManager().find(port);\n     }\n \n     return new UploaderFactory().newUploader(target.getBoards().get(board), boardPort, noUploadPort);"
+ },
+ {
+  "sha": "7e7fd7c381c3b4b2d3180a98f8e78eb3288c5913",
+  "filename": "build/shared/lib/preferences.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7cd579150f923df552c52de1eba8c3923aeb39ed/build%2Fshared%2Flib%2Fpreferences.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7cd579150f923df552c52de1eba8c3923aeb39ed/build%2Fshared%2Flib%2Fpreferences.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Flib%2Fpreferences.txt?ref=7cd579150f923df552c52de1eba8c3923aeb39ed",
+  "patch": "@@ -267,7 +267,8 @@ programmer = arduino:avrispmkii\n upload.using = bootloader\n upload.verify = true\n \n-serial.port=COM1\n+#default port is empty to prevent running AVRDUDE before Port selected (issue #7943)\n+serial.port=\n serial.databits=8\n serial.stopbits=1\n serial.parity=N"
+ }
+]

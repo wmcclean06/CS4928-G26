@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ddc4812ec98b141f00e468dd8fc87043d686ccd3",
+  "filename": "hardware/arduino/avr/cores/arduino/USBCore.cpp",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 1,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/003d22f2a57ee32e8a6fc8750e76eaba600a042e/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/003d22f2a57ee32e8a6fc8750e76eaba600a042e/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp?ref=003d22f2a57ee32e8a6fc8750e76eaba600a042e",
+  "patch": "@@ -1,6 +1,7 @@\n \n \n-/* Copyright (c) 2010, Peter Barrett  \n+/* Copyright (c) 2010, Peter Barrett\n+** Sleep/Wakeup support added by Michael Dreher\n **  \n ** Permission to use, copy, modify, and/or distribute this software for  \n ** any purpose with or without fee is hereby granted, provided that the  \n@@ -266,6 +267,11 @@ int USB_Send(u8 ep, const void* d, int len)\n \tif (!_usbConfiguration)\n \t\treturn -1;\n \n+\tif (_usbSuspendState & (1<<SUSPI)) {\n+\t\t//send a remote wakeup\n+\t\tUDCON |= (1 << RMWKUP);\n+\t}\n+\n \tint r = len;\n \tconst u8* data = (const u8*)d;\n \tu8 timeout = 250;\t\t// 250ms timeout on send? TODO"
+ }
+]

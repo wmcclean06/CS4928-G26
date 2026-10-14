@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "7944fcb2363d73aca557ccf675786b756959041d",
+  "filename": "hardware/arduino/avr/libraries/Wire/Wire.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/91df079b0962613fe6477ad3da4aec8a7a74176a/hardware%2Farduino%2Favr%2Flibraries%2FWire%2FWire.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/91df079b0962613fe6477ad3da4aec8a7a74176a/hardware%2Farduino%2Favr%2Flibraries%2FWire%2FWire.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2FWire.cpp?ref=91df079b0962613fe6477ad3da4aec8a7a74176a",
+  "patch": "@@ -169,7 +169,7 @@ void TwoWire::beginTransmission(int address)\n uint8_t TwoWire::endTransmission(uint8_t sendStop)\n {\n   // transmit buffer (blocking)\n-  int8_t ret = twi_writeTo(txAddress, txBuffer, txBufferLength, 1, sendStop);\n+  uint8_t ret = twi_writeTo(txAddress, txBuffer, txBufferLength, 1, sendStop);\n   // reset tx buffer iterator vars\n   txBufferIndex = 0;\n   txBufferLength = 0;"
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "dbe81b3a4d4607883886e4e052108b4e0417a4d0",
+  "filename": "app/src/processing/app/Sketch.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 2,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/efedfa70495657e371eb51f8398c6e742e5fa3cf/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/efedfa70495657e371eb51f8398c6e742e5fa3cf/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java?ref=efedfa70495657e371eb51f8398c6e742e5fa3cf",
+  "patch": "@@ -2063,9 +2063,10 @@ static public String sanitizeName(String origName) {\n     for (int i = 0; i < c.length; i++) {\n       if (((c[i] >= '0') && (c[i] <= '9')) ||\n           ((c[i] >= 'a') && (c[i] <= 'z')) ||\n-          ((c[i] >= 'A') && (c[i] <= 'Z'))) {\n+          ((c[i] >= 'A') && (c[i] <= 'Z')) ||\n+          ((i > 0) && (c[i] == '-')) ||\n+          ((i > 0) && (c[i] == '.'))) {\n         buffer.append(c[i]);\n-\n       } else {\n         buffer.append('_');\n       }"
+ },
+ {
+  "sha": "55b6addcaff7f396978ad7cfa1ca882955ef4422",
+  "filename": "app/src/processing/app/SketchCode.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/efedfa70495657e371eb51f8398c6e742e5fa3cf/app%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/efedfa70495657e371eb51f8398c6e742e5fa3cf/app%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java?ref=efedfa70495657e371eb51f8398c6e742e5fa3cf",
+  "patch": "@@ -87,7 +87,7 @@ public SketchCode(File file, String extension) {\n \n   protected void makePrettyName() {\n     prettyName = file.getName();\n-    int dot = prettyName.indexOf('.');\n+    int dot = prettyName.lastIndexOf('.');\n     prettyName = prettyName.substring(0, dot);\n   }\n "
+ }
+]

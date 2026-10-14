@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "f94e7975ca014d8f304dc158a74fcdadae1a93d5",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2296b229bb22264b7b09946ce95da985874c3de9/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2296b229bb22264b7b09946ce95da985874c3de9/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=2296b229bb22264b7b09946ce95da985874c3de9",
+  "patch": "@@ -187,14 +187,14 @@\n       <param name=\"final_folder\" value=\"${target.path}/libraries/Firmata-2.4.3\" />\n       <param name=\"dest_folder\" value=\"${target.path}/libraries\" />\n     </antcall>\n-    <rename src=\"${target.path}/libraries/Firmata-2.4.3\" dest=\"${target.path}/libraries/Firmata\"/>\n+    <move file=\"${target.path}/libraries/Firmata-2.4.3\" tofile=\"${target.path}/libraries/Firmata\" />\n     <antcall target=\"unzip\">\n       <param name=\"archive_file\" value=\"Temboo-1.1.2.zip\" />\n       <param name=\"archive_url\" value=\"https://github.com/temboo/Temboo/archive/1.1.2.zip\" />\n       <param name=\"final_folder\" value=\"${target.path}/libraries/Temboo-1.1.2\" />\n       <param name=\"dest_folder\" value=\"${target.path}/libraries\" />\n     </antcall>\n-    <rename src=\"${target.path}/libraries/Temboo-1.1.2\" dest=\"${target.path}/libraries/Temboo\"/>\n+    <move file=\"${target.path}/libraries/Temboo-1.1.2\" tofile=\"${target.path}/libraries/Temboo\" />\n   </target>\n \n   <!-- copy hardware folder -->"
+ }
+]

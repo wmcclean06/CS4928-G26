@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "dc0c5937dbf75907e4f7661f6c8920d962ecb845",
+  "filename": "build/linux/dist/appdata.xml",
+  "status": "modified",
+  "additions": 26,
+  "deletions": 8,
+  "changes": 34,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e54553a53dfc6524aa72f4e17a55c994c7c38933/build%2Flinux%2Fdist%2Fappdata.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e54553a53dfc6524aa72f4e17a55c994c7c38933/build%2Flinux%2Fdist%2Fappdata.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Fappdata.xml?ref=e54553a53dfc6524aa72f4e17a55c994c7c38933",
+  "patch": "@@ -1,8 +1,13 @@\n <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n-<!-- See https://wiki.gnome.org/GnomeGoals/AppDataGnomeSoftware -->\n-<application>\n-  <id type=\"desktop\">arduino.desktop</id>\n-  <licence>CC-BY-SA</licence>\n+<!-- See https://www.freedesktop.org/software/appstream/docs/chap-Quickstart.html -->\n+<component type=\"desktop-application\">\n+  <id>cc.arduino.arduinoide.desktop</id>\n+  <metadata_license>CC-BY-SA-3.0</metadata_license>\n+  <developer_name>Arduino LLC</developer_name>\n+\n+  <name>Arduino IDE</name>\n+  <summary>Open-source electronics prototyping platform</summary>\n+\n   <description>\n     <p>\n       Arduino is an open-source electronics prototyping platform based\n@@ -15,10 +20,23 @@\n       to develop and upload code to compatible microcontrollers.\n     </p>\n   </description>\n+\n   <screenshots>\n-    <screenshot type=\"default\" width=\"624\" height=\"351\">http://mavit.fedorapeople.org/appdata/arduino-screenshot.png</screenshot>\n-    <screenshot width=\"704\" height=\"396\">http://mavit.fedorapeople.org/appdata/arduino-photo.jpg</screenshot>\n+    <screenshot type=\"default\">\n+      <image>https://mavit.fedorapeople.org/appdata/arduino-screenshot.png</image>\n+      <caption>The Arduino IDE showing a simple example program</caption>\n+    </screenshot>\n+    <screenshot>\n+      <image>https://mavit.fedorapeople.org/appdata/arduino-photo.jpg</image>\n+      <caption>Arduino hardware being connected to a breadboard</caption>\n+    </screenshot>\n   </screenshots>\n+\n   <url type=\"homepage\">http://www.arduino.cc/</url>\n-  <updatecontact>arduino.appdata.xml@mavit.org.uk</updatecontact>\n-</application>\n+  <url type=\"help\">https://www.arduino.cc/en/Guide/HomePage</url>\n+  <url type=\"bugtracker\">https://github.com/arduino/Arduino/issues</url>\n+  <url type=\"translate\">https://github.com/arduino/Arduino/tree/master/arduino-core/src/processing/app/i18n</url>\n+  <url type=\"donation\">https://www.arduino.cc/en/Main/Contribute</url>\n+\n+  <update_contact>arduino.appdata.xml@mavit.org.uk</update_contact>\n+</component>"
+ },
+ {
+  "sha": "141fe52bf86ba4446cb5701d9c2046ad63001215",
+  "filename": "build/linux/dist/install.sh",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 1,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e54553a53dfc6524aa72f4e17a55c994c7c38933/build%2Flinux%2Fdist%2Finstall.sh",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e54553a53dfc6524aa72f4e17a55c994c7c38933/build%2Flinux%2Fdist%2Finstall.sh",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Finstall.sh?ref=e54553a53dfc6524aa72f4e17a55c994c7c38933",
+  "patch": "@@ -6,7 +6,7 @@\n # If called with the \"-u\" option, it will undo the changes.\n \n # Resource name to use (including vendor prefix)\n-RESOURCE_NAME=arduino-arduinoide\n+RESOURCE_NAME=cc.arduino.arduinoide\n \n # Get absolute path from which this script file was executed\n # (Could be changed to \"pwd -P\" to resolve symlinks to their target)\n@@ -85,6 +85,9 @@ simple_install_f() {\n   mkdir -p \"${HOME}/.local/share/applications\"\n   cp \"${TMP_DIR}/${RESOURCE_NAME}.desktop\" \"${HOME}/.local/share/applications/\"\n \n+  mkdir -p \"${HOME}/.local/share/metainfo\"\n+  cp \"${SCRIPT_PATH}/lib/appdata.xml\" \"${HOME}/.local/share/metainfo/${RESOURCE_NAME}.appdata.xml\"\n+\n   # Copy desktop icon if desktop dir exists (was found)\n   if [ -d \"${XDG_DESKTOP_DIR}\" ]; then\n    cp \"${TMP_DIR}/${RESOURCE_NAME}.desktop\" \"${XDG_DESKTOP_DIR}/\"\n@@ -137,14 +140,24 @@ xdg_uninstall_f() {\n # Uninstall by simply removing desktop files (fallback), incl. old one\n simple_uninstall_f() {\n \n+  # delete legacy cruft .desktop file\n   if [ -f \"${HOME}/.local/share/applications/arduino.desktop\" ]; then\n     rm \"${HOME}/.local/share/applications/arduino.desktop\"\n   fi\n \n+  # delete another legacy .desktop file\n+  if [ -f \"${HOME}/.local/share/applications/arduino-arduinoide.desktop\" ]; then\n+    rm \"${HOME}/.local/share/applications/arduino-arduinoide.desktop\"\n+  fi\n+\n   if [ -f \"${HOME}/.local/share/applications/${RESOURCE_NAME}.desktop\" ]; then\n     rm \"${HOME}/.local/share/applications/${RESOURCE_NAME}.desktop\"\n   fi\n \n+  if [ -f \"${HOME}/.local/share/metainfo/${RESOURCE_NAME}.appdata.xml\" ]; then\n+    rm \"${HOME}/.local/share/metainfo/${RESOURCE_NAME}.appdata.xml\"\n+  fi\n+\n   if [ -f \"${XDG_DESKTOP_DIR}/arduino.desktop\" ]; then\n     rm \"${XDG_DESKTOP_DIR}/arduino.desktop\"\n   fi"
+ }
+]

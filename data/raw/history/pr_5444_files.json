@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "9209c77fc3f68b902d7adae30f70e2831a9fd2c4",
+  "filename": "arduino-core/src/cc/arduino/contributions/packages/HostDependentDownloadableContribution.java",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 0,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ba42280fba2b6a3827c9e1ce0ced115118a78a90/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FHostDependentDownloadableContribution.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ba42280fba2b6a3827c9e1ce0ced115118a78a90/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FHostDependentDownloadableContribution.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FHostDependentDownloadableContribution.java?ref=ba42280fba2b6a3827c9e1ce0ced115118a78a90",
+  "patch": "@@ -79,6 +79,14 @@ public boolean isCompatible(Platform platform) {\n       }\n     }\n \n+    if (osName.contains(\"FreeBSD\")) {\n+      if (osArch.contains(\"arm\")) {\n+        return host.matches(\"arm.*-freebsd[0-9]*\");\n+      } else {\n+        return host.matches(osArch + \"-freebsd[0-9]*\");\n+      }\n+    }\n+\n     return false;\n   }\n }"
+ }
+]

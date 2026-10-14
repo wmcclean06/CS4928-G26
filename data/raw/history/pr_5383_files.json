@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "6af1f397bdbada0e952715f9eddc552b3cdf3b37",
+  "filename": "app/src/cc/arduino/view/findreplace/FindReplace.java",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 15,
+  "changes": 23,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1efa07f01058c249117d7f2b05984df86c156f2b/app%2Fsrc%2Fcc%2Farduino%2Fview%2Ffindreplace%2FFindReplace.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1efa07f01058c249117d7f2b05984df86c156f2b/app%2Fsrc%2Fcc%2Farduino%2Fview%2Ffindreplace%2FFindReplace.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fview%2Ffindreplace%2FFindReplace.java?ref=1efa07f01058c249117d7f2b05984df86c156f2b",
+  "patch": "@@ -31,6 +31,7 @@\n \n import processing.app.Base;\n import processing.app.Editor;\n+import processing.app.EditorTab;\n import processing.app.helpers.OSUtils;\n \n import java.awt.*;\n@@ -284,7 +285,6 @@ private void replaceAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//\n   // End of variables declaration//GEN-END:variables\n \n   private boolean find(boolean wrap, boolean backwards, boolean searchTabs, int originTab) {\n-    boolean wrapNeeded = false;\n     String search = findField.getText();\n \n     if (search.length() == 0) {\n@@ -304,10 +304,6 @@ private boolean find(boolean wrap, boolean backwards, boolean searchTabs, int or\n       int selectionEnd = editor.getCurrentTab().getSelectionStop();\n \n       nextIndex = text.indexOf(search, selectionEnd);\n-      if (wrap && nextIndex == -1) {\n-        // if wrapping, a second chance is ok, start from beginning\n-        wrapNeeded = true;\n-      }\n     } else {\n       // int selectionStart = editor.textarea.getSelectionStart();\n       int selectionStart = editor.getCurrentTab().getSelectionStart() - 1;\n@@ -317,14 +313,8 @@ private boolean find(boolean wrap, boolean backwards, boolean searchTabs, int or\n       } else {\n         nextIndex = -1;\n       }\n-      if (wrap && nextIndex == -1) {\n-        // if wrapping, a second chance is ok, start from the end\n-        wrapNeeded = true;\n-      }\n     }\n \n-    editor.getCurrentTab().getTextArea().getFoldManager().ensureOffsetNotInClosedFold(nextIndex);\n-\n     if (nextIndex == -1) {\n       // Nothing found on this tab: Search other tabs if required\n       if (searchTabs) {\n@@ -345,12 +335,12 @@ private boolean find(boolean wrap, boolean backwards, boolean searchTabs, int or\n             }\n \n             if (backwards) {\n-              editor.selectNextTab();\n+              editor.selectPrevTab();\n               this.setVisible(true);\n               int l = editor.getCurrentTab().getText().length() - 1;\n               editor.getCurrentTab().setSelection(l, l);\n             } else {\n-              editor.selectPrevTab();\n+              editor.selectNextTab();\n               this.setVisible(true);\n               editor.getCurrentTab().setSelection(0, 0);\n             }\n@@ -360,13 +350,16 @@ private boolean find(boolean wrap, boolean backwards, boolean searchTabs, int or\n         }\n       }\n \n-      if (wrapNeeded) {\n+      if (wrap) {\n         nextIndex = backwards ? text.lastIndexOf(search) : text.indexOf(search, 0);\n       }\n     }\n \n     if (nextIndex != -1) {\n-      editor.getCurrentTab().setSelection(nextIndex, nextIndex + search.length());\n+      EditorTab currentTab = editor.getCurrentTab();\n+      currentTab.getTextArea().getFoldManager().ensureOffsetNotInClosedFold(nextIndex);\n+      currentTab.setSelection(nextIndex, nextIndex + search.length());\n+      currentTab.getTextArea().getCaret().setSelectionVisible(true);\n       return true;\n     }\n "
+ },
+ {
+  "sha": "988b7813657fba29fd6b05409933af3c43aa83ac",
+  "filename": "app/src/processing/app/EditorTab.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1efa07f01058c249117d7f2b05984df86c156f2b/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1efa07f01058c249117d7f2b05984df86c156f2b/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java?ref=1efa07f01058c249117d7f2b05984df86c156f2b",
+  "patch": "@@ -175,7 +175,6 @@ private SketchTextArea createTextArea(RSyntaxDocument document)\n \n       editor.lineStatus.set(lineStart, lineEnd);\n     });\n-\n     ToolTipManager.sharedInstance().registerComponent(textArea);\n \n     configurePopupMenu(textArea);"
+ }
+]

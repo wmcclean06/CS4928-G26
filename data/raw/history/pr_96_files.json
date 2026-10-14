@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "9660ca721fec1c289bb52b69b34af03a97c41430",
+  "filename": "app/src/processing/app/debug/Compiler.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 4,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5e75bd4a9776dd6566ae938c72ac97957135733c/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5e75bd4a9776dd6566ae938c72ac97957135733c/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java?ref=5e75bd4a9776dd6566ae938c72ac97957135733c",
+  "patch": "@@ -401,10 +401,8 @@ private void execAsynchronously(List commandList) throws RunnerException {\n     boolean compiling = true;\n     while (compiling) {\n       try {\n-        if (in.thread != null)\n-          in.thread.join();\n-        if (err.thread != null)\n-          err.thread.join();\n+        in.join();\n+        err.join();\n         result = process.waitFor();\n         //System.out.println(\"result is \" + result);\n         compiling = false;"
+ },
+ {
+  "sha": "12b1f993b77167fdcf999512cb3cc728a74587ca",
+  "filename": "app/src/processing/app/debug/MessageSiphon.java",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 2,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5e75bd4a9776dd6566ae938c72ac97957135733c/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FMessageSiphon.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5e75bd4a9776dd6566ae938c72ac97957135733c/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FMessageSiphon.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FMessageSiphon.java?ref=5e75bd4a9776dd6566ae938c72ac97957135733c",
+  "patch": "@@ -85,8 +85,15 @@ public void run() {\n     }\n   }\n   \n-  \n+  // Wait until the MessageSiphon thread is complete.\n+  public void join() throws java.lang.InterruptedException {\n+    // Grab a temp copy in case another thread nulls the \"thread\" \n+    // member variable\n+    Thread t = thread;\n+    if (t != null) t.join();\n+  }\n+\n   public Thread getThread() {\n     return thread;\n-}\n+  }\n }"
+ },
+ {
+  "sha": "67ce2080ca76ec60ea498718a646521a4a7ff30f",
+  "filename": "app/src/processing/app/debug/Sizer.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 4,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5e75bd4a9776dd6566ae938c72ac97957135733c/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FSizer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5e75bd4a9776dd6566ae938c72ac97957135733c/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FSizer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FSizer.java?ref=5e75bd4a9776dd6566ae938c72ac97957135733c",
+  "patch": "@@ -63,10 +63,8 @@ public long computeSize() throws RunnerException {\n \n       while(running) {\n         try {\n-          if (in.thread != null)\n-            in.thread.join();\n-          if (err.thread != null)\n-            err.thread.join();\n+          in.join();\n+          err.join();\n           r = process.waitFor();\n           running = false;\n         } catch (InterruptedException intExc) { }"
+ }
+]

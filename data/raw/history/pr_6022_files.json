@@ -1,0 +1,108 @@
+[
+ {
+  "sha": "b7dd58fc4bce25d1434fa23e8578ac3961e81e81",
+  "filename": "app/.classpath",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c649eaa7e28a7430a2516a80698692117688cb80/app%2F.classpath",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c649eaa7e28a7430a2516a80698692117688cb80/app%2F.classpath",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2F.classpath?ref=c649eaa7e28a7430a2516a80698692117688cb80",
+  "patch": "@@ -43,7 +43,7 @@\n \t<classpathentry kind=\"lib\" path=\"lib/slf4j-simple-1.7.22.jar\"/>\n \t<classpathentry kind=\"lib\" path=\"lib/jsch-0.1.50.jar\"/>\n \t<classpathentry kind=\"lib\" path=\"lib/jssc-2.8.0.jar\"/>\n-\t<classpathentry kind=\"lib\" path=\"lib/rsyntaxtextarea-2.5.8.1+arduino.jar\"/>\n+\t<classpathentry kind=\"lib\" path=\"lib/rsyntaxtextarea-2.6.1.jar\"/>\n \t<classpathentry kind=\"lib\" path=\"lib/xml-apis-1.3.04.jar\"/>\n \t<classpathentry kind=\"lib\" path=\"lib/xml-apis-ext-1.3.04.jar\"/>\n \t<classpathentry kind=\"lib\" path=\"lib/xmlgraphics-commons-2.0.jar\"/>"
+ },
+ {
+  "sha": "66e48d20aa4c3b12e7091e9a7383079c2d8fa192",
+  "filename": "app/lib/rsyntaxtextarea-2.5.8.1+arduino.jar",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 0,
+  "changes": 0,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1062307c52ad60bbc26454c7eaeb2ab3b903c0b5/app%2Flib%2Frsyntaxtextarea-2.5.8.1%2Barduino.jar",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1062307c52ad60bbc26454c7eaeb2ab3b903c0b5/app%2Flib%2Frsyntaxtextarea-2.5.8.1%2Barduino.jar",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Flib%2Frsyntaxtextarea-2.5.8.1%2Barduino.jar?ref=1062307c52ad60bbc26454c7eaeb2ab3b903c0b5"
+ },
+ {
+  "sha": "b834e2d412b8085e18de6c9dab2125f206740268",
+  "filename": "app/lib/rsyntaxtextarea-2.6.1.jar",
+  "status": "added",
+  "additions": 0,
+  "deletions": 0,
+  "changes": 0,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c649eaa7e28a7430a2516a80698692117688cb80/app%2Flib%2Frsyntaxtextarea-2.6.1.jar",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c649eaa7e28a7430a2516a80698692117688cb80/app%2Flib%2Frsyntaxtextarea-2.6.1.jar",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Flib%2Frsyntaxtextarea-2.6.1.jar?ref=c649eaa7e28a7430a2516a80698692117688cb80"
+ },
+ {
+  "sha": "287d9fe4e53767bd6d9404cc76c57b4205f2ee8b",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 12,
+  "deletions": 71,
+  "changes": 83,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c649eaa7e28a7430a2516a80698692117688cb80/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c649eaa7e28a7430a2516a80698692117688cb80/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=c649eaa7e28a7430a2516a80698692117688cb80",
+  "patch": "@@ -33,20 +33,19 @@\n import jssc.SerialPortException;\n import processing.app.debug.RunnerException;\n import processing.app.forms.PasswordAuthorizationDialog;\n+import processing.app.helpers.DocumentTextChangeListener;\n import processing.app.helpers.Keys;\n import processing.app.helpers.OSUtils;\n import processing.app.helpers.PreferencesMapException;\n import processing.app.legacy.PApplet;\n import processing.app.syntax.PdeKeywords;\n+import processing.app.syntax.SketchTextArea;\n import processing.app.tools.MenuScroller;\n import processing.app.tools.Tool;\n \n import javax.swing.*;\n import javax.swing.event.*;\n import javax.swing.text.BadLocationException;\n-import javax.swing.undo.CannotRedoException;\n-import javax.swing.undo.CannotUndoException;\n-import javax.swing.undo.UndoManager;\n import java.awt.*;\n import java.awt.datatransfer.DataFlavor;\n import java.awt.datatransfer.Transferable;\n@@ -185,8 +184,6 @@ public boolean test(SketchController sketch) {\n   // undo fellers\n   private JMenuItem undoItem;\n   private JMenuItem redoItem;\n-  protected UndoAction undoAction;\n-  protected RedoAction redoAction;\n \n   private FindReplace find;\n \n@@ -1273,7 +1270,7 @@ private JMenu buildEditMenu() {\n \n     undoItem = newJMenuItem(tr(\"Undo\"), 'Z');\n     undoItem.setName(\"menuEditUndo\");\n-    undoItem.addActionListener(undoAction = new UndoAction());\n+    undoItem.addActionListener(e -> getCurrentTab().handleUndo());\n     menu.add(undoItem);\n \n     if (!OSUtils.isMacOS()) {\n@@ -1282,7 +1279,7 @@ private JMenu buildEditMenu() {\n         redoItem = newJMenuItemShift(tr(\"Redo\"), 'Z');\n     }\n     redoItem.setName(\"menuEditRedo\");\n-    redoItem.addActionListener(redoAction = new RedoAction());\n+    redoItem.addActionListener(e -> getCurrentTab().handleRedo());\n     menu.add(redoItem);\n \n     menu.addSeparator();\n@@ -1478,68 +1475,10 @@ private static JMenuItem newJMenuItemAlt(String title, int what) {\n   // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .\n \n \n-  class UndoAction extends AbstractAction {\n-    public UndoAction() {\n-      super(\"Undo\");\n-      this.setEnabled(false);\n-    }\n-\n-    public void actionPerformed(ActionEvent e) {\n-      try {\n-        getCurrentTab().handleUndo();\n-      } catch (CannotUndoException ex) {\n-        //System.out.println(\"Unable to undo: \" + ex);\n-        //ex.printStackTrace();\n-      }\n-    }\n-\n-    protected void updateUndoState() {\n-      UndoManager undo = getCurrentTab().getUndoManager();\n-\n-      if (undo.canUndo()) {\n-        this.setEnabled(true);\n-        undoItem.setEnabled(true);\n-        undoItem.setText(undo.getUndoPresentationName());\n-        putValue(Action.NAME, undo.getUndoPresentationName());\n-      } else {\n-        this.setEnabled(false);\n-        undoItem.setEnabled(false);\n-        undoItem.setText(tr(\"Undo\"));\n-        putValue(Action.NAME, \"Undo\");\n-      }\n-    }\n-  }\n-\n-\n-  class RedoAction extends AbstractAction {\n-    public RedoAction() {\n-      super(\"Redo\");\n-      this.setEnabled(false);\n-    }\n-\n-    public void actionPerformed(ActionEvent e) {\n-      try {\n-        getCurrentTab().handleRedo();\n-      } catch (CannotRedoException ex) {\n-        //System.out.println(\"Unable to redo: \" + ex);\n-        //ex.printStackTrace();\n-      }\n-    }\n-\n-    protected void updateRedoState() {\n-      UndoManager undo = getCurrentTab().getUndoManager();\n-\n-      if (undo.canRedo()) {\n-        redoItem.setEnabled(true);\n-        redoItem.setText(undo.getRedoPresentationName());\n-        putValue(Action.NAME, undo.getRedoPresentationName());\n-      } else {\n-        this.setEnabled(false);\n-        redoItem.setEnabled(false);\n-        redoItem.setText(tr(\"Redo\"));\n-        putValue(Action.NAME, \"Redo\");\n-      }\n-    }\n+  protected void updateUndoRedoState() {\n+    SketchTextArea textArea = getCurrentTab().getTextArea();\n+    undoItem.setEnabled(textArea.canUndo());\n+    redoItem.setEnabled(textArea.canRedo());\n   }\n \n \n@@ -1610,8 +1549,7 @@ public List<EditorTab> getTabs() {\n    */\n   public void selectTab(final int index) {\n     currentTabIndex = index;\n-    undoAction.updateUndoState();\n-    redoAction.updateRedoState();\n+    updateUndoRedoState();\n     updateTitle();\n     header.rebuild();\n     getCurrentTab().activated();\n@@ -1710,6 +1648,9 @@ public void reorderTabs() {\n    */\n   protected void addTab(SketchFile file, String contents) throws IOException {\n     EditorTab tab = new EditorTab(this, file, contents);\n+    tab.getTextArea().getDocument()\n+        .addDocumentListener(new DocumentTextChangeListener(\n+            () -> updateUndoRedoState()));\n     tabs.add(tab);\n     reorderTabs();\n   }"
+ },
+ {
+  "sha": "c2fdbb9b464a2de5a23f2ee160c477f8afe275dd",
+  "filename": "app/src/processing/app/EditorTab.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 13,
+  "changes": 19,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c649eaa7e28a7430a2516a80698692117688cb80/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c649eaa7e28a7430a2516a80698692117688cb80/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java?ref=c649eaa7e28a7430a2516a80698692117688cb80",
+  "patch": "@@ -44,7 +44,6 @@\n import javax.swing.text.BadLocationException;\n import javax.swing.text.Element;\n import javax.swing.text.PlainDocument;\n-import javax.swing.undo.UndoManager;\n import javax.swing.text.DefaultCaret;\n import javax.swing.text.Document;\n \n@@ -53,7 +52,6 @@\n import org.fife.ui.rsyntaxtextarea.RSyntaxUtilities;\n import org.fife.ui.rtextarea.Gutter;\n import org.fife.ui.rtextarea.RTextScrollPane;\n-import org.fife.ui.rtextarea.RUndoManager;\n \n import cc.arduino.UpdatableBoardsLibsFakeURLsHandler;\n import processing.app.helpers.DocumentTextChangeListener;\n@@ -108,10 +106,6 @@ public EditorTab(Editor editor, SketchFile file, String contents)\n     file.setStorage(this);\n     applyPreferences();\n     add(scrollPane, BorderLayout.CENTER);\n-\n-    RUndoManager undo = new LastUndoableEditAwareUndoManager(this.textarea, this.editor);\n-    document.addUndoableEditListener(undo);\n-    textarea.setUndoManager(undo);\n   }\n \n   private RSyntaxDocument createDocument(String contents) {\n@@ -407,14 +401,14 @@ public void setText(String what) {\n       int oldLength = doc.getLength();\n       // The undo manager already seems to group the insert and remove together\n       // automatically, but better be explicit about it.\n-      textarea.getUndoManager().beginInternalAtomicEdit();\n+      textarea.beginAtomicEdit();\n       try {\n         doc.insertString(oldLength, what, null);\n         doc.remove(0, oldLength);\n       } catch (BadLocationException e) {\n         System.err.println(\"Unexpected failure replacing text\");\n       } finally {\n-        textarea.getUndoManager().endInternalAtomicEdit();\n+        textarea.endAtomicEdit();\n       }\n     } finally {\n       caret.setUpdatePolicy(policy);\n@@ -524,7 +518,8 @@ void handleSelectAll() {\n   void handleCommentUncomment() {\n     Action action = textarea.getActionMap().get(RSyntaxTextAreaEditorKit.rstaToggleCommentAction);\n     action.actionPerformed(null);\n-\n+    // XXX: RSyntaxDocument doesn't fire DocumentListener events, it should be fixed in RSyntaxTextArea?\n+    editor.updateUndoRedoState();\n   }\n \n   void handleDiscourseCopy() {\n@@ -544,6 +539,8 @@ void handleIndentOutdent(boolean indent) {\n       Action action = textarea.getActionMap().get(RSyntaxTextAreaEditorKit.rstaDecreaseIndentAction);\n       action.actionPerformed(null);\n     }\n+    // XXX: RSyntaxDocument doesn't fire DocumentListener events, it should be fixed in RSyntaxTextArea?\n+    editor.updateUndoRedoState();\n   }\n \n   void handleUndo() {\n@@ -554,10 +551,6 @@ void handleRedo() {\n     textarea.redoLastAction();\n   }\n   \n-  public UndoManager getUndoManager() {\n-    return textarea.getUndoManager();\n-  }\n-  \n   public String getCurrentKeyword() {\n     String text = \"\";\n     if (textarea.getSelectedText() != null)"
+ },
+ {
+  "sha": "736be42d39bdb68c2b23a2b8fd16b8c1f40b23c2",
+  "filename": "app/src/processing/app/LastUndoableEditAwareUndoManager.java",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 37,
+  "changes": 37,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1062307c52ad60bbc26454c7eaeb2ab3b903c0b5/app%2Fsrc%2Fprocessing%2Fapp%2FLastUndoableEditAwareUndoManager.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1062307c52ad60bbc26454c7eaeb2ab3b903c0b5/app%2Fsrc%2Fprocessing%2Fapp%2FLastUndoableEditAwareUndoManager.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FLastUndoableEditAwareUndoManager.java?ref=1062307c52ad60bbc26454c7eaeb2ab3b903c0b5",
+  "patch": "@@ -1,37 +0,0 @@\n-package processing.app;\n-\n-import javax.swing.undo.CannotRedoException;\n-import javax.swing.undo.CannotUndoException;\n-\n-import org.fife.ui.rtextarea.RUndoManager;\n-\n-import processing.app.syntax.SketchTextArea;\n-\n-public class LastUndoableEditAwareUndoManager extends RUndoManager {\n-  \n-  private Editor editor;\n-\n-  public LastUndoableEditAwareUndoManager(SketchTextArea textarea, Editor editor) {\n-    super(textarea);\n-    this.editor = editor;\n-  }\n-\n-  @Override\n-  public synchronized void undo() throws CannotUndoException {\n-    super.undo();\n-  }\n-\n-  @Override\n-  public synchronized void redo() throws CannotRedoException {\n-    super.redo();\n-  }\n-  \n-  @Override\n-  public void updateActions() {\n-    super.updateActions();\n-    editor.undoAction.updateUndoState();\n-    editor.redoAction.updateRedoState();\n-  }\n-\n-\n-}"
+ },
+ {
+  "sha": "8607160775e444b5e3b1417051fe9c3604faa6bf",
+  "filename": "app/test/processing/app/BlockCommentGeneratesOneUndoActionTest.java",
+  "status": "modified",
+  "additions": 13,
+  "deletions": 1,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c649eaa7e28a7430a2516a80698692117688cb80/app%2Ftest%2Fprocessing%2Fapp%2FBlockCommentGeneratesOneUndoActionTest.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c649eaa7e28a7430a2516a80698692117688cb80/app%2Ftest%2Fprocessing%2Fapp%2FBlockCommentGeneratesOneUndoActionTest.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Ftest%2Fprocessing%2Fapp%2FBlockCommentGeneratesOneUndoActionTest.java?ref=c649eaa7e28a7430a2516a80698692117688cb80",
+  "patch": "@@ -53,12 +53,24 @@ public void shouldUndoAndRedo() throws Exception {\n     jEditTextArea.selectAll();\n \n     GuiActionRunner.execute(new GuiQuery<Frame>() {\n-\n       protected Frame executeInEDT() {\n         window.getEditor().getCurrentTab().handleCommentUncomment();\n         return window.getEditor();\n       }\n+    });\n+\n+    menuEditUndo.requireEnabled();\n+    menuEditUndo.click();\n+\n+    assertEquals(previousText, jEditTextArea.getText());\n \n+    menuEditUndo.requireDisabled();\n+\n+    GuiActionRunner.execute(new GuiQuery<Frame>() {\n+      protected Frame executeInEDT() {\n+        window.getEditor().getCurrentTab().handleIndentOutdent(true);\n+        return window.getEditor();\n+      }\n     });\n \n     menuEditUndo.requireEnabled();"
+ },
+ {
+  "sha": "8f99be9e74c0f25c1a93dd4bf7dcffcd72cc9e1d",
+  "filename": "build/windows/launcher/config.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c649eaa7e28a7430a2516a80698692117688cb80/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c649eaa7e28a7430a2516a80698692117688cb80/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig.xml?ref=c649eaa7e28a7430a2516a80698692117688cb80",
+  "patch": "@@ -49,7 +49,7 @@\n     <cp>%EXEDIR%/lib/jsch-0.1.50.jar</cp>\n     <cp>%EXEDIR%/lib/jssc-2.8.0.jar</cp>\n     <cp>%EXEDIR%/lib/pde.jar</cp>\n-    <cp>%EXEDIR%/lib/rsyntaxtextarea-2.5.8.1+arduino.jar</cp>\n+    <cp>%EXEDIR%/lib/rsyntaxtextarea-2.6.1.jar</cp>\n     <cp>%EXEDIR%/lib/xml-apis-1.3.04.jar</cp>\n     <cp>%EXEDIR%/lib/xml-apis-ext-1.3.04.jar</cp>\n     <cp>%EXEDIR%/lib/xmlgraphics-commons-2.0.jar</cp>"
+ },
+ {
+  "sha": "dbc146563493019cd0e43d20df68e5e9fad22bc5",
+  "filename": "build/windows/launcher/config_debug.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c649eaa7e28a7430a2516a80698692117688cb80/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c649eaa7e28a7430a2516a80698692117688cb80/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig_debug.xml?ref=c649eaa7e28a7430a2516a80698692117688cb80",
+  "patch": "@@ -49,7 +49,7 @@\n     <cp>%EXEDIR%/lib/jsch-0.1.50.jar</cp>\n     <cp>%EXEDIR%/lib/jssc-2.8.0.jar</cp>\n     <cp>%EXEDIR%/lib/pde.jar</cp>\n-    <cp>%EXEDIR%/lib/rsyntaxtextarea-2.5.8.1+arduino.jar</cp>\n+    <cp>%EXEDIR%/lib/rsyntaxtextarea-2.6.1.jar</cp>\n     <cp>%EXEDIR%/lib/xml-apis-1.3.04.jar</cp>\n     <cp>%EXEDIR%/lib/xml-apis-ext-1.3.04.jar</cp>\n     <cp>%EXEDIR%/lib/xmlgraphics-commons-2.0.jar</cp>"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "2f2fedfcb0a32d139ae7955850e57c99361c1ad0",
+  "filename": "hardware/arduino/avr/cores/arduino/Tone.cpp",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b5cc55ec3e258832b5b4b2dda1bb116ab837aa08/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FTone.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b5cc55ec3e258832b5b4b2dda1bb116ab837aa08/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FTone.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FTone.cpp?ref=b5cc55ec3e258832b5b4b2dda1bb116ab837aa08",
+  "patch": "@@ -30,6 +30,7 @@ Version Modified By Date     Comments\n 0006    D Mellis    09/12/29 Replaced objects with functions\n 0007    M Sproul    10/08/29 Changed #ifdefs from cpu to register\n 0008    S Kanemoto  12/06/22 Fixed for Leonardo by @maris_HY\n+0009    jipp        15/04/13 added additional define check #2923\n *************************************************/\n \n #include <avr/interrupt.h>\n@@ -151,7 +152,7 @@ static int8_t toneBegin(uint8_t _pin)\n     // whereas 16 bit timers are set to either ck/1 or ck/64 prescalar\n     switch (_timer)\n     {\n-      #if defined(TCCR0A) && defined(TCCR0B)\n+      #if defined(TCCR0A) && defined(TCCR0B) && defined(WGM01)\n       case 0:\n         // 8 bit timer\n         TCCR0A = 0;"
+ }
+]

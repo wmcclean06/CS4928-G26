@@ -1,0 +1,62 @@
+[
+ {
+  "sha": "4fae76a2a309c358faadd1087efa470e1f2b99c0",
+  "filename": "hardware/arduino/sam/cores/arduino/Arduino.h",
+  "status": "modified",
+  "additions": 12,
+  "deletions": 0,
+  "changes": 12,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a37e94788b94004e163917c39c3a10d5e543e04/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FArduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a37e94788b94004e163917c39c3a10d5e543e04/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FArduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FArduino.h?ref=5a37e94788b94004e163917c39c3a10d5e543e04",
+  "patch": "@@ -155,6 +155,16 @@ typedef enum _ETCChannel\n #define PIN_ATTR_PWM           (1UL<<3)\n #define PIN_ATTR_TIMER         (1UL<<4)\n \n+#define PIN_STATUS_DIGITAL_INPUT_PULLUP  (0x01)\n+#define PIN_STATUS_DIGITAL_INPUT         (0x02)\n+#define PIN_STATUS_DIGITAL_OUTPUT        (0x03)\n+#define PIN_STATUS_ANALOG                (0x04)\n+#define PIN_STATUS_PWM                   (0x05)\n+#define PIN_STATUS_TIMER                 (0x06)\n+#define PIN_STATUS_SERIAL                (0x07)\n+#define PIN_STATUS_DW_LOW                (0x10)\n+#define PIN_STATUS_DW_HIGH               (0x11)\n+\n /* Types used for the tables below */\n typedef struct _PinDescription\n {\n@@ -170,6 +180,8 @@ typedef struct _PinDescription\n   ETCChannel ulTCChannel ;\n } PinDescription ;\n \n+extern uint8_t g_pinStatus[];\n+\n /* Pins table to be instanciated into variant.cpp */\n extern const PinDescription g_APinDescription[] ;\n "
+ },
+ {
+  "sha": "05029782cc71e880fecb6edd692e9548f31e2991",
+  "filename": "hardware/arduino/sam/cores/arduino/wiring_analog.c",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 10,
+  "changes": 17,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a37e94788b94004e163917c39c3a10d5e543e04/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwiring_analog.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a37e94788b94004e163917c39c3a10d5e543e04/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwiring_analog.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwiring_analog.c?ref=5a37e94788b94004e163917c39c3a10d5e543e04",
+  "patch": "@@ -148,11 +148,12 @@ uint32_t analogRead(uint32_t ulPin)\n \t\tcase ADC11 :\n \n \t\t\t// Enable the corresponding channel\n-\t\t\tif (ulChannel != latestSelectedChannel) {\n+\t\t\tif (adc_get_channel_status(ADC, ulChannel) != 1) {\n \t\t\t\tadc_enable_channel( ADC, ulChannel );\n-\t\t\t\tif ( latestSelectedChannel != (uint32_t)-1 )\n+\t\t\t\tif ( latestSelectedChannel != (uint32_t)-1 && ulChannel != latestSelectedChannel)\n \t\t\t\t\tadc_disable_channel( ADC, latestSelectedChannel );\n \t\t\t\tlatestSelectedChannel = ulChannel;\n+\t\t\t\tg_pinStatus[ulPin] = (g_pinStatus[ulPin] & 0xF0) | PIN_STATUS_ANALOG;\n \t\t\t}\n \n \t\t\t// Start the ADC\n@@ -189,13 +190,9 @@ static void TC_SetCMR_ChannelB(Tc *tc, uint32_t chan, uint32_t v)\n }\n \n static uint8_t PWMEnabled = 0;\n-static uint8_t pinEnabled[PINS_COUNT];\n static uint8_t TCChanEnabled[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};\n \n void analogOutputInit(void) {\n-\tuint8_t i;\n-\tfor (i=0; i<PINS_COUNT; i++)\n-\t\tpinEnabled[i] = 0;\n }\n \n // Right now, PWM output only works on the pins with\n@@ -263,7 +260,7 @@ void analogWrite(uint32_t ulPin, uint32_t ulValue) {\n \t\t}\n \n \t\tuint32_t chan = g_APinDescription[ulPin].ulPWMChannel;\n-\t\tif (!pinEnabled[ulPin]) {\n+\t\tif ((g_pinStatus[ulPin] & 0xF) != PIN_STATUS_PWM) {\n \t\t\t// Setup PWM for this pin\n \t\t\tPIO_Configure(g_APinDescription[ulPin].pPort,\n \t\t\t\t\tg_APinDescription[ulPin].ulPinType,\n@@ -273,7 +270,7 @@ void analogWrite(uint32_t ulPin, uint32_t ulValue) {\n \t\t\tPWMC_SetPeriod(PWM_INTERFACE, chan, PWM_MAX_DUTY_CYCLE);\n \t\t\tPWMC_SetDutyCycle(PWM_INTERFACE, chan, ulValue);\n \t\t\tPWMC_EnableChannel(PWM_INTERFACE, chan);\n-\t\t\tpinEnabled[ulPin] = 1;\n+\t\t\tg_pinStatus[ulPin] = (g_pinStatus[ulPin] & 0xF0) | PIN_STATUS_PWM;\n \t\t}\n \n \t\tPWMC_SetDutyCycle(PWM_INTERFACE, chan, ulValue);\n@@ -328,12 +325,12 @@ void analogWrite(uint32_t ulPin, uint32_t ulValue) {\n \t\t\t\tTC_SetCMR_ChannelB(chTC, chNo, TC_CMR_BCPB_CLEAR | TC_CMR_BCPC_SET);\n \t\t\t}\n \t\t}\n-\t\tif (!pinEnabled[ulPin]) {\n+\t\tif ((g_pinStatus[ulPin] & 0xF) != PIN_STATUS_PWM) {\n \t\t\tPIO_Configure(g_APinDescription[ulPin].pPort,\n \t\t\t\t\tg_APinDescription[ulPin].ulPinType,\n \t\t\t\t\tg_APinDescription[ulPin].ulPin,\n \t\t\t\t\tg_APinDescription[ulPin].ulPinConfiguration);\n-\t\t\tpinEnabled[ulPin] = 1;\n+\t\t\tg_pinStatus[ulPin] = (g_pinStatus[ulPin] & 0xF0) | PIN_STATUS_PWM;\n \t\t}\n \t\tif (!TCChanEnabled[interfaceID]) {\n \t\t\tTC_Start(chTC, chNo);"
+ },
+ {
+  "sha": "f8d6116cfb9cd0caad284deef8e636acf678c6d1",
+  "filename": "hardware/arduino/sam/cores/arduino/wiring_digital.c",
+  "status": "modified",
+  "additions": 33,
+  "deletions": 1,
+  "changes": 34,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a37e94788b94004e163917c39c3a10d5e543e04/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwiring_digital.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a37e94788b94004e163917c39c3a10d5e543e04/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwiring_digital.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwiring_digital.c?ref=5a37e94788b94004e163917c39c3a10d5e543e04",
+  "patch": "@@ -29,6 +29,20 @@ extern void pinMode( uint32_t ulPin, uint32_t ulMode )\n         return ;\n     }\n \n+  if ((g_pinStatus[ulPin] & 0xF) == PIN_STATUS_ANALOG)\n+    {\n+      adc_disable_channel( ADC, g_APinDescription[ulPin].ulADCChannelNumber);\n+    }\n+\n+  if ((g_pinStatus[ulPin] & 0xF) < PIN_STATUS_DIGITAL_OUTPUT && g_pinStatus[ulPin] != 0)\n+    {\n+      // return if already configured in the right way\n+      if (((g_pinStatus[ulPin] & 0xF) == PIN_STATUS_DIGITAL_INPUT && ulMode == INPUT) ||\n+          ((g_pinStatus[ulPin] & 0xF) == PIN_STATUS_DIGITAL_INPUT_PULLUP && ulMode == INPUT_PULLUP) ||\n+          ((g_pinStatus[ulPin] & 0xF) == PIN_STATUS_DIGITAL_OUTPUT && ulMode == OUTPUT))\n+      return;\n+    }\n+\n \tswitch ( ulMode )\n     {\n         case INPUT:\n@@ -39,6 +53,7 @@ extern void pinMode( uint32_t ulPin, uint32_t ulMode )\n             \tPIO_INPUT,\n             \tg_APinDescription[ulPin].ulPin,\n             \t0 ) ;\n+            g_pinStatus[ulPin] = (g_pinStatus[ulPin] & 0xF0) | PIN_STATUS_DIGITAL_INPUT;\n         break ;\n \n         case INPUT_PULLUP:\n@@ -49,15 +64,18 @@ extern void pinMode( uint32_t ulPin, uint32_t ulMode )\n             \tPIO_INPUT,\n             \tg_APinDescription[ulPin].ulPin,\n             \tPIO_PULLUP ) ;\n+            g_pinStatus[ulPin] = (g_pinStatus[ulPin] & 0xF0) | PIN_STATUS_DIGITAL_INPUT_PULLUP;\n         break ;\n \n         case OUTPUT:\n             PIO_Configure(\n             \tg_APinDescription[ulPin].pPort,\n-            \tPIO_OUTPUT_1,\n+              (g_pinStatus[ulPin] & 0xF0) >> 4 ? PIO_OUTPUT_1 : PIO_OUTPUT_0,\n             \tg_APinDescription[ulPin].ulPin,\n             \tg_APinDescription[ulPin].ulPinConfiguration ) ;\n \n+            g_pinStatus[ulPin] = (g_pinStatus[ulPin] & 0xF0) | PIN_STATUS_DIGITAL_OUTPUT;\n+\n             /* if all pins are output, disable PIO Controller clocking, reduce power consumption */\n             if ( g_APinDescription[ulPin].pPort->PIO_OSR == 0xffffffff )\n             {\n@@ -78,6 +96,12 @@ extern void digitalWrite( uint32_t ulPin, uint32_t ulVal )\n     return ;\n   }\n \n+  if ((g_pinStatus[ulPin] & 0xF) == PIN_STATUS_PWM) {\n+    pinMode(ulPin, OUTPUT);\n+  }\n+\n+  g_pinStatus[ulPin] = (g_pinStatus[ulPin] & 0x0F) | (ulVal << 4) ;\n+\n   if ( PIO_GetOutputDataStatus( g_APinDescription[ulPin].pPort, g_APinDescription[ulPin].ulPin ) == 0 )\n   {\n     PIO_PullUp( g_APinDescription[ulPin].pPort, g_APinDescription[ulPin].ulPin, ulVal ) ;\n@@ -90,6 +114,14 @@ extern void digitalWrite( uint32_t ulPin, uint32_t ulVal )\n \n extern int digitalRead( uint32_t ulPin )\n {\n+  if ((g_pinStatus[ulPin] & 0xF) == PIN_STATUS_DIGITAL_OUTPUT) {\n+    return (g_pinStatus[ulPin] & 0xF0) >> 4;\n+  }\n+\n+  if ((g_pinStatus[ulPin] & 0xF) == PIN_STATUS_ANALOG) {\n+    pinMode(ulPin, INPUT);\n+  }\n+\n \tif ( g_APinDescription[ulPin].ulPinType == PIO_NOT_A_PIN )\n     {\n         return LOW ;"
+ },
+ {
+  "sha": "20814a0b1e0492fca375fdc37a6ed95e7f445acb",
+  "filename": "hardware/arduino/sam/system/libsam/source/adc.c",
+  "status": "modified",
+  "additions": 24,
+  "deletions": 3,
+  "changes": 27,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a37e94788b94004e163917c39c3a10d5e543e04/hardware%2Farduino%2Fsam%2Fsystem%2Flibsam%2Fsource%2Fadc.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a37e94788b94004e163917c39c3a10d5e543e04/hardware%2Farduino%2Fsam%2Fsystem%2Flibsam%2Fsource%2Fadc.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fsystem%2Flibsam%2Fsource%2Fadc.c?ref=5a37e94788b94004e163917c39c3a10d5e543e04",
+  "patch": "@@ -192,18 +192,39 @@ void adc_set_resolution(Adc *p_adc,const enum adc_resolution_t resolution)\n void adc_configure_trigger(Adc *p_adc, const enum adc_trigger_t trigger,\n \t\tuint8_t uc_freerun)\n {\n-\tp_adc->ADC_MR |= trigger | ((uc_freerun << 7) & ADC_MR_FREERUN);\n+\t//Warning ADC_MR_TRGSEL_Msk does not include ADC_MR_TRGEN.\n+\tp_adc->ADC_MR &= ~(ADC_MR_TRGEN | ADC_MR_TRGSEL_Msk | ADC_MR_FREERUN); //Clear all bits related to triggers and freerun\n+\t\n+\t//Configure FreeRun\n+\tif(uc_freerun & ADC_MR_FREERUN == ADC_MR_FREERUN_ON) {                 //FreeRun is enabled\n+\t\tp_adc->ADC_MR |= ADC_MR_FREERUN_ON;\n+\t\t\n+\t\t//Free Run Mode: Never wait for any trigger\n+\t\t//No need to continue and enable hardware triggers\n+\t\treturn;\n+\t}\n+\t\n+\t//Configure hardware triggers\n+\tif(trigger & ADC_MR_TRGEN == ADC_MR_TRGEN_EN) {                       //Hardware trigger is enabled\n+\t\tp_adc->ADC_MR |= (trigger & ADC_MR_TRGSEL_Msk) | ADC_MR_TRGEN_EN; //Set trigger selection bits and enable hardware trigger\n+\t}\n }\n #elif SAM3U_SERIES\n /**\n- * \\brief Configure conversion trigger and free run mode.\n+ * \\brief Configure conversion trigger.\n  *\n  * \\param p_adc Pointer to an ADC instance.\n  * \\param trigger Conversion trigger.\n  */\n void adc_configure_trigger(Adc *p_adc, const enum adc_trigger_t trigger)\n {\n-\tp_adc->ADC_MR |= trigger;\n+\t//Warning ADC_MR_TRGSEL_Msk does not include ADC_MR_TRGEN.\n+\tp_adc->ADC_MR &= ~(ADC_MR_TRGEN | ADC_MR_TRGSEL_Msk);                  //Clear all bits related to triggers\n+\t\n+\t//Configure hardware triggers\n+\tif(trigger & ADC_MR_TRGEN == ADC_MR_TRGEN_EN) {                        //Hardware trigger is enabled\n+\t\tp_adc->ADC_MR |= (trigger & ADC_MR_TRGSEL_Msk) | ADC_MR_TRGEN_EN;  //Set trigger selection bits and enable hardware trigger\n+\t}\n }\n #endif\n "
+ },
+ {
+  "sha": "7a0de80a9dfc6cdcdca1576230bf1c261b32c55b",
+  "filename": "hardware/arduino/sam/variants/arduino_due_x/variant.cpp",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a37e94788b94004e163917c39c3a10d5e543e04/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a37e94788b94004e163917c39c3a10d5e543e04/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.cpp?ref=5a37e94788b94004e163917c39c3a10d5e543e04",
+  "patch": "@@ -291,6 +291,9 @@ extern const PinDescription g_APinDescription[]=\n   { NULL, 0, 0, PIO_NOT_A_PIN, PIO_DEFAULT, 0, NO_ADC, NO_ADC, NOT_ON_PWM, NOT_ON_TIMER }\n } ;\n \n+\n+uint8_t g_pinStatus[PINS_COUNT] = {0};\n+\n #ifdef __cplusplus\n }\n #endif"
+ }
+]

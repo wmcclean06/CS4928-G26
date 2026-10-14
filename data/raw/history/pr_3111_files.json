@@ -1,0 +1,62 @@
+[
+ {
+  "sha": "f074d5b27bcf40d66bc160d0818b0f3e669d5d0a",
+  "filename": "hardware/arduino/sam/cores/arduino/Arduino.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f8cba667def55bb80d9f5957c89d51611fceb46/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FArduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f8cba667def55bb80d9f5957c89d51611fceb46/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FArduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FArduino.h?ref=7f8cba667def55bb80d9f5957c89d51611fceb46",
+  "patch": "@@ -194,6 +194,8 @@ extern const PinDescription g_APinDescription[] ;\n #include \"wiring_shift.h\"\n #include \"WInterrupts.h\"\n \n+#include \"watchdog.h\"\n+\n // USB Device\n #define USB_VID            0x2341 // arduino LLC vid\n #define USB_PID_LEONARDO   0x0034"
+ },
+ {
+  "sha": "9b0250bfbc79da1e64681d1706494c02afe85e4c",
+  "filename": "hardware/arduino/sam/cores/arduino/main.cpp",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f8cba667def55bb80d9f5957c89d51611fceb46/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fmain.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f8cba667def55bb80d9f5957c89d51611fceb46/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fmain.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fmain.cpp?ref=7f8cba667def55bb80d9f5957c89d51611fceb46",
+  "patch": "@@ -41,6 +41,9 @@ void initVariant() { }\n  */\n int main( void )\n {\n+\t// Initialize watchdog\n+\twatchdogSetup();\n+\n \tinit();\n \n \tinitVariant();"
+ },
+ {
+  "sha": "942ba13726c61b59e51790f5c8250b29e9918e14",
+  "filename": "hardware/arduino/sam/cores/arduino/watchdog.cpp",
+  "status": "added",
+  "additions": 55,
+  "deletions": 0,
+  "changes": 55,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f8cba667def55bb80d9f5957c89d51611fceb46/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwatchdog.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f8cba667def55bb80d9f5957c89d51611fceb46/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwatchdog.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwatchdog.cpp?ref=7f8cba667def55bb80d9f5957c89d51611fceb46",
+  "patch": "@@ -0,0 +1,55 @@\n+/*\n+  Copyright (c) 2014 Arduino.  All right reserved.\n+\n+  This library is free software; you can redistribute it and/or\n+  modify it under the terms of the GNU Lesser General Public\n+  License as published by the Free Software Foundation; either\n+  version 2.1 of the License, or (at your option) any later version.\n+\n+  This library is distributed in the hope that it will be useful,\n+  but WITHOUT ANY WARRANTY; without even the implied warranty of\n+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n+  See the GNU Lesser General Public License for more details.\n+\n+  You should have received a copy of the GNU Lesser General Public\n+  License along with this library; if not, write to the Free Software\n+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n+*/\n+\n+#include <chip.h>\n+\n+#include \"watchdog.h\"\n+\n+\n+void watchdogEnable (uint32_t timeout)\n+{\n+\t/* this assumes the slow clock is running at 32.768 kHz\n+\t   watchdog frequency is therefore 32768 / 128 = 256 Hz */\n+\ttimeout = timeout * 256 / 1000; \n+\tif (timeout == 0)\n+\t\ttimeout = 1;\n+\telse if (timeout > 0xFFF)\n+\t\ttimeout = 0xFFF;\n+\ttimeout = WDT_MR_WDRSTEN | WDT_MR_WDV(timeout) | WDT_MR_WDD(timeout);\n+\tWDT_Enable (WDT, timeout);\n+}\n+\n+void watchdogDisable(void)\n+{\n+\tWDT_Disable (WDT);\n+}\n+\n+void watchdogReset(void)\n+{\n+\tWDT_Restart (WDT);\n+}\n+\n+\n+extern \"C\"\n+void _watchdogDefaultSetup (void)\n+{\n+\tWDT_Disable (WDT);\n+}\n+void watchdogSetup (void) __attribute__ ((weak, alias(\"_watchdogDefaultSetup\")));\n+\n+"
+ },
+ {
+  "sha": "eecdb897401ebf37232f9a15ead845e783d0d96e",
+  "filename": "hardware/arduino/sam/cores/arduino/watchdog.h",
+  "status": "added",
+  "additions": 52,
+  "deletions": 0,
+  "changes": 52,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f8cba667def55bb80d9f5957c89d51611fceb46/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwatchdog.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f8cba667def55bb80d9f5957c89d51611fceb46/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwatchdog.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwatchdog.h?ref=7f8cba667def55bb80d9f5957c89d51611fceb46",
+  "patch": "@@ -0,0 +1,52 @@\n+/*\n+  Copyright (c) 2014 Arduino.  All right reserved.\n+\n+  This library is free software; you can redistribute it and/or\n+  modify it under the terms of the GNU Lesser General Public\n+  License as published by the Free Software Foundation; either\n+  version 2.1 of the License, or (at your option) any later version.\n+\n+  This library is distributed in the hope that it will be useful,\n+  but WITHOUT ANY WARRANTY; without even the implied warranty of\n+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n+  See the GNU Lesser General Public License for more details.\n+\n+  You should have received a copy of the GNU Lesser General Public\n+  License along with this library; if not, write to the Free Software\n+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n+*/\n+\n+#ifndef _WATCHDOG_\n+#define _WATCHDOG_\n+\n+#include <stdint.h>\n+\n+// Watchdog functions\n+\n+/*\n+ * \\brief Enable the watchdog with the specified timeout. Should only be called once.\n+ *\n+ * \\param timeount in milliseconds.\n+ */\n+void watchdogEnable (uint32_t timeout);\n+\n+/*\n+ * \\brief Disable the watchdog timer. Should only be called once.\n+ *\n+ */\n+void watchdogDisable (void);\n+\n+/*\n+ * \\brief Reset the watchdog counter.\n+ *\n+ */\n+void watchdogReset (void);\n+\n+/*\n+ * \\brief Watchdog initialize hook. This function is called from init(). If the user does not provide\n+ * this function, then the default action is to disable watchdog.\n+ */\n+void watchdogSetup (void);\n+\n+#endif /* _WATCHDOG_ */\n+"
+ },
+ {
+  "sha": "f95d8501745e3e882944b358fccaa437fcdb1be6",
+  "filename": "hardware/arduino/sam/variants/arduino_due_x/variant.cpp",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 3,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7f8cba667def55bb80d9f5957c89d51611fceb46/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7f8cba667def55bb80d9f5957c89d51611fceb46/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.cpp?ref=7f8cba667def55bb80d9f5957c89d51611fceb46",
+  "patch": "@@ -377,9 +377,6 @@ void init( void )\n     while (true);\n   }\n \n-  // Disable watchdog\n-  WDT_Disable(WDT);\n-\n   // Initialize C library\n   __libc_init_array();\n "
+ }
+]

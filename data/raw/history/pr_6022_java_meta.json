@@ -1,0 +1,55 @@
+{
+ "pr": 6022,
+ "base_sha": "1062307c52ad60bbc26454c7eaeb2ab3b903c0b5",
+ "head_sha": "c649eaa7e28a7430a2516a80698692117688cb80",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 12,
+   "deletions": 71,
+   "old_sha": "439dcdf18e823ada69bec8ff0025706037773f1e",
+   "new_sha": "287d9fe4e53767bd6d9404cc76c57b4205f2ee8b",
+   "head_sha_check": "287d9fe4e53767bd6d9404cc76c57b4205f2ee8b",
+   "loc_at_head": 2270,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/EditorTab.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 6,
+   "deletions": 13,
+   "old_sha": "3ca4b22bb82c5ac90f99b8bd46f2deaa96127e09",
+   "new_sha": "c2fdbb9b464a2de5a23f2ee160c477f8afe275dd",
+   "head_sha_check": "c2fdbb9b464a2de5a23f2ee160c477f8afe275dd",
+   "loc_at_head": 518,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/LastUndoableEditAwareUndoManager.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 37,
+   "old_sha": "736be42d39bdb68c2b23a2b8fd16b8c1f40b23c2",
+   "new_sha": "736be42d39bdb68c2b23a2b8fd16b8c1f40b23c2",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  },
+  {
+   "path": "app/test/processing/app/BlockCommentGeneratesOneUndoActionTest.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 13,
+   "deletions": 1,
+   "old_sha": "1a213eb1e574b6e908c217e8e5b77c592aa51a60",
+   "new_sha": "8607160775e444b5e3b1417051fe9c3604faa6bf",
+   "head_sha_check": "8607160775e444b5e3b1417051fe9c3604faa6bf",
+   "loc_at_head": 66,
+   "notes": ""
+  }
+ ]
+}

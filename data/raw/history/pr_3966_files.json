@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "be95ec22ca7f47e6d147ed4626ec914b0150bb75",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.cpp",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 1,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/9fe2023c28c9e44999a463c9584cfa6113f323b8/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/9fe2023c28c9e44999a463c9584cfa6113f323b8/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp?ref=9fe2023c28c9e44999a463c9584cfa6113f323b8",
+  "patch": "@@ -54,6 +54,11 @@ int HID_::getDescriptor(USBSetup& setup)\n \t\t\treturn -1;\n \t\ttotal += res;\n \t}\n+\t\n+\t// Reset the protocol on reenumeration. Normally the host should not assume the state of the protocol\n+\t// due to the USB specs, but Windows and Linux just assumes its in report mode.\n+\tprotocol = HID_REPORT_PROTOCOL;\n+\t\n \treturn total;\n }\n \n@@ -130,7 +135,7 @@ bool HID_::setup(USBSetup& setup)\n \n HID_::HID_(void) : PluggableUSBModule(1, 1, epType),\n                    rootNode(NULL), descriptorSize(0),\n-                   protocol(1), idle(1)\n+                   protocol(HID_REPORT_PROTOCOL), idle(1)\n {\n \tepType[0] = EP_TYPE_INTERRUPT_IN;\n \tPluggableUSB().plug(this);"
+ }
+]

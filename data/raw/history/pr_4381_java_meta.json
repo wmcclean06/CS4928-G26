@@ -1,0 +1,67 @@
+{
+ "pr": 4381,
+ "base_sha": "00ba7aa68c564a75670b2e3ab133cf9d12187c1c",
+ "head_sha": "7aa384db7cbe0f30b586fe0dd16c389553e54d83",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/EditorLineStatus.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 1,
+   "old_sha": "b1ad221dfb7b7c618ff67d8a8d58beccaa928632",
+   "new_sha": "e0ba1c9680b96258f8446d7280487ede7f95fd33",
+   "head_sha_check": "e0ba1c9680b96258f8446d7280487ede7f95fd33",
+   "loc_at_head": 107,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/EditorStatus.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 3,
+   "deletions": 3,
+   "old_sha": "abf8987d23cf0d51313e6da6d57f51bf74ceb273",
+   "new_sha": "684b1043f8376ca06d77234879a8abe42335f3e7",
+   "head_sha_check": "684b1043f8376ca06d77234879a8abe42335f3e7",
+   "loc_at_head": 338,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/uploaders/SSHUploader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "8f77098c09ac16c6fd3c11d0d95131de459ea19f",
+   "new_sha": "eab7eb2c4d7a98d094e5b98fed325d2971c39cf8",
+   "head_sha_check": "eab7eb2c4d7a98d094e5b98fed325d2971c39cf8",
+   "loc_at_head": 207,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/I18n.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 0,
+   "old_sha": "98a58c077a97415ecdc82e91eca39ec6e1373da6",
+   "new_sha": "72b67a8ecd5f80fddf667f9ad9c117ff3549f870",
+   "head_sha_check": "72b67a8ecd5f80fddf667f9ad9c117ff3549f870",
+   "loc_at_head": 103,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/SketchCode.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 4,
+   "deletions": 4,
+   "old_sha": "88d2a51965ea42f7eb927e632e6a1e456cb5adae",
+   "new_sha": "28d838a5241b971988c0113bb45af9987530e6b6",
+   "head_sha_check": "28d838a5241b971988c0113bb45af9987530e6b6",
+   "loc_at_head": 183,
+   "notes": ""
+  }
+ ]
+}

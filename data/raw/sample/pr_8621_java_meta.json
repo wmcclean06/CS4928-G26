@@ -1,0 +1,43 @@
+{
+ "pr": 8621,
+ "base_sha": "c3675a8befbc9d76850a0e986e6b0da0b8b43084",
+ "head_sha": "d822e2d14bdee31c9c0b8bdd4a109259c9e514cf",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 4,
+   "old_sha": "ef4d9b30a4e944f61bc3dc432371e3123d7da947",
+   "new_sha": "2916884fda665004f0909413fe4449ebd837ecc9",
+   "head_sha_check": "2916884fda665004f0909413fe4449ebd837ecc9",
+   "loc_at_head": 2056,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/UploaderUtils.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 2,
+   "old_sha": "875f41d767682a0bd341f50b884aa126e73a4ee9",
+   "new_sha": "ee1ab0c09819c7d63609a2c100594e3d78f51857",
+   "head_sha_check": "ee1ab0c09819c7d63609a2c100594e3d78f51857",
+   "loc_at_head": 79,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/discoverers/PluggableDiscovery.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 0,
+   "old_sha": "3f7202fa6a92a62fef5c2be89b99a02c2c7dd438",
+   "new_sha": "dd475b322835641c897961652f28d3f4647b3c48",
+   "head_sha_check": "dd475b322835641c897961652f28d3f4647b3c48",
+   "loc_at_head": 262,
+   "notes": ""
+  }
+ ]
+}

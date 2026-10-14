@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "71dd45cac5f757fdad163ca559aa229e657677a6",
+  "filename": "hardware/arduino/avr/cores/arduino/WInterrupts.c",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/272d5cc93d049b3381030b202fd665f5f4714e1d/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWInterrupts.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/272d5cc93d049b3381030b202fd665f5f4714e1d/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWInterrupts.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWInterrupts.c?ref=272d5cc93d049b3381030b202fd665f5f4714e1d",
+  "patch": "@@ -231,7 +231,7 @@ void detachInterrupt(uint8_t interruptNum) {\n       GICR &= ~(1 << INT2); // atmega32\n     #elif defined(GIMSK) && defined(INT2)\n       GIMSK &= ~(1 << INT2);\n-    #else\n+    #elif defined(INT2)\n       #warning detachInterrupt may need some more work for this cpu (case 2)\n     #endif\n       break;       "
+ }
+]

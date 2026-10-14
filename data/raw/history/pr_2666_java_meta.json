@@ -1,0 +1,43 @@
+{
+ "pr": 2666,
+ "base_sha": "d1feeb54196c9fb977c6ccdc30e1d112de11ed03",
+ "head_sha": "6d2aa17051311b8f31e2cdf53aa3003cb3a63199",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 6,
+   "deletions": 8,
+   "old_sha": "7313f61f2c03d1b4cebf0e058d3fc429026da63a",
+   "new_sha": "8c7ec1db3813ddc0ab3a7d08e5301ad700e5e324",
+   "head_sha_check": "8c7ec1db3813ddc0ab3a7d08e5301ad700e5e324",
+   "loc_at_head": 2397,
+   "notes": ""
+  },
+  {
+   "path": "app/test/processing/app/BlockCommentGeneratesOneUndoActionTest.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 41,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "555a03fcc8d67859fa879a361000b97dffc75b6f",
+   "head_sha_check": "555a03fcc8d67859fa879a361000b97dffc75b6f",
+   "loc_at_head": 28,
+   "notes": "added"
+  },
+  {
+   "path": "app/test/processing/app/helpers/ArduinoFrameFixture.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 9,
+   "deletions": 16,
+   "old_sha": "aec49a5a89d6faaae0d48931d9ef557fbf3061fb",
+   "new_sha": "a5832a904768f4c85a42ed89e462004606ccdd7e",
+   "head_sha_check": "a5832a904768f4c85a42ed89e462004606ccdd7e",
+   "loc_at_head": 17,
+   "notes": ""
+  }
+ ]
+}

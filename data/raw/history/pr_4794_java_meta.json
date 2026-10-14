@@ -1,0 +1,43 @@
+{
+ "pr": 4794,
+ "base_sha": "629509f30239128845a9150dc52489aa4676537c",
+ "head_sha": "0584b2c2bd8d6c0f72fe62ebd16cff13bcbc150b",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Sketch.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 11,
+   "deletions": 2,
+   "old_sha": "ecbd54938a68199ba924b82e815f88d42b3dc833",
+   "new_sha": "7bb7dee11e618d9ef9999c361e1c2a757ee84038",
+   "head_sha_check": "7bb7dee11e618d9ef9999c361e1c2a757ee84038",
+   "loc_at_head": 1186,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/Uploader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 7,
+   "deletions": 8,
+   "old_sha": "d58d29504f512ec57b39ec12dbdbf89a0d2cb48e",
+   "new_sha": "a93734ed6a6425ee2dd5d84869f24dbabf7377ee",
+   "head_sha_check": "a93734ed6a6425ee2dd5d84869f24dbabf7377ee",
+   "loc_at_head": 144,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/uploaders/SSHUploader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "b0ba1ec4ee91cc6571c462126d9ac1092a372d2c",
+   "new_sha": "cc0a108082771607341d5fdb8a85dbb18a4ac079",
+   "head_sha_check": "cc0a108082771607341d5fdb8a85dbb18a4ac079",
+   "loc_at_head": 208,
+   "notes": ""
+  }
+ ]
+}

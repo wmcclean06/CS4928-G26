@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "20373d004c2436342f3d476af61be2534b1de478",
+  "filename": "hardware/arduino/sam/cores/arduino/WInterrupts.c",
+  "status": "modified",
+  "additions": 32,
+  "deletions": 32,
+  "changes": 64,
+  "blob_url": "https://github.com/arduino/Arduino/blob/296c5f0fbf1ea7218ff3edb0a469ed41b44f499e/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWInterrupts.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/296c5f0fbf1ea7218ff3edb0a469ed41b44f499e/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWInterrupts.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWInterrupts.c?ref=296c5f0fbf1ea7218ff3edb0a469ed41b44f499e",
+  "patch": "@@ -134,47 +134,47 @@ extern \"C\" {\n #endif\n \n void PIOA_Handler(void) {\n-\tuint32_t isr = PIOA->PIO_ISR;\n-\tuint32_t i;\n-\tfor (i=0; i<32; i++, isr>>=1) {\n-\t\tif ((isr & 0x1) == 0)\n-\t\t\tcontinue;\n-\t\tif (callbacksPioA[i])\n-\t\t\tcallbacksPioA[i]();\n-\t}\n+  uint32_t isr = PIOA->PIO_ISR;\n+  uint8_t leading_zeros;\n+  while((leading_zeros=__CLZ(isr))<32)\n+  {\n+    uint8_t pin=32-leading_zeros-1;\n+    if(callbacksPioA[pin]) callbacksPioA[pin]();\n+    isr=isr&(~(1<<pin));\n+  }\n }\n \n void PIOB_Handler(void) {\n-\tuint32_t isr = PIOB->PIO_ISR;\n-\tuint32_t i;\n-\tfor (i=0; i<32; i++, isr>>=1) {\n-\t\tif ((isr & 0x1) == 0)\n-\t\t\tcontinue;\n-\t\tif (callbacksPioB[i])\n-\t\t\tcallbacksPioB[i]();\n-\t}\n+  uint32_t isr = PIOB->PIO_ISR;\n+  uint8_t leading_zeros;\n+  while((leading_zeros=__CLZ(isr))<32)\n+  {\n+    uint8_t pin=32-leading_zeros-1;\n+    if(callbacksPioB[pin]) callbacksPioB[pin]();\n+    isr=isr&(~(1<<pin));\n+  }\n }\n \n void PIOC_Handler(void) {\n-\tuint32_t isr = PIOC->PIO_ISR;\n-\tuint32_t i;\n-\tfor (i=0; i<32; i++, isr>>=1) {\n-\t\tif ((isr & 0x1) == 0)\n-\t\t\tcontinue;\n-\t\tif (callbacksPioC[i])\n-\t\t\tcallbacksPioC[i]();\n-\t}\n+  uint32_t isr = PIOC->PIO_ISR;\n+  uint8_t leading_zeros;\n+  while((leading_zeros=__CLZ(isr))<32)\n+  {\n+    uint8_t pin=32-leading_zeros-1;\n+    if(callbacksPioC[pin]) callbacksPioC[pin]();\n+    isr=isr&(~(1<<pin));\n+  }\n }\n \n void PIOD_Handler(void) {\n-\tuint32_t isr = PIOD->PIO_ISR;\n-\tuint32_t i;\n-\tfor (i=0; i<32; i++, isr>>=1) {\n-\t\tif ((isr & 0x1) == 0)\n-\t\t\tcontinue;\n-\t\tif (callbacksPioD[i])\n-\t\t\tcallbacksPioD[i]();\n-\t}\n+  uint32_t isr = PIOD->PIO_ISR;\n+  uint8_t leading_zeros;\n+  while((leading_zeros=__CLZ(isr))<32)\n+  {\n+    uint8_t pin=32-leading_zeros-1;\n+    if(callbacksPioD[pin]) callbacksPioD[pin]();\n+    isr=isr&(~(1<<pin));\n+  }\n }\n \n #ifdef __cplusplus"
+ }
+]

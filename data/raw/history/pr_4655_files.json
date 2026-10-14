@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "86696e93f9736e0e439ce0572b2ca65e7029097a",
+  "filename": "hardware/arduino/avr/libraries/Wire/src/Wire.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/10ef7ef7e1f665e2326d5f3b1e20263b0b98c23e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2FWire.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/10ef7ef7e1f665e2326d5f3b1e20263b0b98c23e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2FWire.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2FWire.cpp?ref=10ef7ef7e1f665e2326d5f3b1e20263b0b98c23e",
+  "patch": "@@ -23,7 +23,7 @@ extern \"C\" {\n   #include <stdlib.h>\n   #include <string.h>\n   #include <inttypes.h>\n-  #include \"twi.h\"\n+  #include \"utility/twi.h\"\n }\n \n #include \"Wire.h\""
+ },
+ {
+  "sha": "7efcc5a477061768e12fa8eb8d3030ff456c47ef",
+  "filename": "hardware/arduino/avr/libraries/Wire/src/utility/twi.c",
+  "status": "renamed",
+  "additions": 0,
+  "deletions": 0,
+  "changes": 0,
+  "blob_url": "https://github.com/arduino/Arduino/blob/10ef7ef7e1f665e2326d5f3b1e20263b0b98c23e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2Futility%2Ftwi.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/10ef7ef7e1f665e2326d5f3b1e20263b0b98c23e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2Futility%2Ftwi.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2Futility%2Ftwi.c?ref=10ef7ef7e1f665e2326d5f3b1e20263b0b98c23e",
+  "previous_filename": "hardware/arduino/avr/libraries/Wire/utility/twi.c"
+ },
+ {
+  "sha": "4c52bc5a0c890f8d273218b82995b3ec74c51c5c",
+  "filename": "hardware/arduino/avr/libraries/Wire/src/utility/twi.h",
+  "status": "renamed",
+  "additions": 0,
+  "deletions": 0,
+  "changes": 0,
+  "blob_url": "https://github.com/arduino/Arduino/blob/10ef7ef7e1f665e2326d5f3b1e20263b0b98c23e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2Futility%2Ftwi.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/10ef7ef7e1f665e2326d5f3b1e20263b0b98c23e/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2Futility%2Ftwi.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FWire%2Fsrc%2Futility%2Ftwi.h?ref=10ef7ef7e1f665e2326d5f3b1e20263b0b98c23e",
+  "previous_filename": "hardware/arduino/avr/libraries/Wire/utility/twi.h"
+ }
+]

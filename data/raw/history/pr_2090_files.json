@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "d1f6c9256a648cec67eef4e2a533d41b0cf1b343",
+  "filename": "libraries/SoftwareSerial/SoftwareSerial.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/17e1eb5ef240e33511d86d191b5da31ce8cdec2b/libraries%2FSoftwareSerial%2FSoftwareSerial.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/17e1eb5ef240e33511d86d191b5da31ce8cdec2b/libraries%2FSoftwareSerial%2FSoftwareSerial.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSoftwareSerial%2FSoftwareSerial.cpp?ref=17e1eb5ef240e33511d86d191b5da31ce8cdec2b",
+  "patch": "@@ -355,7 +355,7 @@ SoftwareSerial::~SoftwareSerial()\n void SoftwareSerial::setTX(uint8_t tx)\r\n {\r\n   pinMode(tx, OUTPUT);\r\n-  digitalWrite(tx, HIGH);\r\n+  digitalWrite(tx, _inverse_logic ? LOW : HIGH);\r\n   _transmitBitMask = digitalPinToBitMask(tx);\r\n   uint8_t port = digitalPinToPort(tx);\r\n   _transmitPortRegister = portOutputRegister(port);\r"
+ }
+]

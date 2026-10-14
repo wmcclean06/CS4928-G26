@@ -1,0 +1,19 @@
+{
+ "pr": 6494,
+ "base_sha": "9411fa8c2b11d22e5f7b016f68c36c1815e7c9dc",
+ "head_sha": "d282258d59f58f404dee03224454bbd5d10ab2dd",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/Constants.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 6,
+   "deletions": 1,
+   "old_sha": "80349d82dae88121f9e1c8887a8a238b39c5cade",
+   "new_sha": "ea06902402c268892e6b7253de39e1ade2c54368",
+   "head_sha_check": "ea06902402c268892e6b7253de39e1ade2c54368",
+   "loc_at_head": 81,
+   "notes": ""
+  }
+ ]
+}

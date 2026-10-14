@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "c5954ed25f6643d52eaa186258602fe0f829bba8",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 10,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/9b91da35b737a3d07c2a785c636987363dbb0d74/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/9b91da35b737a3d07c2a785c636987363dbb0d74/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp?ref=9b91da35b737a3d07c2a785c636987363dbb0d74",
+  "patch": "@@ -27,16 +27,7 @@ static u8 HID_ENDPOINT_INT;\n \n //================================================================================\n //================================================================================\n-\n-//\tHID report descriptor\n-\n-#define LSB(_x) ((_x) & 0xFF)\n-#define MSB(_x) ((_x) >> 8)\n-\n-#define RAWHID_USAGE_PAGE\t0xFFC0\n-#define RAWHID_USAGE\t\t0x0C00\n-#define RAWHID_TX_SIZE 64\n-#define RAWHID_RX_SIZE 64\n+//\tHID Interface\n \n static u8 HID_INTERFACE;\n "
+ }
+]

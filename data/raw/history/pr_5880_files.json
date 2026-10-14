@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "a64c0961c1caa119f2cee7af6ff5d28e9e35aa26",
+  "filename": "hardware/arduino/avr/programmers.txt",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 0,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2130e81460d41185224ade653889dfb3bb23da3b/hardware%2Farduino%2Favr%2Fprogrammers.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2130e81460d41185224ade653889dfb3bb23da3b/hardware%2Farduino%2Favr%2Fprogrammers.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fprogrammers.txt?ref=2130e81460d41185224ade653889dfb3bb23da3b",
+  "patch": "@@ -81,3 +81,9 @@ buspirate.program.protocol=buspirate\n buspirate.program.tool=avrdude\n buspirate.program.extra_params=-P{serial.port}\n \n+atmel_ice.name=Atmel-ICE (AVR)\n+atmel_ice.communication=usb\n+atmel_ice.protocol=atmelice_isp\n+atmel_ice.program.protocol=atmelice_isp\n+atmel_ice.program.tool=avrdude\n+atmel_ice.program.extra_params=-Pusb\n\\ No newline at end of file"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "3c3615381188ff28ed642e626988258a0411cfb2",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2efd090e81f2b8225189d31d2b97d7265891c82a/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2efd090e81f2b8225189d31d2b97d7265891c82a/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=2efd090e81f2b8225189d31d2b97d7265891c82a",
+  "patch": "@@ -932,9 +932,10 @@ public boolean handleClose(Editor editor) {\n     }\n \n     if (editors.size() == 1) {\n+      handleQuit();\n+      // Everything called after handleQuit will only affect OSX\n       editor.setVisible(false);\n       editors.remove(editor);\n-      handleQuit();\n     } else {\n       // More than one editor window open,\n       // proceed with closing the current window."
+ }
+]

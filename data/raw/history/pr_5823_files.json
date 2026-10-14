@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "d9fe5be1d3e64844e149ce03ea77a2c8f226ffd8",
+  "filename": "hardware/arduino/avr/cores/arduino/IPAddress.cpp",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5fe1c0afa515426f8eb897245fe602ec04d01867/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FIPAddress.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5fe1c0afa515426f8eb897245fe602ec04d01867/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FIPAddress.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FIPAddress.cpp?ref=5fe1c0afa515426f8eb897245fe602ec04d01867",
+  "patch": "@@ -45,8 +45,6 @@ IPAddress::IPAddress(const uint8_t *address)\n \n bool IPAddress::fromString(const char *address)\n {\n-    // TODO: add support for \"a\", \"a.b\", \"a.b.c\" formats\n-\n     uint16_t acc = 0; // Accumulator\n     uint8_t dots = 0;\n "
+ },
+ {
+  "sha": "d9fe5be1d3e64844e149ce03ea77a2c8f226ffd8",
+  "filename": "hardware/arduino/sam/cores/arduino/IPAddress.cpp",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5fe1c0afa515426f8eb897245fe602ec04d01867/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FIPAddress.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5fe1c0afa515426f8eb897245fe602ec04d01867/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FIPAddress.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FIPAddress.cpp?ref=5fe1c0afa515426f8eb897245fe602ec04d01867",
+  "patch": "@@ -45,8 +45,6 @@ IPAddress::IPAddress(const uint8_t *address)\n \n bool IPAddress::fromString(const char *address)\n {\n-    // TODO: add support for \"a\", \"a.b\", \"a.b.c\" formats\n-\n     uint16_t acc = 0; // Accumulator\n     uint8_t dots = 0;\n "
+ },
+ {
+  "sha": "cecbcd267c4af827795a3b9c4616d0f8afa835bb",
+  "filename": "libraries/Ethernet/src/Dns.cpp",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5fe1c0afa515426f8eb897245fe602ec04d01867/libraries%2FEthernet%2Fsrc%2FDns.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5fe1c0afa515426f8eb897245fe602ec04d01867/libraries%2FEthernet%2Fsrc%2FDns.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fsrc%2FDns.cpp?ref=5fe1c0afa515426f8eb897245fe602ec04d01867",
+  "patch": "@@ -57,8 +57,6 @@ void DNSClient::begin(const IPAddress& aDNSServer)\n \n int DNSClient::inet_aton(const char* address, IPAddress& result)\n {\n-    // TODO: add support for \"a\", \"a.b\", \"a.b.c\" formats\n-\n     uint16_t acc = 0; // Accumulator\n     uint8_t dots = 0;\n "
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "7e56b975d153e6fd8f61722091b0c5b1d9e8ebc5",
+  "filename": "build/shared/examples/08.Strings/StringAdditionOperator/StringAdditionOperator.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e2f1dde0df4f30db742b586b221134ebb184a9f7/build%2Fshared%2Fexamples%2F08.Strings%2FStringAdditionOperator%2FStringAdditionOperator.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e2f1dde0df4f30db742b586b221134ebb184a9f7/build%2Fshared%2Fexamples%2F08.Strings%2FStringAdditionOperator%2FStringAdditionOperator.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F08.Strings%2FStringAdditionOperator%2FStringAdditionOperator.ino?ref=e2f1dde0df4f30db742b586b221134ebb184a9f7",
+  "patch": "@@ -58,7 +58,6 @@ void loop() {\n   Serial.println(stringThree);    // prints \"Sensor Value: 401\" or whatever value analogRead(A0) has\n \n   // adding a variable long integer to a string:\n-  long currentTime = millis();\n   stringOne = \"millis() value: \";\n   stringThree = stringOne + millis();\n   Serial.println(stringThree);    // prints \"The millis: 345345\" or whatever value currentTime has"
+ }
+]

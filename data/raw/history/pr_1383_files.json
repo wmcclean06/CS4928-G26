@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "c3021d6b9f34531164ec3c240126858f2fac4c5b",
+  "filename": "libraries/SD/File.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2aee42a12caac0bf3e77d744d0892b2632bbbe21/libraries%2FSD%2FFile.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2aee42a12caac0bf3e77d744d0892b2632bbbe21/libraries%2FSD%2FFile.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2FFile.cpp?ref=2aee42a12caac0bf3e77d744d0892b2632bbbe21",
+  "patch": "@@ -44,6 +44,7 @@ File::File(void) {\n }\n \n File::~File(void) {\n+ close();\n   //  Serial.print(\"Deleted file object\");\n }\n "
+ }
+]

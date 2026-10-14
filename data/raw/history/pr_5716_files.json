@@ -1,0 +1,62 @@
+[
+ {
+  "sha": "c7cf4f50ce4c0697f97503e623ca3fbf12c1e14f",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 0,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/75ac05e4ec9270b727463b42a852188a06fd5ca3/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/75ac05e4ec9270b727463b42a852188a06fd5ca3/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=75ac05e4ec9270b727463b42a852188a06fd5ca3",
+  "patch": "@@ -29,6 +29,7 @@\n import cc.arduino.view.GoToLineNumber;\n import cc.arduino.view.StubMenuListener;\n import cc.arduino.view.findreplace.FindReplace;\n+import cc.arduino.CompilerProgressListener;\n import com.jcraft.jsch.JSchException;\n import jssc.SerialPortException;\n import processing.app.debug.RunnerException;\n@@ -66,6 +67,7 @@\n import java.util.function.Predicate;\n import java.util.zip.ZipEntry;\n import java.util.zip.ZipFile;\n+import java.util.ArrayList;\n \n import static processing.app.I18n.tr;\n import static processing.app.Theme.scale;\n@@ -2748,5 +2750,8 @@ protected void onBoardOrPortChange() {\n     lineStatus.repaint();\n   }\n \n+  public void addCompilerProgressListener(CompilerProgressListener listener){\n+    this.status.addCompilerProgressListener(listener);\n+  }\n \n }"
+ },
+ {
+  "sha": "cda17fdc534bff177d176b70c433a580abcaea55",
+  "filename": "app/src/processing/app/EditorStatus.java",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 0,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/75ac05e4ec9270b727463b42a852188a06fd5ca3/app%2Fsrc%2Fprocessing%2Fapp%2FEditorStatus.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/75ac05e4ec9270b727463b42a852188a06fd5ca3/app%2Fsrc%2Fprocessing%2Fapp%2FEditorStatus.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorStatus.java?ref=75ac05e4ec9270b727463b42a852188a06fd5ca3",
+  "patch": "@@ -24,13 +24,15 @@\n package processing.app;\n \n import processing.app.helpers.OSUtils;\n+import cc.arduino.CompilerProgressListener;\n \n import javax.swing.*;\n import java.awt.*;\n import java.awt.datatransfer.Clipboard;\n import java.awt.datatransfer.StringSelection;\n import java.awt.event.KeyAdapter;\n import java.awt.event.KeyEvent;\n+import java.util.ArrayList;\n \n import static processing.app.I18n.tr;\n import static processing.app.Theme.scale;\n@@ -88,12 +90,16 @@ public class EditorStatus extends JPanel {\n   private JTextField editField;\n   private JProgressBar progressBar;\n   private JButton copyErrorButton;\n+  \n+  private ArrayList<CompilerProgressListener> compilerProgressListeners;\n \n   public EditorStatus(Editor editor) {\n     this.editor = editor;\n     this.message = NO_MESSAGE;\n     this.mode = NOTICE;\n     this.font = Theme.getFont(\"status.font\");\n+    this.compilerProgressListeners = new ArrayList<CompilerProgressListener>();\n+    this.compilerProgressListeners.add(this::progressUpdate);\n     initialize();\n   }\n \n@@ -409,5 +415,13 @@ public Dimension getMaximumSize() {\n   public boolean isErr() {\n     return mode == ERR;\n   }\n+  \n+  public void addCompilerProgressListener(CompilerProgressListener listener){\n+    compilerProgressListeners.add(listener);\n+  }\n+  \n+  public ArrayList<CompilerProgressListener> getCompilerProgressListeners(){\n+    return compilerProgressListeners;\n+  }\n \n }"
+ },
+ {
+  "sha": "289e3b3354b4031d3469bd6b1b66f734a61b6714",
+  "filename": "app/src/processing/app/SketchController.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 4,
+  "changes": 9,
+  "blob_url": "https://github.com/arduino/Arduino/blob/75ac05e4ec9270b727463b42a852188a06fd5ca3/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/75ac05e4ec9270b727463b42a852188a06fd5ca3/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java?ref=75ac05e4ec9270b727463b42a852188a06fd5ca3",
+  "patch": "@@ -624,11 +624,12 @@ public void importLibrary(UserLibrary lib) throws IOException {\n    */\n   public String build(boolean verbose, boolean save) throws RunnerException, PreferencesMapException, IOException {\n     // run the preprocessor\n-    editor.status.progressUpdate(20);\n+    for (CompilerProgressListener progressListener : editor.status.getCompilerProgressListeners()){\n+      progressListener.progress(20);\n+    }\n \n     ensureExistence();\n-\n-    CompilerProgressListener progressListener = editor.status::progressUpdate;\n+       \n \n     boolean deleteTemp = false;\n     File pathToSketch = sketch.getPrimaryFile().getFile();\n@@ -640,7 +641,7 @@ public String build(boolean verbose, boolean save) throws RunnerException, Prefe\n     }\n \n     try {\n-      return new Compiler(pathToSketch, sketch).build(progressListener, save);\n+      return new Compiler(pathToSketch, sketch).build(editor.status.getCompilerProgressListeners(), save);\n     } finally {\n       // Make sure we clean up any temporary sketch copy\n       if (deleteTemp)"
+ },
+ {
+  "sha": "c6cd64a819dd1841f60fcf80a29da7a5ad200c36",
+  "filename": "arduino-core/src/cc/arduino/Compiler.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 1,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/75ac05e4ec9270b727463b42a852188a06fd5ca3/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/75ac05e4ec9270b727463b42a852188a06fd5ca3/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java?ref=75ac05e4ec9270b727463b42a852188a06fd5ca3",
+  "patch": "@@ -127,6 +127,12 @@ public Compiler(File pathToSketch, Sketch sketch) {\n   }\n \n   public String build(CompilerProgressListener progListener, boolean exportHex) throws RunnerException, PreferencesMapException, IOException {\n+    ArrayList<CompilerProgressListener> listeners = new ArrayList<CompilerProgressListener>();\n+    listeners.add(progListener);\n+    return this.build(listeners, exportHex);\n+  }\n+  \n+  public String build(ArrayList<CompilerProgressListener> progListeners, boolean exportHex) throws RunnerException, PreferencesMapException, IOException {\n     this.buildPath = sketch.getBuildPath().getAbsolutePath();\n \n     TargetBoard board = BaseNoGui.getTargetBoard();\n@@ -140,7 +146,7 @@ public String build(CompilerProgressListener progListener, boolean exportHex) th\n \n     PreferencesMap prefs = loadPreferences(board, platform, aPackage, vidpid);\n \n-    MessageConsumerOutputStream out = new MessageConsumerOutputStream(new ProgressAwareMessageConsumer(new I18NAwareMessageConsumer(System.out, System.err), progListener), \"\\n\");\n+    MessageConsumerOutputStream out = new MessageConsumerOutputStream(new ProgressAwareMessageConsumer(new I18NAwareMessageConsumer(System.out, System.err), progListeners), \"\\n\");\n     MessageConsumerOutputStream err = new MessageConsumerOutputStream(new I18NAwareMessageConsumer(System.err, Compiler.this), \"\\n\");\n \n     callArduinoBuilder(board, platform, aPackage, vidpid, BuilderAction.COMPILE, out, err);"
+ },
+ {
+  "sha": "6432e044774ffcdb37f9ddfdf5199916de2a1fd5",
+  "filename": "arduino-core/src/cc/arduino/ProgressAwareMessageConsumer.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 4,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/75ac05e4ec9270b727463b42a852188a06fd5ca3/arduino-core%2Fsrc%2Fcc%2Farduino%2FProgressAwareMessageConsumer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/75ac05e4ec9270b727463b42a852188a06fd5ca3/arduino-core%2Fsrc%2Fcc%2Farduino%2FProgressAwareMessageConsumer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2FProgressAwareMessageConsumer.java?ref=75ac05e4ec9270b727463b42a852188a06fd5ca3",
+  "patch": "@@ -33,16 +33,17 @@\n import processing.app.debug.MessageConsumer;\n \n import java.util.Map;\n+import java.util.ArrayList;\n \n public class ProgressAwareMessageConsumer implements MessageConsumer {\n \n   private final MessageConsumer parent;\n-  private final CompilerProgressListener progressListener;\n+  private ArrayList<CompilerProgressListener> progressListeners;\n   private final ExternalProcessOutputParser parser;\n \n-  public ProgressAwareMessageConsumer(MessageConsumer parent, CompilerProgressListener progressListener) {\n+  public ProgressAwareMessageConsumer(MessageConsumer parent, ArrayList<CompilerProgressListener> progressListeners) {\n     this.parent = parent;\n-    this.progressListener = progressListener;\n+    this.progressListeners = progressListeners;\n     this.parser = new ExternalProcessOutputParser();\n   }\n \n@@ -51,7 +52,9 @@ public void message(String s) {\n     if (s.startsWith(\"===info ||| Progress\") || s.startsWith(\"===Progress\")) {\n       Map<String, Object> parsedMessage = parser.parse(s);\n       Object[] args = (Object[]) parsedMessage.get(\"args\");\n-      progressListener.progress(Double.valueOf(args[0].toString()).intValue());\n+      for (CompilerProgressListener progressListener : progressListeners){\n+        progressListener.progress(Double.valueOf(args[0].toString()).intValue());\n+      }\n       return;\n     }\n "
+ }
+]

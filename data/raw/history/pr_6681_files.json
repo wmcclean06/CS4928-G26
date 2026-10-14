@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "374e09a4b9d02e0ea6446cc01d36eb4c59f2a2e6",
+  "filename": "ISSUE_TEMPLATE.md",
+  "status": "added",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/26fa7a8e1dd0c9477fc6b4d9df5d4bbc1b454ed5/ISSUE_TEMPLATE.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/26fa7a8e1dd0c9477fc6b4d9df5d4bbc1b454ed5/ISSUE_TEMPLATE.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/ISSUE_TEMPLATE.md?ref=26fa7a8e1dd0c9477fc6b4d9df5d4bbc1b454ed5",
+  "patch": "@@ -0,0 +1 @@\n+Read the Issues section of the Contributing Rules at the \"contributing guidelines\" link above before submitting an issue report."
+ }
+]

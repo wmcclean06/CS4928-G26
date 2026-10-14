@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "8b5121c8ce317c0a812d1a8d167e5c882ae37899",
+  "filename": "hardware/arduino/avr/libraries/EEPROM/examples/eeprom_clear/eeprom_clear.ino",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 1,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ffbcfa781f52519cf25f76cd7d467750164975e1/hardware%2Farduino%2Favr%2Flibraries%2FEEPROM%2Fexamples%2Feeprom_clear%2Feeprom_clear.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ffbcfa781f52519cf25f76cd7d467750164975e1/hardware%2Farduino%2Favr%2Flibraries%2FEEPROM%2Fexamples%2Feeprom_clear%2Feeprom_clear.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FEEPROM%2Fexamples%2Feeprom_clear%2Feeprom_clear.ino?ref=ffbcfa781f52519cf25f76cd7d467750164975e1",
+  "patch": "@@ -11,7 +11,9 @@\n #include <EEPROM.h>\n \n void setup() {\n-\n+  // initialize the LED pin as an output.\n+  pinMode(13, OUTPUT);\n+  \n   /***\n     Iterate through each byte of the EEPROM storage.\n "
+ }
+]

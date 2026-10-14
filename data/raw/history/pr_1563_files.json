@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "e1e859d18c4691b4afb556610cbeebb44f4917c1",
+  "filename": "hardware/arduino/cores/arduino/CDC.cpp",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 1,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f53fcdd25456b0a3946ab84761590b3f9a404b97/hardware%2Farduino%2Fcores%2Farduino%2FCDC.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f53fcdd25456b0a3946ab84761590b3f9a404b97/hardware%2Farduino%2Fcores%2Farduino%2FCDC.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FCDC.cpp?ref=f53fcdd25456b0a3946ab84761590b3f9a404b97",
+  "patch": "@@ -130,7 +130,11 @@ bool WEAK CDC_Setup(Setup& setup)\n \n \n int _serialPeek = -1;\n-void Serial_::begin(uint16_t baud_count)\n+void Serial_::begin(unsigned long baud_count)\n+{\n+}\n+\n+void Serial_::begin(unsigned long baud_count, byte config)\n {\n }\n "
+ },
+ {
+  "sha": "7a14285db05a10298bdff53ac249ca987404938d",
+  "filename": "hardware/arduino/cores/arduino/USBAPI.h",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 2,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f53fcdd25456b0a3946ab84761590b3f9a404b97/hardware%2Farduino%2Fcores%2Farduino%2FUSBAPI.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f53fcdd25456b0a3946ab84761590b3f9a404b97/hardware%2Farduino%2Fcores%2Farduino%2FUSBAPI.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FUSBAPI.h?ref=f53fcdd25456b0a3946ab84761590b3f9a404b97",
+  "patch": "@@ -30,7 +30,8 @@ class Serial_ : public Stream\n private:\n \tring_buffer *_cdc_rx_buffer;\n public:\n-\tvoid begin(uint16_t baud_count);\n+\tvoid begin(unsigned long);\n+\tvoid begin(unsigned long, uint8_t);\n \tvoid end(void);\n \n \tvirtual int available(void);\n@@ -193,4 +194,4 @@ void USB_Flush(uint8_t ep);\n \n #endif\n \n-#endif /* if defined(USBCON) */\n\\ No newline at end of file\n+#endif /* if defined(USBCON) */"
+ }
+]

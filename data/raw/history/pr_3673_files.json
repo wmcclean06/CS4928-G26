@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "4e058cd25f6a7b1ef4868053ba346198d0e3e8df",
+  "filename": "hardware/arduino/avr/cores/arduino/Tone.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bf2ef13b50a157c7d0145a1bded8daa49cb28b92/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FTone.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bf2ef13b50a157c7d0145a1bded8daa49cb28b92/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FTone.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FTone.cpp?ref=bf2ef13b50a157c7d0145a1bded8daa49cb28b92",
+  "patch": "@@ -485,6 +485,7 @@ void noTone(uint8_t _pin)\n     if (tone_pins[i] == _pin) {\n       _timer = pgm_read_byte(tone_pin_to_timer_PGM + i);\n       tone_pins[i] = 255;\n+      break;\n     }\n   }\n   "
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "f1341653b57fda4a4975626031f64eab077e896f",
+  "filename": "arduino-core/src/processing/app/SketchFile.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/beadf8fe63e8ecd3a50f1b56a8396f1242eb0d60/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchFile.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/beadf8fe63e8ecd3a50f1b56a8396f1242eb0d60/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchFile.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchFile.java?ref=beadf8fe63e8ecd3a50f1b56a8396f1242eb0d60",
+  "patch": "@@ -177,7 +177,7 @@ private boolean deleteCompiledFilesFrom(Path tempBuildFolder) throws IOException\n   public void renameTo(String newName) throws IOException {\n     File newFile = new File(file.getParentFile(), newName);\n     sketch.checkNewFilename(newFile);\n-    if (file.renameTo(newFile)) {\n+    if (!file.exists() || file.renameTo(newFile)) {\n       renamedTo(newFile);\n     } else {\n       String msg = I18n.format(tr(\"Failed to rename \\\"{0}\\\" to \\\"{1}\\\"\"), file.getName(), newName);"
+ }
+]

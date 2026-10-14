@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "0ff213c40470cac055c50d325b0fa526c87aa96b",
+  "filename": ".gitignore",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bef9b4db7314c2832b14eaf266cb9e79ca2f27e0/.gitignore",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bef9b4db7314c2832b14eaf266cb9e79ca2f27e0/.gitignore",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/.gitignore?ref=bef9b4db7314c2832b14eaf266cb9e79ca2f27e0",
+  "patch": "@@ -20,6 +20,7 @@ build/windows/*.zip\n build/windows/*.tgz\n build/windows/*.tar.bz2\n build/windows/libastylej*\n+build/windows/liblistSerials*\n build/windows/arduino-*.zip\n build/windows/dist/*.tar.gz\n build/windows/dist/*.tar.bz2"
+ }
+]

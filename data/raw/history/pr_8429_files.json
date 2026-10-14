@@ -1,0 +1,62 @@
+[
+ {
+  "sha": "564649ea654df20f59b32da4205acfd0ae6d0dad",
+  "filename": "app/.classpath",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d/app%2F.classpath",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d/app%2F.classpath",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2F.classpath?ref=3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d",
+  "patch": "@@ -52,6 +52,6 @@\n \t<classpathentry kind=\"lib\" path=\"test-lib/fest-swing-1.2.jar\"/>\n \t<classpathentry kind=\"lib\" path=\"test-lib/fest-util-1.1.2.jar\"/>\n \t<classpathentry kind=\"lib\" path=\"test-lib/jcip-annotations-1.0.jar\"/>\n-\t<classpathentry kind=\"lib\" path=\"lib/jtouchbar-0.2.0-20180827.120213-5.jar\"/>\n+\t<classpathentry kind=\"lib\" path=\"lib/jtouchbar-1.0.0.jar\"/>\n \t<classpathentry kind=\"output\" path=\"bin\"/>\n </classpath>"
+ },
+ {
+  "sha": "a6bf9a091a6cb8ee6695f460b6eaeacf5ab2a035",
+  "filename": "app/lib/jtouchbar-1.0.0.jar",
+  "status": "renamed",
+  "additions": 0,
+  "deletions": 0,
+  "changes": 0,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d/app%2Flib%2Fjtouchbar-1.0.0.jar",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d/app%2Flib%2Fjtouchbar-1.0.0.jar",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Flib%2Fjtouchbar-1.0.0.jar?ref=3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d",
+  "previous_filename": "app/lib/jtouchbar-0.2.0-20180827.120213-5.jar"
+ },
+ {
+  "sha": "d37d0cc96a7f813d1275c68eb14e4aceadb683af",
+  "filename": "app/src/processing/app/EditorToolbar.java",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 1,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d/app%2Fsrc%2Fprocessing%2Fapp%2FEditorToolbar.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d/app%2Fsrc%2Fprocessing%2Fapp%2FEditorToolbar.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorToolbar.java?ref=3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d",
+  "patch": "@@ -188,7 +188,15 @@ private void buildTouchBar() {\n       \n       touchBarButtons[i] = new TouchBarButton();\n       touchBarButtons[i].setImage(touchBarImages[i][ROLLOVER]);\n-      touchBarButtons[i].setAction(event -> handleSelectionPressed(selection));\n+      touchBarButtons[i].setAction(event -> {\n+        // Run event handler later to prevent hanging if a dialog needs to be open\n+        EventQueue.invokeLater(new Runnable() {\n+          @Override\n+          public void run() {\n+            handleSelectionPressed(selection);\n+          }\n+        });\n+      });\n       \n       TouchBarItem touchBarItem = new TouchBarItem(title[i], touchBarButtons[i], true);\n       touchBarItem.setCustomizationLabel(title[i]);"
+ },
+ {
+  "sha": "654304f837d1617c495bf031d2635586f4d93121",
+  "filename": "build/windows/launcher/config.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig.xml?ref=3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d",
+  "patch": "@@ -42,7 +42,7 @@\n     <cp>%EXEDIR%/lib/jackson-module-mrbean-2.9.5.jar</cp>\n     <cp>%EXEDIR%/lib/java-semver-0.8.0.jar</cp>\n     <cp>%EXEDIR%/lib/jmdns-3.5.3.jar</cp>\n-    <cp>%EXEDIR%/lib/jtouchbar-0.2.0-20180827.120213-5.jar</cp>\n+    <cp>%EXEDIR%/lib/jtouchbar-1.0.0.jar</cp>\n     <cp>%EXEDIR%/lib/slf4j-simple-1.7.22.jar</cp>\n     <cp>%EXEDIR%/lib/slf4j-api-1.7.22.jar</cp>\n     <cp>%EXEDIR%/lib/jna-4.2.2.jar</cp>"
+ },
+ {
+  "sha": "86fd9560d1387b41dd07a6a635df0aad15b3f6c5",
+  "filename": "build/windows/launcher/config_debug.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig_debug.xml?ref=3c8f20102467bc2ae166a0ccf6ae8ee32ae9c89d",
+  "patch": "@@ -42,7 +42,7 @@\n     <cp>%EXEDIR%/lib/jackson-module-mrbean-2.9.5.jar</cp>\n     <cp>%EXEDIR%/lib/java-semver-0.8.0.jar</cp>\n     <cp>%EXEDIR%/lib/jmdns-3.5.3.jar</cp>\n-    <cp>%EXEDIR%/lib/jtouchbar-0.2.0-20180827.120213-5.jar</cp>\n+    <cp>%EXEDIR%/lib/jtouchbar-1.0.0.jar</cp>\n     <cp>%EXEDIR%/lib/slf4j-simple-1.7.22.jar</cp>\n     <cp>%EXEDIR%/lib/slf4j-api-1.7.22.jar</cp>\n     <cp>%EXEDIR%/lib/jna-4.2.2.jar</cp>"
+ }
+]

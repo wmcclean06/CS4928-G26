@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "ec1aaa6475f86c5308ae7616768885663139b04e",
+  "filename": "hardware/arduino/sam/libraries/SPI/SPI.cpp",
+  "status": "modified",
+  "additions": 17,
+  "deletions": 0,
+  "changes": 17,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ed5597dad00d02e5ebe382e37fa8e8151f49742d/hardware%2Farduino%2Fsam%2Flibraries%2FSPI%2FSPI.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ed5597dad00d02e5ebe382e37fa8e8151f49742d/hardware%2Farduino%2Fsam%2Flibraries%2FSPI%2FSPI.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Flibraries%2FSPI%2FSPI.cpp?ref=ed5597dad00d02e5ebe382e37fa8e8151f49742d",
+  "patch": "@@ -196,6 +196,23 @@ byte SPIClass::transfer(byte _pin, uint8_t _data, SPITransferMode _mode) {\n \treturn d & 0xFF;\n }\n \n+uint16_t SPIClass::transfer16(byte _pin, uint16_t _data, SPITransferMode _mode) {\n+\tunion { uint16_t val; struct { uint8_t lsb; uint8_t msb; }; } t;\n+\tuint32_t ch = BOARD_PIN_TO_SPI_CHANNEL(_pin);\n+\n+\tt.val = _data;\n+\n+\tif (bitOrder[ch] == LSBFIRST) {\n+\t\tt.lsb = transfer(_pin, t.lsb, _mode);\n+\t\tt.msb = transfer(_pin, t.msb, _mode);\n+\t} else {\n+\t\tt.msb = transfer(_pin, t.msb, _mode);\n+\t\tt.lsb = transfer(_pin, t.lsb, _mode);\n+\t}\n+\n+\treturn t.val;\n+}\n+\n void SPIClass::transfer(byte _pin, void *_buf, size_t _count, SPITransferMode _mode) {\n \tif (_count == 0)\n \t\treturn;"
+ },
+ {
+  "sha": "ef5b5141a52a8633c9c3f05b67f0f22308500f40",
+  "filename": "hardware/arduino/sam/libraries/SPI/SPI.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ed5597dad00d02e5ebe382e37fa8e8151f49742d/hardware%2Farduino%2Fsam%2Flibraries%2FSPI%2FSPI.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ed5597dad00d02e5ebe382e37fa8e8151f49742d/hardware%2Farduino%2Fsam%2Flibraries%2FSPI%2FSPI.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Flibraries%2FSPI%2FSPI.h?ref=ed5597dad00d02e5ebe382e37fa8e8151f49742d",
+  "patch": "@@ -82,9 +82,11 @@ class SPIClass {\n \n \t// Transfer functions\n \tbyte transfer(byte _pin, uint8_t _data, SPITransferMode _mode = SPI_LAST);\n+\tuint16_t transfer16(byte _pin, uint16_t _data, SPITransferMode _mode = SPI_LAST);\n \tvoid transfer(byte _pin, void *_buf, size_t _count, SPITransferMode _mode = SPI_LAST);\n \t// Transfer functions on default pin BOARD_SPI_DEFAULT_SS\n \tbyte transfer(uint8_t _data, SPITransferMode _mode = SPI_LAST) { return transfer(BOARD_SPI_DEFAULT_SS, _data, _mode); }\n+\tuint16_t transfer16(uint16_t _data, SPITransferMode _mode = SPI_LAST) { return transfer16(BOARD_SPI_DEFAULT_SS, _data, _mode); }\n \tvoid transfer(void *_buf, size_t _count, SPITransferMode _mode = SPI_LAST) { transfer(BOARD_SPI_DEFAULT_SS, _buf, _count, _mode); }\n \n \t// Transaction Functions"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "2a14276375c7df2e1df06fb541df0564227f5611",
+  "filename": "build/shared/examples/10.StarterKit/p02_SpaceshipInterface/p02_SpaceshipInterface.ino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/940302146066667406c620acbdefa677242a40da/build%2Fshared%2Fexamples%2F10.StarterKit%2Fp02_SpaceshipInterface%2Fp02_SpaceshipInterface.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/940302146066667406c620acbdefa677242a40da/build%2Fshared%2Fexamples%2F10.StarterKit%2Fp02_SpaceshipInterface%2Fp02_SpaceshipInterface.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F10.StarterKit%2Fp02_SpaceshipInterface%2Fp02_SpaceshipInterface.ino?ref=940302146066667406c620acbdefa677242a40da",
+  "patch": "@@ -44,15 +44,15 @@ void loop(){\n   switchstate = digitalRead(2);\n \n   // if the button is not pressed\n-  // blink the red LEDs  \n+  // turn on the green LED and off the red LEDs  \n   if (switchstate == LOW) {\n     digitalWrite(3, HIGH); // turn the green LED on pin 3 on\n     digitalWrite(4, LOW);  // turn the red LED on pin 4 off\n     digitalWrite(5, LOW);  // turn the red LED on pin 5 off\n   }\n   // this else is part of the above if() statement. \n   // if the switch is not LOW (the button is pressed)\n-  // the code below will run  \n+  // turn off the green LED and blink alternatively the red LEDs \n   else {\n     digitalWrite(3, LOW);  // turn the green LED on pin 3 off\n     digitalWrite(4, LOW);  // turn the red LED on pin 4 off"
+ }
+]

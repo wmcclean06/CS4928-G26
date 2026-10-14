@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "586db2e6eed241f8bb0beb6c9d7e2a4a278c702d",
+  "filename": "app/src/processing/app/Sketch.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/56e034928742bb35f74895ab650ed4fb02ceb84d/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/56e034928742bb35f74895ab650ed4fb02ceb84d/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java?ref=56e034928742bb35f74895ab650ed4fb02ceb84d",
+  "patch": "@@ -836,7 +836,7 @@ public boolean addFile(File sourceFile) {\n       destFile = new File(data.getCodeFolder(), filename);\n \n     } else {\n-      for (String extension : data.getExtensions()) {\n+      for (String extension : SketchData.EXTENSIONS) {\n         String lower = filename.toLowerCase();\n         if (lower.endsWith(\".\" + extension)) {\n           destFile = new File(data.getFolder(), filename);\n@@ -1345,7 +1345,7 @@ public boolean isDefaultExtension(String what) {\n    * extensions.\n    */\n   public boolean validExtension(String what) {\n-    return data.getExtensions().contains(what);\n+    return SketchData.EXTENSIONS.contains(what);\n   }\n \n "
+ },
+ {
+  "sha": "cef17433e575dad402a03d14f9c7f07beae71146",
+  "filename": "arduino-core/src/processing/app/SketchData.java",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 15,
+  "changes": 23,
+  "blob_url": "https://github.com/arduino/Arduino/blob/56e034928742bb35f74895ab650ed4fb02ceb84d/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchData.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/56e034928742bb35f74895ab650ed4fb02ceb84d/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchData.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchData.java?ref=56e034928742bb35f74895ab650ed4fb02ceb84d",
+  "patch": "@@ -1,17 +1,19 @@\n package processing.app;\n \n+import com.google.common.collect.FluentIterable;\n+\n import static processing.app.I18n._;\n \n import java.io.File;\n import java.io.IOException;\n-import java.util.ArrayList;\n-import java.util.Arrays;\n-import java.util.Collections;\n-import java.util.Comparator;\n-import java.util.List;\n+import java.util.*;\n \n public class SketchData {\n \n+  public static final List<String> SKETCH_EXTENSIONS = Arrays.asList(\"ino\", \"pde\");\n+  public static final List<String> OTHER_ALLOWED_EXTENSIONS = Arrays.asList(\"c\", \"cpp\", \"h\", \"s\");\n+  public static final List<String> EXTENSIONS = new LinkedList<String>(FluentIterable.from(SKETCH_EXTENSIONS).append(OTHER_ALLOWED_EXTENSIONS).toList());\n+\n   /** main pde file for this sketch. */\n   private File primaryFile;\n \n@@ -105,8 +107,6 @@ protected void load() throws IOException {\n     clearCodeDocs();\n //    data.setCodeDocs(codeDocs);\n     \n-    List<String> extensions = getExtensions();\n-\n     for (String filename : list) {\n       // Ignoring the dot prefix files is especially important to avoid files\n       // with the ._ prefix on Mac OS X. (You'll see this with Mac files on\n@@ -119,7 +119,7 @@ protected void load() throws IOException {\n       // figure out the name without any extension\n       String base = filename;\n       // now strip off the .pde and .java extensions\n-      for (String extension : extensions) {\n+      for (String extension : EXTENSIONS) {\n         if (base.toLowerCase().endsWith(\".\" + extension)) {\n           base = base.substring(0, base.length() - (extension.length() + 1));\n \n@@ -173,13 +173,6 @@ public String getDefaultExtension() {\n     return \"ino\";\n   }\n \n-  /**\n-   * Returns a String[] array of proper extensions.\n-   */\n-  public List<String> getExtensions() {\n-    return Arrays.asList(\"ino\", \"pde\", \"c\", \"cpp\", \"h\");\n-  }\n-\n   /**\n    * Returns a file object for the primary .pde of this sketch.\n    */"
+ },
+ {
+  "sha": "34edc08b0d9592342c5682627c987f410975bc3a",
+  "filename": "arduino-core/src/processing/app/debug/Compiler.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/56e034928742bb35f74895ab650ed4fb02ceb84d/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/56e034928742bb35f74895ab650ed4fb02ceb84d/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FCompiler.java?ref=56e034928742bb35f74895ab650ed4fb02ceb84d",
+  "patch": "@@ -1201,7 +1201,7 @@ public void preprocess(String buildPath, PdePreprocessor preprocessor) throws Ru\n     StringBuffer bigCode = new StringBuffer();\n     int bigCount = 0;\n     for (SketchCode sc : sketch.getCodes()) {\n-      if (sc.isExtension(\"ino\") || sc.isExtension(\"pde\")) {\n+      if (sc.isExtension(SketchData.SKETCH_EXTENSIONS)) {\n         sc.setPreprocOffset(bigCount);\n         // These #line directives help the compiler report errors with\n         // correct the filename and line number (issue 281 & 907)\n@@ -1272,7 +1272,7 @@ public void preprocess(String buildPath, PdePreprocessor preprocessor) throws Ru\n     // 3. then loop over the code[] and save each .java file\n \n     for (SketchCode sc : sketch.getCodes()) {\n-      if (sc.isExtension(\"c\") || sc.isExtension(\"cpp\") || sc.isExtension(\"h\")) {\n+      if (sc.isExtension(SketchData.OTHER_ALLOWED_EXTENSIONS)) {\n         // no pre-processing services necessary for java files\n         // just write the the contents of 'program' to a .java file\n         // into the build directory. uses byte stream and reader/writer"
+ }
+]

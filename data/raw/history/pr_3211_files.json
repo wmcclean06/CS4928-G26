@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "782d50b4e065361903d5d32c219b9df3be13bc45",
+  "filename": "hardware/arduino/avr/cores/arduino/Print.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 3,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/527c7c25721c66015098f68dc64495c5f2b709de/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/527c7c25721c66015098f68dc64495c5f2b709de/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.cpp?ref=527c7c25721c66015098f68dc64495c5f2b709de",
+  "patch": "@@ -122,9 +122,7 @@ size_t Print::print(const Printable& x)\n \n size_t Print::println(void)\n {\n-  size_t n = print('\\r');\n-  n += print('\\n');\n-  return n;\n+  return write(\"\\r\\n\");\n }\n \n size_t Print::println(const String &s)"
+ },
+ {
+  "sha": "37963195567b36c5245f7aae088980e0c47cb06d",
+  "filename": "hardware/arduino/sam/cores/arduino/Print.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 3,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/527c7c25721c66015098f68dc64495c5f2b709de/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FPrint.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/527c7c25721c66015098f68dc64495c5f2b709de/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FPrint.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FPrint.cpp?ref=527c7c25721c66015098f68dc64495c5f2b709de",
+  "patch": "@@ -115,9 +115,7 @@ size_t Print::print(const Printable& x)\n \n size_t Print::println(void)\n {\n-  size_t n = print('\\r');\n-  n += print('\\n');\n-  return n;\n+  return write(\"\\r\\n\");\n }\n \n size_t Print::println(const String &s)"
+ }
+]

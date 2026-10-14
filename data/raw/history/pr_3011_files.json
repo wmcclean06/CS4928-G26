@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "7e8bf10e02dcc496559e37dcc89bd688fa25123a",
+  "filename": "hardware/arduino/avr/cores/arduino/Stream.cpp",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 6,
+  "changes": 12,
+  "blob_url": "https://github.com/arduino/Arduino/blob/91489d7ba8f5e4c06140b3be0149d70dbece4baa/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FStream.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/91489d7ba8f5e4c06140b3be0149d70dbece4baa/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FStream.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FStream.cpp?ref=91489d7ba8f5e4c06140b3be0149d70dbece4baa",
+  "patch": "@@ -265,11 +265,11 @@ int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount) {\n \n     for (struct MultiTarget *t = targets; t < targets+tCount; ++t) {\n       // the simple case is if we match, deal with that first.\n-      if (c == t->str[t->index])\n-\tif (++t->index == t->len)\n-\t  return t - targets;\n-\telse\n-\t  continue;\n+      if (c == t->str[t->index]) {\n+        if (++t->index == t->len)\n+          return t - targets;\n+      } else\n+        continue;\n \n       // if not we need to walk back and see if we could have matched further\n       // down the stream (ie '1112' doesn't match the first position in '11112'\n@@ -293,7 +293,7 @@ int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount) {\n \n \t// otherwise we need to check the rest of the found string\n \tint diff = origIndex - t->index;\n-\tint i;\n+\tsize_t i;\n \tfor (i = 0; i < t->index; ++i)\n \t  if (t->str[i] != t->str[i + diff])\n \t    break;"
+ }
+]

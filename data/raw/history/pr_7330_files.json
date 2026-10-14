@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "f1471244999164a682070908db1ed31cc2d80d9c",
+  "filename": "build/shared/revisions.txt",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ec179e5af67b7f1eeb5e46d22034798f8b24b7cb/build%2Fshared%2Frevisions.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ec179e5af67b7f1eeb5e46d22034798f8b24b7cb/build%2Fshared%2Frevisions.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Frevisions.txt?ref=ec179e5af67b7f1eeb5e46d22034798f8b24b7cb",
+  "patch": "@@ -6,6 +6,9 @@ ARDUINO 1.8.6\n * Added \"accelerator\" in scrollable menu, press \"a\" key while scrolling\n * Keep \"Board Manager\" menu item always as first in the menu\n \n+[core]\n+* AVR: Set Optiboot as default bootloader for Nano. This is the bootloader installed on new Arduino Nano boards. If you have a Nano with the old bootloader you must select Tools > Processor > ATmega328P (Old Bootloader) to upload.\n+\n [wifi101-firmware]\n * SECURITY FIX: Released fix for WPA2 KRACK vulnerability (latest WINC1500 firmware 19.5.2).\n "
+ }
+]

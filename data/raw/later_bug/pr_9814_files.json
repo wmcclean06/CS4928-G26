@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "62ff41cf55573849604cd7329830623d2d70ff96",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 1,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a9260f8252e53ffc30fd9e7d82bb8a6c4b43840e/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a9260f8252e53ffc30fd9e7d82bb8a6c4b43840e/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=a9260f8252e53ffc30fd9e7d82bb8a6c4b43840e",
+  "patch": "@@ -621,7 +621,12 @@ private int[] retrieveSketchLocation(String index) {\n         .get(\"last.sketch\" + index + \".location\");\n     if (locationStr == null)\n       return defaultEditorLocation();\n-    return PApplet.parseInt(PApplet.split(locationStr, ','));\n+\n+    int location[] = PApplet.parseInt(PApplet.split(locationStr, ','));\n+    if (location[0] > screen.width || location[1] > screen.height)\n+      return defaultEditorLocation();\n+\n+    return location;\n   }\n \n   protected void storeRecentSketches(SketchController sketch) {"
+ }
+]

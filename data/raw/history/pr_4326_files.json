@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "1063b676a32cc2a73e96c24d5d4c42b23dadab66",
+  "filename": "arduino-core/src/cc/arduino/contributions/packages/ContributedPlatform.java",
+  "status": "modified",
+  "additions": 19,
+  "deletions": 1,
+  "changes": 20,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7c089c96d3f607aafcef08af09cdbe56a4b03ab7/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributedPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7c089c96d3f607aafcef08af09cdbe56a4b03ab7/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributedPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributedPlatform.java?ref=7c089c96d3f607aafcef08af09cdbe56a4b03ab7",
+  "patch": "@@ -108,6 +108,24 @@ public boolean equals(Object obj) {\n     }\n \n     ContributedPlatform obj1 = (ContributedPlatform) obj;\n-    return getParentPackage().getName().equals(obj1.getParentPackage().getName()) && getArchitecture().equals(obj1.getArchitecture()) && getVersion().equals(obj1.getVersion()) && getName().equals(obj1.getName());\n+\n+    ContributedPackage parentPackage = getParentPackage();\n+    ContributedPackage parentPackage1 = obj1.getParentPackage();\n+    if (parentPackage == null) {\n+      if (parentPackage1 != null)\n+        return false;\n+    } else {\n+      if (parentPackage1 == null)\n+        return false;\n+      if (!parentPackage.getName().equals(parentPackage1.getName()))\n+        return false;\n+    }\n+    if (!getArchitecture().equals(obj1.getArchitecture())) {\n+      return false;\n+    }\n+    if (!getVersion().equals(obj1.getVersion())) {\n+      return false;\n+    }\n+    return getName().equals(obj1.getName());\n   }\n }"
+ }
+]

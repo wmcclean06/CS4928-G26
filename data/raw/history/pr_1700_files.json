@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "ef3d19b8b41e56e1be4f20a4ff7701f27b47405f",
+  "filename": "libraries/Ethernet/EthernetClient.cpp",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/29954567e7a7bc8bc3c631a3b030d351f190c055/libraries%2FEthernet%2FEthernetClient.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/29954567e7a7bc8bc3c631a3b030d351f190c055/libraries%2FEthernet%2FEthernetClient.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2FEthernetClient.cpp?ref=29954567e7a7bc8bc3c631a3b030d351f190c055",
+  "patch": "@@ -163,3 +163,7 @@ uint8_t EthernetClient::status() {\n EthernetClient::operator bool() {\n   return _sock != MAX_SOCK_NUM;\n }\n+\n+bool EthernetClient::operator==(const EthernetClient& rhs) {\n+  return _sock == rhs._sock && _sock != MAX_SOCK_NUM && rhs._sock != MAX_SOCK_NUM;\n+}"
+ },
+ {
+  "sha": "1992db05240587a7aa4ac35cdcac3e0b6eb0029b",
+  "filename": "libraries/Ethernet/EthernetClient.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/29954567e7a7bc8bc3c631a3b030d351f190c055/libraries%2FEthernet%2FEthernetClient.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/29954567e7a7bc8bc3c631a3b030d351f190c055/libraries%2FEthernet%2FEthernetClient.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2FEthernetClient.h?ref=29954567e7a7bc8bc3c631a3b030d351f190c055",
+  "patch": "@@ -24,6 +24,8 @@ class EthernetClient : public Client {\n   virtual void stop();\n   virtual uint8_t connected();\n   virtual operator bool();\n+  virtual bool operator==(const EthernetClient&);\n+  virtual bool operator!=(const EthernetClient& rhs) { return !this->operator==(rhs); };\n \n   friend class EthernetServer;\n   "
+ },
+ {
+  "sha": "6fa2787e0ddce2516614bd410ef888e9edfc51a7",
+  "filename": "libraries/Ethernet/examples/AdvancedChatServer/AdvancedChatServer.ino",
+  "status": "added",
+  "additions": 108,
+  "deletions": 0,
+  "changes": 108,
+  "blob_url": "https://github.com/arduino/Arduino/blob/29954567e7a7bc8bc3c631a3b030d351f190c055/libraries%2FEthernet%2Fexamples%2FAdvancedChatServer%2FAdvancedChatServer.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/29954567e7a7bc8bc3c631a3b030d351f190c055/libraries%2FEthernet%2Fexamples%2FAdvancedChatServer%2FAdvancedChatServer.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FAdvancedChatServer%2FAdvancedChatServer.ino?ref=29954567e7a7bc8bc3c631a3b030d351f190c055",
+  "patch": "@@ -0,0 +1,108 @@\n+/*\n+ Advanced Chat Server\n+\n+ A more advanced server that distributes any incoming messages \n+ to all connected clients but the client the message comes from.\n+ To use telnet to  your device's IP address and type.\n+ You can see the client's input in the serial monitor as well.\n+ Using an Arduino Wiznet Ethernet shield.\n+\n+ Circuit:\n+ * Ethernet shield attached to pins 10, 11, 12, 13\n+ * Analog inputs attached to pins A0 through A5 (optional)\n+\n+ created 18 Dec 2009\n+ by David A. Mellis\n+ modified 9 Apr 2012\n+ by Tom Igoe\n+ redesigned to make use of operator== 25 Nov 2013\n+ by Norbert Truchsess\n+\n+ */\n+\n+#include <SPI.h>\n+#include <Ethernet.h>\n+\n+// Enter a MAC address and IP address for your controller below.\n+// The IP address will be dependent on your local network.\n+// gateway and subnet are optional:\n+byte mac[] = { \n+  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };\n+IPAddress ip(192,168,1, 177);\n+IPAddress gateway(192,168,1, 1);\n+IPAddress subnet(255, 255, 0, 0);\n+\n+\n+// telnet defaults to port 23\n+EthernetServer server(23);\n+\n+EthernetClient clients[4];\n+\n+void setup() {\n+  // initialize the ethernet device\n+  Ethernet.begin(mac, ip, gateway, subnet);\n+  // start listening for clients\n+  server.begin();\n+ // Open serial communications and wait for port to open:\n+  Serial.begin(9600);\n+   while (!Serial) {\n+    ; // wait for serial port to connect. Needed for Leonardo only\n+  }\n+\n+\n+  Serial.print(\"Chat server address:\");\n+  Serial.println(Ethernet.localIP());\n+}\n+\n+void loop() {\n+  // wait for a new client:\n+  EthernetClient client = server.available();\n+\n+  // when the client sends the first byte, say hello:\n+  if (client) {\n+\n+    boolean newClient = true;\n+    for (byte i=0;i<4;i++) {\n+      //check whether this client refers to the same socket as one of the existing instances:\n+      if (clients[i]==client) {\n+        newClient = false;\n+        break;\n+      }\n+    }\n+\n+    if (newClient) {\n+      //check which of the existing clients can be overridden:\n+      for (byte i=0;i<4;i++) {\n+        if (!clients[i] && clients[i]!=client) {\n+          clients[i] = client;\n+          // clead out the input buffer:\n+          client.flush();\n+          Serial.println(\"We have a new client\");\n+          client.print(\"Hello, client number: \");\n+          client.print(i);\n+          client.println();\n+          break;\n+        }\n+      }\n+    }\n+\n+    if (client.available() > 0) {\n+      // read the bytes incoming from the client:\n+      char thisChar = client.read();\n+      // echo the bytes back to all other connected clients:\n+      for (byte i=0;i<4;i++) {\n+        if (clients[i] && (clients[i]!=client)) {\n+          clients[i].write(thisChar);\n+        }\n+      }\n+      // echo the bytes to the server as well:\n+      Serial.write(thisChar);\n+    }\n+  }\n+  for (byte i=0;i<4;i++) {\n+    if (!(clients[i].connected())) {\n+      // client.stop() invalidates the internal socket-descriptor, so next use of == will allways return false;\n+      clients[i].stop();\n+    }\n+  }\n+}"
+ }
+]

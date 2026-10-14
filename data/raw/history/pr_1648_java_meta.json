@@ -1,0 +1,55 @@
+{
+ "pr": 1648,
+ "base_sha": "128678c559d1aa7bf43d7423d8083dd7a03fa9dc",
+ "head_sha": "66faf5d6c600127066b178e959c7a00f3ac6c31e",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 0,
+   "old_sha": "774d20f74ec74456213f2fa82336dc743e7f0c8e",
+   "new_sha": "61051f93c97c503c6502cf50100a4eb03821a537",
+   "head_sha_check": "61051f93c97c503c6502cf50100a4eb03821a537",
+   "loc_at_head": 2308,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/Preferences.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 12,
+   "deletions": 0,
+   "old_sha": "00a5989edabf539db78a97187c7234f2b50e4393",
+   "new_sha": "e084ddde60601b523fb6a7ac52ec16acedf97bcf",
+   "head_sha_check": "e084ddde60601b523fb6a7ac52ec16acedf97bcf",
+   "loc_at_head": 736,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/syntax/JEditTextArea.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 50,
+   "deletions": 8,
+   "old_sha": "924eeb7a9e1c6785dd9680d8eafb99dd0bf1794a",
+   "new_sha": "07628e85e4fe6d045fbcbbff273651d71bb5b803",
+   "head_sha_check": "07628e85e4fe6d045fbcbbff273651d71bb5b803",
+   "loc_at_head": 2099,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/syntax/TextAreaLineNumbers.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 106,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "39f7438f281a386f58eb62434d3093b8b6e4af28",
+   "head_sha_check": "39f7438f281a386f58eb62434d3093b8b6e4af28",
+   "loc_at_head": 88,
+   "notes": "added"
+  }
+ ]
+}

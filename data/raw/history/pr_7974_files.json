@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "3149aea1e2f9b64d12d625305800b6cb47ad9f42",
+  "filename": "arduino-core/src/cc/arduino/contributions/packages/ContributedPlatform.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2f2987a4d5d449688653272ac979bebcc2bdf7b1/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributedPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2f2987a4d5d449688653272ac979bebcc2bdf7b1/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributedPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributedPlatform.java?ref=2f2987a4d5d449688653272ac979bebcc2bdf7b1",
+  "patch": "@@ -87,7 +87,7 @@ public void setBuiltIn(boolean builtIn) {\n   public static final Comparator<ContributedPlatform> BUILTIN_AS_LAST = (x, y) -> {\n     int px = x.isBuiltIn() ? 1 : -1;\n     int py = y.isBuiltIn() ? 1 : -1;\n-    return py - px;\n+    return px - py;\n   };\n \n   private Map<ContributedToolReference, ContributedTool> resolvedToolReferences;"
+ },
+ {
+  "sha": "ad80435957f0e4e03b28f2eabe4bff6068ed9734",
+  "filename": "build/shared/revisions.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2f2987a4d5d449688653272ac979bebcc2bdf7b1/build%2Fshared%2Frevisions.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2f2987a4d5d449688653272ac979bebcc2bdf7b1/build%2Fshared%2Frevisions.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Frevisions.txt?ref=2f2987a4d5d449688653272ac979bebcc2bdf7b1",
+  "patch": "@@ -7,6 +7,7 @@ ARDUINO 1.8.7 2018.09.11\n * Fixed: IDE doesn't start if a library with invalid version is found.\n * Fixed: Better dialog explaining that MacOSX 10.8 is now required. Thanks @PaulStoffregen\n * Fixed: Slow \"File\" and \"Tools\" menus in MacOSX\n+* Fixed: Weird Board Manager behaviour if AVR core is downgraded to a version earlier than 1.6.22\n * Improved first-use usability if the user don't select the serial port. Thanks @PaulStoffregen\n * Custom \"Tools\" menu now keeps the order as defined in boards.txt.\n "
+ }
+]

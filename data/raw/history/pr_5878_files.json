@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "f983ffe8f68d4ab236930651325424f1d1fc88c6",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e8ad69630583a000c130cc7f115dabce770e8cb2/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e8ad69630583a000c130cc7f115dabce770e8cb2/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=e8ad69630583a000c130cc7f115dabce770e8cb2",
+  "patch": "@@ -376,7 +376,7 @@ public Base(String[] args) throws Exception {\n         // Build\n         splash.splashText(tr(\"Verifying...\"));\n \n-        File sketchFile = new File(parser.getFilenames().get(0));\n+        File sketchFile = BaseNoGui.absoluteFile(parser.getFilenames().get(0));\n         sketch = new Sketch(sketchFile);\n \n         outputFile = new Compiler(sketch).build(progress -> {}, false);"
+ },
+ {
+  "sha": "f49e21c1a7ea333e156bb24f64fe5672b5a29c56",
+  "filename": "app/test/processing/app/CommandLineTest.java",
+  "status": "added",
+  "additions": 85,
+  "deletions": 0,
+  "changes": 85,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e8ad69630583a000c130cc7f115dabce770e8cb2/app%2Ftest%2Fprocessing%2Fapp%2FCommandLineTest.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e8ad69630583a000c130cc7f115dabce770e8cb2/app%2Ftest%2Fprocessing%2Fapp%2FCommandLineTest.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Ftest%2Fprocessing%2Fapp%2FCommandLineTest.java?ref=e8ad69630583a000c130cc7f115dabce770e8cb2",
+  "patch": "@@ -0,0 +1,85 @@\n+/*\n+ * This file is part of Arduino.\n+ *\n+ * Copyright 2017 Arduino LLC (http://www.arduino.cc/)\n+ *\n+ * Arduino is free software; you can redistribute it and/or modify\n+ * it under the terms of the GNU General Public License as published by\n+ * the Free Software Foundation; either version 2 of the License, or\n+ * (at your option) any later version.\n+ *\n+ * This program is distributed in the hope that it will be useful,\n+ * but WITHOUT ANY WARRANTY; without even the implied warranty of\n+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n+ * GNU General Public License for more details.\n+ *\n+ * You should have received a copy of the GNU General Public License\n+ * along with this program; if not, write to the Free Software\n+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n+ *\n+ * As a special exception, you may use this file as part of a free software\n+ * library without restriction.  Specifically, if other files instantiate\n+ * templates or use macros or inline functions from this file, or you compile\n+ * this file and link it with other files to produce an executable, this\n+ * file does not by itself cause the resulting executable to be covered by\n+ * the GNU General Public License.  This exception does not however\n+ * invalidate any other reasons why the executable file might be covered by\n+ * the GNU General Public License.\n+ */\n+\n+package processing.app;\n+\n+import static org.junit.Assert.assertEquals;\n+\n+import java.io.File;\n+\n+import org.apache.commons.compress.utils.IOUtils;\n+import org.junit.Before;\n+import org.junit.Test;\n+\n+import processing.app.helpers.OSUtils;\n+\n+public class CommandLineTest {\n+\n+  File buildPath;\n+  File arduinoPath;\n+\n+  @Before\n+  public void findBuildPaths() throws Exception {\n+    buildPath = new File(System.getProperty(\"user.dir\"));\n+    while (!new File(buildPath, \"build\").isDirectory()) {\n+      buildPath = buildPath.getParentFile();\n+      if (buildPath == null) {\n+        throw new Exception(\"Could not determine build path\");\n+      }\n+    }\n+    System.out.println(\"found buildpath: \" + buildPath);\n+    if (OSUtils.isLinux()) {\n+      arduinoPath = new File(buildPath, \"build/linux/work/arduino\");\n+    }\n+    if (OSUtils.isWindows()) {\n+      arduinoPath = new File(buildPath, \"build/windows/work/arduino\");\n+    }\n+    if (OSUtils.isMacOS()) {\n+      arduinoPath = new File(buildPath,\n+          \"build/macosx/work/Arduino.app/Contents/MacOS/Arduino\");\n+    }\n+    if (!arduinoPath.canExecute()) {\n+      throw new Exception(\"Could not determine arduino location\");\n+    }\n+    System.out.println(\"found arduino: \" + arduinoPath);\n+  }\n+\n+  @Test\n+  public void testCommandLineBuildWithRelativePath() throws Exception {\n+    Runtime rt = Runtime.getRuntime();\n+    File wd = new File(buildPath, \"build/shared/examples/01.Basics/Blink/\");\n+    Process pr = rt\n+        .exec(arduinoPath + \" --board arduino:avr:uno --verify Blink.ino\", null,\n+              wd);\n+    IOUtils.copy(pr.getInputStream(), System.out);\n+    pr.waitFor();\n+    assertEquals(0, pr.exitValue());\n+  }\n+\n+}"
+ },
+ {
+  "sha": "8258072273c42a455a27b3ab45890d859d1fd063",
+  "filename": "build/shared/revisions.txt",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e8ad69630583a000c130cc7f115dabce770e8cb2/build%2Fshared%2Frevisions.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e8ad69630583a000c130cc7f115dabce770e8cb2/build%2Fshared%2Frevisions.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Frevisions.txt?ref=e8ad69630583a000c130cc7f115dabce770e8cb2",
+  "patch": "@@ -1,5 +1,8 @@\n ARDUINO 1.8.2\n \n+[ide]\n+* Fix command line: works again with relative paths (regression)\n+\n ARDUINO 1.8.1 - 2017.01.09\n \n [ide]"
+ }
+]

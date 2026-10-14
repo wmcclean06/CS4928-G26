@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "832973fe1ad369051bf39d84670894c86a03b46d",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 8,
+  "changes": 16,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bbf909fd4fdf2a7d6ca7922b291ba90fb5f89e47/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bbf909fd4fdf2a7d6ca7922b291ba90fb5f89e47/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=bbf909fd4fdf2a7d6ca7922b291ba90fb5f89e47",
+  "patch": "@@ -222,15 +222,15 @@ static public void guardedMain(String args[]) throws Exception {\n     INSTANCE = new Base(args);\n   }\n \n-  \n+\n   static public void initLogger() {\n     Handler consoleHandler = new ConsoleLogger();\n     consoleHandler.setLevel(Level.ALL);\n     consoleHandler.setFormatter(new LogFormatter(\"%1$tl:%1$tM:%1$tS [%4$7s] %2$s: %5$s%n\"));\n-    \n+\n     Logger globalLogger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);\n     globalLogger.setLevel(consoleHandler.getLevel());\n-    \n+\n     // Remove default\n     Handler[] handlers = globalLogger.getHandlers();\n     for(Handler handler : handlers) {\n@@ -241,13 +241,13 @@ static public void initLogger() {\n     for(Handler handler : handlers) {\n       root.removeHandler(handler);\n     }\n-    \n+\n     globalLogger.addHandler(consoleHandler);\n-    \n+\n     Logger.getLogger(\"cc.arduino.packages.autocomplete\").setParent(globalLogger);\n     Logger.getLogger(\"br.com.criativasoft.cpluslibparser\").setParent(globalLogger);\n     Logger.getLogger(Base.class.getPackage().getName()).setParent(globalLogger);\n-    \n+\n   }\n \n \n@@ -1751,7 +1751,7 @@ public void paint(Graphics graphics) {\n \n         Font f = new Font(\"SansSerif\", Font.PLAIN, Theme.scale(11));\n         g.setFont(f);\n-        g.setColor(Color.white);\n+        g.setColor(new Color(0,151,156));\n         g.drawString(BaseNoGui.VERSION_NAME_LONG, Theme.scale(33), Theme.scale(20));\n       }\n     };\n@@ -1949,7 +1949,7 @@ static public void showReference(String prefix, String filename) {\n     File referenceFile = new File(referenceFolder, filename);\n     if (!referenceFile.exists())\n       referenceFile = new File(referenceFolder, filename + \".html\");\n-    \n+\n     if(referenceFile.exists()){\n       openURL(referenceFile.getAbsolutePath());\n     }else{"
+ }
+]

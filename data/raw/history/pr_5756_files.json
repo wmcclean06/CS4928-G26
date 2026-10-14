@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "9aa81d2d0c696e9da0c9b8d0bde9e2922e3ef864",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 10,
+  "deletions": 2,
+  "changes": 12,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bb7cbef653e6851f5605d020619d1a0a2a134925/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bb7cbef653e6851f5605d020619d1a0a2a134925/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=bb7cbef653e6851f5605d020619d1a0a2a134925",
+  "patch": "@@ -120,8 +120,16 @@ public class Base {\n   private final List<JMenuItem> recentSketchesMenuItems = new LinkedList<>();\n \n   static public void main(String args[]) throws Exception {\n-    System.setProperty(\"awt.useSystemAAFontSettings\", \"on\");\n-    System.setProperty(\"swing.aatext\", \"true\");\n+    if (!OSUtils.isWindows()) {\n+      // Those properties helps enabling anti-aliasing on Linux\n+      // (but not on Windows where they made things worse actually\n+      // and the font rendering becomes ugly).\n+\n+      // Those properties must be set before initializing any\n+      // graphic object, otherwise they don't have any effect.\n+      System.setProperty(\"awt.useSystemAAFontSettings\", \"on\");\n+      System.setProperty(\"swing.aatext\", \"true\");\n+    }\n     System.setProperty(\"java.net.useSystemProxies\", \"true\");\n \n     if (OSUtils.isMacOS()) {"
+ },
+ {
+  "sha": "a4e2901140b1f15ad70fb7bc7aaff4a593c026e4",
+  "filename": "build/shared/revisions.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bb7cbef653e6851f5605d020619d1a0a2a134925/build%2Fshared%2Frevisions.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bb7cbef653e6851f5605d020619d1a0a2a134925/build%2Fshared%2Frevisions.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Frevisions.txt?ref=bb7cbef653e6851f5605d020619d1a0a2a134925",
+  "patch": "@@ -1,5 +1,7 @@\n ARDUINO 1.8.1\n \n+[ide]\n+* Fixed font rendering not anti-aliased on Windows (regression)\n \n ARDUINO 1.8.0 - 2016.12.20\n "
+ }
+]

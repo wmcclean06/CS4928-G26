@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "9885efb78501a5966e2b09ae0114cb69c0adfb78",
+  "filename": "libraries/Ethernet/EthernetClient.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/47c46c4f254cb073b08e6e0fcfdff8dea797a39a/libraries%2FEthernet%2FEthernetClient.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/47c46c4f254cb073b08e6e0fcfdff8dea797a39a/libraries%2FEthernet%2FEthernetClient.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2FEthernetClient.cpp?ref=47c46c4f254cb073b08e6e0fcfdff8dea797a39a",
+  "patch": "@@ -41,7 +41,7 @@ int EthernetClient::connect(IPAddress ip, uint16_t port) {\n \n   for (int i = 0; i < MAX_SOCK_NUM; i++) {\n     uint8_t s = W5100.readSnSR(i);\n-    if (s == SnSR::CLOSED || s == SnSR::FIN_WAIT) {\n+    if (s == SnSR::CLOSED || s == SnSR::FIN_WAIT || s == SnSR::CLOSE_WAIT) {\n       _sock = i;\n       break;\n     }"
+ }
+]

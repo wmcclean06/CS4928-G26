@@ -1,0 +1,19 @@
+{
+ "pr": 5967,
+ "base_sha": "7434443d58c8c2af734cb9296c2947e47313d140",
+ "head_sha": "ba302ee9c8504d9865219bcd92c48a02af69e930",
+ "java_files": [
+  {
+   "path": "arduino-core/src/processing/app/Serial.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 44,
+   "deletions": 5,
+   "old_sha": "b6b91fdc71f3ef2f252c240540561e53e298d367",
+   "new_sha": "6a984d2f7e559445bb936c295dc7f5520c634aaf",
+   "head_sha_check": "6a984d2f7e559445bb936c295dc7f5520c634aaf",
+   "loc_at_head": 240,
+   "notes": ""
+  }
+ ]
+}

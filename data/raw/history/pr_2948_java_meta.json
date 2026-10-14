@@ -1,0 +1,19 @@
+{
+ "pr": 2948,
+ "base_sha": "87e2e68b85c1ca3337a9c572ba01308ef9a0c446",
+ "head_sha": "26ae4d13b880c78dc579ed5528ee20f2404d531e",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/LibraryInstaller.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 6,
+   "deletions": 5,
+   "old_sha": "a90f2f0656dea76deb7fe00063ee5e38ddf7a7a3",
+   "new_sha": "2bae0ac405e24467cd6279fd7af2341da963a353",
+   "head_sha_check": "2bae0ac405e24467cd6279fd7af2341da963a353",
+   "loc_at_head": 145,
+   "notes": ""
+  }
+ ]
+}

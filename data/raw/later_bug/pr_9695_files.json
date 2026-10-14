@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "815f264da3611b74a1a1f6f0e0a6a939c545e236",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 3,
+  "changes": 9,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8c3f214a6c289576c49c29f9122b05e424eb829a/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8c3f214a6c289576c49c29f9122b05e424eb829a/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=8c3f214a6c289576c49c29f9122b05e424eb829a",
+  "patch": "@@ -207,9 +207,6 @@ public Base(String[] args) throws Exception {\n     BaseNoGui.getPlatform().init();\n \n     BaseNoGui.initPortableFolder();\n-    // This configure the logs root folder\n-    System.out.println(\"Set log4j store directory \" + BaseNoGui.getSettingsFolder().getAbsolutePath());\n-    System.setProperty(\"log4j.dir\", BaseNoGui.getSettingsFolder().getAbsolutePath());\n \n     // Look for a possible \"--preferences-file\" parameter and load preferences\n     BaseNoGui.initParameters(args);\n@@ -218,6 +215,12 @@ public Base(String[] args) throws Exception {\n     parser.parseArgumentsPhase1();\n     commandLine = !parser.isGuiMode();\n \n+    // This configure the logs root folder\n+    if (parser.isGuiMode()) {\n+        System.out.println(\"Set log4j store directory \" + BaseNoGui.getSettingsFolder().getAbsolutePath());\n+    }\n+    System.setProperty(\"log4j.dir\", BaseNoGui.getSettingsFolder().getAbsolutePath());\n+\n     BaseNoGui.checkInstallationFolder();\n \n     // If no path is set, get the default sketchbook folder for this platform"
+ }
+]

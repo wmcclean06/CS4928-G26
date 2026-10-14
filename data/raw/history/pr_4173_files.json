@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ed1cb26870bdff37aae56d9dfadae6a458050247",
+  "filename": "hardware/arduino/sam/cores/arduino/UARTClass.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/435f6790da577b0c028bce196b5e6601c4a8d046/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUARTClass.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/435f6790da577b0c028bce196b5e6601c4a8d046/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUARTClass.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUARTClass.cpp?ref=435f6790da577b0c028bce196b5e6601c4a8d046",
+  "patch": "@@ -138,7 +138,7 @@ void UARTClass::flush( void )\n {\n   while (_tx_buffer->_iHead != _tx_buffer->_iTail); //wait for transmit data to be sent\n   // Wait for transmission to complete\n-  while ((_pUart->UART_SR & UART_SR_TXRDY) != UART_SR_TXRDY)\n+  while ((_pUart->UART_SR & UART_SR_TXEMPTY) != UART_SR_TXEMPTY)\n    ;\n }\n "
+ }
+]

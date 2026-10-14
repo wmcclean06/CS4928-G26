@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "22e1819c4dbbe35b17dc16f629c8dd0a8c71d938",
+  "filename": "build/shared/lib/keywords.txt",
+  "status": "modified",
+  "additions": 53,
+  "deletions": 1,
+  "changes": 54,
+  "blob_url": "https://github.com/arduino/Arduino/blob/90cd8cd507d299a365892ac82ff57bf12a8fd020/build%2Fshared%2Flib%2Fkeywords.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/90cd8cd507d299a365892ac82ff57bf12a8fd020/build%2Fshared%2Flib%2Fkeywords.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Flib%2Fkeywords.txt?ref=90cd8cd507d299a365892ac82ff57bf12a8fd020",
+  "patch": "@@ -118,28 +118,80 @@ PROGMEM\tLITERAL1\tConstants\tRESERVED_WORD_2\n \n abs\tKEYWORD2\tAbs\n acos\tKEYWORD2\tACos\n+acosf\tKEYWORD2\n asin\tKEYWORD2\tASin\n+asinf\tKEYWORD2\n atan\tKEYWORD2\tATan\n atan2\tKEYWORD2\tATan2\n+atan2f\tKEYWORD2\n+atanf\tKEYWORD2\n+cbrt\tKEYWORD2\n+cbrtf\tKEYWORD2\n ceil\tKEYWORD2\tCeil\n+ceilf\tKEYWORD2\n constrain\tKEYWORD2\tConstrain\n+copysign\tKEYWORD2\n+copysignf\tKEYWORD2\n cos\tKEYWORD2\tCos\n+cosf\tKEYWORD2\n+cosh\tKEYWORD2\n+coshf\tKEYWORD2\n degrees\tKEYWORD2\n exp\tKEYWORD2\tExp\n+expf\tKEYWORD2\n+fabs\tKEYWORD2\n+fabsf\tKEYWORD2\n+fdim\tKEYWORD2\n+fdimf\tKEYWORD2\n floor\tKEYWORD2\tFloor\n+floorf\tKEYWORD2\n+fma\tKEYWORD2\n+fmaf\tKEYWORD2\n+fmax\tKEYWORD2\n+fmaxf\tKEYWORD2\n+fmin\tKEYWORD2\n+fminf\tKEYWORD2\n+fmod\tKEYWORD2\n+fmodf\tKEYWORD2\n+hypot\tKEYWORD2\n+hypotf\tKEYWORD2\n+isfinite\tKEYWORD2\n+isinf\tKEYWORD2\n+isnan\tKEYWORD2\n+ldexp\tKEYWORD2\n+ldexpf\tKEYWORD2\n log\tKEYWORD2\tLog\n+log10\tKEYWORD2\n+log10f\tKEYWORD2\n+logf\tKEYWORD2\n+lrint\tKEYWORD2\n+lrintf\tKEYWORD2\n+lround\tKEYWORD2\n+lroundf\tKEYWORD2\n map\tKEYWORD2\tMap\n max\tKEYWORD2\tMax\n min\tKEYWORD2\tMin\n+pow\tKEYWORD2\tPow\n+powf\tKEYWORD2\n radians\tKEYWORD2\n random\tKEYWORD2\tRandom\n randomSeed\tKEYWORD2\tRandomSeed\n round\tKEYWORD2\n+roundf\tKEYWORD2\n+signbit\tKEYWORD2\n sin\tKEYWORD2\tSin\n+sinf\tKEYWORD2\n+sinh\tKEYWORD2\n+sinhf\tKEYWORD2\n sq\tKEYWORD2\tSq\n sqrt\tKEYWORD2\tSqrt\n+sqrtf\tKEYWORD2\n tan\tKEYWORD2\tTan\n-pow\tKEYWORD2\tPow\n+tanf\tKEYWORD2\n+tanh\tKEYWORD2\n+tanhf\tKEYWORD2\n+trunc\tKEYWORD2\n+truncf\tKEYWORD2\n \n bitRead\tKEYWORD2\tBitRead\n bitWrite\tKEYWORD2\tBitWrite"
+ }
+]

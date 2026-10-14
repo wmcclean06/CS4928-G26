@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "52c5b65b56b75f47e875f28a895f1bf3734c98a2",
+  "filename": "app/src/processing/app/AbstractMonitor.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 11,
+  "changes": 16,
+  "blob_url": "https://github.com/arduino/Arduino/blob/fdad2f7f92ca4d4c8fdc81494fbbd86b70864b5d/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/fdad2f7f92ca4d4c8fdc81494fbbd86b70864b5d/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java?ref=fdad2f7f92ca4d4c8fdc81494fbbd86b70864b5d",
+  "patch": "@@ -59,17 +59,11 @@ public void actionPerformed(ActionEvent event) {\n     pack();\n \n     Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();\n-    if (PreferencesData.get(\"last.screen.height\") != null) {\n-      // if screen size has changed, the window coordinates no longer\n-      // make sense, so don't use them unless they're identical\n-      int screenW = PreferencesData.getInteger(\"last.screen.width\");\n-      int screenH = PreferencesData.getInteger(\"last.screen.height\");\n-      if ((screen.width == screenW) && (screen.height == screenH)) {\n-        String locationStr = PreferencesData.get(\"last.serial.location\");\n-        if (locationStr != null) {\n-          int[] location = PApplet.parseInt(PApplet.split(locationStr, ','));\n-          setPlacement(location);\n-        }\n+    String locationStr = PreferencesData.get(\"last.serial.location\");\n+    if (locationStr != null) {\n+      int[] location = PApplet.parseInt(PApplet.split(locationStr, ','));\n+      if (location[0] + location[2] <= screen.width && location[1] + location[3] <= screen.height) {\n+        setPlacement(location);\n       }\n     }\n "
+ },
+ {
+  "sha": "647b30163932f44d80269a65494653d7218050ee",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 11,
+  "deletions": 4,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/fdad2f7f92ca4d4c8fdc81494fbbd86b70864b5d/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/fdad2f7f92ca4d4c8fdc81494fbbd86b70864b5d/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=fdad2f7f92ca4d4c8fdc81494fbbd86b70864b5d",
+  "patch": "@@ -522,16 +522,21 @@ protected boolean restoreSketches() throws Exception {\n     return (opened > 0);\n   }\n \n-\n   /**\n-   * Store list of sketches that are currently open.\n-   * Called when the application is quitting and documents are still open.\n+   * Store screen dimensions on last close\n    */\n-  protected void storeSketches() {\n+  protected void storeScreenDimensions() {\n     // Save the width and height of the screen\n     Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();\n     PreferencesData.setInteger(\"last.screen.width\", screen.width);\n     PreferencesData.setInteger(\"last.screen.height\", screen.height);\n+  }\n+\n+  /**\n+   * Store list of sketches that are currently open.\n+   * Called when the application is quitting and documents are still open.\n+   */\n+  protected void storeSketches() {\n \n     // If there is only one sketch opened save his position as default\n     if (editors.size() == 1) {\n@@ -903,6 +908,7 @@ public boolean handleClose(Editor editor) {\n     }\n \n     if (editors.size() == 1) {\n+      storeScreenDimensions();\n       storeSketches();\n \n       // This will store the sketch count as zero\n@@ -949,6 +955,7 @@ public boolean handleClose(Editor editor) {\n   public boolean handleQuit() {\n     // If quit is canceled, this will be replaced anyway\n     // by a later handleQuit() that is not canceled.\n+    storeScreenDimensions();\n     storeSketches();\n     try {\n       Editor.serialMonitor.close();"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "e02d0d6c47ec4bf494255f7f0f65e49bac2af48a",
+  "filename": "build/linux/dist/install.sh",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 4,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8cff0dbef46dbeb77e1855521f1bf7bd8e68a6b4/build%2Flinux%2Fdist%2Finstall.sh",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8cff0dbef46dbeb77e1855521f1bf7bd8e68a6b4/build%2Flinux%2Fdist%2Finstall.sh",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Finstall.sh?ref=8cff0dbef46dbeb77e1855521f1bf7bd8e68a6b4",
+  "patch": "@@ -152,8 +152,8 @@ xdg_uninstall_f() {\n \n   # Remove symlink for arduino\n   echo \"\" # Ensure password request message is on new line\n-  if ! rm /usr/local/bin/arduino; then\n-      echo \"Removing symlink failed. Hope that's OK. If not then rerun as root with sudo.\"\n+  if [ -f /usr/local/bin/arduino ]; then\n+      rm /usr/local/bin/arduino || echo \"Removing symlink failed. Hope that's OK. If not then rerun as root with sudo.\"\n   fi\n \n }\n@@ -189,8 +189,8 @@ simple_uninstall_f() {\n \n   # Remove symlink for arduino\n   echo \"\" # Ensure password request message is on new line\n-  if ! rm /usr/local/bin/arduino; then\n-      echo \"Removing symlink failed. Hope that's OK. If not then rerun as root with sudo.\"\n+  if [ -f /usr/local/bin/arduino ]; then\n+      rm /usr/local/bin/arduino || echo \"Removing symlink failed. Hope that's OK. If not then rerun as root with sudo.\"\n   fi\n \n }"
+ }
+]

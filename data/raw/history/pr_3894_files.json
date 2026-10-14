@@ -1,0 +1,73 @@
+[
+ {
+  "sha": "ce16cc1eb26226b73e8e255d4acaa533b3f55f77",
+  "filename": "hardware/arduino/sam/libraries/Wire/Wire.cpp",
+  "status": "modified",
+  "additions": 37,
+  "deletions": 4,
+  "changes": 41,
+  "blob_url": "https://github.com/arduino/Arduino/blob/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2FWire.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2FWire.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2FWire.cpp?ref=851efaefd77989c535c5b060b54ad24e6d3419eb",
+  "patch": "@@ -92,10 +92,11 @@ static inline bool TWI_STATUS_NACK(uint32_t status) {\n \treturn (status & TWI_SR_NACK) == TWI_SR_NACK;\n }\n \n-TwoWire::TwoWire(Twi *_twi, void(*_beginCb)(void)) :\n+TwoWire::TwoWire(Twi *_twi, void(*_beginCb)(void), void(*_endCb)(void)) :\n \ttwi(_twi), rxBufferIndex(0), rxBufferLength(0), txAddress(0),\n \t\t\ttxBufferLength(0), srvBufferIndex(0), srvBufferLength(0), status(\n-\t\t\t\t\tUNINITIALIZED), onBeginCallback(_beginCb), twiClock(TWI_CLOCK) {\n+\t\t\t\t\tUNINITIALIZED), onBeginCallback(_beginCb), \n+\t\t\t\t\t\tonEndCallback(_endCb), twiClock(TWI_CLOCK) {\n }\n \n void TwoWire::begin(void) {\n@@ -126,6 +127,16 @@ void TwoWire::begin(int address) {\n \tbegin((uint8_t) address);\n }\n \n+void TwoWire::end(void) {\n+\tTWI_Disable(twi);\n+\n+\t// Enable PDC channel\n+\ttwi->TWI_PTCR &= ~(UART_PTCR_RXTDIS | UART_PTCR_TXTDIS);\n+\n+\tif (onEndCallback)\n+\t\tonEndCallback();\n+}\n+\n void TwoWire::setClock(uint32_t frequency) {\n \ttwiClock = frequency;\n \tTWI_SetClock(twi, twiClock, VARIANT_MCK);\n@@ -381,7 +392,18 @@ static void Wire_Init(void) {\n \tNVIC_EnableIRQ(WIRE_ISR_ID);\n }\n \n-TwoWire Wire = TwoWire(WIRE_INTERFACE, Wire_Init);\n+static void Wire_Deinit(void) {\n+\tNVIC_DisableIRQ(WIRE_ISR_ID);\n+\tNVIC_ClearPendingIRQ(WIRE_ISR_ID);\n+\n+\tpmc_disable_periph_clk(WIRE_INTERFACE_ID);\n+\n+\t// no need to undo PIO_Configure, \n+\t// as Peripheral A was enable by default before,\n+\t// and pullups were not enabled\n+}\n+\n+TwoWire Wire = TwoWire(WIRE_INTERFACE, Wire_Init, Wire_Deinit);\n \n void WIRE_ISR_HANDLER(void) {\n \tWire.onService();\n@@ -408,7 +430,18 @@ static void Wire1_Init(void) {\n \tNVIC_EnableIRQ(WIRE1_ISR_ID);\n }\n \n-TwoWire Wire1 = TwoWire(WIRE1_INTERFACE, Wire1_Init);\n+static void Wire1_Deinit(void) {\n+\tNVIC_DisableIRQ(WIRE1_ISR_ID);\n+\tNVIC_ClearPendingIRQ(WIRE1_ISR_ID);\n+\n+\tpmc_disable_periph_clk(WIRE1_INTERFACE_ID);\n+\n+\t// no need to undo PIO_Configure, \n+\t// as Peripheral A was enable by default before,\n+\t// and pullups were not enabled\n+}\n+\n+TwoWire Wire1 = TwoWire(WIRE1_INTERFACE, Wire1_Init, Wire1_Deinit);\n \n void WIRE1_ISR_HANDLER(void) {\n \tWire1.onService();"
+ },
+ {
+  "sha": "3913c983bcd4863bc0e28c2b9632337083c35d5f",
+  "filename": "hardware/arduino/sam/libraries/Wire/Wire.h",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 1,
+  "changes": 9,
+  "blob_url": "https://github.com/arduino/Arduino/blob/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2FWire.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2FWire.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Flibraries%2FWire%2FWire.h?ref=851efaefd77989c535c5b060b54ad24e6d3419eb",
+  "patch": "@@ -29,12 +29,16 @@\n \n #define BUFFER_LENGTH 32\n \n+ // WIRE_HAS_END means Wire has end()\n+#define WIRE_HAS_END 1\n+\n class TwoWire : public Stream {\n public:\n-\tTwoWire(Twi *twi, void(*begin_cb)(void));\n+\tTwoWire(Twi *twi, void(*begin_cb)(void), void(*end_cb)(void));\n \tvoid begin();\n \tvoid begin(uint8_t);\n \tvoid begin(int);\n+\tvoid end();\n \tvoid setClock(uint32_t);\n \tvoid beginTransmission(uint8_t);\n \tvoid beginTransmission(int);\n@@ -85,6 +89,9 @@ class TwoWire : public Stream {\n \t// Called before initialization\n \tvoid (*onBeginCallback)(void);\n \n+\t// Called after deinitialization\n+\tvoid (*onEndCallback)(void);\n+\n \t// TWI instance\n \tTwi *twi;\n "
+ },
+ {
+  "sha": "76ecd9c8034b4ad508735029e36a713dd6910d76",
+  "filename": "hardware/arduino/sam/system/libsam/include/twi.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Fsystem%2Flibsam%2Finclude%2Ftwi.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Fsystem%2Flibsam%2Finclude%2Ftwi.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fsystem%2Flibsam%2Finclude%2Ftwi.h?ref=851efaefd77989c535c5b060b54ad24e6d3419eb",
+  "patch": "@@ -71,6 +71,8 @@ extern void TWI_SetClock( Twi *pTwi, uint32_t dwTwCk, uint32_t dwMCk );\n \n extern void TWI_ConfigureSlave(Twi *pTwi, uint8_t slaveAddress);\n \n+extern void TWI_Disable(Twi *pTwi);\n+\n extern void TWI_Stop(Twi *pTwi);\n \n extern void TWI_StartRead("
+ },
+ {
+  "sha": "a00e1b519ff7cd84ac4a091c88881ff653de611a",
+  "filename": "hardware/arduino/sam/system/libsam/source/twi.c",
+  "status": "modified",
+  "additions": 23,
+  "deletions": 15,
+  "changes": 38,
+  "blob_url": "https://github.com/arduino/Arduino/blob/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Fsystem%2Flibsam%2Fsource%2Ftwi.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Fsystem%2Flibsam%2Fsource%2Ftwi.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fsystem%2Flibsam%2Fsource%2Ftwi.c?ref=851efaefd77989c535c5b060b54ad24e6d3419eb",
+  "patch": "@@ -100,13 +100,8 @@ void TWI_ConfigureMaster( Twi* pTwi, uint32_t dwTwCk, uint32_t dwMCk )\n \n     /* SVEN: TWI Slave Mode Enabled */\n     pTwi->TWI_CR = TWI_CR_SVEN ;\n-    /* Reset the TWI */\n-    pTwi->TWI_CR = TWI_CR_SWRST ;\n-    pTwi->TWI_RHR ;\n \n-    /* TWI Slave Mode Disabled, TWI Master Mode Disabled. */\n-    pTwi->TWI_CR = TWI_CR_SVDIS ;\n-    pTwi->TWI_CR = TWI_CR_MSDIS ;\n+    TWI_Disable(pTwi);\n \n     /* Set master mode */\n     pTwi->TWI_CR = TWI_CR_MSEN ;\n@@ -156,15 +151,7 @@ void TWI_ConfigureSlave(Twi *pTwi, uint8_t slaveAddress)\n {\n     uint32_t i;\n \n-    /* TWI software reset */\n-    pTwi->TWI_CR = TWI_CR_SWRST;\n-    pTwi->TWI_RHR;\n-\n-    /* Wait at least 10 ms */\n-    for (i=0; i < 1000000; i++);\n-\n-    /* TWI Slave Mode Disabled, TWI Master Mode Disabled*/\n-    pTwi->TWI_CR = TWI_CR_SVDIS | TWI_CR_MSDIS;\n+    TWI_Disable(pTwi);\n \n     /* Configure slave address. */\n     pTwi->TWI_SMR = 0;\n@@ -178,6 +165,27 @@ void TWI_ConfigureSlave(Twi *pTwi, uint8_t slaveAddress)\n     assert( (pTwi->TWI_CR & TWI_CR_SVDIS)!= TWI_CR_SVDIS ) ;\n }\n \n+/**\n+ * \\brief Disables the TWI.\n+ * \\param pTwi  Pointer to an Twi instance.\n+ */\n+void TWI_Disable(Twi *pTwi)\n+{\n+    assert( pTwi ) ;\n+\n+    uint32_t i;\n+\n+    /* TWI software reset */\n+    pTwi->TWI_CR = TWI_CR_SWRST;\n+    pTwi->TWI_RHR;\n+\n+    /* Wait at least 10 ms */\n+    for (i=0; i < 1000000; i++);\n+\n+    /* TWI Slave Mode Disabled, TWI Master Mode Disabled*/\n+    pTwi->TWI_CR = TWI_CR_SVDIS | TWI_CR_MSDIS;\n+}\n+\n /**\n  * \\brief Sends a STOP condition on the TWI.\n  * \\param pTwi  Pointer to an Twi instance."
+ },
+ {
+  "sha": "3e25e6cabd1e3367a2031f76fbb34cc4a1e43d44",
+  "filename": "hardware/arduino/sam/variants/arduino_due_x/libsam_sam3x8e_gcc_rel.a",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 0,
+  "changes": 0,
+  "blob_url": "https://github.com/arduino/Arduino/blob/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Flibsam_sam3x8e_gcc_rel.a",
+  "raw_url": "https://github.com/arduino/Arduino/raw/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Flibsam_sam3x8e_gcc_rel.a",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Flibsam_sam3x8e_gcc_rel.a?ref=851efaefd77989c535c5b060b54ad24e6d3419eb"
+ },
+ {
+  "sha": "9b614811bd3553572f52d283a333d942c4d0460c",
+  "filename": "hardware/arduino/sam/variants/arduino_due_x/libsam_sam3x8e_gcc_rel.a.txt",
+  "status": "modified",
+  "additions": 35,
+  "deletions": 36,
+  "changes": 71,
+  "blob_url": "https://github.com/arduino/Arduino/blob/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Flibsam_sam3x8e_gcc_rel.a.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/851efaefd77989c535c5b060b54ad24e6d3419eb/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Flibsam_sam3x8e_gcc_rel.a.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Flibsam_sam3x8e_gcc_rel.a.txt?ref=851efaefd77989c535c5b060b54ad24e6d3419eb",
+  "patch": "@@ -72,7 +72,6 @@ pmc.o:\n 00000000 T pmc_switch_udpck_to_upllck\n \n pwmc.o:\n-00000000 r C.9.8054\n 00000000 t FindClockConfiguration\n 00000000 T PWMC_ConfigureChannel\n 00000000 T PWMC_ConfigureChannelExt\n@@ -100,14 +99,14 @@ pwmc.o:\n 00000000 T PWMC_SetSyncChannelUpdateUnlock\n 00000000 T PWMC_WriteBuffer\n          U __assert_func\n-00000000 r __func__.6635\n-00000000 r __func__.6646\n-00000000 r __func__.6661\n-00000000 r __func__.6672\n-00000000 r __func__.6683\n-00000000 r __func__.6690\n-00000000 r __func__.6774\n-00000000 r __func__.6780\n+00000000 r __func__.6793\n+00000000 r __func__.6804\n+00000000 r __func__.6819\n+00000000 r __func__.6830\n+00000000 r __func__.6841\n+00000000 r __func__.6848\n+00000000 r __func__.6932\n+00000000 r __func__.6938\n \n rtc.o:\n 00000000 T RTC_ClearSCCR\n@@ -123,9 +122,9 @@ rtc.o:\n 00000000 T RTC_SetTime\n 00000000 T RTC_SetTimeAlarm\n          U __assert_func\n-00000000 r __func__.6632\n-00000000 r __func__.6641\n-00000000 r __func__.6646\n+00000000 r __func__.6790\n+00000000 r __func__.6799\n+00000000 r __func__.6804\n \n rtt.o:\n 00000000 T RTT_EnableIT\n@@ -134,8 +133,8 @@ rtt.o:\n 00000000 T RTT_SetAlarm\n 00000000 T RTT_SetPrescaler\n          U __assert_func\n-00000000 r __func__.6639\n-00000000 r __func__.6647\n+00000000 r __func__.6797\n+00000000 r __func__.6805\n \n spi.o:\n 00000000 T SPI_Configure\n@@ -161,9 +160,9 @@ tc.o:\n 00000000 T TC_Start\n 00000000 T TC_Stop\n          U __assert_func\n-00000000 r __func__.6634\n-00000000 r __func__.6640\n-00000000 r __func__.6646\n+00000000 r __func__.6792\n+00000000 r __func__.6798\n+00000000 r __func__.6804\n \n timetick.o:\n 00000000 T GetTickCount\n@@ -178,6 +177,7 @@ twi.o:\n 00000000 T TWI_ByteSent\n 00000000 T TWI_ConfigureMaster\n 00000000 T TWI_ConfigureSlave\n+00000000 T TWI_Disable\n 00000000 T TWI_DisableIt\n 00000000 T TWI_EnableIt\n 00000000 T TWI_GetMaskedStatus\n@@ -191,19 +191,20 @@ twi.o:\n 00000000 T TWI_TransferComplete\n 00000000 T TWI_WriteByte\n          U __assert_func\n-00000000 r __func__.7004\n-00000000 r __func__.7010\n-00000000 r __func__.7028\n-00000000 r __func__.7032\n-00000000 r __func__.7039\n-00000000 r __func__.7043\n-00000000 r __func__.7048\n-00000000 r __func__.7056\n-00000000 r __func__.7070\n-00000000 r __func__.7075\n-00000000 r __func__.7079\n-00000000 r __func__.7084\n-00000000 r __func__.7088\n+00000000 r __func__.7151\n+00000000 r __func__.7157\n+00000000 r __func__.7172\n+00000000 r __func__.7176\n+00000000 r __func__.7184\n+00000000 r __func__.7191\n+00000000 r __func__.7195\n+00000000 r __func__.7200\n+00000000 r __func__.7208\n+00000000 r __func__.7222\n+00000000 r __func__.7227\n+00000000 r __func__.7231\n+00000000 r __func__.7236\n+00000000 r __func__.7240\n \n usart.o:\n 00000000 T USART_Configure\n@@ -222,7 +223,7 @@ usart.o:\n 00000000 T USART_Write\n 00000000 T USART_WriteBuffer\n          U __assert_func\n-00000000 r __func__.6928\n+00000000 r __func__.7068\n \n wdt.o:\n 00000000 T WDT_Disable\n@@ -300,7 +301,6 @@ startup_sam3xa.o:\n          U main\n \n adc.o:\n-00000000 r C.0.8146\n 00000000 T adc_configure_power_save\n 00000000 T adc_configure_sequence\n 00000000 T adc_configure_timing\n@@ -485,12 +485,12 @@ efc.o:\n 00000000 T efc_get_wait_state\n 00000000 T efc_init\n 00000000 T efc_perform_command\n-00000070 T efc_perform_fcr\n+0000006c T efc_perform_fcr\n 00000000 T efc_perform_read_sequence\n 00000000 T efc_set_flash_access_mode\n 00000000 T efc_set_wait_state\n-0000006c T efc_write_fmr\n-00000000 b iap_perform_command.6909\n+00000068 T efc_write_fmr\n+00000000 b iap_perform_command.7049\n \n gpbr.o:\n 00000000 T gpbr_read\n@@ -568,7 +568,6 @@ emac.o:\n 00000000 T emac_phy_write\n 00000000 t emac_reset_rx_mem\n 00000000 t emac_reset_tx_mem\n-00000000 t emac_wait_phy.clone.1\n 00000000 b gs_rx_desc\n 00000000 b gs_tx_callback\n 00000000 b gs_tx_desc"
+ }
+]

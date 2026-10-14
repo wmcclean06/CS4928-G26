@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "e7d448b6c8cd7f6e62484277032bffc4193d9988",
+  "filename": "hardware/README.md",
+  "status": "added",
+  "additions": 46,
+  "deletions": 0,
+  "changes": 46,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a4381cd0f3568eda076e53805ee4ea759e0f72aa/hardware%2FREADME.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a4381cd0f3568eda076e53805ee4ea759e0f72aa/hardware%2FREADME.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2FREADME.md?ref=a4381cd0f3568eda076e53805ee4ea759e0f72aa",
+  "patch": "@@ -0,0 +1,46 @@\n+### Cores have been moved\n+Originally, the main Arduino repository contained Arduino\n+platforms/cores in this directory. Since then, these have been moved to\n+their own repositories instead (see commit 2e98854 and d6b40d0).\n+\n+The official Arduino cores can now be found here:\n+ - https://github.com/arduino/ArduinoCore-avr\n+ - https://github.com/arduino/ArduinoCore-sam\n+ - https://github.com/arduino/ArduinoCore-samd\n+\n+##### Migrating commits\n+If you need to move commits and/or pull requests over from this\n+repository into the separate core repositories, an approach to handle\n+that mostly automatically is suggested below. These are for the avr\n+core, but with some changes, it should apply to sam as well.\n+\n+\t# Start out in the Arduino repo, by rebasing your branch on top of the\n+\t# last commit that still contained the avr core. This makes sure that\n+\t# any conflicts are resolved before transferring the commits, since git\n+\t# am is not so helpful with conflicts.\n+\tgit checkout my-branch\n+\tgit rebase -i 950d88dcbe7b9b2d348fb25b5ffcd0c6d2d30b97\n+\n+\t# Then, generate patch files for all of your commits, into the patches\n+\t# directory.\n+\tgit format-patch -o patches 950d88dcbe7b9b2d348fb25b5ffcd0c6d2d30b97\n+\n+\t# These steps are optional, but if your commits contain changes to other\n+\t# files than the avr core, this re-applies your commits with only the\n+\t# avr core changes, and regenerates the patches\n+\tgit checkout -b tmp-branch 950d88dcbe7b9b2d348fb25b5ffcd0c6d2d30b97\n+\tgit am --include 'hardware/arduino/avr/*' patches/*\n+\trm -rf patches/\n+\tgit format-patch -o patches 950d88dcbe7b9b2d348fb25b5ffcd0c6d2d30b97\n+\n+\t# Then, in the ArduinoCore-avr repo, create a new branch on the commit\n+\t# matching the Arduino repo.\n+\tgit checkout -b my-branch b7c607663fecc232e598f2c0acf419ceb0b7078c\n+\n+\t# Apply our previously generated patches (update the path to point to\n+\t# wherever you generated the patches previously). -p4 tells git am to\n+\t# strip the a/hardware/arduino/avr part of the paths before applying.\n+\tgit am -p4  /path/to/patches/*\n+\n+\t# Finally, rebase on top of master\n+\tgit rebase origin/master"
+ }
+]

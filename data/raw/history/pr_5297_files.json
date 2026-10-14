@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "a7564ce5ed0e155abe16db0d0eba2423c7f4885a",
+  "filename": "build/shared/manpage.adoc",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c9c28a37af5b281d69fb3362399431ed99734605/build%2Fshared%2Fmanpage.adoc",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c9c28a37af5b281d69fb3362399431ed99734605/build%2Fshared%2Fmanpage.adoc",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fmanpage.adoc?ref=c9c28a37af5b281d69fb3362399431ed99734605",
+  "patch": "@@ -133,6 +133,10 @@ OPTIONS\n \tThis option is only valid together with *--verify* or\n \t*--upload*.\n \n+*--useprogrammer*::\n+\tUpload using a programmer. Set if you're using an external programmer, or\n+\tusing the Arduino as ISP.\n+\n *--verbose-upload*::\n \tEnable verbose mode during upload. If this option is not given,\n \tverbose mode during upload is *disabled* regardless of the current"
+ }
+]

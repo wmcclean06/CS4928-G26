@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "3bf79aca20ca579ccf4245b24663b078e609df0b",
+  "filename": "libraries/SD/src/SD.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1c25d2432f6d2d30913fd6bff48dd3d6eb99b74c/libraries%2FSD%2Fsrc%2FSD.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1c25d2432f6d2d30913fd6bff48dd3d6eb99b74c/libraries%2FSD%2Fsrc%2FSD.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fsrc%2FSD.cpp?ref=1c25d2432f6d2d30913fd6bff48dd3d6eb99b74c",
+  "patch": "@@ -450,7 +450,7 @@ File SDClass::open(const char *filepath, uint8_t mode) {\n \n   // there is a special case for the Root directory since its a static dir\n   if (parentdir.isRoot()) {\n-    if ( ! file.open(SD.root, filepath, mode)) {\n+    if ( ! file.open(root, filepath, mode)) {\n       // failed to open the file :(\n       return File();\n     }"
+ }
+]

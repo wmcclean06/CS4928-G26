@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "505da121c0ebacbc1bd1316eba96c364398a0941",
+  "filename": "build/linux/dist/arduino",
+  "status": "modified",
+  "additions": 12,
+  "deletions": 11,
+  "changes": 23,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bef7bb5b7693c7ba850700bad283be9f39c0f193/build%2Flinux%2Fdist%2Farduino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bef7bb5b7693c7ba850700bad283be9f39c0f193/build%2Flinux%2Fdist%2Farduino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Farduino?ref=bef7bb5b7693c7ba850700bad283be9f39c0f193",
+  "patch": "@@ -3,9 +3,9 @@\n APPDIR=\"$(dirname -- \"$(readlink -f -- \"${0}\")\" )\"\n \n for LIB in \\\n-    $APPDIR/java/lib/rt.jar \\\n-    $APPDIR/java/lib/tools.jar \\\n-    $APPDIR/lib/*.jar \\\n+    \"$APPDIR\"/java/lib/rt.jar \\\n+    \"$APPDIR\"/java/lib/tools.jar \\\n+    \"$APPDIR\"/lib/*.jar \\\n     ;\n do\n     CLASSPATH=\"${CLASSPATH}:${LIB}\"\n@@ -17,18 +17,19 @@ export LD_LIBRARY_PATH\n \n export PATH=\"${APPDIR}/java/bin:${PATH}\"\n \n-if [[ \"$@\" == *\"--upload\"* || \"$@\" == *\"--verify\"* || \"$@\" == *\"--get-pref\"* || \"$@\" == *\"--install-board\"* || \"$@\" == *\"--install-library\"* ]] ; then\n-\tSPLASH=\"\"\n-else\n-\tSPLASH=\"-splash:$APPDIR/lib/splash.png\"\n-fi\n-\n export JAVA_TOOL_OPTIONS=`echo $JAVA_TOOL_OPTIONS | sed 's|-javaagent:/usr/share/java/jayatanaag.jar||g'`\n \n JAVA=java\n-if [ -x $APPDIR/java/bin/java ]; then\n+if [ -x \"$APPDIR/java/bin/java\" ]; then\n   JAVA=$APPDIR/java/bin/java\n fi\n \n-$JAVA -DAPP_DIR=\"$APPDIR\" -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel $SPLASH processing.app.Base \"$@\"\n+# Collect options to java in an array, to properly handle whitespace in options\n+JAVA_OPTIONS=(\"-DAPP_DIR=$APPDIR\" \"-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel\")\n+\n+if [[ \"$@\" != *\"--upload\"* && \"$@\" != *\"--verify\"* && \"$@\" != *\"--get-pref\"* && \"$@\" != *\"--install-board\"* && \"$@\" != *\"--install-library\"* ]] ; then\n+\tJAVA_OPTIONS+=(\"-splash:$APPDIR/lib/splash.png\")\n+fi\n+\n+$JAVA \"${JAVA_OPTIONS[@]}\" processing.app.Base \"$@\"\n "
+ }
+]

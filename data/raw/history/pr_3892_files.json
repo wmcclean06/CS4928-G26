@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "33108db91a0a43218c472af1310b176b315e8cd1",
+  "filename": "hardware/arduino/avr/cores/arduino/PluggableUSB.h",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d2577648626a75b39f38147fca59ebf19a8b0a60/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d2577648626a75b39f38147fca59ebf19a8b0a60/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h?ref=d2577648626a75b39f38147fca59ebf19a8b0a60",
+  "patch": "@@ -50,8 +50,6 @@ int PUSB_GetDescriptor(int8_t t);\n \n bool PUSB_Setup(USBSetup& setup, u8 i);\n \n-void PUSB_Begin();\n-\n #endif\n \n #endif"
+ }
+]

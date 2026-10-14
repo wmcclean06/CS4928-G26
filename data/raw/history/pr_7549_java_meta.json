@@ -1,0 +1,43 @@
+{
+ "pr": 7549,
+ "base_sha": "c7925653a28804acd93278e6d4a33c3240d02c59",
+ "head_sha": "0b4c2f212c4884ad357ffb8dcf7d2e5b00534391",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 3,
+   "deletions": 0,
+   "old_sha": "1752e1dc824e5ecb3156961b2cfc5b596c35d061",
+   "new_sha": "4a9480a87cdeec54ab59f454bd6479ec63f90a21",
+   "head_sha_check": "4a9480a87cdeec54ab59f454bd6479ec63f90a21",
+   "loc_at_head": 1991,
+   "notes": ""
+  },
+  {
+   "path": "app/test/processing/app/CommandLineTest.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 33,
+   "deletions": 1,
+   "old_sha": "a2532ff8116b3c7a76db6997c3d1fff7c120de7c",
+   "new_sha": "bf8eb8904c1a4d2704ef727e7dff05c284721060",
+   "head_sha_check": "bf8eb8904c1a4d2704ef727e7dff05c284721060",
+   "loc_at_head": 143,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/helpers/CommandlineParser.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 6,
+   "deletions": 1,
+   "old_sha": "17e1bc86d2eeb2ab9b510de67ced5227c935a0e2",
+   "new_sha": "19216a320656b6f79e369727d08ff76476725c8a",
+   "head_sha_check": "19216a320656b6f79e369727d08ff76476725c8a",
+   "loc_at_head": 309,
+   "notes": ""
+  }
+ ]
+}

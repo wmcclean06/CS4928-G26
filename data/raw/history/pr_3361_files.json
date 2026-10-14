@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "1beafc54c46aa5260c09e640a62660a672f72211",
+  "filename": "hardware/arduino/avr/cores/arduino/HardwareSerial.h",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 0,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/07c4d958c03161e28e3ae5cc94d6778203a642bb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/07c4d958c03161e28e3ae5cc94d6778203a642bb/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.h?ref=07c4d958c03161e28e3ae5cc94d6778203a642bb",
+  "patch": "@@ -34,6 +34,11 @@\n // location from which to read.\n // NOTE: a \"power of 2\" buffer size is reccomended to dramatically\n //       optimize all the modulo operations for ring buffers.\n+// WARNING: When buffer sizes are increased to > 256, the buffer index\n+// variables are automatically increased in size, but the extra\n+// atomicity guards needed for that are not implemented. This will\n+// often work, but occasionally a race condition can occur that makes\n+// Serial behave erratically. See https://github.com/arduino/Arduino/issues/2405\n #if !defined(SERIAL_TX_BUFFER_SIZE)\n #if (RAMEND < 1000)\n #define SERIAL_TX_BUFFER_SIZE 16"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "e8554f4dfe04b8753152186433db916a40d646f8",
+  "filename": "arduino-core/src/processing/app/helpers/CommandlineParser.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7fa355a702b356ae064795f5c0133b0e39fb93d3/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FCommandlineParser.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7fa355a702b356ae064795f5c0133b0e39fb93d3/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FCommandlineParser.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FCommandlineParser.java?ref=7fa355a702b356ae064795f5c0133b0e39fb93d3",
+  "patch": "@@ -249,6 +249,7 @@ private void processBoardArgument(String selectBoard) {\n     }\n \n     BaseNoGui.selectBoard(targetBoard);\n+    BaseNoGui.onBoardOrPortChange();\n \n     if (split.length > 3) {\n       String[] options = split[3].split(\",\");"
+ }
+]

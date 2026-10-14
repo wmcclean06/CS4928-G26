@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "0517d96cea474273aba8b4452c0aa8b990d94f41",
+  "filename": "arduino-core/src/processing/app/PreferencesData.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f47165db644e432a9b7456102c6ad0f34fbf7b11/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f47165db644e432a9b7456102c6ad0f34fbf7b11/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java?ref=f47165db644e432a9b7456102c6ad0f34fbf7b11",
+  "patch": "@@ -120,7 +120,7 @@ static protected void save() {\n       String[] keys = prefs.keySet().toArray(new String[0]);\n       Arrays.sort(keys);\n       for (String key : keys) {\n-        if (key.startsWith(\"runtime.\"))\n+        if (key.startsWith(\"runtime.\") || key.startsWith(\"build_properties_custom.\"))\n           continue;\n         writer.println(key + \"=\" + prefs.get(key));\n       }"
+ }
+]

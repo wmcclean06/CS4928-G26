@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "7ff1925878c11ad915a4275188fba261bc5190a0",
+  "filename": "app/src/cc/arduino/contributions/libraries/ui/LibraryManagerUI.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c45c1af0a182702b41079f4bf4e565742f16b92d/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FLibraryManagerUI.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c45c1af0a182702b41079f4bf4e565742f16b92d/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FLibraryManagerUI.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FLibraryManagerUI.java?ref=c45c1af0a182702b41079f4bf4e565742f16b92d",
+  "patch": "@@ -200,6 +200,7 @@ protected void onUpdatePressed() {\n       try {\n         setProgressVisible(true, \"\");\n         installer.updateIndex(this::setProgress);\n+        ((LibrariesIndexTableModel) contribModel).update();\n         onIndexesUpdated();\n       } catch (Exception e) {\n         throw new RuntimeException(e);"
+ },
+ {
+  "sha": "c43a4a09423790559029b914497e57a06cae77f8",
+  "filename": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndexer.java",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 4,
+  "changes": 18,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c45c1af0a182702b41079f4bf4e565742f16b92d/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c45c1af0a182702b41079f4bf4e565742f16b92d/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java?ref=c45c1af0a182702b41079f4bf4e565742f16b92d",
+  "patch": "@@ -31,7 +31,10 @@\n \n import cc.arduino.Constants;\n import cc.arduino.contributions.packages.ContributedPlatform;\n+\n+import com.fasterxml.jackson.core.JsonParseException;\n import com.fasterxml.jackson.databind.DeserializationFeature;\n+import com.fasterxml.jackson.databind.JsonMappingException;\n import com.fasterxml.jackson.databind.ObjectMapper;\n import com.fasterxml.jackson.module.mrbean.MrBeanModule;\n import org.apache.commons.compress.utils.IOUtils;\n@@ -73,11 +76,14 @@ public LibrariesIndexer(File preferencesFolder) {\n   }\n \n   public void parseIndex() throws IOException {\n+    index = new EmptyLibrariesIndex(); // Fallback\n+\n     if (!indexFile.exists()) {\n-      index = new EmptyLibrariesIndex();\n-    } else {\n-      parseIndex(indexFile);\n+      return;\n     }\n+\n+    parseIndex(indexFile);\n+\n     // TODO: resolve libraries inner references\n   }\n \n@@ -98,8 +104,12 @@ private void parseIndex(File file) throws IOException {\n         .forEach(library -> library.setCategory(\"Uncategorized\"));\n \n       index = newIndex;\n+    } catch (JsonParseException | JsonMappingException e) {\n+      System.err.println(\n+          format(tr(\"Error parsing libraries index: {0}\\nTry to open the Library Manager to update the libraries index.\"),\n+              e.getMessage()));\n     } catch (Exception e) {\n-      System.err.println(\"Error parsing library.index:\" + e.getMessage());\n+      System.err.println(format(tr(\"Error reading libraries index: {0}\"), e.getMessage()));\n     } finally {\n       IOUtils.closeQuietly(indexIn);\n     }"
+ },
+ {
+  "sha": "4b4fb7f7dbb4f4274ea2e9c7e81cfa0cc6ab4f3d",
+  "filename": "arduino-core/src/cc/arduino/contributions/libraries/LibraryInstaller.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 2,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c45c1af0a182702b41079f4bf4e565742f16b92d/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibraryInstaller.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c45c1af0a182702b41079f4bf4e565742f16b92d/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibraryInstaller.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibraryInstaller.java?ref=c45c1af0a182702b41079f4bf4e565742f16b92d",
+  "patch": "@@ -56,7 +56,7 @@ public LibraryInstaller(Platform platform) {\n   }\n \n   public synchronized void updateIndex(ProgressListener progressListener) throws Exception {\n-    final MultiStepProgress progress = new MultiStepProgress(2);\n+    final MultiStepProgress progress = new MultiStepProgress(3);\n \n     DownloadableContributionsDownloader downloader = new DownloadableContributionsDownloader(BaseNoGui.librariesIndexer.getStagingFolder());\n     // Step 1: Download index\n@@ -79,7 +79,10 @@ public synchronized void updateIndex(ProgressListener progressListener) throws E\n     if (!tmpFile.renameTo(outputFile))\n       throw new Exception(tr(\"An error occurred while updating libraries index!\"));\n \n-    // Step 2: Rescan index\n+    // Step 2: Parse index\n+    BaseNoGui.librariesIndexer.parseIndex();\n+\n+    // Step 3: Rescan index\n     rescanLibraryIndex(progress, progressListener);\n   }\n "
+ },
+ {
+  "sha": "a1ca10929d92ae7de8aa72b8a85a5e1cfd0669b5",
+  "filename": "arduino-core/src/cc/arduino/contributions/packages/ContributionsIndexer.java",
+  "status": "modified",
+  "additions": 12,
+  "deletions": 8,
+  "changes": 20,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c45c1af0a182702b41079f4bf4e565742f16b92d/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c45c1af0a182702b41079f4bf4e565742f16b92d/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java?ref=c45c1af0a182702b41079f4bf4e565742f16b92d",
+  "patch": "@@ -39,7 +39,6 @@\n import com.fasterxml.jackson.databind.ObjectMapper;\n import com.fasterxml.jackson.module.mrbean.MrBeanModule;\n import org.apache.commons.compress.utils.IOUtils;\n-import processing.app.I18n;\n import processing.app.Platform;\n import processing.app.PreferencesData;\n import processing.app.debug.TargetPackage;\n@@ -55,6 +54,7 @@\n import java.util.*;\n import java.util.stream.Collectors;\n \n+import static processing.app.I18n.format;\n import static processing.app.I18n.tr;\n import static processing.app.helpers.filefilters.OnlyDirs.ONLY_DIRS;\n \n@@ -100,13 +100,17 @@ public void parseIndex() throws Exception {\n     // Overlay 3rd party indexes\n     File[] indexFiles = preferencesFolder.listFiles(new TestPackageIndexFilenameFilter(new PackageIndexFilenameFilter(Constants.DEFAULT_INDEX_FILE_NAME)));\n \n-    for (File indexFile : indexFiles) {\n-      try {\n-\t      mergeContributions(indexFile);\n-      } catch (JsonProcessingException e) {\n-        System.err.println(I18n.format(tr(\"Skipping contributed index file {0}, parsing error occured:\"), indexFile));\n-        System.err.println(e);\n+    if (indexFiles != null) {\n+      for (File indexFile : indexFiles) {\n+        try {\n+          mergeContributions(indexFile);\n+        } catch (JsonProcessingException e) {\n+          System.err.println(format(tr(\"Skipping contributed index file {0}, parsing error occured:\"), indexFile));\n+          System.err.println(e);\n+        }\n       }\n+    } else {\n+      System.err.println(format(tr(\"Error reading package indexes folder: {0}\\n(maybe a permission problem?)\"), preferencesFolder));\n     }\n \n     // Fill tools and toolsDependency cross references\n@@ -156,7 +160,7 @@ private void mergeContributions(File indexFile) throws IOException {\n       } else {\n         if (contributedPackage.isTrusted() || !isPackageNameProtected(contributedPackage)) {\n           if (isPackageNameProtected(contributedPackage) && trustall) {\n-            System.err.println(I18n.format(tr(\"Warning: forced trusting untrusted contributions\")));\n+            System.err.println(format(tr(\"Warning: forced trusting untrusted contributions\")));\n           }\n           List<ContributedPlatform> platforms = contributedPackage.getPlatforms();\n           if (platforms == null) {"
+ }
+]

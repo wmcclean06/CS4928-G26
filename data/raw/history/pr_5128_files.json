@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "18560b6ba242564dd7fbcf82605357ece2e40d3f",
+  "filename": "hardware/arduino/avr/cores/arduino/USBCore.h",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 2,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/40d7ab0dc586f35eec6894fc948a64b3839db9e6/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/40d7ab0dc586f35eec6894fc948a64b3839db9e6/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.h?ref=40d7ab0dc586f35eec6894fc948a64b3839db9e6",
+  "patch": "@@ -126,11 +126,15 @@\n #define MSC_SUBCLASS_SCSI\t\t\t\t\t\t0x06 \n #define MSC_PROTOCOL_BULK_ONLY\t\t\t\t\t0x50 \n \n+#ifndef USB_VERSION\n+#define USB_VERSION 0x200\n+#endif\n+\n //\tDevice\n typedef struct {\n \tu8 len;\t\t\t\t// 18\n \tu8 dtype;\t\t\t// 1 USB_DEVICE_DESCRIPTOR_TYPE\n-\tu16 usbVersion;\t\t// 0x200\n+\tu16 usbVersion;\t\t// 0x200 or 0x210\n \tu8\tdeviceClass;\n \tu8\tdeviceSubClass;\n \tu8\tdeviceProtocol;\n@@ -260,7 +264,7 @@ typedef struct\n \n \n #define D_DEVICE(_class,_subClass,_proto,_packetSize0,_vid,_pid,_version,_im,_ip,_is,_configs) \\\n-\t{ 18, 1, 0x200, _class,_subClass,_proto,_packetSize0,_vid,_pid,_version,_im,_ip,_is,_configs }\n+\t{ 18, 1, USB_VERSION, _class,_subClass,_proto,_packetSize0,_vid,_pid,_version,_im,_ip,_is,_configs }\n \n #define D_CONFIG(_totalLength,_interfaces) \\\n \t{ 9, 2, _totalLength,_interfaces, 1, 0, USB_CONFIG_BUS_POWERED | USB_CONFIG_REMOTE_WAKEUP, USB_CONFIG_POWER_MA(500) }"
+ }
+]

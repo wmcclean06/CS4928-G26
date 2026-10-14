@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "1028e947ea7e223cb1b0e2c405dde080b0eacb4f",
+  "filename": "libraries/SD/examples/CardInfo/CardInfo.ino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f34dc938f6f4bd1826d54b0dad907ca090f434be/libraries%2FSD%2Fexamples%2FCardInfo%2FCardInfo.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f34dc938f6f4bd1826d54b0dad907ca090f434be/libraries%2FSD%2Fexamples%2FCardInfo%2FCardInfo.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Fexamples%2FCardInfo%2FCardInfo.ino?ref=f34dc938f6f4bd1826d54b0dad907ca090f434be",
+  "patch": "@@ -55,8 +55,8 @@ void setup()\n   // since we're just testing if the card is working!\n   if (!card.init(SPI_HALF_SPEED, chipSelect)) {\n     Serial.println(\"initialization failed. Things to check:\");\n-    Serial.println(\"* is a card is inserted?\");\n-    Serial.println(\"* Is your wiring correct?\");\n+    Serial.println(\"* is a card inserted?\");\n+    Serial.println(\"* is your wiring correct?\");\n     Serial.println(\"* did you change the chipSelect pin to match your shield or module?\");\n     return;\n   } else {"
+ }
+]

@@ -1,0 +1,43 @@
+{
+ "pr": 8046,
+ "base_sha": "00a7546fb43edb46bc56c55196f439fccba971b1",
+ "head_sha": "d2f8e15d9e5cc07e478e73e7a5f20b7f81e8560b",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/AbstractMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 28,
+   "deletions": 0,
+   "old_sha": "1efbec7e2d60ac12f8c7b844e07fc01ed5aaae73",
+   "new_sha": "4fb819a73465c34c397b1e1634e7a7d8e2db28a1",
+   "head_sha_check": "4fb819a73465c34c397b1e1634e7a7d8e2db28a1",
+   "loc_at_head": 171,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 11,
+   "deletions": 13,
+   "old_sha": "49c092fd9d2578916b24fd83684eeea8ee49bbf7",
+   "new_sha": "a8e5b7b749330d7534a4021534c2c8de69d0e4fd",
+   "head_sha_check": "a8e5b7b749330d7534a4021534c2c8de69d0e4fd",
+   "loc_at_head": 2184,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/uploaders/SerialUploader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 5,
+   "deletions": 5,
+   "old_sha": "8e65b3e598fd51db578613b926108eac26ddc735",
+   "new_sha": "96ba383aceb0800deb82431987c9115f27f2886a",
+   "head_sha_check": "96ba383aceb0800deb82431987c9115f27f2886a",
+   "loc_at_head": 346,
+   "notes": ""
+  }
+ ]
+}

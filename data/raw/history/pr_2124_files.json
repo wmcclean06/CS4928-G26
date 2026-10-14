@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "753bc6b206feee4d520500b7793336a27deed4ab",
+  "filename": "hardware/arduino/cores/arduino/USBAPI.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/9ac7e30252fce5b9dafde3288519b020b73c37bd/hardware%2Farduino%2Fcores%2Farduino%2FUSBAPI.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/9ac7e30252fce5b9dafde3288519b020b73c37bd/hardware%2Farduino%2Fcores%2Farduino%2FUSBAPI.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FUSBAPI.h?ref=9ac7e30252fce5b9dafde3288519b020b73c37bd",
+  "patch": "@@ -28,7 +28,7 @@ extern USBDevice_ USBDevice;\n class Serial_ : public Stream\n {\n private:\n-\tint peek_buffer;\n+\tint peek_buffer = -1;\n public:\n \tvoid begin(unsigned long);\n \tvoid begin(unsigned long, uint8_t);"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "89435f75f9771c35aca53f910c59c56fad731034",
+  "filename": "app/src/processing/app/FindReplace.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 2,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1d266d89cdf0a074f23d28d59934244d103c3102/app%2Fsrc%2Fprocessing%2Fapp%2FFindReplace.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1d266d89cdf0a074f23d28d59934244d103c3102/app%2Fsrc%2Fprocessing%2Fapp%2FFindReplace.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FFindReplace.java?ref=1d266d89cdf0a074f23d28d59934244d103c3102",
+  "patch": "@@ -421,8 +421,11 @@ public void replaceAndFindNext() {\n   public void replaceAll() {\n     if (findField.getText().length() == 0)\n       return;\n-    // move to the beginning\n-    editor.setSelection(0, 0);\n+    \n+    if (searchAllFiles)\n+        editor.getSketch().setCurrentCode(0); // select the first tab\n+    \n+    editor.setSelection(0, 0); // move to the beginning\n \n     boolean foundAtLeastOne = false;\n     while (true) {"
+ }
+]

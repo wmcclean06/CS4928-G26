@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "38ea957849ca012bc455622db2914818745052ca",
+  "filename": "arduino-core/src/cc/arduino/packages/uploaders/SerialUploader.java",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 5,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7cb1399381219952f752f3ea43ad1d83f2139fee/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7cb1399381219952f752f3ea43ad1d83f2139fee/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java?ref=7cb1399381219952f752f3ea43ad1d83f2139fee",
+  "patch": "@@ -136,6 +136,11 @@ public boolean uploadUsingPreferences(File sourcePath, String buildPath, String\n           // it happened within 250 ms. So we wait until the reset should\n           // have already occured before we start scanning.\n           actualUploadPort = waitForUploadPort(userSelectedUploadPort, before);\n+\n+    \t  // on OS X, if the port is opened too quickly after it is detected,\n+    \t  // a \"Resource busy\" error occurs, add a delay to workaround this,\n+          // apply to other platforms as well.\n+    \t  Thread.sleep(250);\n         }\n       } catch (SerialException e) {\n         throw new RunnerException(e);\n@@ -247,11 +252,10 @@ private String waitForUploadPort(String uploadPort, List<String> before) throws\n       Thread.sleep(250);\n       elapsed += 250;\n \n-      // On Windows, it can take a long time for the port to disappear and\n-      // come back, so use a longer time out before assuming that the\n-      // selected\n-      // port is the bootloader (not the sketch).\n-      if (((!OSUtils.isWindows() && elapsed >= 500) || elapsed >= 5000) && now.contains(uploadPort)) {\n+      // On Windows and OS X, it can take a few seconds for the port to disappear and\n+      // come back, so use a time out before assuming that the selected port is the\n+      // bootloader (not the sketch).\n+      if (elapsed >= 5000 && now.contains(uploadPort)) {\n         if (verbose)\n           System.out.println(\"Uploading using selected port: \" + uploadPort);\n         return uploadPort;"
+ }
+]

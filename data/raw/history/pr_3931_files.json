@@ -1,0 +1,62 @@
+[
+ {
+  "sha": "21dc7a89dc75a35dd99ed3ddb29961520435fa7d",
+  "filename": "hardware/arduino/avr/cores/arduino/PluggableUSB.cpp",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 4,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.cpp?ref=05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c",
+  "patch": "@@ -38,23 +38,23 @@ int PluggableUSB_::getInterface(uint8_t* interfaceCount)\n \treturn sent;\n }\n \n-int PluggableUSB_::getDescriptor(int8_t type)\n+int PluggableUSB_::getDescriptor(USBSetup& setup)\n {\n \tPUSBListNode* node;\n \tfor (node = rootNode; node; node = node->next) {\n-\t\tint ret = node->getDescriptor(type);\n+\t\tint ret = node->getDescriptor(setup);\n \t\t// ret!=0 -> request has been processed\n \t\tif (ret)\n \t\t\treturn ret;\n \t}\n \treturn 0;\n }\n \n-bool PluggableUSB_::setup(USBSetup& setup, uint8_t interfaceNum)\n+bool PluggableUSB_::setup(USBSetup& setup)\n {\n \tPUSBListNode* node;\n \tfor (node = rootNode; node; node = node->next) {\n-\t\tif (node->setup(setup, interfaceNum)) {\n+\t\tif (node->setup(setup)) {\n \t\t\treturn true;\n \t\t}\n \t}"
+ },
+ {
+  "sha": "1f3057ad2214f589adc7a6407ce9cb7dd4a0b8b8",
+  "filename": "hardware/arduino/avr/cores/arduino/PluggableUSB.h",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 11,
+  "changes": 19,
+  "blob_url": "https://github.com/arduino/Arduino/blob/05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h?ref=05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c",
+  "patch": "@@ -27,23 +27,20 @@\n \n class PUSBListNode {\n public:\n-  PUSBListNode(int8_t numEps, int8_t numIfs, uint8_t *epType) :\n+  PUSBListNode(uint8_t numEps, uint8_t numIfs, uint8_t *epType) :\n     numEndpoints(numEps), numInterfaces(numIfs), endpointType(epType)\n   { }\n \n-  inline uint8_t interface() const { return pluggedInterface; }\n-  inline int8_t endpoint()   const { return pluggedEndpoint; }\n-\n protected:\n-  virtual bool setup(USBSetup& setup, uint8_t interfaceNum) = 0;\n+  virtual bool setup(USBSetup& setup) = 0;\n   virtual int getInterface(uint8_t* interfaceCount) = 0;\n-  virtual int getDescriptor(int8_t t) = 0;\n+  virtual int getDescriptor(USBSetup& setup) = 0;\n \n   uint8_t pluggedInterface;\n-  int8_t pluggedEndpoint;\n+  uint8_t pluggedEndpoint;\n \n-  const int8_t numEndpoints;\n-  const int8_t numInterfaces;\n+  const uint8_t numEndpoints;\n+  const uint8_t numInterfaces;\n   const uint8_t *endpointType;\n \n   PUSBListNode *next = NULL;\n@@ -56,8 +53,8 @@ class PluggableUSB_ {\n   PluggableUSB_();\n   bool plug(PUSBListNode *node);\n   int getInterface(uint8_t* interfaceCount);\n-  int getDescriptor(int8_t type);\n-  bool setup(USBSetup& setup, uint8_t interfaceNum);\n+  int getDescriptor(USBSetup& setup);\n+  bool setup(USBSetup& setup);\n \n private:\n   uint8_t lastIf;"
+ },
+ {
+  "sha": "f67bfeabc0c49ddd59dcd4fb11d26a6bb85e2dd9",
+  "filename": "hardware/arduino/avr/cores/arduino/USBCore.cpp",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.cpp?ref=05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c",
+  "patch": "@@ -362,7 +362,7 @@ bool ClassInterfaceRequest(USBSetup& setup)\n \t\treturn CDC_Setup(setup);\n \n #ifdef PLUGGABLE_USB_ENABLED\n-\treturn PluggableUSB().setup(setup, i);\n+\treturn PluggableUSB().setup(setup);\n #endif\n \treturn false;\n }\n@@ -476,7 +476,7 @@ bool SendDescriptor(USBSetup& setup)\n \n \tInitControl(setup.wLength);\n #ifdef PLUGGABLE_USB_ENABLED\n-\tret = PluggableUSB().getDescriptor(t);\n+\tret = PluggableUSB().getDescriptor(setup);\n \tif (ret != 0) {\n \t\treturn (ret > 0 ? true : false);\n \t}"
+ },
+ {
+  "sha": "762d1708027231ed76f5df60e2c5d3a85e15bf0c",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.cpp",
+  "status": "modified",
+  "additions": 21,
+  "deletions": 19,
+  "changes": 40,
+  "blob_url": "https://github.com/arduino/Arduino/blob/05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp?ref=05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c",
+  "patch": "@@ -31,29 +31,28 @@ int HID_::getInterface(uint8_t* interfaceCount)\n {\n \t*interfaceCount += 1; // uses 1\n \tHIDDescriptor hidInterface = {\n-\t\tD_INTERFACE(interface(), 1, 3, 0, 0),\n+\t\tD_INTERFACE(pluggedInterface, 1, 3, 0, 0),\n \t\tD_HIDREPORT(descriptorSize),\n-\t\tD_ENDPOINT(USB_ENDPOINT_IN(endpoint()), USB_ENDPOINT_TYPE_INTERRUPT, USB_EP_SIZE, 0x01)\n+\t\tD_ENDPOINT(USB_ENDPOINT_IN(pluggedEndpoint), USB_ENDPOINT_TYPE_INTERRUPT, USB_EP_SIZE, 0x01)\n \t};\n \treturn USB_SendControl(0, &hidInterface, sizeof(hidInterface));\n }\n \n-int HID_::getDescriptor(int8_t type)\n+int HID_::getDescriptor(USBSetup& setup)\n {\n-\tif (HID_REPORT_DESCRIPTOR_TYPE == type) {\n-\t\tint total = 0;\n-\t\tHIDDescriptorListNode* node;\n-\t\tfor (node = rootNode; node; node = node->next) {\n-\t\t\tint res = USB_SendControl(TRANSFER_PGM, node->data, node->length);\n-\t\t\tif (res == -1)\n-\t\t\t\treturn -1;\n-\t\t\ttotal += res;\n-\t\t}\n-\t\treturn total;\n+\tif (pluggedInterface != setup.wIndex) {\n+\t\treturn 0;\n \t}\n \n-\t// Ignored\n-\treturn 0;\n+\tint total = 0;\n+\tHIDDescriptorListNode* node;\n+\tfor (node = rootNode; node; node = node->next) {\n+\t\tint res = USB_SendControl(TRANSFER_PGM, node->data, node->length);\n+\t\tif (res == -1)\n+\t\t\treturn -1;\n+\t\ttotal += res;\n+\t}\n+\treturn total;\n }\n \n void HID_::AppendDescriptor(HIDDescriptorListNode *node)\n@@ -72,13 +71,13 @@ void HID_::AppendDescriptor(HIDDescriptorListNode *node)\n \n void HID_::SendReport(uint8_t id, const void* data, int len)\n {\n-\tUSB_Send(endpoint(), &id, 1);\n-\tUSB_Send(endpoint() | TRANSFER_RELEASE, data, len);\n+\tUSB_Send(pluggedEndpoint, &id, 1);\n+\tUSB_Send(pluggedEndpoint | TRANSFER_RELEASE, data, len);\n }\n \n-bool HID_::setup(USBSetup& setup, uint8_t interfaceNum)\n+bool HID_::setup(USBSetup& setup)\n {\n-\tif (interface() != interfaceNum) {\n+\tif (pluggedInterface != setup.wIndex) {\n \t\treturn false;\n \t}\n \n@@ -107,6 +106,9 @@ bool HID_::setup(USBSetup& setup, uint8_t interfaceNum)\n \t\t\tidle = setup.wValueL;\n \t\t\treturn true;\n \t\t}\n+\t\tif (request == HID_SET_REPORT)\n+\t\t{\n+\t\t}\n \t}\n \n \treturn false;"
+ },
+ {
+  "sha": "b282c20d5aa5cf2bf1af01709c73f9976e185ad6",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h?ref=05477fc85dec2a1a150d05d696bc8a8c5f5f0f1c",
+  "patch": "@@ -80,8 +80,8 @@ class HID_ : public PUSBListNode\n protected:\n   // Implementation of the PUSBListNode\n   int getInterface(uint8_t* interfaceCount);\n-  int getDescriptor(int8_t type);\n-  bool setup(USBSetup& setup, uint8_t interfaceNum);\n+  int getDescriptor(USBSetup& setup);\n+  bool setup(USBSetup& setup);\n \n private:\n   uint8_t epType[1];"
+ }
+]

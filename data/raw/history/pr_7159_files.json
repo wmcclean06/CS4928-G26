@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "3cdb1059497577a5cc15732c74d98a524ce08918",
+  "filename": "arduino-core/src/processing/app/windows/Platform.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/03a7b6eb826dc529e23fc1ada8a078a48001a714/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/03a7b6eb826dc529e23fc1ada8a078a48001a714/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fwindows%2FPlatform.java?ref=03a7b6eb826dc529e23fc1ada8a078a48001a714",
+  "patch": "@@ -289,7 +289,6 @@ public static int detectSystemDPI() {\n       return ExtUser32.INSTANCE.GetDpiForSystem();\n     } catch (Throwable e) {\n       // DPI detection failed, fall back with default\n-      System.out.println(\"DPI detection failed, fallback to 96 dpi\");\n       return -1;\n     }\n   }"
+ },
+ {
+  "sha": "c86a2e0db6b65ce532365b245cab73340e1be226",
+  "filename": "build/windows/launcher/config_debug.xml",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/03a7b6eb826dc529e23fc1ada8a078a48001a714/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/03a7b6eb826dc529e23fc1ada8a078a48001a714/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig_debug.xml?ref=03a7b6eb826dc529e23fc1ada8a078a48001a714",
+  "patch": "@@ -63,7 +63,6 @@\n     <opt>-Djna.boot.library.name=jnidispatch-4.2.2-win32-x86</opt>\n     <opt>-Djna.boot.library.path=\"%EXEDIR%\"/lib</opt>\n     <opt>-Djssc.library.path=\"%EXEDIR%\"/lib</opt>\n-    <opt>-Djna.debug_load=true</opt>\n     <opt>-DAPP_DIR=\"%EXEDIR%\"</opt>\n     <opt>-DDEBUG=true</opt>\n   </jre>"
+ }
+]

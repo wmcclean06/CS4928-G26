@@ -1,0 +1,31 @@
+{
+ "pr": 6589,
+ "base_sha": "aae5fa77aad6a29058aa1f2fe0d142960adc673f",
+ "head_sha": "fdad2f7f92ca4d4c8fdc81494fbbd86b70864b5d",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/AbstractMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 5,
+   "deletions": 11,
+   "old_sha": "35c45857469c8ac4c2815bd7cbdc457d80820027",
+   "new_sha": "52c5b65b56b75f47e875f28a895f1bf3734c98a2",
+   "head_sha_check": "52c5b65b56b75f47e875f28a895f1bf3734c98a2",
+   "loc_at_head": 135,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 11,
+   "deletions": 4,
+   "old_sha": "308ef17f2eae9e66ef9ec77e59ee858bb7c74d33",
+   "new_sha": "647b30163932f44d80269a65494653d7218050ee",
+   "head_sha_check": "647b30163932f44d80269a65494653d7218050ee",
+   "loc_at_head": 1976,
+   "notes": ""
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "5e6177a03d207d4fdc1617a1fb416f71197612b8",
+  "filename": "app/src/processing/app/SketchController.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 2,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a5ca0adee064de891b33300d37e085a0ff5d626/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a5ca0adee064de891b33300d37e085a0ff5d626/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java?ref=5a5ca0adee064de891b33300d37e085a0ff5d626",
+  "patch": "@@ -846,8 +846,9 @@ private static String checkName(String origName) {\n \n     if (!newName.equals(origName)) {\n       String msg =\n-        tr(\"The sketch name had to be modified. Sketch names can only consist\\n\" +\n-          \"of ASCII characters and numbers and be less than 64 characters long.\");\n+        tr(\"The sketch name had to be modified.\\n\" +\n+          \"Sketch names must start with a letter or number, followed by letters,\\n\" +\n+          \"numbers, dashes, dots and underscores. Maximum length is 63 characters.\");\n       System.out.println(msg);\n     }\n     return newName;"
+ },
+ {
+  "sha": "e30ff15f52b43e013e29e81e18043e5d177618d9",
+  "filename": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndexer.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a5ca0adee064de891b33300d37e085a0ff5d626/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a5ca0adee064de891b33300d37e085a0ff5d626/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2FLibrariesIndexer.java?ref=5a5ca0adee064de891b33300d37e085a0ff5d626",
+  "patch": "@@ -178,8 +178,8 @@ private void scanInstalledLibraries(UserLibraryFolder folderDesc) {\n           badLibNotified.add(subfolderName);\n \n           String mess = I18n.format(tr(\"The library \\\"{0}\\\" cannot be used.\\n\"\n-              + \"Library names must contain only basic letters and numbers.\\n\"\n-              + \"(ASCII only and no spaces, and it cannot start with a number)\"),\n+              + \"Library folder names must start with a letter or number, followed by letters,\\n\"\n+              + \"numbers, dashes, dots and underscores. Maximum length is 63 characters.\"),\n               subfolderName);\n           BaseNoGui.showMessage(tr(\"Ignoring bad library name\"), mess);\n         }"
+ }
+]

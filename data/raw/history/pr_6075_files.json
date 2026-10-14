@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "6d8c296068047f679185eca9ad0181657d3f3491",
+  "filename": "hardware/arduino/avr/boards.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/24aa1d892ed0c195c8df743776beddb5aae0348e/hardware%2Farduino%2Favr%2Fboards.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/24aa1d892ed0c195c8df743776beddb5aae0348e/hardware%2Farduino%2Favr%2Fboards.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fboards.txt?ref=24aa1d892ed0c195c8df743776beddb5aae0348e",
+  "patch": "@@ -1049,3 +1049,5 @@ unowifi.build.f_cpu=16000000L\n unowifi.build.board=AVR_UNO_WIFI\n unowifi.build.core=arduino\n unowifi.build.variant=standard\n+unowifi.build.esp_ch_uart_br=19200\n+unowifi.build.extra_flags=-DESP_CH_UART -DESP_CH_UART_BR={build.esp_ch_uart_br}"
+ }
+]

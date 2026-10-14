@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "1ec4049e3762c9ad37455a274260961856d75c32",
+  "filename": "build/shared/examples/04.Communication/SerialEvent/SerialEvent.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8b11b5875368002a92cd200712d8f558560138d6/build%2Fshared%2Fexamples%2F04.Communication%2FSerialEvent%2FSerialEvent.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8b11b5875368002a92cd200712d8f558560138d6/build%2Fshared%2Fexamples%2F04.Communication%2FSerialEvent%2FSerialEvent.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F04.Communication%2FSerialEvent%2FSerialEvent.ino?ref=8b11b5875368002a92cd200712d8f558560138d6",
+  "patch": "@@ -19,7 +19,7 @@\n */\n \n String inputString = \"\";         // a String to hold incoming data\n-boolean stringComplete = false;  // whether the string is complete\n+bool stringComplete = false;  // whether the string is complete\n \n void setup() {\n   // initialize serial:"
+ },
+ {
+  "sha": "aa608f870b10f867e2e5c4ef754d7c6f5a49a1a0",
+  "filename": "build/shared/examples/09.USB/Mouse/JoystickMouseControl/JoystickMouseControl.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8b11b5875368002a92cd200712d8f558560138d6/build%2Fshared%2Fexamples%2F09.USB%2FMouse%2FJoystickMouseControl%2FJoystickMouseControl.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8b11b5875368002a92cd200712d8f558560138d6/build%2Fshared%2Fexamples%2F09.USB%2FMouse%2FJoystickMouseControl%2FJoystickMouseControl.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F09.USB%2FMouse%2FJoystickMouseControl%2FJoystickMouseControl.ino?ref=8b11b5875368002a92cd200712d8f558560138d6",
+  "patch": "@@ -44,7 +44,7 @@ int responseDelay = 5;        // response delay of the mouse, in ms\n int threshold = range / 4;    // resting threshold\n int center = range / 2;       // resting position value\n \n-boolean mouseIsActive = false;    // whether or not to control the mouse\n+bool mouseIsActive = false;    // whether or not to control the mouse\n int lastSwitchState = LOW;        // previous switch state\n \n void setup() {"
+ },
+ {
+  "sha": "95027ec25d6d07a3671ecec3a21886807061b24b",
+  "filename": "build/shared/examples/10.StarterKit_BasicKit/p12_KnockLock/p12_KnockLock.ino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8b11b5875368002a92cd200712d8f558560138d6/build%2Fshared%2Fexamples%2F10.StarterKit_BasicKit%2Fp12_KnockLock%2Fp12_KnockLock.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8b11b5875368002a92cd200712d8f558560138d6/build%2Fshared%2Fexamples%2F10.StarterKit_BasicKit%2Fp12_KnockLock%2Fp12_KnockLock.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F10.StarterKit_BasicKit%2Fp12_KnockLock%2Fp12_KnockLock.ino?ref=8b11b5875368002a92cd200712d8f558560138d6",
+  "patch": "@@ -46,7 +46,7 @@ const int quietKnock = 10;\n const int loudKnock = 100;\n \n // variable to indicate if locked or not\n-boolean locked = false;\n+bool locked = false;\n // how many valid knocks you've received\n int numberOfKnocks = 0;\n \n@@ -146,7 +146,7 @@ void loop() {\n }\n \n // this function checks to see if a detected knock is within max and min range\n-boolean checkForKnock(int value) {\n+bool checkForKnock(int value) {\n   // if the value of the knock is greater than the minimum, and larger\n   // than the maximum\n   if (value > quietKnock && value < loudKnock) {"
+ }
+]

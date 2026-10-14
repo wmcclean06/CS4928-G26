@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "0cb132eb801120b32984182d0bd3ca082baa6bb8",
+  "filename": "build/shared/lib/keywords.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/38bae05f65f0da6c9668d393d3e29610435409a0/build%2Fshared%2Flib%2Fkeywords.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/38bae05f65f0da6c9668d393d3e29610435409a0/build%2Fshared%2Flib%2Fkeywords.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Flib%2Fkeywords.txt?ref=38bae05f65f0da6c9668d393d3e29610435409a0",
+  "patch": "@@ -28,6 +28,8 @@ INTERNAL\tLITERAL2\tAnalogReference\tRESERVED_WORD_2\n INTERNAL1V1\tLITERAL2\tAnalogReference\tRESERVED_WORD_2\n INTERNAL2V56\tLITERAL2\tAnalogReference\tRESERVED_WORD_2\n LED_BUILTIN\tLITERAL2\t\t\tRESERVED_WORD_2\n+LED_BUILTIN_RX\tLITERAL2\t\t\tRESERVED_WORD_2\n+LED_BUILTIN_TX\tLITERAL2\t\t\tRESERVED_WORD_2\n \n auto\tLITERAL2\t\tRESERVED_WORD_2\n constexpr\tLITERAL2\t\tRESERVED_WORD_2"
+ },
+ {
+  "sha": "1d98e5ee514204c64dd18cded4f0ebb852258b3e",
+  "filename": "hardware/arduino/avr/variants/leonardo/pins_arduino.h",
+  "status": "modified",
+  "additions": 10,
+  "deletions": 3,
+  "changes": 13,
+  "blob_url": "https://github.com/arduino/Arduino/blob/38bae05f65f0da6c9668d393d3e29610435409a0/hardware%2Farduino%2Favr%2Fvariants%2Fleonardo%2Fpins_arduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/38bae05f65f0da6c9668d393d3e29610435409a0/hardware%2Farduino%2Favr%2Fvariants%2Fleonardo%2Fpins_arduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fvariants%2Fleonardo%2Fpins_arduino.h?ref=38bae05f65f0da6c9668d393d3e29610435409a0",
+  "patch": "@@ -88,7 +88,7 @@\n #undef OCR2_6\n #undef OCR2_7\n \n-#define NUM_DIGITAL_PINS  30\n+#define NUM_DIGITAL_PINS  31\n #define NUM_ANALOG_INPUTS 12\n \n #define TX_RX_LED_INIT\tDDRD |= (1<<5), DDRB |= (1<<0)\n@@ -100,6 +100,8 @@\n static const uint8_t SDA = 2;\n static const uint8_t SCL = 3;\n #define LED_BUILTIN 13\n+#define LED_BUILTIN_RX 17\n+#define LED_BUILTIN_TX 30\n \n // Map SPI port to 'new' pins D14..D17\n static const uint8_t SS   = 17;\n@@ -131,6 +133,8 @@ static const uint8_t A11 = 29;\t// D12\n extern const uint8_t PROGMEM analog_pin_to_channel_PGM[];\n #define analogPinToChannel(P)  ( pgm_read_byte( analog_pin_to_channel_PGM + (P) ) )\n \n+#define digitalPinHasPWM(p)         ((p) == 3 || (p) == 5 || (p) == 6 || (p) == 9 || (p) == 10 || (p) == 11 || (p) == 13)\n+\n #define digitalPinToInterrupt(p) ((p) == 0 ? 2 : ((p) == 1 ? 3 : ((p) == 2 ? 1 : ((p) == 3 ? 0 : ((p) == 7 ? 4 : NOT_AN_INTERRUPT)))))\n \n #ifdef ARDUINO_MAIN\n@@ -171,8 +175,8 @@ extern const uint8_t PROGMEM analog_pin_to_channel_PGM[];\n // MOSI\t\tD16\t\tPB2\t\t\t\t\tMOSI,PCINT2\n // SS\t\tD17\t\tPB0\t\t\t\t\tRXLED,SS/PCINT0\n //\n-// TXLED\t\t\tPD5\n-// RXLED\t\t    PB0\n+// TXLED\tD30\t\tPD5\t\t\t\t\tXCK1\n+// RXLED\tD17\t    PB0\n // HWB\t\t\t\tPE2\t\t\t\t\tHWB\n \n // these arrays map port names (e.g. port B) to the\n@@ -243,6 +247,7 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] = {\n \tPB, // D27 / D9 - A9 - PB5\n \tPB, // D28 / D10 - A10 - PB6\n \tPD, // D29 / D12 - A11 - PD6\n+\tPD, // D30 / TX Led - PD5\n };\n \n const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {\n@@ -280,6 +285,7 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {\n \t_BV(5), // D27 / D9 - A9 - PB5\n \t_BV(6), // D28 / D10 - A10 - PB6\n \t_BV(6), // D29 / D12 - A11 - PD6\n+\t_BV(5), // D30 / TX Led - PD5\n };\n \n const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {\n@@ -317,6 +323,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {\n \tNOT_ON_TIMER,\n \tNOT_ON_TIMER,\n \tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n };\n \n const uint8_t PROGMEM analog_pin_to_channel_PGM[] = {"
+ }
+]

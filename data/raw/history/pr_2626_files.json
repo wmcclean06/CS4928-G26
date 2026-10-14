@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "76f5ca05564a6db36718ca6a11a3cf43c2bb1d82",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a49963d0ad5ad8356591c1c111d1152378cb06d5/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a49963d0ad5ad8356591c1c111d1152378cb06d5/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=a49963d0ad5ad8356591c1c111d1152378cb06d5",
+  "patch": "@@ -1000,6 +1000,8 @@ protected void populatePortMenu() {\n \n     List<BoardPort> ports = Base.getDiscoveryManager().discovery();\n \n+    ports = Base.getPlatform().filterPorts(ports, Preferences.getBoolean(\"serial.ports.showall\"));\n+\n     Collections.sort(ports, new Comparator<BoardPort>() {\n       @Override\n       public int compare(BoardPort o1, BoardPort o2) {"
+ },
+ {
+  "sha": "97f25aae6bd0ff74c03eea417e0735557e8e53c5",
+  "filename": "arduino-core/src/processing/app/Platform.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 0,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a49963d0ad5ad8356591c1c111d1152378cb06d5/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a49963d0ad5ad8356591c1c111d1152378cb06d5/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPlatform.java?ref=a49963d0ad5ad8356591c1c111d1152378cb06d5",
+  "patch": "@@ -30,6 +30,7 @@\n \n import javax.swing.UIManager;\n \n+import cc.arduino.packages.BoardPort;\n import com.sun.jna.Library;\n import com.sun.jna.Native;\n import processing.app.debug.TargetBoard;\n@@ -217,4 +218,8 @@ protected void showLauncherWarning() {\n                           _(\"Unspecified platform, no launcher available.\\nTo enable opening URLs or folders, add a \\n\\\"launcher=/path/to/app\\\" line to preferences.txt\"),\n                           null);\n   }\n+\n+  public List<BoardPort> filterPorts(List<BoardPort> ports, boolean aBoolean) {\n+    return new LinkedList<BoardPort>(ports);\n+  }\n }"
+ },
+ {
+  "sha": "21ee82e082a65b6698632bd00685a28c6eb7b98a",
+  "filename": "arduino-core/src/processing/app/macosx/Platform.java",
+  "status": "modified",
+  "additions": 19,
+  "deletions": 1,
+  "changes": 20,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a49963d0ad5ad8356591c1c111d1152378cb06d5/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fmacosx%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a49963d0ad5ad8356591c1c111d1152378cb06d5/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fmacosx%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fmacosx%2FPlatform.java?ref=a49963d0ad5ad8356591c1c111d1152378cb06d5",
+  "patch": "@@ -22,6 +22,7 @@\n \n package processing.app.macosx;\n \n+import cc.arduino.packages.BoardPort;\n import com.apple.eio.FileManager;\n import org.apache.commons.exec.CommandLine;\n import org.apache.commons.exec.Executor;\n@@ -35,7 +36,8 @@\n import java.io.*;\n import java.lang.reflect.Method;\n import java.net.URI;\n-import java.util.Map;\n+import java.util.*;\n+import java.util.List;\n \n \n /**\n@@ -239,4 +241,20 @@ public String preListAllCandidateDevices() {\n       return super.preListAllCandidateDevices();\n     }\n   }\n+\n+  @Override\n+  public java.util.List<BoardPort> filterPorts(java.util.List<BoardPort> ports, boolean showAll) {\n+    if (showAll) {\n+      return super.filterPorts(ports, true);\n+    }\n+\n+    List<BoardPort> filteredPorts = new LinkedList<BoardPort>();\n+    for (BoardPort port : ports) {\n+      if (!port.getAddress().startsWith(\"/dev/cu.\")) {\n+        filteredPorts.add(port);\n+      }\n+    }\n+\n+    return filteredPorts;\n+  }\n }"
+ }
+]

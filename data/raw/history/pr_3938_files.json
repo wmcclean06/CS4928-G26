@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "972053d05f42d471338aa6c017b28c572b5810aa",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.cpp",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/79f5715c21a81743443269a855979a64188c93df/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/79f5715c21a81743443269a855979a64188c93df/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp?ref=79f5715c21a81743443269a855979a64188c93df",
+  "patch": "@@ -16,7 +16,6 @@\n    SOFTWARE.\n  */\n \n-#include \"PluggableUSB.h\"\n #include \"HID.h\"\n \n #if defined(USBCON)"
+ }
+]

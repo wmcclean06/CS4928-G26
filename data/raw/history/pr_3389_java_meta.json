@@ -1,0 +1,19 @@
+{
+ "pr": 3389,
+ "base_sha": "c5b1d866dee3df3a88905be98c316f2f2a86c605",
+ "head_sha": "db75e677da18d10b5f55f3bdca877b14c196c089",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/AbstractMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "710e8611576eff55682bf3ea431f59505d498c82",
+   "new_sha": "18dc268b878467dd2f2c4777e08a095a5504bb1b",
+   "head_sha_check": "18dc268b878467dd2f2c4777e08a095a5504bb1b",
+   "loc_at_head": 252,
+   "notes": ""
+  }
+ ]
+}

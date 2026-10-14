@@ -1,0 +1,98 @@
+[
+ {
+  "sha": "6b74e80ad6dfe5caa007cbabd00669eccfbcd30d",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 1,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dabd6e49036d6ae7692a143540f17e3b0fe97f57/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dabd6e49036d6ae7692a143540f17e3b0fe97f57/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=dabd6e49036d6ae7692a143540f17e3b0fe97f57",
+  "patch": "@@ -32,6 +32,7 @@\n import cc.arduino.contributions.packages.ContributionsIndexer;\n import cc.arduino.contributions.DownloadableContributionVersionComparator;\n import cc.arduino.contributions.packages.ui.ContributionManagerUI;\n+import cc.arduino.files.DeleteFilesOnShutdown;\n import cc.arduino.packages.DiscoveryManager;\n import cc.arduino.utils.Progress;\n import cc.arduino.view.SplashScreenHelper;\n@@ -127,6 +128,8 @@ static public void main(String args[]) throws Exception {\n   }\n   \n   static public void guardedMain(String args[]) throws Exception {\n+    Runtime.getRuntime().addShutdownHook(new Thread(DeleteFilesOnShutdown.INSTANCE));\n+\n     BaseNoGui.initLogger();\n     \n     BaseNoGui.notifier = new GUIUserNotifier();\n@@ -202,7 +205,7 @@ static public void guardedMain(String args[]) throws Exception {\n \n     // Create a location for untitled sketches\n     untitledFolder = createTempFolder(\"untitled\");\n-    untitledFolder.deleteOnExit();\n+    DeleteFilesOnShutdown.add(untitledFolder);\n \n     new Base(args);\n   }\n@@ -401,6 +404,7 @@ protected void onProgress(Progress progress) {\n         // Set verbosity for command line build\n         Preferences.set(\"build.verbose\", \"\" + parser.isDoVerboseBuild());\n         Preferences.set(\"upload.verbose\", \"\" + parser.isDoVerboseUpload());\n+        Preferences.set(\"runtime.preserve.temp.files\", Boolean.toString(parser.isPreserveTempFiles()));\n \n         // Make sure these verbosity preferences are only for the\n         // current session"
+ },
+ {
+  "sha": "cfe78fd66a3eb78404342ff758808c85fe73d210",
+  "filename": "app/src/processing/app/EditorConsoleStream.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 3,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dabd6e49036d6ae7692a143540f17e3b0fe97f57/app%2Fsrc%2Fprocessing%2Fapp%2FEditorConsoleStream.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dabd6e49036d6ae7692a143540f17e3b0fe97f57/app%2Fsrc%2Fprocessing%2Fapp%2FEditorConsoleStream.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorConsoleStream.java?ref=dabd6e49036d6ae7692a143540f17e3b0fe97f57",
+  "patch": "@@ -1,5 +1,7 @@\n package processing.app;\n \n+import cc.arduino.files.DeleteFilesOnShutdown;\n+\n import static processing.app.I18n._;\n \n import java.io.File;\n@@ -33,19 +35,19 @@ public static void init() {\n       // The files and folders are not deleted on exit because they may be\n       // needed for debugging or bug reporting.\n       tempFolder = Base.createTempFolder(\"console\");\n-      tempFolder.deleteOnExit();\n+      DeleteFilesOnShutdown.add(tempFolder);\n       try {\n         String outFileName = Preferences.get(\"console.output.file\");\n         if (outFileName != null) {\n           outFile = new File(tempFolder, outFileName);\n-          outFile.deleteOnExit();\n+          DeleteFilesOnShutdown.add(outFile);\n           stdoutFile = new FileOutputStream(outFile);\n         }\n \n         String errFileName = Preferences.get(\"console.error.file\");\n         if (errFileName != null) {\n           errFile = new File(tempFolder, errFileName);\n-          errFile.deleteOnExit();\n+          DeleteFilesOnShutdown.add(errFile);\n           stderrFile = new FileOutputStream(errFile);\n         }\n       } catch (IOException e) {"
+ },
+ {
+  "sha": "60e702bce049f51b738e1afeaf6df3addefa3117",
+  "filename": "app/test/processing/app/AbstractGUITest.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 1,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dabd6e49036d6ae7692a143540f17e3b0fe97f57/app%2Ftest%2Fprocessing%2Fapp%2FAbstractGUITest.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dabd6e49036d6ae7692a143540f17e3b0fe97f57/app%2Ftest%2Fprocessing%2Fapp%2FAbstractGUITest.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Ftest%2Fprocessing%2Fapp%2FAbstractGUITest.java?ref=dabd6e49036d6ae7692a143540f17e3b0fe97f57",
+  "patch": "@@ -1,5 +1,6 @@\n package processing.app;\n \n+import cc.arduino.files.DeleteFilesOnShutdown;\n import org.fest.swing.edt.FailOnThreadViolationRepaintManager;\n import org.fest.swing.edt.GuiActionRunner;\n import org.fest.swing.edt.GuiQuery;\n@@ -16,6 +17,7 @@ public abstract class AbstractGUITest {\n   @Before\n   public void startUpTheIDE() throws Exception {\n     System.setProperty(\"mrj.version\", \"whynot\"); //makes sense only on osx. See https://github.com/alexruiz/fest-swing-1.x/issues/2#issuecomment-86532042\n+    Runtime.getRuntime().addShutdownHook(new Thread(DeleteFilesOnShutdown.INSTANCE));\n \n     FailOnThreadViolationRepaintManager.install();\n \n@@ -25,7 +27,7 @@ public void startUpTheIDE() throws Exception {\n     Theme.init();\n     Base.getPlatform().setLookAndFeel();\n     Base.untitledFolder = Base.createTempFolder(\"untitled\");\n-    Base.untitledFolder.deleteOnExit();\n+    DeleteFilesOnShutdown.add(Base.untitledFolder);\n \n     window = GuiActionRunner.execute(new GuiQuery<ArduinoFrameFixture>() {\n       @Override"
+ },
+ {
+  "sha": "cabf9ec110c4dab8b33b561ed62ae20231ffe601",
+  "filename": "app/test/processing/app/AbstractWithPreferencesTest.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 2,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dabd6e49036d6ae7692a143540f17e3b0fe97f57/app%2Ftest%2Fprocessing%2Fapp%2FAbstractWithPreferencesTest.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dabd6e49036d6ae7692a143540f17e3b0fe97f57/app%2Ftest%2Fprocessing%2Fapp%2FAbstractWithPreferencesTest.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Ftest%2Fprocessing%2Fapp%2FAbstractWithPreferencesTest.java?ref=dabd6e49036d6ae7692a143540f17e3b0fe97f57",
+  "patch": "@@ -1,17 +1,19 @@\n package processing.app;\n \n+import cc.arduino.files.DeleteFilesOnShutdown;\n import org.junit.Before;\n \n public abstract class AbstractWithPreferencesTest {\n \n   @Before\n   public void init() throws Exception {\n+    Runtime.getRuntime().addShutdownHook(new Thread(DeleteFilesOnShutdown.INSTANCE));\n     Base.initPlatform();\n     Preferences.init(null);\n     Theme.init();\n \n     Base.untitledFolder = Base.createTempFolder(\"untitled\");\n-    Base.untitledFolder.deleteOnExit();\n-\n+    DeleteFilesOnShutdown.add(Base.untitledFolder);\n   }\n+\n }"
+ },
+ {
+  "sha": "7d9f601394e25023077460742894b175862c1558",
+  "filename": "arduino-core/src/cc/arduino/files/DeleteFilesOnShutdown.java",
+  "status": "added",
+  "additions": 47,
+  "deletions": 0,
+  "changes": 47,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dabd6e49036d6ae7692a143540f17e3b0fe97f57/arduino-core%2Fsrc%2Fcc%2Farduino%2Ffiles%2FDeleteFilesOnShutdown.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dabd6e49036d6ae7692a143540f17e3b0fe97f57/arduino-core%2Fsrc%2Fcc%2Farduino%2Ffiles%2FDeleteFilesOnShutdown.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Ffiles%2FDeleteFilesOnShutdown.java?ref=dabd6e49036d6ae7692a143540f17e3b0fe97f57",
+  "patch": "@@ -0,0 +1,47 @@\n+package cc.arduino.files;\n+\n+import processing.app.PreferencesData;\n+import processing.app.helpers.FileUtils;\n+\n+import java.io.File;\n+import java.util.Collections;\n+import java.util.LinkedList;\n+import java.util.List;\n+\n+public class DeleteFilesOnShutdown implements Runnable {\n+\n+  public static final DeleteFilesOnShutdown INSTANCE = new DeleteFilesOnShutdown();\n+\n+  public static void add(File file) {\n+    INSTANCE.addFile(file);\n+  }\n+\n+  private final List<File> files;\n+\n+  public DeleteFilesOnShutdown() {\n+    this.files = new LinkedList<File>();\n+  }\n+\n+  public synchronized void addFile(File file) {\n+    this.files.add(file);\n+  }\n+\n+  @Override\n+  public void run() {\n+    boolean preserveTempFiles = PreferencesData.getBoolean(\"runtime.preserve.temp.files\");\n+    if (preserveTempFiles) {\n+      return;\n+    }\n+    List<File> copyOfFiles;\n+    synchronized (this) {\n+      copyOfFiles = new LinkedList<File>(files);\n+    }\n+    Collections.reverse(copyOfFiles);\n+    for (File file : copyOfFiles) {\n+      if (file.exists() && file.canWrite()) {\n+        FileUtils.recursiveDelete(file);\n+      }\n+    }\n+  }\n+\n+}"
+ },
+ {
+  "sha": "e7a08c261f42b656eb8338f5a159e177d256d715",
+  "filename": "arduino-core/src/processing/app/BaseNoGui.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 2,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dabd6e49036d6ae7692a143540f17e3b0fe97f57/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dabd6e49036d6ae7692a143540f17e3b0fe97f57/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java?ref=dabd6e49036d6ae7692a143540f17e3b0fe97f57",
+  "patch": "@@ -1,11 +1,11 @@\n package processing.app;\n \n import cc.arduino.contributions.libraries.LibrariesIndexer;\n+import cc.arduino.files.DeleteFilesOnShutdown;\n import cc.arduino.packages.DiscoveryManager;\n import cc.arduino.packages.Uploader;\n import cc.arduino.contributions.packages.ContributedTool;\n import cc.arduino.contributions.packages.ContributionsIndexer;\n-import cc.arduino.utils.ArchiveExtractor;\n import org.apache.commons.logging.impl.LogFactoryImpl;\n import org.apache.commons.logging.impl.NoOpLog;\n import processing.app.debug.Compiler;\n@@ -133,7 +133,7 @@ static public File getBuildFolder() {\n         //File folder = new File(getTempFolder(), \"build\");\n         //if (!folder.exists()) folder.mkdirs();\n         buildFolder = createTempFolder(\"build\");\n-        buildFolder.deleteOnExit();\n+        DeleteFilesOnShutdown.add(buildFolder);\n       }\n     }\n     return buildFolder;\n@@ -703,6 +703,8 @@ static public void main(String args[]) throws Exception {\n     if (args.length == 0)\n       showError(_(\"No parameters\"), _(\"No command line parameters found\"), null);\n \n+    Runtime.getRuntime().addShutdownHook(new Thread(DeleteFilesOnShutdown.INSTANCE));\n+\n     initPlatform();\n     \n     initPortableFolder();"
+ },
+ {
+  "sha": "2e66e636150c1eb5a30cd723b64f1b37d88c2eb6",
+  "filename": "arduino-core/src/processing/app/helpers/CommandlineParser.java",
+  "status": "modified",
+  "additions": 11,
+  "deletions": 0,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dabd6e49036d6ae7692a143540f17e3b0fe97f57/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FCommandlineParser.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dabd6e49036d6ae7692a143540f17e3b0fe97f57/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FCommandlineParser.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FCommandlineParser.java?ref=dabd6e49036d6ae7692a143540f17e3b0fe97f57",
+  "patch": "@@ -36,6 +36,7 @@ private enum ACTION {\n   private boolean doVerboseBuild = false;\n   private boolean doVerboseUpload = false;\n   private boolean doUseProgrammer = false;\n+  private boolean preserveTempFiles;\n   private boolean noUploadPort = false;\n   private boolean forceSavePrefs = false;\n   private String getPref;\n@@ -105,6 +106,12 @@ private void parseArguments(String[] args) {\n           action = ACTION.NOOP;\n         continue;\n       }\n+      if (args[i].equals(\"--preserve-temp-files\")) {\n+        preserveTempFiles = true;\n+        if (action == ACTION.GUI)\n+          action = ACTION.NOOP;\n+        continue;\n+      }\n       if (args[i].equals(\"--verbose-build\")) {\n         doVerboseBuild = true;\n         if (action == ACTION.GUI)\n@@ -330,4 +337,8 @@ public String getBoardToInstall() {\n   public String getLibraryToInstall() {\n     return libraryToInstall;\n   }\n+\n+  public boolean isPreserveTempFiles() {\n+    return preserveTempFiles;\n+  }\n }"
+ },
+ {
+  "sha": "5c17d1521c40121be1976e52fe180da706161f29",
+  "filename": "build/shared/manpage.adoc",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 1,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dabd6e49036d6ae7692a143540f17e3b0fe97f57/build%2Fshared%2Fmanpage.adoc",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dabd6e49036d6ae7692a143540f17e3b0fe97f57/build%2Fshared%2Fmanpage.adoc",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fmanpage.adoc?ref=dabd6e49036d6ae7692a143540f17e3b0fe97f57",
+  "patch": "@@ -25,7 +25,7 @@ SYNOPSIS\n --------\n *arduino* ['FILE.ino'...]\n \n-*arduino* [*--verify*|*--upload*] [*--board* __package__:__arch__:__board__[:__parameters__]] [*--port* __portname__] [*--pref* __name__=__value__] [*-v*|*--verbose*] [__FILE.ino__]\n+*arduino* [*--verify*|*--upload*] [*--board* __package__:__arch__:__board__[:__parameters__]] [*--port* __portname__] [*--pref* __name__=__value__] [*-v*|*--verbose*] [--preserve-temp-files] [__FILE.ino__]\n \n *arduino* [*--get-pref* __preference__]\n \n@@ -117,6 +117,10 @@ OPTIONS\n \tverbose mode during build is *disabled* regardless of the current\n \tpreferences.\n \n+*--preserve-temp-files*::\n+\tKeep temporary files (preprocessed sketch, object files...) after termination.\n+\tIf omitted, temporary files are deleted.\n+\n {empty}::\n \tThis option is only valid together with *--verify* or\n \t*--upload*."
+ }
+]

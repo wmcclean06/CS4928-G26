@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "0190693d1986f85fb538d798c6abb1c3f8d9feac",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 2,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4bf40fc23b4c20109c9e792d13498c71b56b72cf/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4bf40fc23b4c20109c9e792d13498c71b56b72cf/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=4bf40fc23b4c20109c9e792d13498c71b56b72cf",
+  "patch": "@@ -1420,15 +1420,17 @@ public void actionPerformed(ActionEvent e) {\n     });\n     menu.add(commentItem);\n \n-    JMenuItem increaseIndentItem = newJMenuItem(_(\"Increase Indent\"), ']');\n+    JMenuItem increaseIndentItem = new JMenuItem(_(\"Increase Indent\"));\n+    increaseIndentItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0));\n     increaseIndentItem.addActionListener(new ActionListener() {\n         public void actionPerformed(ActionEvent e) {\n           handleIndentOutdent(true);\n         }\n     });\n     menu.add(increaseIndentItem);\n \n-    JMenuItem decreseIndentItem = newJMenuItem(_(\"Decrease Indent\"), '[');\n+    JMenuItem decreseIndentItem = new JMenuItem(_(\"Decrease Indent\"));\n+    decreseIndentItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_TAB, InputEvent.SHIFT_MASK));\n     decreseIndentItem.setName(\"menuDecreaseIndent\");\n     decreseIndentItem.addActionListener(new ActionListener() {\n         public void actionPerformed(ActionEvent e) {"
+ },
+ {
+  "sha": "6a6da5d3ab696a292bd80514cad839511473e038",
+  "filename": "app/src/processing/app/syntax/SketchTextAreaDefaultInputMap.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4bf40fc23b4c20109c9e792d13498c71b56b72cf/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4bf40fc23b4c20109c9e792d13498c71b56b72cf/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2Fsyntax%2FSketchTextAreaDefaultInputMap.java?ref=4bf40fc23b4c20109c9e792d13498c71b56b72cf",
+  "patch": "@@ -39,6 +39,9 @@ public SketchTextAreaDefaultInputMap() {\n       put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, defaultModifier), DefaultEditorKit.endAction);\n \n       remove(KeyStroke.getKeyStroke(KeyEvent.VK_J, defaultModifier));\n+\n+      put(KeyStroke.getKeyStroke(KeyEvent.VK_OPEN_BRACKET, defaultModifier), DefaultEditorKit.insertTabAction);\n+      put(KeyStroke.getKeyStroke(KeyEvent.VK_CLOSE_BRACKET, defaultModifier), RSyntaxTextAreaEditorKit.rstaDecreaseIndentAction);\n     }\n \n     put(KeyStroke.getKeyStroke(KeyEvent.VK_DIVIDE, defaultModifier), RSyntaxTextAreaEditorKit.rstaToggleCommentAction);"
+ }
+]

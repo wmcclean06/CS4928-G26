@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "648edfbcc560a9e4f3cb7694ba6d887f8238dbfe",
+  "filename": "build/windows/launcher/arduino.l4j.ini",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0b688569999302cdce77757bcf257647077aa228/build%2Fwindows%2Flauncher%2Farduino.l4j.ini",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0b688569999302cdce77757bcf257647077aa228/build%2Fwindows%2Flauncher%2Farduino.l4j.ini",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Farduino.l4j.ini?ref=0b688569999302cdce77757bcf257647077aa228",
+  "patch": "@@ -1,2 +1,3 @@\n -Xms128M\r\n -Xmx512M\r\n+-Dfile.encoding=UTF8\r"
+ }
+]

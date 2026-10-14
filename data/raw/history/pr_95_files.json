@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "5e48073f73177f4ad83bb26dc265f9efc4d16fbb",
+  "filename": "libraries/SPI/SPI.cpp",
+  "status": "modified",
+  "additions": 16,
+  "deletions": 11,
+  "changes": 27,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4e8fffa767f5dc52d04cb4e74b63f9275a73b3ab/libraries%2FSPI%2FSPI.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4e8fffa767f5dc52d04cb4e74b63f9275a73b3ab/libraries%2FSPI%2FSPI.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSPI%2FSPI.cpp?ref=4e8fffa767f5dc52d04cb4e74b63f9275a73b3ab",
+  "patch": "@@ -14,27 +14,32 @@\n SPIClass SPI;\n \n void SPIClass::begin() {\n-  // Set direction register for SCK and MOSI pin.\n-  // MISO pin automatically overrides to INPUT.\n+\n+  // Set SS to high so a connected chip will be \"deselected\" by default\n+  digitalWrite(SS, HIGH);\n+\n   // When the SS pin is set as OUTPUT, it can be used as\n   // a general purpose output port (it doesn't influence\n   // SPI operations).\n-\n-  pinMode(SCK, OUTPUT);\n-  pinMode(MOSI, OUTPUT);\n   pinMode(SS, OUTPUT);\n-  \n-  digitalWrite(SCK, LOW);\n-  digitalWrite(MOSI, LOW);\n-  digitalWrite(SS, HIGH);\n \n-  // Warning: if the SS pin ever becomes a LOW INPUT then SPI \n-  // automatically switches to Slave, so the data direction of \n+  // Warning: if the SS pin ever becomes a LOW INPUT then SPI\n+  // automatically switches to Slave, so the data direction of\n   // the SS pin MUST be kept as OUTPUT.\n   SPCR |= _BV(MSTR);\n   SPCR |= _BV(SPE);\n+\n+  // Set direction register for SCK and MOSI pin.\n+  // MISO pin automatically overrides to INPUT.\n+  // By doing this AFTER enabling SPI, we avoid accidentally\n+  // clocking in a single bit since the lines go directly\n+  // from \"input\" to SPI control.  \n+  // http://code.google.com/p/arduino/issues/detail?id=888\n+  pinMode(SCK, OUTPUT);\n+  pinMode(MOSI, OUTPUT);\n }\n \n+\n void SPIClass::end() {\n   SPCR &= ~_BV(SPE);\n }"
+ }
+]

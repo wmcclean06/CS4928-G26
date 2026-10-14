@@ -1,0 +1,31 @@
+{
+ "pr": 6086,
+ "base_sha": "40e7b1db39009123f019ecc0d3f4605bbc4a9158",
+ "head_sha": "53dfc0d022ac247a102a1d9beed08aa18bddedca",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/packages/MonitorFactory.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 7,
+   "deletions": 1,
+   "old_sha": "0eee5eb6ee9217b9b3aa87e0f5f8e9de5273d22c",
+   "new_sha": "83d849dd6efae97e4686aa5e0be0905928266a5c",
+   "head_sha_check": "83d849dd6efae97e4686aa5e0be0905928266a5c",
+   "loc_at_head": 46,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 8,
+   "deletions": 0,
+   "old_sha": "acc2345dee182baa0601ef618d0d047225ba2350",
+   "new_sha": "7d26271953b985455526e85f5865711d5797bfec",
+   "head_sha_check": "7d26271953b985455526e85f5865711d5797bfec",
+   "loc_at_head": 2281,
+   "notes": ""
+  }
+ ]
+}

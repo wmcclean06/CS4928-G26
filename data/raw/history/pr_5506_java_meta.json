@@ -1,0 +1,103 @@
+{
+ "pr": 5506,
+ "base_sha": "3d6abacee4a7dba7f34bfd51d2c2bfa7ef89e90c",
+ "head_sha": "3af99c08477bc97c78c8d5ddf0d66c0b5ff87bac",
+ "java_files": [
+  {
+   "path": "app/test/processing/app/windows/RegQueryParserTest.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 53,
+   "old_sha": "de26ae36938708aec8d1a7ede4cf3556d687471e",
+   "new_sha": "de26ae36938708aec8d1a7ede4cf3556d687471e",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/Compiler.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 15,
+   "deletions": 14,
+   "old_sha": "5eaefb49e4b4a731eb2a4d801971b597ac10c226",
+   "new_sha": "8e3a3f3a6e37e7f8ca19124497860f68e61df6ff",
+   "head_sha_check": "8e3a3f3a6e37e7f8ca19124497860f68e61df6ff",
+   "loc_at_head": 524,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/os/windows/FolderFinder.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 65,
+   "old_sha": "0bc121fe43f442931a0120ffbf852cb3d4c62f03",
+   "new_sha": "0bc121fe43f442931a0120ffbf852cb3d4c62f03",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/os/windows/FolderFinderInWindowsRegistry.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 58,
+   "old_sha": "cd7abde76eaa660b9f003d462f99e5cbfae36e57",
+   "new_sha": "cd7abde76eaa660b9f003d462f99e5cbfae36e57",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/os/windows/Win32KnownFolders.java",
+   "previous_path": "arduino-core/src/cc/arduino/os/windows/FolderFinderInWindowsEnvVar.java",
+   "status": "renamed",
+   "additions": 27,
+   "deletions": 15,
+   "old_sha": "5c217ead3615017ea743c2a5bfe34ef233c3f4c2",
+   "new_sha": "e8f66cbf9eb887cfdb5e347c0db0ef9dd3f56029",
+   "head_sha_check": "e8f66cbf9eb887cfdb5e347c0db0ef9dd3f56029",
+   "loc_at_head": 56,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/BaseNoGui.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 13,
+   "deletions": 0,
+   "old_sha": "482daa86398622a3971d2beb910c871196f2fd3d",
+   "new_sha": "0c9c5acef2e84a4919cf2b5495eb7d533f1581e5",
+   "head_sha_check": "0c9c5acef2e84a4919cf2b5495eb7d533f1581e5",
+   "loc_at_head": 1035,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/windows/Platform.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 17,
+   "deletions": 17,
+   "old_sha": "8bde57cc101763d35929641e4db811e39a3ebfe0",
+   "new_sha": "9646addb22d110f9780e24e1c0bdae154c1bc557",
+   "head_sha_check": "9646addb22d110f9780e24e1c0bdae154c1bc557",
+   "loc_at_head": 177,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/windows/RegQueryParser.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 27,
+   "old_sha": "e20a27faf56948b93a29a478de57c20cc6308f09",
+   "new_sha": "e20a27faf56948b93a29a478de57c20cc6308f09",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  }
+ ]
+}

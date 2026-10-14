@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ad09573360e93b007ba9341694c676e5603ceb07",
+  "filename": "hardware/arduino/avr/cores/arduino/Tone.cpp",
+  "status": "modified",
+  "additions": 11,
+  "deletions": 10,
+  "changes": 21,
+  "blob_url": "https://github.com/arduino/Arduino/blob/df577bf2447217e0606b3ede33ce25fcba9eda3e/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FTone.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/df577bf2447217e0606b3ede33ce25fcba9eda3e/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FTone.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FTone.cpp?ref=df577bf2447217e0606b3ede33ce25fcba9eda3e",
+  "patch": "@@ -30,6 +30,7 @@ Version Modified By Date     Comments\n 0006    D Mellis    09/12/29 Replaced objects with functions\n 0007    M Sproul    10/08/29 Changed #ifdefs from cpu to register\n 0008    S Kanemoto  12/06/22 Fixed for Leonardo by @maris_HY\n+0009    J Reucker   15/04/10 Issue #292 Fixed problems with ATmega8 (thanks to Pete62)\n *************************************************/\n \n #include <avr/interrupt.h>\n@@ -296,13 +297,13 @@ void tone(uint8_t _pin, unsigned int frequency, unsigned long duration)\n #if defined(TCCR0B)\n       if (_timer == 0)\n       {\n-        TCCR0B = prescalarbits;\n+        TCCR0B = (TCCR0B & 0b11111000) | prescalarbits;\n       }\n       else\n #endif\n #if defined(TCCR2B)\n       {\n-        TCCR2B = prescalarbits;\n+        TCCR2B = (TCCR2B & 0b11111000) | prescalarbits;\n       }\n #else\n       {\n@@ -389,15 +390,15 @@ void tone(uint8_t _pin, unsigned int frequency, unsigned long duration)\n         break;\n #endif\n \n-#if defined(TIMSK3)\n+#if defined(OCR3A) && defined(TIMSK3) && defined(OCIE3A)\n       case 3:\n         OCR3A = ocr;\n         timer3_toggle_count = toggle_count;\n         bitWrite(TIMSK3, OCIE3A, 1);\n         break;\n #endif\n \n-#if defined(TIMSK4)\n+#if defined(OCR4A) && defined(TIMSK4) && defined(OCIE4A)\n       case 4:\n         OCR4A = ocr;\n         timer4_toggle_count = toggle_count;\n@@ -454,21 +455,21 @@ void disableTimer(uint8_t _timer)\n       #endif\n       break;\n \n-#if defined(TIMSK3)\n+#if defined(TIMSK3) && defined(OCIE3A)\n     case 3:\n-      TIMSK3 = 0;\n+      bitWrite(TIMSK3, OCIE3A, 0);\n       break;\n #endif\n \n-#if defined(TIMSK4)\n+#if defined(TIMSK4) && defined(OCIE4A)\n     case 4:\n-      TIMSK4 = 0;\n+      bitWrite(TIMSK4, OCIE4A, 0);\n       break;\n #endif\n \n-#if defined(TIMSK5)\n+#if defined(TIMSK5) && defined(OCIE5A)\n     case 5:\n-      TIMSK5 = 0;\n+      bitWrite(TIMSK5, OCIE5A, 0);\n       break;\n #endif\n   }"
+ }
+]

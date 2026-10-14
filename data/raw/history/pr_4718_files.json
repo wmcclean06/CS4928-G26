@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "e4fd4338c7de4c19284198d39c7418ac47afee69",
+  "filename": "hardware/arduino/avr/cores/arduino/Stream.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5bfd17f2319aca251e3304c858247229331c30f4/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FStream.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5bfd17f2319aca251e3304c858247229331c30f4/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FStream.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FStream.h?ref=5bfd17f2319aca251e3304c858247229331c30f4",
+  "patch": "@@ -66,7 +66,8 @@ class Stream : public Print\n // parsing methods\n \n   void setTimeout(unsigned long timeout);  // sets maximum milliseconds to wait for stream data, default is 1 second\n-\n+  unsigned long getTimeout(void) { return _timeout; }\n+  \n   bool find(char *target);   // reads data from the stream until the target string is found\n   bool find(uint8_t *target) { return find ((char *)target); }\n   // returns true if target string is found, false if timed out (see setTimeout)"
+ },
+ {
+  "sha": "3582a1818643e4236312bd507958f1616965b04c",
+  "filename": "hardware/arduino/sam/cores/arduino/Stream.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5bfd17f2319aca251e3304c858247229331c30f4/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FStream.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5bfd17f2319aca251e3304c858247229331c30f4/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FStream.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FStream.h?ref=5bfd17f2319aca251e3304c858247229331c30f4",
+  "patch": "@@ -66,6 +66,7 @@ class Stream : public Print\n // parsing methods\n \n   void setTimeout(unsigned long timeout);  // sets maximum milliseconds to wait for stream data, default is 1 second\n+  unsigned long getTimeout(void) { return _timeout; }\n \n   bool find(char *target);   // reads data from the stream until the target string is found\n   bool find(uint8_t *target) { return find ((char *)target); }"
+ }
+]

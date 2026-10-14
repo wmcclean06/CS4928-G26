@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "9f430b5db3196052b794dc840ecb66fd7efaacd7",
+  "filename": "app/src/processing/app/Resources_it.po",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a92fbdec43794dbd0528b90acff9d1896a776a4/app%2Fsrc%2Fprocessing%2Fapp%2FResources_it.po",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a92fbdec43794dbd0528b90acff9d1896a776a4/app%2Fsrc%2Fprocessing%2Fapp%2FResources_it.po",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FResources_it.po?ref=5a92fbdec43794dbd0528b90acff9d1896a776a4",
+  "patch": "@@ -1089,7 +1089,7 @@ msgid \"\"\n \"\\n\"\n msgstr \"\"\r\n \"\\n\"\r\n-\"Da Arduno 1.0, la classe Udp nella libreria Ethernet \u00e8 stata rinominata EthernerClient.\\n\"\r\n+\"Da Arduino 1.0, la classe Udp nella libreria Ethernet \u00e8 stata rinominata EthernetClient.\\n\"\r\n \"\\n\"\r\n \n #: debug/Compiler.java:495"
+ },
+ {
+  "sha": "35e3f400925e534eaa427a8255e48942724f4245",
+  "filename": "app/src/processing/app/Resources_it.properties",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a92fbdec43794dbd0528b90acff9d1896a776a4/app%2Fsrc%2Fprocessing%2Fapp%2FResources_it.properties",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a92fbdec43794dbd0528b90acff9d1896a776a4/app%2Fsrc%2Fprocessing%2Fapp%2FResources_it.properties",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FResources_it.properties?ref=5a92fbdec43794dbd0528b90acff9d1896a776a4",
+  "patch": "@@ -685,7 +685,7 @@ The\\ Client\\ class\\ has\\ been\\ renamed\\ EthernetClient.=La classe Client \\u00e8\n The\\ Udp\\ class\\ has\\ been\\ renamed\\ EthernetUdp.=La classe Udp \\u00e8 stata rinominata EthernetUdp.\n \n #: debug/Compiler.java:490\n-\\nAs\\ of\\ Arduino\\ 1.0,\\ the\\ Udp\\ class\\ in\\ the\\ Ethernet\\ library\\ has\\ been\\ renamed\\ to\\ EthernetClient.\\n\\n=\\nDa Arduno 1.0, la classe Udp nella libreria Ethernet \\u00e8 stata rinominata EthernerClient.\\n\\n\n+\\nAs\\ of\\ Arduino\\ 1.0,\\ the\\ Udp\\ class\\ in\\ the\\ Ethernet\\ library\\ has\\ been\\ renamed\\ to\\ EthernetClient.\\n\\n=\\nDa Arduino 1.0, la classe Udp nella libreria Ethernet \\u00e8 stata rinominata EthernetClient.\\n\\n\n \n #: debug/Compiler.java:495\n Wire.send()\\ has\\ been\\ renamed\\ Wire.write().=Wire.send() \\u00e8 stato rinominato Wire.write()."
+ }
+]

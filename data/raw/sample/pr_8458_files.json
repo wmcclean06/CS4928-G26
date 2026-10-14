@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "93d791a352b15ef36b8d91ed21ba698de37e7c10",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 13,
+  "deletions": 2,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/46b0553f64699eb6af061c43f5edb13dfde5a623/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/46b0553f64699eb6af061c43f5edb13dfde5a623/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=46b0553f64699eb6af061c43f5edb13dfde5a623",
+  "patch": "@@ -82,6 +82,8 @@\n import javax.swing.event.MenuListener;\n import javax.swing.text.BadLocationException;\n \n+import org.fife.ui.rsyntaxtextarea.folding.FoldManager;\n+\n import com.jcraft.jsch.JSchException;\n \n import cc.arduino.CompilerProgressListener;\n@@ -1648,8 +1650,17 @@ public void removeAllLineHighlights() {\n   }\n \n   public void addLineHighlight(int line) throws BadLocationException {\n-    getCurrentTab().getTextArea().addLineHighlight(line, new Color(1, 0, 0, 0.2f));\n-    getCurrentTab().getTextArea().setCaretPosition(getCurrentTab().getTextArea().getLineStartOffset(line));\n+    SketchTextArea textArea = getCurrentTab().getTextArea();\n+    FoldManager foldManager = textArea.getFoldManager();\n+    if (foldManager.isLineHidden(line)) {\n+      for (int i = 0; i < foldManager.getFoldCount(); i++) {\n+        if (foldManager.getFold(i).containsLine(line)) {\n+          foldManager.getFold(i).setCollapsed(false);\n+        }\n+      }\n+    }\n+    textArea.addLineHighlight(line, new Color(1, 0, 0, 0.2f));\n+    textArea.setCaretPosition(textArea.getLineStartOffset(line));\n   }\n \n "
+ }
+]

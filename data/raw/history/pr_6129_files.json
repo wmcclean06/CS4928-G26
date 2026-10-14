@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "eab701d80a0fc8bc694e2568d2ba1f25eaeee644",
+  "filename": "app/src/processing/app/EditorTab.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 1,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2973c450317d145f8e50783b01814495d0f0246b/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2973c450317d145f8e50783b01814495d0f0246b/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java?ref=2973c450317d145f8e50783b01814495d0f0246b",
+  "patch": "@@ -147,6 +147,8 @@ private SketchTextArea createTextArea(RSyntaxDocument document)\n     textArea.setMarkOccurrences(PreferencesData.getBoolean(\"editor.advanced\"));\n     textArea.setMarginLineEnabled(false);\n     textArea.setCodeFoldingEnabled(PreferencesData.getBoolean(\"editor.code_folding\"));\n+    textArea.setAutoIndentEnabled(PreferencesData.getBoolean(\"editor.indent\"));\n+    textArea.setCloseCurlyBraces(PreferencesData.getBoolean(\"editor.auto_close_braces\", true));\n     textArea.setAntiAliasingEnabled(PreferencesData.getBoolean(\"editor.antialias\"));\n     textArea.setTabsEmulated(PreferencesData.getBoolean(\"editor.tabs.expand\"));\n     textArea.setTabSize(PreferencesData.getInteger(\"editor.tabs.size\"));\n@@ -598,4 +600,4 @@ public boolean requestFocusInWindow() {\n     return textarea.requestFocusInWindow();\n   }\n \n-}\n\\ No newline at end of file\n+}"
+ },
+ {
+  "sha": "3de047a2ec44a83172d912d79b0c2f3083ba73b7",
+  "filename": "arduino-core/src/processing/app/PreferencesData.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 0,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2973c450317d145f8e50783b01814495d0f0246b/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2973c450317d145f8e50783b01814495d0f0246b/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java?ref=2973c450317d145f8e50783b01814495d0f0246b",
+  "patch": "@@ -176,6 +176,13 @@ static public void unset(String attribute) {\n     prefs.remove(attribute);\n   }\n \n+  static public boolean getBoolean(String attribute, boolean defaultValue) {\n+    if (has(attribute)) {\n+      return getBoolean(attribute);\n+    }\n+\n+    return defaultValue;\n+  }\n \n   static public boolean getBoolean(String attribute) {\n     return prefs.getBoolean(attribute);"
+ },
+ {
+  "sha": "ec1852e58c6abb6dbde3d508c51e6a5e8a8c4382",
+  "filename": "build/shared/lib/preferences.txt",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2973c450317d145f8e50783b01814495d0f0246b/build%2Fshared%2Flib%2Fpreferences.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2973c450317d145f8e50783b01814495d0f0246b/build%2Fshared%2Flib%2Fpreferences.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Flib%2Fpreferences.txt?ref=2973c450317d145f8e50783b01814495d0f0246b",
+  "patch": "@@ -146,6 +146,9 @@ editor.tabs.size   = 2\n # automatically indent each line\n editor.indent = true\n \n+# enable/disable auto-close of curly brace\n+editor.auto_close_braces = true\n+\n # size of divider between editing area and the console\n editor.divider.size = 0\n # the larger divider on windows is ugly with the little arrows"
+ }
+]

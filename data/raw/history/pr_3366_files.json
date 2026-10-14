@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "15acb588a61b074f9254da82b2d7f6fdac458a61",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 12,
+  "deletions": 3,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/505ff17d43d0823376d7f741f5cba3e6f929ff5e/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/505ff17d43d0823376d7f741f5cba3e6f929ff5e/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=505ff17d43d0823376d7f741f5cba3e6f929ff5e",
+  "patch": "@@ -723,9 +723,10 @@ protected File createNewUntitled() throws IOException {\n     int day = cal.get(Calendar.DAY_OF_MONTH);  // 1..31\n     int month = cal.get(Calendar.MONTH);  // 0..11\n     String purty = months[month] + PApplet.nf(day, 2);\n+\n     do {\n-      if (index == 26) {\n-        // In 0159, avoid running past z by sending people outdoors.\n+      if (index == 26*26) {\n+        // In 0166, avoid running past zz by sending people outdoors.\n         if (!breakTime) {\n           showWarning(_(\"Time for a Break\"),\n                   _(\"You've reached the limit for auto naming of new sketches\\n\" +\n@@ -737,7 +738,15 @@ protected File createNewUntitled() throws IOException {\n         }\n         return null;\n       }\n-      newbieName = \"sketch_\" + purty + ((char) ('a' + index));\n+\n+      int multiples = index / 26;\n+\n+      if(multiples > 0){\n+        newbieName = ((char) ('a' + (multiples-1))) + \"\" + ((char) ('a' + (index % 26))) + \"\";\n+      }else{\n+        newbieName = ((char) ('a' + index)) + \"\";\n+      }\n+      newbieName = \"sketch_\" + purty + newbieName;\n       newbieDir = new File(newbieParentDir, newbieName);\n       index++;\n       // Make sure it's not in the temp folder *and* it's not in the sketchbook"
+ }
+]

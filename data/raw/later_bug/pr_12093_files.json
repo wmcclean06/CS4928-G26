@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "b15bf277e988a55bdc3e7f8c52b1fcf6c59e3c1d",
+  "filename": "CONTRIBUTING.md",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a1821c6edb4c92f401307cfd37ca9f4552a44eb/CONTRIBUTING.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a1821c6edb4c92f401307cfd37ca9f4552a44eb/CONTRIBUTING.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/CONTRIBUTING.md?ref=5a1821c6edb4c92f401307cfd37ca9f4552a44eb",
+  "patch": "@@ -8,7 +8,7 @@ Thanks for your interest in contributing to this free open source project! Ardui\n | - Bug fix<br/>- Enhancement | Pull Request (read the [pull request guidelines](#pull-requests)) |\n | Translations for the Arduino IDE | [transifex](https://www.transifex.com/mbanzi/arduino-ide-15/) |\n | Translations for the [Language Reference](https://www.arduino.cc/reference) | [Reference repositories](https://github.com/arduino?q=reference-) |\n-| Monetary | - [Donate](https://www.arduino.cc/en/Main/Contribute)<br/>- [Buy official products](https://store.arduino.cc) |\n+| Monetary | [Buy official products](https://store.arduino.cc) |\n \n \n ## Issues"
+ }
+]

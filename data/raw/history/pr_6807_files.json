@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "d9d1c673697704f41a7ca692ad3ce5afa4553457",
+  "filename": "app/src/cc/arduino/i18n/Languages.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/484ade47335eba7a3a7675a6efc224babf9a5384/app%2Fsrc%2Fcc%2Farduino%2Fi18n%2FLanguages.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/484ade47335eba7a3a7675a6efc224babf9a5384/app%2Fsrc%2Fcc%2Farduino%2Fi18n%2FLanguages.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fi18n%2FLanguages.java?ref=484ade47335eba7a3a7675a6efc224babf9a5384",
+  "patch": "@@ -102,7 +102,7 @@ public class Languages {\n       new Language(tr(\"Telugu\"), \"\u0c24\u0c46\u0c32\u0c41\u0c17\u0c41\", \"te\"),\n       new Language(tr(\"Thai\"), \"\u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22\", \"th\"),\n       new Language(tr(\"Turkish\"), \"T\u00fcrk\", \"tr\"),\n-      new Language(tr(\"Ukrainian\"), \"\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0438\u0439\", \"uk\"),\n+      new Language(tr(\"Ukrainian\"), \"\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430\", \"uk\"),\n       new Language(tr(\"Vietnamese\"), \"Ti\u1ebfng Vi\u1ec7t\", \"vi\"),\n       new Language(tr(\"Western Frisian\"), \"Western Frisian\", \"fy\")\n     };"
+ },
+ {
+  "sha": "073c4cbba634f9a0fb8228b3cfa45d2c992ae7a0",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/484ade47335eba7a3a7675a6efc224babf9a5384/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/484ade47335eba7a3a7675a6efc224babf9a5384/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=484ade47335eba7a3a7675a6efc224babf9a5384",
+  "patch": "@@ -1103,7 +1103,7 @@ public void actionPerformed(ActionEvent e) {\n             importMenu.addSeparator();\n           }\n           lastLibType = lib.getTypes().get(0);\n-          JMenuItem platformItem = new JMenuItem(I18n.format(tr(\"{0} libraries\"), lastLibType));\n+          JMenuItem platformItem = new JMenuItem(I18n.format(tr(\"{0} libraries\"), tr(lastLibType)));\n           platformItem.setEnabled(false);\n           importMenu.add(platformItem);\n         }"
+ }
+]

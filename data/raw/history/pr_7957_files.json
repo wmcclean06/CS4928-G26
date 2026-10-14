@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "c437dcd2c9a550e58ea3e08dabdffd82828c584c",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8fee5ee6a2c9bbc90189769f60d556bca1b0a9bc/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8fee5ee6a2c9bbc90189769f60d556bca1b0a9bc/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=8fee5ee6a2c9bbc90189769f60d556bca1b0a9bc",
+  "patch": "@@ -402,7 +402,7 @@\n             mainclassname=\"processing.app.Base\"\n             copyright=\"Arduino LLC\"\n             applicationCategory=\"public.app-category.education\"\n-            minimumsystemversion=\"10.7\"\n+            minimumsystemversion=\"10.8\"\n             highresolutioncapable=\"true\">\n \n       <runtime dir=\"${MACOSX_BUNDLED_JVM}\"/>"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "8b69a13291f0598bfc38b37a2f90cba159c5fbef",
+  "filename": "build/windows/dist/drivers/README.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e1f318994b6d6770e30ecaf88ce56a359e04c514/build%2Fwindows%2Fdist%2Fdrivers%2FREADME.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e1f318994b6d6770e30ecaf88ce56a359e04c514/build%2Fwindows%2Fdist%2Fdrivers%2FREADME.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Fdist%2Fdrivers%2FREADME.txt?ref=e1f318994b6d6770e30ecaf88ce56a359e04c514",
+  "patch": "@@ -2,6 +2,6 @@\n With this version of Arduino a new all-in-one driver (with\n security signature for Windows 8) is supplied.\n \n-The old (deprected) drivers are still available in the\n+The old (deprecated) drivers are still available in the\n Old_Arduino_Drivers.zip\n "
+ }
+]

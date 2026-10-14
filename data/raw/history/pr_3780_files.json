@@ -1,0 +1,62 @@
+[
+ {
+  "sha": "76aefa8b21f390840ab3ece5780b8bc9806f6c8c",
+  "filename": "hardware/arduino/avr/cores/arduino/IPAddress.cpp",
+  "status": "modified",
+  "additions": 42,
+  "deletions": 0,
+  "changes": 42,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e3909b4e2c050213e836f2ca9c132f906bc832b9/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FIPAddress.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e3909b4e2c050213e836f2ca9c132f906bc832b9/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FIPAddress.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FIPAddress.cpp?ref=e3909b4e2c050213e836f2ca9c132f906bc832b9",
+  "patch": "@@ -43,6 +43,48 @@ IPAddress::IPAddress(const uint8_t *address)\n     memcpy(_address.bytes, address, sizeof(_address.bytes));\n }\n \n+bool IPAddress::fromString(const char *address)\n+{\n+    // TODO: add support for \"a\", \"a.b\", \"a.b.c\" formats\n+\n+    uint16_t acc = 0; // Accumulator\n+    uint8_t dots = 0;\n+\n+    while (*address)\n+    {\n+        char c = *address++;\n+        if (c >= '0' && c <= '9')\n+        {\n+            acc = acc * 10 + (c - '0');\n+            if (acc > 255) {\n+                // Value out of [0..255] range\n+                return false;\n+            }\n+        }\n+        else if (c == '.')\n+        {\n+            if (dots == 3) {\n+                // Too much dots (there must be 3 dots)\n+                return false;\n+            }\n+            _address.bytes[dots++] = acc;\n+            acc = 0;\n+        }\n+        else\n+        {\n+            // Invalid char\n+            return false;\n+        }\n+    }\n+\n+    if (dots != 3) {\n+        // Too few dots (there must be 3 dots)\n+        return false;\n+    }\n+    _address.bytes[3] = acc;\n+    return true;\n+}\n+\n IPAddress& IPAddress::operator=(const uint8_t *address)\n {\n     memcpy(_address.bytes, address, sizeof(_address.bytes));"
+ },
+ {
+  "sha": "b20ab58afa65bc12e496c5f5f7ce160680770c0b",
+  "filename": "hardware/arduino/avr/cores/arduino/IPAddress.h",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 1,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e3909b4e2c050213e836f2ca9c132f906bc832b9/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FIPAddress.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e3909b4e2c050213e836f2ca9c132f906bc832b9/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FIPAddress.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FIPAddress.h?ref=e3909b4e2c050213e836f2ca9c132f906bc832b9",
+  "patch": "@@ -45,6 +45,9 @@ class IPAddress : public Printable {\n     IPAddress(uint32_t address);\n     IPAddress(const uint8_t *address);\n \n+    bool fromString(const char *address);\n+    bool fromString(const String &address) { return fromString(address.c_str()); }\n+\n     // Overloaded cast operator to allow IPAddress objects to be used where a pointer\n     // to a four-byte uint8_t array is expected\n     operator uint32_t() const { return _address.dword; };\n@@ -71,5 +74,4 @@ class IPAddress : public Printable {\n \n const IPAddress INADDR_NONE(0,0,0,0);\n \n-\n #endif"
+ },
+ {
+  "sha": "76aefa8b21f390840ab3ece5780b8bc9806f6c8c",
+  "filename": "hardware/arduino/sam/cores/arduino/IPAddress.cpp",
+  "status": "modified",
+  "additions": 42,
+  "deletions": 0,
+  "changes": 42,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e3909b4e2c050213e836f2ca9c132f906bc832b9/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FIPAddress.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e3909b4e2c050213e836f2ca9c132f906bc832b9/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FIPAddress.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FIPAddress.cpp?ref=e3909b4e2c050213e836f2ca9c132f906bc832b9",
+  "patch": "@@ -43,6 +43,48 @@ IPAddress::IPAddress(const uint8_t *address)\n     memcpy(_address.bytes, address, sizeof(_address.bytes));\n }\n \n+bool IPAddress::fromString(const char *address)\n+{\n+    // TODO: add support for \"a\", \"a.b\", \"a.b.c\" formats\n+\n+    uint16_t acc = 0; // Accumulator\n+    uint8_t dots = 0;\n+\n+    while (*address)\n+    {\n+        char c = *address++;\n+        if (c >= '0' && c <= '9')\n+        {\n+            acc = acc * 10 + (c - '0');\n+            if (acc > 255) {\n+                // Value out of [0..255] range\n+                return false;\n+            }\n+        }\n+        else if (c == '.')\n+        {\n+            if (dots == 3) {\n+                // Too much dots (there must be 3 dots)\n+                return false;\n+            }\n+            _address.bytes[dots++] = acc;\n+            acc = 0;\n+        }\n+        else\n+        {\n+            // Invalid char\n+            return false;\n+        }\n+    }\n+\n+    if (dots != 3) {\n+        // Too few dots (there must be 3 dots)\n+        return false;\n+    }\n+    _address.bytes[3] = acc;\n+    return true;\n+}\n+\n IPAddress& IPAddress::operator=(const uint8_t *address)\n {\n     memcpy(_address.bytes, address, sizeof(_address.bytes));"
+ },
+ {
+  "sha": "b20ab58afa65bc12e496c5f5f7ce160680770c0b",
+  "filename": "hardware/arduino/sam/cores/arduino/IPAddress.h",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 1,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e3909b4e2c050213e836f2ca9c132f906bc832b9/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FIPAddress.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e3909b4e2c050213e836f2ca9c132f906bc832b9/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FIPAddress.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FIPAddress.h?ref=e3909b4e2c050213e836f2ca9c132f906bc832b9",
+  "patch": "@@ -45,6 +45,9 @@ class IPAddress : public Printable {\n     IPAddress(uint32_t address);\n     IPAddress(const uint8_t *address);\n \n+    bool fromString(const char *address);\n+    bool fromString(const String &address) { return fromString(address.c_str()); }\n+\n     // Overloaded cast operator to allow IPAddress objects to be used where a pointer\n     // to a four-byte uint8_t array is expected\n     operator uint32_t() const { return _address.dword; };\n@@ -71,5 +74,4 @@ class IPAddress : public Printable {\n \n const IPAddress INADDR_NONE(0,0,0,0);\n \n-\n #endif"
+ },
+ {
+  "sha": "aa9ad03a4de676bda76d4b17f47be8a110d8a30e",
+  "filename": "libraries/Ethernet/src/Dns.cpp",
+  "status": "modified",
+  "additions": 26,
+  "deletions": 44,
+  "changes": 70,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e3909b4e2c050213e836f2ca9c132f906bc832b9/libraries%2FEthernet%2Fsrc%2FDns.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e3909b4e2c050213e836f2ca9c132f906bc832b9/libraries%2FEthernet%2Fsrc%2FDns.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fsrc%2FDns.cpp?ref=e3909b4e2c050213e836f2ca9c132f906bc832b9",
+  "patch": "@@ -55,64 +55,46 @@ void DNSClient::begin(const IPAddress& aDNSServer)\n }\n \n \n-int DNSClient::inet_aton(const char* aIPAddrString, IPAddress& aResult)\n+int DNSClient::inet_aton(const char* addr, IPAddress& result)\n {\n-    // See if we've been given a valid IP address\n-    const char* p =aIPAddrString;\n-    while (*p &&\n-           ( (*p == '.') || (*p >= '0') || (*p <= '9') ))\n-    {\n-        p++;\n-    }\n+    // TODO: add support for \"a\", \"a.b\", \"a.b.c\" formats\n+\n+    uint16_t acc = 0; // Accumulator\n+    uint8_t dots = 0;\n \n-    if (*p == '\\0')\n+    while (*address)\n     {\n-        // It's looking promising, we haven't found any invalid characters\n-        p = aIPAddrString;\n-        int segment =0;\n-        int segmentValue =0;\n-        while (*p && (segment < 4))\n+        char c = *address++;\n+        if (c >= '0' && c <= '9')\n         {\n-            if (*p == '.')\n-            {\n-                // We've reached the end of a segment\n-                if (segmentValue > 255)\n-                {\n-                    // You can't have IP address segments that don't fit in a byte\n-                    return 0;\n-                }\n-                else\n-                {\n-                    aResult[segment] = (byte)segmentValue;\n-                    segment++;\n-                    segmentValue = 0;\n-                }\n+            acc = acc * 10 + (c - '0');\n+            if (acc > 255) {\n+                // Value out of [0..255] range\n+                return 0;\n             }\n-            else\n-            {\n-                // Next digit\n-                segmentValue = (segmentValue*10)+(*p - '0');\n-            }\n-            p++;\n         }\n-        // We've reached the end of address, but there'll still be the last\n-        // segment to deal with\n-        if ((segmentValue > 255) || (segment > 3))\n+        else if (c == '.')\n         {\n-            // You can't have IP address segments that don't fit in a byte,\n-            // or more than four segments\n-            return 0;\n+            if (dots == 3) {\n+                // Too much dots (there must be 3 dots)\n+                return 0;\n+            }\n+            result[dots++] = acc;\n+            acc = 0;\n         }\n         else\n         {\n-            aResult[segment] = (byte)segmentValue;\n-            return 1;\n+            // Invalid char\n+            return 0;\n         }\n     }\n-    else\n-    {\n+\n+    if (dots != 3) {\n+        // Too few dots (there must be 3 dots)\n         return 0;\n     }\n+    result[3] = acc;\n+    return 1;\n }\n \n int DNSClient::getHostByName(const char* aHostname, IPAddress& aResult)"
+ }
+]

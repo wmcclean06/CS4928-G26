@@ -1,0 +1,39 @@
+[
+ {
+  "sha": "ea9fa2eb212bdfdd514b0427e97927a0b7e8631c",
+  "filename": "build/shared/examples/04.Communication/MultiSerial/MultiSerial.ino",
+  "status": "renamed",
+  "additions": 4,
+  "deletions": 2,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/53af4a7dea3d676ee717122dda3d2522f71a2bc3/build%2Fshared%2Fexamples%2F04.Communication%2FMultiSerial%2FMultiSerial.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/53af4a7dea3d676ee717122dda3d2522f71a2bc3/build%2Fshared%2Fexamples%2F04.Communication%2FMultiSerial%2FMultiSerial.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F04.Communication%2FMultiSerial%2FMultiSerial.ino?ref=53af4a7dea3d676ee717122dda3d2522f71a2bc3",
+  "patch": "@@ -1,10 +1,10 @@\n /*\n-  Mega multple serial test\n+  Multple Serial test\n \n  Receives from the main serial port, sends to the others.\n  Receives from serial port 1, sends to the main serial (Serial 0).\n \n- This example works only on the Arduino Mega\n+ This example works only with boards with more than one serial like Arduino Mega, Due, Zero etc\n \n  The circuit:\n  * Any serial device attached to Serial port 1\n@@ -13,6 +13,8 @@\n  created 30 Dec. 2008\n  modified 20 May 2012\n  by Tom Igoe & Jed Roach\n+ modified 27 Nov 2015\n+ by Arturo Guadalupi\n \n  This example code is in the public domain.\n ",
+  "previous_filename": "build/shared/examples/04.Communication/MultiSerialMega/MultiSerialMega.ino"
+ },
+ {
+  "sha": "39f321bf95093e5671e13a7b18c3e5509ab0f708",
+  "filename": "build/shared/examples/04.Communication/MultiSerial/MultiSerial.txt",
+  "status": "added",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/53af4a7dea3d676ee717122dda3d2522f71a2bc3/build%2Fshared%2Fexamples%2F04.Communication%2FMultiSerial%2FMultiSerial.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/53af4a7dea3d676ee717122dda3d2522f71a2bc3/build%2Fshared%2Fexamples%2F04.Communication%2FMultiSerial%2FMultiSerial.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F04.Communication%2FMultiSerial%2FMultiSerial.txt?ref=53af4a7dea3d676ee717122dda3d2522f71a2bc3",
+  "patch": "@@ -0,0 +1 @@\n+Use two of the serial ports available on the Arduino board."
+ },
+ {
+  "sha": "3383c902649726c70e34eeed48bca340d6532c32",
+  "filename": "build/shared/examples/04.Communication/MultiSerialMega/MultiSerialMega.txt",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8e6a30e00c0e8079b468cd93ea17a1353ee72b2a/build%2Fshared%2Fexamples%2F04.Communication%2FMultiSerialMega%2FMultiSerialMega.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8e6a30e00c0e8079b468cd93ea17a1353ee72b2a/build%2Fshared%2Fexamples%2F04.Communication%2FMultiSerialMega%2FMultiSerialMega.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F04.Communication%2FMultiSerialMega%2FMultiSerialMega.txt?ref=8e6a30e00c0e8079b468cd93ea17a1353ee72b2a",
+  "patch": "@@ -1 +0,0 @@\n-Use two of the serial ports available on the Arduino Mega.\n\\ No newline at end of file"
+ }
+]

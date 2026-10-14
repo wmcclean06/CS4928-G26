@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "2ea7c0295b1d443867641243473492d2ff891462",
+  "filename": "app/src/cc/arduino/view/preferences/Preferences.java",
+  "status": "modified",
+  "additions": 17,
+  "deletions": 0,
+  "changes": 17,
+  "blob_url": "https://github.com/arduino/Arduino/blob/04057c9e2e28db52f8eb6c6ac14b92bccdebbf32/app%2Fsrc%2Fcc%2Farduino%2Fview%2Fpreferences%2FPreferences.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/04057c9e2e28db52f8eb6c6ac14b92bccdebbf32/app%2Fsrc%2Fcc%2Farduino%2Fview%2Fpreferences%2FPreferences.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fview%2Fpreferences%2FPreferences.java?ref=04057c9e2e28db52f8eb6c6ac14b92bccdebbf32",
+  "patch": "@@ -34,6 +34,7 @@\n import cc.arduino.i18n.Languages;\n import processing.app.Base;\n import processing.app.BaseNoGui;\n+import processing.app.Editor;\n import processing.app.I18n;\n import processing.app.PreferencesData;\n import processing.app.Theme;\n@@ -42,6 +43,7 @@\n \n import javax.swing.*;\n import java.awt.*;\n+import java.awt.event.ItemEvent;\n import java.awt.event.WindowEvent;\n import java.io.File;\n import java.util.LinkedList;\n@@ -243,6 +245,21 @@ public void mouseEntered(java.awt.event.MouseEvent evt) {\n     checkboxesContainer.add(verifyUploadBox);\n \n     externalEditorBox.setText(tr(\"Use external editor\"));\n+    externalEditorBox.addItemListener(ev -> {\n+      if (ev.getStateChange() == ItemEvent.SELECTED) {\n+        for (Editor e : base.getEditors()) {\n+          if (e.getSketch().isModified()) {\n+            String msg = tr(\"You have unsaved changes!\\nYou must save all your sketches to enable this option.\");\n+            JOptionPane.showMessageDialog(null, msg,\n+                                          tr(\"Can't enable external editor\"),\n+                                          JOptionPane.INFORMATION_MESSAGE);\n+            externalEditorBox.setSelected(false);\n+            return;\n+          }\n+        }\n+      }\n+    });\n+\n     checkboxesContainer.add(externalEditorBox);\n \n     cacheCompiledCore.setText(tr(\"Aggressively cache compiled core\"));"
+ },
+ {
+  "sha": "843efe95bb11b7fa78f9ff6138f4b7b8adac0e02",
+  "filename": "arduino-core/src/processing/app/i18n/Resources_en.po",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 0,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/04057c9e2e28db52f8eb6c6ac14b92bccdebbf32/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2FResources_en.po",
+  "raw_url": "https://github.com/arduino/Arduino/raw/04057c9e2e28db52f8eb6c6ac14b92bccdebbf32/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2FResources_en.po",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2FResources_en.po?ref=04057c9e2e28db52f8eb6c6ac14b92bccdebbf32",
+  "patch": "@@ -427,6 +427,10 @@ msgstr \"CRC doesn't match, file is corrupted. It may be a temporary problem, ple\n msgid \"Can only pass one of: {0}\"\n msgstr \"Can only pass one of: {0}\"\n \n+#: ../../../../../app/src/cc/arduino/view/preferences/Preferences.java:254\n+msgid \"Can't enable external editor\"\n+msgstr \"\"\n+\n #: ../../../processing/app/BaseNoGui.java:504\n #: ../../../processing/app/BaseNoGui.java:549\n msgid \"Can't find the sketch in the specified path\"\n@@ -469,6 +473,10 @@ msgstr \"Chinese (Taiwan)\"\n msgid \"Chinese (Taiwan) (Big5)\"\n msgstr \"Chinese (Taiwan) (Big5)\"\n \n+#: ../../../../../app/src/processing/app/AbstractTextMonitor.java:80\n+msgid \"Clear output\"\n+msgstr \"\"\n+\n #: ../../../../../app/src/cc/arduino/view/preferences/AdditionalBoardsManagerURLTextArea.java:98\n msgid \"Click for a list of unofficial boards support URLs\"\n msgstr \"Click for a list of unofficial boards support URLs\"\n@@ -2455,6 +2463,12 @@ msgstr \"You cannot save the sketch into a folder\\ninside itself. This would go o\n msgid \"You forgot your sketchbook\"\n msgstr \"You forgot your sketchbook\"\n \n+#: ../../../../../app/src/cc/arduino/view/preferences/Preferences.java:252\n+msgid \"\"\n+\"You have unsaved changes!\\n\"\n+\"You must save all your sketches to enable this option.\"\n+msgstr \"\"\n+\n #: ../../../processing/app/AbstractMonitor.java:92\n msgid \"\"\n \"You've pressed {0} but nothing was sent. Should you select a line ending?\""
+ },
+ {
+  "sha": "b83ed873736e4564d9e3aa511d747ff95857b010",
+  "filename": "arduino-core/src/processing/app/i18n/Resources_en.properties",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 0,
+  "changes": 9,
+  "blob_url": "https://github.com/arduino/Arduino/blob/04057c9e2e28db52f8eb6c6ac14b92bccdebbf32/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2FResources_en.properties",
+  "raw_url": "https://github.com/arduino/Arduino/raw/04057c9e2e28db52f8eb6c6ac14b92bccdebbf32/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2FResources_en.properties",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fi18n%2FResources_en.properties?ref=04057c9e2e28db52f8eb6c6ac14b92bccdebbf32",
+  "patch": "@@ -298,6 +298,9 @@ CRC\\ doesn't\\ match,\\ file\\ is\\ corrupted.\\ It\\ may\\ be\\ a\\ temporary\\ problem,\\\n #, java-format\n Can\\ only\\ pass\\ one\\ of\\:\\ {0}=Can only pass one of\\: {0}\n \n+#: ../../../../../app/src/cc/arduino/view/preferences/Preferences.java:254\n+!Can't\\ enable\\ external\\ editor=\n+\n #: ../../../processing/app/BaseNoGui.java:504\n #: ../../../processing/app/BaseNoGui.java:549\n Can't\\ find\\ the\\ sketch\\ in\\ the\\ specified\\ path=Can't find the sketch in the specified path\n@@ -330,6 +333,9 @@ Chinese\\ (Taiwan)=Chinese (Taiwan)\n #: ../../../processing/app/Preferences.java:143\n Chinese\\ (Taiwan)\\ (Big5)=Chinese (Taiwan) (Big5)\n \n+#: ../../../../../app/src/processing/app/AbstractTextMonitor.java:80\n+!Clear\\ output=\n+\n #: ../../../../../app/src/cc/arduino/view/preferences/AdditionalBoardsManagerURLTextArea.java:98\n Click\\ for\\ a\\ list\\ of\\ unofficial\\ boards\\ support\\ URLs=Click for a list of unofficial boards support URLs\n \n@@ -1771,6 +1777,9 @@ You\\ cannot\\ save\\ the\\ sketch\\ into\\ a\\ folder\\ninside\\ itself.\\ This\\ would\\ g\n #: Base.java:1888\n You\\ forgot\\ your\\ sketchbook=You forgot your sketchbook\n \n+#: ../../../../../app/src/cc/arduino/view/preferences/Preferences.java:252\n+!You\\ have\\ unsaved\\ changes\\!\\nYou\\ must\\ save\\ all\\ your\\ sketches\\ to\\ enable\\ this\\ option.=\n+\n #: ../../../processing/app/AbstractMonitor.java:92\n You've\\ pressed\\ {0}\\ but\\ nothing\\ was\\ sent.\\ Should\\ you\\ select\\ a\\ line\\ ending?=You've pressed {0} but nothing was sent. Should you select a line ending?\n "
+ },
+ {
+  "sha": "18c225f8beea81a6c87326c70802a12251782dd5",
+  "filename": "build/shared/revisions.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/04057c9e2e28db52f8eb6c6ac14b92bccdebbf32/build%2Fshared%2Frevisions.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/04057c9e2e28db52f8eb6c6ac14b92bccdebbf32/build%2Fshared%2Frevisions.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Frevisions.txt?ref=04057c9e2e28db52f8eb6c6ac14b92bccdebbf32",
+  "patch": "@@ -3,6 +3,7 @@ ARDUINO 1.8.3\n [ide]\n * Serial Monitor: added \"Clear output\" button. Thanks @MichaelSy\n * added option in preferences.txt for: custom title, comment/uncomment shortcut, always show file extensions. Thanks @MichaelSy\n+* Enabling \"Use external editor\" option now requires to save all sketches.\n \n ARDUINO 1.8.2 2017.03.22\n "
+ }
+]

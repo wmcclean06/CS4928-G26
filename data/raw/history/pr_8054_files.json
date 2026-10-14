@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "e30250f1030c94523f078c4bf89154b2d787b95b",
+  "filename": "build/shared/tools/Mangler/src/Mangler.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 6,
+  "changes": 13,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8f3c54d8ba741fc119321002199e763291a02130/build%2Fshared%2Ftools%2FMangler%2Fsrc%2FMangler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8f3c54d8ba741fc119321002199e763291a02130/build%2Fshared%2Ftools%2FMangler%2Fsrc%2FMangler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Ftools%2FMangler%2Fsrc%2FMangler.java?ref=8f3c54d8ba741fc119321002199e763291a02130",
+  "patch": "@@ -32,6 +32,7 @@\n import processing.app.tools.Tool;\n \n \n+\n /**\n  * Example Tools menu entry.\n  */\n@@ -69,8 +70,9 @@ public void run() {\n \n \n   protected void mangleSelection() {\n-    if (editor.isSelectionActive()) {\n-      String selection = editor.getSelectedText();\n+    //Check if there is selected text\n+    if (editor.getCurrentTab().getSelectedText() != null) {\n+      String selection = editor.getCurrentTab().getSelectedText();\n       char[] stuff = selection.toCharArray();\n       // Randomly swap a bunch of characters in the text\n       for (int i = 0; i < stuff.length / 10; i++) {\n@@ -82,13 +84,12 @@ protected void mangleSelection() {\n         stuff[a] = selection.charAt(b);\n         stuff[b] = selection.charAt(a);\n       }\n-      editor.startCompoundEdit();\n-      editor.setSelectedText(new String(stuff));\n-      editor.stopCompoundEdit();\n+      editor.getCurrentTab().setSelectedText(new String(stuff));\n       editor.statusNotice(\"Now that feels better, doesn't it?\");\n \n     } else {\n-      editor.statusError(\"No selection, no dice.\");\n+      //When there is no selected text\n+     editor.statusError(\"No selection, no dice.\");\n     }\n   }\n }"
+ }
+]

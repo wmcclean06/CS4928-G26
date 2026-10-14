@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "ecd87f30c1eeaff361270c6bc2392fda565f1427",
+  "filename": "hardware/arduino/sam/cores/arduino/itoa.c",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/549a8055fa31ba23365e8d5849570a93bff3073f/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fitoa.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/549a8055fa31ba23365e8d5849570a93bff3073f/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fitoa.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fitoa.c?ref=549a8055fa31ba23365e8d5849570a93bff3073f",
+  "patch": "@@ -121,7 +121,7 @@ extern char* ltoa( long value, char *string, int radix )\n   return string;\n }\n \n-extern char* utoa( unsigned long value, char *string, int radix )\n+extern char* utoa( unsigned int value, char *string, int radix )\n {\n   return ultoa( value, string, radix ) ;\n }"
+ },
+ {
+  "sha": "751c490b59c8c32c63a021897365967360ac0845",
+  "filename": "hardware/arduino/sam/cores/arduino/itoa.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/549a8055fa31ba23365e8d5849570a93bff3073f/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fitoa.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/549a8055fa31ba23365e8d5849570a93bff3073f/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fitoa.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fitoa.h?ref=549a8055fa31ba23365e8d5849570a93bff3073f",
+  "patch": "@@ -31,7 +31,7 @@ extern void itoa( int n, char s[] ) ;\n \n extern char* itoa( int value, char *string, int radix ) ;\n extern char* ltoa( long value, char *string, int radix ) ;\n-extern char* utoa( unsigned long value, char *string, int radix ) ;\n+extern char* utoa( unsigned int value, char *string, int radix ) ;\n extern char* ultoa( unsigned long value, char *string, int radix ) ;\n #endif /* 0 */\n \n@@ -40,3 +40,4 @@ extern char* ultoa( unsigned long value, char *string, int radix ) ;\n #endif // __cplusplus\n \n #endif // _ITOA_\n+"
+ }
+]

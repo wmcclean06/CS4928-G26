@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "6d20a49cf0ce5809f6c6608cbb5615c97fcc6234",
+  "filename": "hardware/arduino/avr/libraries/SoftwareSerial/library.properties",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bb8ee5ac95a93aba649724e4de51751f9f10b556/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Flibrary.properties",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bb8ee5ac95a93aba649724e4de51751f9f10b556/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Flibrary.properties",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Flibrary.properties?ref=bb8ee5ac95a93aba649724e4de51751f9f10b556",
+  "patch": "@@ -2,8 +2,8 @@ name=SoftwareSerial\n version=1.0\n author=Arduino\n maintainer=Arduino <info@arduino.cc>\n-sentence=Enables serial communication on digital pins.\n-paragraph=\n+sentence=Enables serial communication on any digital pin.\n+paragraph=The SoftwareSerial library has been developed to allow serial communication on any digital pin of the board, using software to replicate the functionality of the hardware UART. It is possible to have multiple software serial ports with speeds up to 115200 bps. \n category=Communication\n url=http://www.arduino.cc/en/Reference/SoftwareSerial\n architectures=avr"
+ }
+]

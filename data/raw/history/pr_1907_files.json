@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "56f76ab3a891d82e82c78263f9b4fa5f314193ac",
+  "filename": "libraries/Esplora/Esplora.h",
+  "status": "modified",
+  "additions": 12,
+  "deletions": 0,
+  "changes": 12,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8642df71e6ae191a2d383379916c7e6f89c03468/libraries%2FEsplora%2FEsplora.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8642df71e6ae191a2d383379916c7e6f89c03468/libraries%2FEsplora%2FEsplora.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEsplora%2FEsplora.h?ref=8642df71e6ae191a2d383379916c7e6f89c03468",
+  "patch": "@@ -40,6 +40,8 @@ const byte CH_SLIDER      = 4;\n const byte CH_LIGHT       = 5;\n const byte CH_TEMPERATURE = 6;\n const byte CH_MIC         = 7;\n+const byte CH_TINKERKIT_A = 8;\n+const byte CH_TINKERKIT_B = 9;\n const byte CH_JOYSTICK_SW = 10;\n const byte CH_JOYSTICK_X  = 11;\n const byte CH_JOYSTICK_Y  = 12;\n@@ -156,6 +158,16 @@ class _Esplora {\n   void tone(unsigned int freq);\n   void tone(unsigned int freq, unsigned long duration);\n   void noTone();\n+  \n+  inline unsigned int readTinkerkitInput(byte whichInput) {\n+    return readChannel(whichInput + CH_TINKERKIT_A);\n+  }\n+  inline unsigned int readTinkerkitInputA() {\n+    return readChannel(CH_TINKERKIT_A);\n+  }\n+  inline unsigned int readTinkerkitInputB() {\n+    return readChannel(CH_TINKERKIT_B);\n+  }\n };\n \n "
+ },
+ {
+  "sha": "18d394b31999c34f7fa94c572b67de6601ad5286",
+  "filename": "libraries/Esplora/keywords.txt",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8642df71e6ae191a2d383379916c7e6f89c03468/libraries%2FEsplora%2Fkeywords.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8642df71e6ae191a2d383379916c7e6f89c03468/libraries%2FEsplora%2Fkeywords.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEsplora%2Fkeywords.txt?ref=8642df71e6ae191a2d383379916c7e6f89c03468",
+  "patch": "@@ -28,6 +28,9 @@ writeBlue\tKEYWORD2\n readRed\tKEYWORD2\n readGreen\tKEYWORD2\n readBlue\tKEYWORD2\n+readTinkerkitInput     KEYWORD2\n+readTinkerkitInputA     KEYWORD2\n+readTinkerkitInputB     KEYWORD2\n tone\tKEYWORD2\n noTone\tKEYWORD2\n "
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "947325e5f5d4ee8f8ff15959af59eb7464667d3d",
+  "filename": "hardware/arduino/cores/arduino/WString.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e223f8eb9c6d092efa224fb117523187a85b67b0/hardware%2Farduino%2Fcores%2Farduino%2FWString.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e223f8eb9c6d092efa224fb117523187a85b67b0/hardware%2Farduino%2Fcores%2Farduino%2FWString.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FWString.h?ref=e223f8eb9c6d092efa224fb117523187a85b67b0",
+  "patch": "@@ -35,7 +35,7 @@\n //     -std=c++0x\n \n class __FlashStringHelper;\n-#define F(string_literal) (reinterpret_cast<__FlashStringHelper *>(PSTR(string_literal)))\n+#define F(string_literal) (reinterpret_cast<const __FlashStringHelper *>(PSTR(string_literal)))\n \n // An inherited class for holding the result of a concatenation.  These\n // result objects are assumed to be writable by subsequent concatenations."
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "pr": 2709,
+ "base_sha": "0ae9e3a0d0788691f469651f9bee72147977fbf6",
+ "head_sha": "a6909bdb49d99253b4e684365e72e5dce31a49a7",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/packages/uploaders/SerialUploader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "81c084054eb714d91cb5605a3db1d0f755ebd808",
+   "new_sha": "86524f773c6261bcfdfd664d3562bba27c991015",
+   "head_sha_check": "86524f773c6261bcfdfd664d3562bba27c991015",
+   "loc_at_head": 294,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/Serial.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 3,
+   "deletions": 2,
+   "old_sha": "672db063d698942808c9089adb840a81bb939439",
+   "new_sha": "53d0601ae7bc823117a8404360aea18df598567e",
+   "head_sha_check": "53d0601ae7bc823117a8404360aea18df598567e",
+   "loc_at_head": 273,
+   "notes": ""
+  }
+ ]
+}

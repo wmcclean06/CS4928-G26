@@ -1,0 +1,103 @@
+{
+ "pr": 4279,
+ "base_sha": "f702f1a4e782aaa994a12fe75b30ee5ad30eb8db",
+ "head_sha": "7eea624dfa0d4705dcb26e40356d62770ee7dd99",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 7,
+   "deletions": 1,
+   "old_sha": "9a30f5250b8c0aa9ee3a24e24e1d478f70302af0",
+   "new_sha": "6960e229edd2b726cc01de564b93c58eebb436fe",
+   "head_sha_check": "6960e229edd2b726cc01de564b93c58eebb436fe",
+   "loc_at_head": 2514,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/EditorConsole.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 0,
+   "old_sha": "f39f98cb84a171fffe6fe6455616e9aaed8c71b3",
+   "new_sha": "f31a01b00f9dd86b7657e480e4f312a5dfddfee5",
+   "head_sha_check": "f31a01b00f9dd86b7657e480e4f312a5dfddfee5",
+   "loc_at_head": 108,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/EditorHeader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 72,
+   "deletions": 122,
+   "old_sha": "a1e100aea43e1532df950eec5fd914d2d56d2962",
+   "new_sha": "84dc49df4c125913ef1c0728699e1e9be5c7cf08",
+   "head_sha_check": "84dc49df4c125913ef1c0728699e1e9be5c7cf08",
+   "loc_at_head": 282,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/EditorListener.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 79,
+   "old_sha": "cbd082cfcad3cda0823b2c24aefb114d735aec7a",
+   "new_sha": "cbd082cfcad3cda0823b2c24aefb114d735aec7a",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  },
+  {
+   "path": "app/src/processing/app/helpers/Keys.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 233,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "6c0053e50efee6cb6866375673cbf299b4b9175c",
+   "head_sha_check": "6c0053e50efee6cb6866375673cbf299b4b9175c",
+   "loc_at_head": 214,
+   "notes": "added"
+  },
+  {
+   "path": "app/src/processing/app/helpers/SimpleAction.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 112,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "85c096392a2cc3f36e6ed41085925a2e3f957712",
+   "head_sha_check": "85c096392a2cc3f36e6ed41085925a2e3f957712",
+   "loc_at_head": 98,
+   "notes": "added"
+  },
+  {
+   "path": "app/src/processing/app/syntax/SketchTextArea.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 57,
+   "old_sha": "50d946a06a5c866e774aa143b0f8366e8397a086",
+   "new_sha": "ac50a2dc2a6959edefef2c191f99037e07c184da",
+   "head_sha_check": "ac50a2dc2a6959edefef2c191f99037e07c184da",
+   "loc_at_head": 331,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/syntax/SketchTextAreaDefaultInputMap.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 9,
+   "deletions": 0,
+   "old_sha": "f713e26d5eda424cca94588d0a48ba7b0c9d24b8",
+   "new_sha": "dfa5df928c436f4fdabdfb50220d9a173a694d37",
+   "head_sha_check": "dfa5df928c436f4fdabdfb50220d9a173a694d37",
+   "loc_at_head": 61,
+   "notes": ""
+  }
+ ]
+}

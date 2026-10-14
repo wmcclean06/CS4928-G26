@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "5503786126cb47ad3f53b8dfe23b2bfb37d1d34c",
+  "filename": "hardware/arduino/sam/boards.txt",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1983f7a869a4686a2b83882a9f86c30036fd2fb5/hardware%2Farduino%2Fsam%2Fboards.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1983f7a869a4686a2b83882a9f86c30036fd2fb5/hardware%2Farduino%2Fsam%2Fboards.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fboards.txt?ref=1983f7a869a4686a2b83882a9f86c30036fd2fb5",
+  "patch": "@@ -12,6 +12,7 @@ arduino_due_x_dbg.upload.wait_for_upload_port=false\n arduino_due_x_dbg.upload.native_usb=false\n arduino_due_x_dbg.build.mcu=cortex-m3\n arduino_due_x_dbg.build.f_cpu=84000000L\n+arduino_due_x_dbg.build.usb_manufacturer=\"Arduino LLC\"\n arduino_due_x_dbg.build.usb_product=\"Arduino Due\"\n arduino_due_x_dbg.build.board=SAM_DUE\n arduino_due_x_dbg.build.core=arduino\n@@ -35,6 +36,7 @@ arduino_due_x.upload.wait_for_upload_port=true\n arduino_due_x.upload.native_usb=true\n arduino_due_x.build.mcu=cortex-m3\n arduino_due_x.build.f_cpu=84000000L\n+arduino_due_x.build.usb_manufacturer=\"Arduino LLC\"\n arduino_due_x.build.usb_product=\"Arduino Due\"\n arduino_due_x.build.board=SAM_DUE\n arduino_due_x.build.core=arduino"
+ },
+ {
+  "sha": "015c115628480a344cbae8755e627fd0ef5a8ebd",
+  "filename": "hardware/arduino/sam/cores/arduino/Arduino.h",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 4,
+  "changes": 12,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1983f7a869a4686a2b83882a9f86c30036fd2fb5/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FArduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1983f7a869a4686a2b83882a9f86c30036fd2fb5/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FArduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FArduino.h?ref=1983f7a869a4686a2b83882a9f86c30036fd2fb5",
+  "patch": "@@ -209,10 +209,14 @@ extern const PinDescription g_APinDescription[] ;\n #include \"watchdog.h\"\n \n // USB Device\n-#define USB_VID            0x2341 // arduino LLC vid\n-#define USB_PID_LEONARDO   0x0034\n-#define USB_PID_MICRO      0x0035\n-#define USB_PID_DUE        0x003E\n+#ifndef USB_VID\n+#define USB_VID 0x2341 // arduino LLC vid\n+#endif\n+\n+#ifndef USB_PID\n+#define USB_PID 0x003E // arduino Due pid\n+#endif\n+\n #include \"USB/USBDesc.h\"\n #include \"USB/USBCore.h\"\n #include \"USB/USBAPI.h\""
+ },
+ {
+  "sha": "e7652016d50a37de8578a07e2939171286d1319d",
+  "filename": "hardware/arduino/sam/cores/arduino/USB/USBCore.cpp",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 14,
+  "changes": 17,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1983f7a869a4686a2b83882a9f86c30036fd2fb5/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBCore.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1983f7a869a4686a2b83882a9f86c30036fd2fb5/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBCore.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBCore.cpp?ref=1983f7a869a4686a2b83882a9f86c30036fd2fb5",
+  "patch": "@@ -66,27 +66,16 @@ const uint16_t STRING_LANGUAGE[2] = {\n };\n \n #ifndef USB_PRODUCT\n-// Use a hardcoded product name if none is provided\n-#if USB_PID == USB_PID_DUE\n #define USB_PRODUCT \"Arduino Due\"\n-#else\n-#define USB_PRODUCT \"USB IO Board\"\n-#endif\n #endif\n \n const uint8_t STRING_PRODUCT[] = USB_PRODUCT;\n \n-#if USB_VID == 0x2341\n-#  if defined(USB_MANUFACTURER)\n-#    undef USB_MANUFACTURER\n-#  endif\n-#  define USB_MANUFACTURER \"Arduino LLC\"\n-#elif !defined(USB_MANUFACTURER)\n-// Fall through to unknown if no manufacturer name was provided in a macro\n-#  define USB_MANUFACTURER \"Unknown\"\n+#ifndef USB_MANUFACTURER\n+#define USB_MANUFACTURER \"Arduino LLC\"\n #endif\n \n-const uint8_t STRING_MANUFACTURER[12] = USB_MANUFACTURER;\n+const uint8_t STRING_MANUFACTURER[] = USB_MANUFACTURER;\n \n #ifdef CDC_ENABLED\n #define DEVICE_CLASS 0x02"
+ }
+]

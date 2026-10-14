@@ -1,0 +1,55 @@
+{
+ "pr": 7964,
+ "base_sha": "3dfe85916c2af87d820d1b0228b57c653e30c69d",
+ "head_sha": "c45c1af0a182702b41079f4bf4e565742f16b92d",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/LibraryManagerUI.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 0,
+   "old_sha": "2eae83e875b8a1b5ea124c9e21787861fe16b5ec",
+   "new_sha": "7ff1925878c11ad915a4275188fba261bc5190a0",
+   "head_sha_check": "7ff1925878c11ad915a4275188fba261bc5190a0",
+   "loc_at_head": 240,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndexer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 14,
+   "deletions": 4,
+   "old_sha": "8b7acae748c4090297ecfbf087d1758df136c181",
+   "new_sha": "c43a4a09423790559029b914497e57a06cae77f8",
+   "head_sha_check": "c43a4a09423790559029b914497e57a06cae77f8",
+   "loc_at_head": 225,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/LibraryInstaller.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 5,
+   "deletions": 2,
+   "old_sha": "f06cc736bbf9d69cd7fb22ec1823178a8c454506",
+   "new_sha": "4b4fb7f7dbb4f4274ea2e9c7e81cfa0cc6ab4f3d",
+   "head_sha_check": "4b4fb7f7dbb4f4274ea2e9c7e81cfa0cc6ab4f3d",
+   "loc_at_head": 134,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/packages/ContributionsIndexer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 12,
+   "deletions": 8,
+   "old_sha": "1ec4c365faa8419d3c8b2720e08f5c28cf3b313a",
+   "new_sha": "a1ca10929d92ae7de8aa72b8a85a5e1cfd0669b5",
+   "head_sha_check": "a1ca10929d92ae7de8aa72b8a85a5e1cfd0669b5",
+   "loc_at_head": 418,
+   "notes": ""
+  }
+ ]
+}

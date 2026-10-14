@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "5cddc4c6ba28d418e5eedcef9520cc42c77c943b",
+  "filename": "hardware/arduino/sam/cores/arduino/USB/USBCore.cpp",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 8,
+  "changes": 22,
+  "blob_url": "https://github.com/arduino/Arduino/blob/aeec344b21c57d147d9ba6691196a9f3d5f669ae/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBCore.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/aeec344b21c57d147d9ba6691196a9f3d5f669ae/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBCore.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBCore.cpp?ref=aeec344b21c57d147d9ba6691196a9f3d5f669ae",
+  "patch": "@@ -258,15 +258,21 @@ int USBD_SendControl(uint8_t flags __attribute__ ((unused)), const void* d, uint\n // plain ASCII string but is sent out as UTF-16 with the\n // correct 2-byte prefix\n static bool USB_SendStringDescriptor(const uint8_t *string, int wLength) {\n-\tuint16_t buff[64];\n-\tint l = 1;\n-\twLength-=2;\n-\twhile (*string && wLength>0) {\n-\t\tbuff[l++] = (uint8_t)(*string++);\n-\t\twLength-=2;\n+\tif (wLength < 2)\n+\t\treturn false;\n+\n+\tuint8_t buffer[wLength];\n+\tbuffer[0] = strlen((const char*)string) * 2 + 2;\n+\tbuffer[1] = 0x03;\n+\n+\tuint8_t i;\n+\tfor (i = 2; i < wLength && *string; i++) {\n+\t\tbuffer[i++] = *string++;\n+\t\tif (i == wLength) break;\n+\t\tbuffer[i] = 0;\n \t}\n-\tbuff[0] = (3<<8) | (l*2);\n-\treturn USBD_SendControl(0, (uint8_t*)buff, l*2);\n+\n+\treturn USBD_SendControl(0, (uint8_t*)buffer, i);\n }\n \n //\tDoes not timeout or cross fifo boundaries"
+ }
+]

@@ -1,0 +1,31 @@
+{
+ "pr": 6807,
+ "base_sha": "e69ce9cde3896143525ab584a601e7fc9816ae39",
+ "head_sha": "484ade47335eba7a3a7675a6efc224babf9a5384",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/i18n/Languages.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "648bbcbc60e7bf110b798faf3943dd525468c5c6",
+   "new_sha": "d9d1c673697704f41a7ca692ad3ce5afa4553457",
+   "head_sha_check": "d9d1c673697704f41a7ca692ad3ce5afa4553457",
+   "loc_at_head": 105,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "477f9313ea3a9c8a110818cecd2644b17995e760",
+   "new_sha": "073c4cbba634f9a0fb8228b3cfa45d2c992ae7a0",
+   "head_sha_check": "073c4cbba634f9a0fb8228b3cfa45d2c992ae7a0",
+   "loc_at_head": 1987,
+   "notes": ""
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "15546718ecf16a78efbd60f2d28500aa1a060f7d",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1c23d5b020928dd27e9f7e1cbe609808a4a33aae/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1c23d5b020928dd27e9f7e1cbe609808a4a33aae/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=1c23d5b020928dd27e9f7e1cbe609808a4a33aae",
+  "patch": "@@ -639,6 +639,7 @@\n     <chmod perm=\"ugo+x\">\n         <fileset dir=\"linux/work\" includes=\"arduino\" />\n         <fileset dir=\"linux/work\" includes=\"**/*.sh\" />\n+        <fileset dir=\"linux/work/lib\" includes=\"**/*desktop*\" />\n     </chmod>\n   </target>\n "
+ }
+]

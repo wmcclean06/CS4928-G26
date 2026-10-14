@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ca7b699dbd7fcfb0fa77a0a49f809dfbcb7282f7",
+  "filename": "build/linux/dist/install.sh",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/92fd7232da8b3c511c29e587929b453f6fb697b1/build%2Flinux%2Fdist%2Finstall.sh",
+  "raw_url": "https://github.com/arduino/Arduino/raw/92fd7232da8b3c511c29e587929b453f6fb697b1/build%2Flinux%2Fdist%2Finstall.sh",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Finstall.sh?ref=92fd7232da8b3c511c29e587929b453f6fb697b1",
+  "patch": "@@ -6,7 +6,7 @@\n # If called with the \"-u\" option, it will undo the changes.\n \n # Resource name to use (including vendor prefix)\n-RESOURCE_NAME=cc.arduino.arduinoide\n+RESOURCE_NAME=arduino-arduinoide\n \n # Get absolute path from which this script file was executed\n # (Could be changed to \"pwd -P\" to resolve symlinks to their target)"
+ }
+]

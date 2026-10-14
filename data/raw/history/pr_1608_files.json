@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "880cf9b41f268740b43a952145b019d5a1ff11c0",
+  "filename": "hardware/arduino/bootloaders/atmega/ATmegaBOOT_168.c",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/aaafaf33b4b912e85f4e705efcd2a2eae8fb9624/hardware%2Farduino%2Fbootloaders%2Fatmega%2FATmegaBOOT_168.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/aaafaf33b4b912e85f4e705efcd2a2eae8fb9624/hardware%2Farduino%2Fbootloaders%2Fatmega%2FATmegaBOOT_168.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fbootloaders%2Fatmega%2FATmegaBOOT_168.c?ref=aaafaf33b4b912e85f4e705efcd2a2eae8fb9624",
+  "patch": "@@ -950,10 +950,10 @@ char getch(void)\n \t\t\tcount++;\r\n \t\t\tif (count > MAX_TIME_COUNT)\r\n \t\t\t\tapp_start();\r\n-\t\t\t}\r\n-\r\n-\t\t\treturn UDR0;\r\n \t\t}\r\n+\r\n+\t\treturn UDR0;\r\n+\t}\r\n \telse if(bootuart == 2) {\r\n \t\twhile(!(UCSR1A & _BV(RXC1))) {\r\n \t\t\t/* 20060803 DojoCorp:: Addon coming from the previous Bootloader*/               \r"
+ }
+]

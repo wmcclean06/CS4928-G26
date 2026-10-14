@@ -1,0 +1,74 @@
+[
+ {
+  "sha": "afbc65d2053c274869b9aa1066c0973ef7371639",
+  "filename": "hardware/arduino/avr/cores/arduino/CDC.cpp",
+  "status": "modified",
+  "additions": 50,
+  "deletions": 0,
+  "changes": 50,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FCDC.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FCDC.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FCDC.cpp?ref=4f87112c2eb3878bfe7229fa9a73757e4b7d62f1",
+  "patch": "@@ -18,6 +18,7 @@\n \n #include \"USBAPI.h\"\n #include <avr/wdt.h>\n+#include <util/atomic.h>\n \n #if defined(USBCON)\n \n@@ -31,6 +32,7 @@ typedef struct\n } LineInfo;\n \n static volatile LineInfo _usbLineInfo = { 57600, 0x00, 0x00, 0x00, 0x00 };\n+static volatile int32_t breakValue = -1;\n \n #define WEAK __attribute__ ((weak))\n \n@@ -75,6 +77,11 @@ bool CDC_Setup(USBSetup& setup)\n \n \tif (REQUEST_HOSTTODEVICE_CLASS_INTERFACE == requestType)\n \t{\n+\t\tif (CDC_SEND_BREAK == r)\n+\t\t{\n+\t\t\tbreakValue = ((uint16_t)setup.wValueH << 8) | setup.wValueL;\n+\t\t}\n+\n \t\tif (CDC_SET_LINE_CODING == r)\n \t\t{\n \t\t\tUSB_RecvControl((void*)&_usbLineInfo,7);\n@@ -156,6 +163,11 @@ int Serial_::read(void)\n \treturn USB_Recv(CDC_RX);\n }\n \n+int Serial_::availableForWrite(void)\n+{\n+\treturn USB_SendSpace(CDC_TX);\n+}\n+\n void Serial_::flush(void)\n {\n \tUSB_Flush(CDC_TX);\n@@ -205,6 +217,44 @@ Serial_::operator bool() {\n \treturn result;\n }\n \n+unsigned long Serial_::baud() {\n+\t// Disable interrupts while reading a multi-byte value\n+\tATOMIC_BLOCK(ATOMIC_RESTORESTATE) {\n+\t\treturn _usbLineInfo.dwDTERate;\n+\t}\n+}\n+\n+uint8_t Serial_::stopbits() {\n+\treturn _usbLineInfo.bCharFormat;\n+}\n+\n+uint8_t Serial_::paritytype() {\n+\treturn _usbLineInfo.bParityType;\n+}\n+\n+uint8_t Serial_::numbits() {\n+\treturn _usbLineInfo.bDataBits;\n+}\n+\n+bool Serial_::dtr() {\n+\treturn _usbLineInfo.lineState & 0x1;\n+}\n+\n+bool Serial_::rts() {\n+\treturn _usbLineInfo.lineState & 0x2;\n+}\n+\n+int32_t Serial_::readBreak() {\n+\tint32_t ret;\n+\t// Disable IRQs while reading and clearing breakValue to make\n+\t// sure we don't overwrite a value just set by the ISR.\n+\tATOMIC_BLOCK(ATOMIC_RESTORESTATE) {\n+\t\tret = breakValue;\n+\t\tbreakValue = -1;\n+\t}\n+\treturn ret;\n+}\n+\n Serial_ Serial;\n \n #endif /* if defined(USBCON) */"
+ },
+ {
+  "sha": "5cd89e5e66489828ba41326b4132f17e458f0d6d",
+  "filename": "hardware/arduino/avr/cores/arduino/HardwareSerial.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 2,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.cpp?ref=4f87112c2eb3878bfe7229fa9a73757e4b7d62f1",
+  "patch": "@@ -138,8 +138,7 @@ void HardwareSerial::begin(unsigned long baud, byte config)\n void HardwareSerial::end()\n {\n   // wait for transmission of outgoing data\n-  while (_tx_buffer_head != _tx_buffer_tail)\n-    ;\n+  flush();\n \n   cbi(*_ucsrb, RXEN0);\n   cbi(*_ucsrb, TXEN0);"
+ },
+ {
+  "sha": "5f4947e7dd75d8d334bc15f41379014de072b9c0",
+  "filename": "hardware/arduino/avr/cores/arduino/USBAPI.h",
+  "status": "modified",
+  "additions": 42,
+  "deletions": 0,
+  "changes": 42,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h?ref=4f87112c2eb3878bfe7229fa9a73757e4b7d62f1",
+  "patch": "@@ -92,6 +92,7 @@ class Serial_ : public Stream\n \tvirtual int available(void);\n \tvirtual int peek(void);\n \tvirtual int read(void);\n+\tint availableForWrite(void);\n \tvirtual void flush(void);\n \tvirtual size_t write(uint8_t);\n \tvirtual size_t write(const uint8_t*, size_t);\n@@ -101,6 +102,46 @@ class Serial_ : public Stream\n \tvolatile uint8_t _rx_buffer_head;\n \tvolatile uint8_t _rx_buffer_tail;\n \tunsigned char _rx_buffer[SERIAL_BUFFER_SIZE];\n+\n+\t// This method allows processing \"SEND_BREAK\" requests sent by\n+\t// the USB host. Those requests indicate that the host wants to\n+\t// send a BREAK signal and are accompanied by a single uint16_t\n+\t// value, specifying the duration of the break. The value 0\n+\t// means to end any current break, while the value 0xffff means\n+\t// to start an indefinite break.\n+\t// readBreak() will return the value of the most recent break\n+\t// request, but will return it at most once, returning -1 when\n+\t// readBreak() is called again (until another break request is\n+\t// received, which is again returned once).\n+\t// This also mean that if two break requests are received\n+\t// without readBreak() being called in between, the value of the\n+\t// first request is lost.\n+\t// Note that the value returned is a long, so it can return\n+\t// 0-0xffff as well as -1.\n+\tint32_t readBreak();\n+\n+\t// These return the settings specified by the USB host for the\n+\t// serial port. These aren't really used, but are offered here\n+\t// in case a sketch wants to act on these settings.\n+\tuint32_t baud();\n+\tuint8_t stopbits();\n+\tuint8_t paritytype();\n+\tuint8_t numbits();\n+\tbool dtr();\n+\tbool rts();\n+\tenum {\n+\t\tONE_STOP_BIT = 0,\n+\t\tONE_AND_HALF_STOP_BIT = 1,\n+\t\tTWO_STOP_BITS = 2,\n+\t};\n+\tenum {\n+\t\tNO_PARITY = 0,\n+\t\tODD_PARITY = 1,\n+\t\tEVEN_PARITY = 2,\n+\t\tMARK_PARITY = 3,\n+\t\tSPACE_PARITY = 4,\n+\t};\n+\n };\n extern Serial_ Serial;\n \n@@ -148,6 +189,7 @@ int USB_SendControl(uint8_t flags, const void* d, int len);\n int USB_RecvControl(void* d, int len);\n \n uint8_t\tUSB_Available(uint8_t ep);\n+uint8_t USB_SendSpace(uint8_t ep);\n int USB_Send(uint8_t ep, const void* data, int len);\t// blocking\n int USB_Recv(uint8_t ep, void* data, int len);\t\t// non-blocking\n int USB_Recv(uint8_t ep);\t\t\t\t\t\t\t// non-blocking"
+ },
+ {
+  "sha": "eaeecef82ce8b992c57f31b604a71f2a74170c2b",
+  "filename": "hardware/arduino/avr/cores/arduino/USBCore.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.h?ref=4f87112c2eb3878bfe7229fa9a73757e4b7d62f1",
+  "patch": "@@ -57,6 +57,7 @@\n #define CDC_SET_LINE_CODING\t\t\t0x20\n #define CDC_GET_LINE_CODING\t\t\t0x21\n #define CDC_SET_CONTROL_LINE_STATE\t0x22\n+#define CDC_SEND_BREAK\t\t\t\t0x23\n \n #define MSC_RESET\t\t\t\t\t0xFF\n #define MSC_GET_MAX_LUN\t\t\t\t0xFE"
+ },
+ {
+  "sha": "0f15d82a145c84ca244da3f521c30ae6af53bdbc",
+  "filename": "hardware/arduino/sam/cores/arduino/USB/CDC.cpp",
+  "status": "modified",
+  "additions": 24,
+  "deletions": 0,
+  "changes": 24,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FCDC.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FCDC.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FCDC.cpp?ref=4f87112c2eb3878bfe7229fa9a73757e4b7d62f1",
+  "patch": "@@ -299,6 +299,30 @@ Serial_::operator bool()\n \treturn result;\n }\n \n+unsigned long Serial_::baud() {\n+\treturn _usbLineInfo.dwDTERate;\n+}\n+\n+uint8_t Serial_::stopbits() {\n+\treturn _usbLineInfo.bCharFormat;\n+}\n+\n+uint8_t Serial_::paritytype() {\n+\treturn _usbLineInfo.bParityType;\n+}\n+\n+uint8_t Serial_::numbits() {\n+\treturn _usbLineInfo.bDataBits;\n+}\n+\n+bool Serial_::dtr() {\n+\treturn _usbLineInfo.lineState & 0x1;\n+}\n+\n+bool Serial_::rts() {\n+\treturn _usbLineInfo.lineState & 0x2;\n+}\n+\n Serial_ SerialUSB;\n \n #endif"
+ },
+ {
+  "sha": "eda623ddb54db7b4bea236e0ddfb2a6ebe5a5d17",
+  "filename": "hardware/arduino/sam/cores/arduino/USB/USBAPI.h",
+  "status": "modified",
+  "additions": 22,
+  "deletions": 0,
+  "changes": 22,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBAPI.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4f87112c2eb3878bfe7229fa9a73757e4b7d62f1/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBAPI.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FUSB%2FUSBAPI.h?ref=4f87112c2eb3878bfe7229fa9a73757e4b7d62f1",
+  "patch": "@@ -61,6 +61,28 @@ class Serial_ : public Stream\n \tvirtual size_t write(const uint8_t *buffer, size_t size);\n \tusing Print::write; // pull in write(str) from Print\n \toperator bool();\n+\n+\t// These return the settings specified by the USB host for the\n+\t// serial port. These aren't really used, but are offered here\n+\t// in case a sketch wants to act on these settings.\n+\tuint32_t baud();\n+\tuint8_t stopbits();\n+\tuint8_t paritytype();\n+\tuint8_t numbits();\n+\tbool dtr();\n+\tbool rts();\n+\tenum {\n+\t\tONE_STOP_BIT = 0,\n+\t\tONE_AND_HALF_STOP_BIT = 1,\n+\t\tTWO_STOP_BITS = 2,\n+\t};\n+\tenum {\n+\t\tNO_PARITY = 0,\n+\t\tODD_PARITY = 1,\n+\t\tEVEN_PARITY = 2,\n+\t\tMARK_PARITY = 3,\n+\t\tSPACE_PARITY = 4,\n+\t};\n };\n extern Serial_ SerialUSB;\n "
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "8a5bf95e6600494ba31b857c474f95636f9d8c2e",
+  "filename": "hardware/arduino/avr/cores/arduino/HardwareSerial.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8a96e756452a50cee3a82e92ff94d013268cd4f6/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8a96e756452a50cee3a82e92ff94d013268cd4f6/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.h?ref=8a96e756452a50cee3a82e92ff94d013268cd4f6",
+  "patch": "@@ -40,14 +40,14 @@\n // often work, but occasionally a race condition can occur that makes\n // Serial behave erratically. See https://github.com/arduino/Arduino/issues/2405\n #if !defined(SERIAL_TX_BUFFER_SIZE)\n-#if (RAMEND < 1000)\n+#if ((RAMEND - RAMSTART) < 1023)\n #define SERIAL_TX_BUFFER_SIZE 16\n #else\n #define SERIAL_TX_BUFFER_SIZE 64\n #endif\n #endif\n #if !defined(SERIAL_RX_BUFFER_SIZE)\n-#if (RAMEND < 1000)\n+#if ((RAMEND - RAMSTART) < 1023)\n #define SERIAL_RX_BUFFER_SIZE 16\n #else\n #define SERIAL_RX_BUFFER_SIZE 64"
+ },
+ {
+  "sha": "f22ab6add54b5160ddd3f51b90f400104a9a8cb5",
+  "filename": "hardware/arduino/avr/cores/arduino/USBAPI.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8a96e756452a50cee3a82e92ff94d013268cd4f6/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8a96e756452a50cee3a82e92ff94d013268cd4f6/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBAPI.h?ref=8a96e756452a50cee3a82e92ff94d013268cd4f6",
+  "patch": "@@ -75,7 +75,7 @@ extern USBDevice_ USBDevice;\n struct ring_buffer;\n \n #ifndef SERIAL_BUFFER_SIZE\n-#if (RAMEND < 1000)\n+#if ((RAMEND - RAMSTART) < 1023)\n #define SERIAL_BUFFER_SIZE 16\n #else\n #define SERIAL_BUFFER_SIZE 64"
+ }
+]

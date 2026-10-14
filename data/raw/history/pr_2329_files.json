@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "08e1e408c49a18c76b47a7da088e176c4737c8da",
+  "filename": "build/shared/examples/09.USB/Keyboard/KeyboardLogout/KeyboardLogout.ino",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d3f76e9558e244fbd406a18d1ac1b1b63d58b680/build%2Fshared%2Fexamples%2F09.USB%2FKeyboard%2FKeyboardLogout%2FKeyboardLogout.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d3f76e9558e244fbd406a18d1ac1b1b63d58b680/build%2Fshared%2Fexamples%2F09.USB%2FKeyboard%2FKeyboardLogout%2FKeyboardLogout.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F09.USB%2FKeyboard%2FKeyboardLogout%2FKeyboardLogout.ino?ref=d3f76e9558e244fbd406a18d1ac1b1b63d58b680",
+  "patch": "@@ -65,7 +65,7 @@ void loop() {\n     Keyboard.press(KEY_DELETE);\n     delay(100);\n     Keyboard.releaseAll();\n-    //ALT-s:\n+    //ALT-l:\n     delay(2000);\n     Keyboard.press(KEY_LEFT_ALT);\n     Keyboard.press('l');"
+ }
+]

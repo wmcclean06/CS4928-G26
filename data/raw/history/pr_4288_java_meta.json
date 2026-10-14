@@ -1,0 +1,67 @@
+{
+ "pr": 4288,
+ "base_sha": "bab9b6c4f7c31f04c59d4fcd6bc6bddaacd7246c",
+ "head_sha": "98d5ff79eb8d3c57647707c9e16ae6de2736353a",
+ "java_files": [
+  {
+   "path": "app/test/cc/arduino/i18n/ExternalProcessOutputParserTest.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 25,
+   "deletions": 0,
+   "old_sha": "5bd56ac714264758f7ce80c6e1c6ca08a5a632b9",
+   "new_sha": "278a2598fed2f1c7ac3570f02dfde474aeca574f",
+   "head_sha_check": "278a2598fed2f1c7ac3570f02dfde474aeca574f",
+   "loc_at_head": 100,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/Compiler.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "82b91c8c431431ed7bb623ad282ecde630be9184",
+   "new_sha": "bb815575cfcdc149e1c6bcafb85f50ac5704797c",
+   "head_sha_check": "bb815575cfcdc149e1c6bcafb85f50ac5704797c",
+   "loc_at_head": 507,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/ProgressAwareMessageConsumer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "d22515b55f35e68baf4306bf95f16fb42d608046",
+   "new_sha": "22768b04b1c466b62b4058f6ca948ab7e61567c7",
+   "head_sha_check": "22768b04b1c466b62b4058f6ca948ab7e61567c7",
+   "loc_at_head": 54,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/i18n/ExternalProcessOutputParser.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 6,
+   "deletions": 2,
+   "old_sha": "eb0c4e1dee95978b73b208d386839c22ed70192f",
+   "new_sha": "7486ce4fb947541f56adc9ba640a9a906e01cbe5",
+   "head_sha_check": "7486ce4fb947541f56adc9ba640a9a906e01cbe5",
+   "loc_at_head": 83,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/i18n/I18NAwareMessageConsumer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 22,
+   "deletions": 7,
+   "old_sha": "0c1fd98e3fa0cdc38e8eb3352991be0f1c08f799",
+   "new_sha": "1fee78d854cbad4e3b4a47f07236214e23985b61",
+   "head_sha_check": "1fee78d854cbad4e3b4a47f07236214e23985b61",
+   "loc_at_head": 73,
+   "notes": ""
+  }
+ ]
+}

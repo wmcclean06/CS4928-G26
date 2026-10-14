@@ -1,0 +1,19 @@
+{
+ "pr": 4326,
+ "base_sha": "fa4876b7b1845d5e7b93590e066ad976125aa7c3",
+ "head_sha": "7c089c96d3f607aafcef08af09cdbe56a4b03ab7",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/packages/ContributedPlatform.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 19,
+   "deletions": 1,
+   "old_sha": "9b53cec0539c5f97c853470d9bcbc0006f88dd4c",
+   "new_sha": "1063b676a32cc2a73e96c24d5d4c42b23dadab66",
+   "head_sha_check": "1063b676a32cc2a73e96c24d5d4c42b23dadab66",
+   "loc_at_head": 106,
+   "notes": ""
+  }
+ ]
+}

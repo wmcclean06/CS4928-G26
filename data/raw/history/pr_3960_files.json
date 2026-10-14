@@ -1,0 +1,74 @@
+[
+ {
+  "sha": "7a6351d8ead8a267628cb9b4877ef39e0f30f05b",
+  "filename": "hardware/arduino/avr/cores/arduino/PluggableUSB.cpp",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 5,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a151349a015dac3faa3ccea592297ac294ff2b04/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a151349a015dac3faa3ccea592297ac294ff2b04/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.cpp?ref=a151349a015dac3faa3ccea592297ac294ff2b04",
+  "patch": "@@ -28,7 +28,7 @@ extern uint8_t _initEndpoints[];\n int PluggableUSB_::getInterface(uint8_t* interfaceCount)\n {\n \tint sent = 0;\n-\tPUSBListNode* node;\n+\tPluggableUSBModule* node;\n \tfor (node = rootNode; node; node = node->next) {\n \t\tint res = node->getInterface(interfaceCount);\n \t\tif (res < 0)\n@@ -40,7 +40,7 @@ int PluggableUSB_::getInterface(uint8_t* interfaceCount)\n \n int PluggableUSB_::getDescriptor(USBSetup& setup)\n {\n-\tPUSBListNode* node;\n+\tPluggableUSBModule* node;\n \tfor (node = rootNode; node; node = node->next) {\n \t\tint ret = node->getDescriptor(setup);\n \t\t// ret!=0 -> request has been processed\n@@ -52,7 +52,7 @@ int PluggableUSB_::getDescriptor(USBSetup& setup)\n \n bool PluggableUSB_::setup(USBSetup& setup)\n {\n-\tPUSBListNode* node;\n+\tPluggableUSBModule* node;\n \tfor (node = rootNode; node; node = node->next) {\n \t\tif (node->setup(setup)) {\n \t\t\treturn true;\n@@ -61,7 +61,7 @@ bool PluggableUSB_::setup(USBSetup& setup)\n \treturn false;\n }\n \n-bool PluggableUSB_::plug(PUSBListNode *node)\n+bool PluggableUSB_::plug(PluggableUSBModule *node)\n {\n \tif ((lastEp + node->numEndpoints) > USB_ENDPOINTS) {\n \t\treturn false;\n@@ -70,7 +70,7 @@ bool PluggableUSB_::plug(PUSBListNode *node)\n \tif (!rootNode) {\n \t\trootNode = node;\n \t} else {\n-\t\tPUSBListNode *current = rootNode;\n+\t\tPluggableUSBModule *current = rootNode;\n \t\twhile (current->next) {\n \t\t\tcurrent = current->next;\n \t\t}"
+ },
+ {
+  "sha": "3df9bfff534dd08393cb63f0ac9e1d23a736a318",
+  "filename": "hardware/arduino/avr/cores/arduino/PluggableUSB.h",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 5,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a151349a015dac3faa3ccea592297ac294ff2b04/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a151349a015dac3faa3ccea592297ac294ff2b04/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPluggableUSB.h?ref=a151349a015dac3faa3ccea592297ac294ff2b04",
+  "patch": "@@ -25,9 +25,9 @@\n \n #if defined(USBCON)\n \n-class PUSBListNode {\n+class PluggableUSBModule {\n public:\n-  PUSBListNode(uint8_t numEps, uint8_t numIfs, uint8_t *epType) :\n+  PluggableUSBModule(uint8_t numEps, uint8_t numIfs, uint8_t *epType) :\n     numEndpoints(numEps), numInterfaces(numIfs), endpointType(epType)\n   { }\n \n@@ -43,23 +43,23 @@ class PUSBListNode {\n   const uint8_t numInterfaces;\n   const uint8_t *endpointType;\n \n-  PUSBListNode *next = NULL;\n+  PluggableUSBModule *next = NULL;\n \n   friend class PluggableUSB_;\n };\n \n class PluggableUSB_ {\n public:\n   PluggableUSB_();\n-  bool plug(PUSBListNode *node);\n+  bool plug(PluggableUSBModule *node);\n   int getInterface(uint8_t* interfaceCount);\n   int getDescriptor(USBSetup& setup);\n   bool setup(USBSetup& setup);\n \n private:\n   uint8_t lastIf;\n   uint8_t lastEp;\n-  PUSBListNode* rootNode;\n+  PluggableUSBModule* rootNode;\n };\n \n // Replacement for global singleton."
+ },
+ {
+  "sha": "411529ecf87285fa85d4dfe387afaf6985a82c74",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.cpp",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 4,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a151349a015dac3faa3ccea592297ac294ff2b04/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a151349a015dac3faa3ccea592297ac294ff2b04/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp?ref=a151349a015dac3faa3ccea592297ac294ff2b04",
+  "patch": "@@ -47,7 +47,7 @@ int HID_::getDescriptor(USBSetup& setup)\n \tif (setup.wIndex != pluggedInterface) { return 0; }\n \n \tint total = 0;\n-\tHIDDescriptorListNode* node;\n+\tHIDSubDescriptor* node;\n \tfor (node = rootNode; node; node = node->next) {\n \t\tint res = USB_SendControl(TRANSFER_PGM, node->data, node->length);\n \t\tif (res == -1)\n@@ -57,12 +57,12 @@ int HID_::getDescriptor(USBSetup& setup)\n \treturn total;\n }\n \n-void HID_::AppendDescriptor(HIDDescriptorListNode *node)\n+void HID_::AppendDescriptor(HIDSubDescriptor *node)\n {\n \tif (!rootNode) {\n \t\trootNode = node;\n \t} else {\n-\t\tHIDDescriptorListNode *current = rootNode;\n+\t\tHIDSubDescriptor *current = rootNode;\n \t\twhile (current->next) {\n \t\t\tcurrent = current->next;\n \t\t}\n@@ -128,7 +128,7 @@ bool HID_::setup(USBSetup& setup)\n \treturn false;\n }\n \n-HID_::HID_(void) : PUSBListNode(1, 1, epType),\n+HID_::HID_(void) : PluggableUSBModule(1, 1, epType),\n                    rootNode(NULL), descriptorSize(0),\n                    protocol(1), idle(1)\n {"
+ },
+ {
+  "sha": "ba08da7bef1c0ee24f3a9f4889dee5da746ed23b",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.h",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 7,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a151349a015dac3faa3ccea592297ac294ff2b04/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a151349a015dac3faa3ccea592297ac294ff2b04/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h?ref=a151349a015dac3faa3ccea592297ac294ff2b04",
+  "patch": "@@ -74,33 +74,33 @@ typedef struct\n   EndpointDescriptor  in;\n } HIDDescriptor;\n \n-class HIDDescriptorListNode {\n+class HIDSubDescriptor {\n public:\n-  HIDDescriptorListNode *next = NULL;\n-  HIDDescriptorListNode(const void *d, const uint16_t l) : data(d), length(l) { }\n+  HIDSubDescriptor *next = NULL;\n+  HIDSubDescriptor(const void *d, const uint16_t l) : data(d), length(l) { }\n \n   const void* data;\n   const uint16_t length;\n };\n \n-class HID_ : public PUSBListNode\n+class HID_ : public PluggableUSBModule\n {\n public:\n   HID_(void);\n   int begin(void);\n   void SendReport(uint8_t id, const void* data, int len);\n-  void AppendDescriptor(HIDDescriptorListNode* node);\n+  void AppendDescriptor(HIDSubDescriptor* node);\n \n protected:\n-  // Implementation of the PUSBListNode\n+  // Implementation of the PluggableUSBModule\n   int getInterface(uint8_t* interfaceCount);\n   int getDescriptor(USBSetup& setup);\n   bool setup(USBSetup& setup);\n \n private:\n   uint8_t epType[1];\n \n-  HIDDescriptorListNode* rootNode;\n+  HIDSubDescriptor* rootNode;\n   uint16_t descriptorSize;\n \n   uint8_t protocol;"
+ },
+ {
+  "sha": "48f0852198a722f3c9e7e0f06ee06bf2bb19beb2",
+  "filename": "libraries/Keyboard/src/Keyboard.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a151349a015dac3faa3ccea592297ac294ff2b04/libraries%2FKeyboard%2Fsrc%2FKeyboard.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a151349a015dac3faa3ccea592297ac294ff2b04/libraries%2FKeyboard%2Fsrc%2FKeyboard.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FKeyboard%2Fsrc%2FKeyboard.cpp?ref=a151349a015dac3faa3ccea592297ac294ff2b04",
+  "patch": "@@ -62,7 +62,7 @@ static const uint8_t _hidReportDescriptor[] PROGMEM = {\n \n Keyboard_::Keyboard_(void) \n {\n-\tstatic HIDDescriptorListNode node(_hidReportDescriptor, sizeof(_hidReportDescriptor));\n+\tstatic HIDSubDescriptor node(_hidReportDescriptor, sizeof(_hidReportDescriptor));\n \tHID().AppendDescriptor(&node);\n }\n "
+ },
+ {
+  "sha": "b2a2cd7b8917287112cfbfdb70415bbcc7edc924",
+  "filename": "libraries/Mouse/src/Mouse.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a151349a015dac3faa3ccea592297ac294ff2b04/libraries%2FMouse%2Fsrc%2FMouse.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a151349a015dac3faa3ccea592297ac294ff2b04/libraries%2FMouse%2Fsrc%2FMouse.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FMouse%2Fsrc%2FMouse.cpp?ref=a151349a015dac3faa3ccea592297ac294ff2b04",
+  "patch": "@@ -62,7 +62,7 @@ static const uint8_t _hidReportDescriptor[] PROGMEM = {\n \n Mouse_::Mouse_(void) : _buttons(0)\n {\n-    static HIDDescriptorListNode node(_hidReportDescriptor, sizeof(_hidReportDescriptor));\n+    static HIDSubDescriptor node(_hidReportDescriptor, sizeof(_hidReportDescriptor));\n     HID().AppendDescriptor(&node);\n }\n "
+ }
+]

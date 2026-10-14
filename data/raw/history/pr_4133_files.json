@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "0a16ff7108b9ebdc0989e4867b852678a5163bb5",
+  "filename": "hardware/arduino/avr/libraries/SoftwareSerial/SoftwareSerial.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 7,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b7173ed06c5e207ca5fc68929b05af7141dd9d78/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2FSoftwareSerial.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b7173ed06c5e207ca5fc68929b05af7141dd9d78/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2FSoftwareSerial.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2FSoftwareSerial.cpp?ref=b7173ed06c5e207ca5fc68929b05af7141dd9d78",
+  "patch": "@@ -469,13 +469,7 @@ size_t SoftwareSerial::write(uint8_t b)\n \r\n void SoftwareSerial::flush()\r\n {\r\n-  if (!isListening())\r\n-    return;\r\n-\r\n-  uint8_t oldSREG = SREG;\r\n-  cli();\r\n-  _receive_buffer_head = _receive_buffer_tail = 0;\r\n-  SREG = oldSREG;\r\n+  // There is no tx buffering, simply return\r\n }\r\n \r\n int SoftwareSerial::peek()\r"
+ },
+ {
+  "sha": "8066783aefa665ceb4c382fd49f2cf582ae97b24",
+  "filename": "libraries/Ethernet/src/EthernetUdp.cpp",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 9,
+  "changes": 16,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b7173ed06c5e207ca5fc68929b05af7141dd9d78/libraries%2FEthernet%2Fsrc%2FEthernetUdp.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b7173ed06c5e207ca5fc68929b05af7141dd9d78/libraries%2FEthernet%2Fsrc%2FEthernetUdp.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fsrc%2FEthernetUdp.cpp?ref=b7173ed06c5e207ca5fc68929b05af7141dd9d78",
+  "patch": "@@ -118,7 +118,12 @@ size_t EthernetUDP::write(const uint8_t *buffer, size_t size)\n int EthernetUDP::parsePacket()\n {\n   // discard any remaining bytes in the last packet\n-  flush();\n+  while (_remaining) {\n+    // could this fail (loop endlessly) if _remaining > 0 and recv in read fails?\n+    // should only occur if recv fails after telling us the data is there, lets\n+    // hope the w5100 always behaves :)\n+    read();\n+  }\n \n   if (recvAvailable(_sock) > 0)\n   {\n@@ -206,14 +211,7 @@ int EthernetUDP::peek()\n \n void EthernetUDP::flush()\n {\n-  // could this fail (loop endlessly) if _remaining > 0 and recv in read fails?\n-  // should only occur if recv fails after telling us the data is there, lets\n-  // hope the w5100 always behaves :)\n-\n-  while (_remaining)\n-  {\n-    read();\n-  }\n+  // TODO: we should wait for TX buffer to be emptied\n }\n \n /* Start EthernetUDP socket, listening at local port PORT */"
+ },
+ {
+  "sha": "eb8e6af1decfa325235af71339b4c1fd131d76c3",
+  "filename": "libraries/WiFi/src/WiFiClient.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 2,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b7173ed06c5e207ca5fc68929b05af7141dd9d78/libraries%2FWiFi%2Fsrc%2FWiFiClient.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b7173ed06c5e207ca5fc68929b05af7141dd9d78/libraries%2FWiFi%2Fsrc%2FWiFiClient.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FWiFi%2Fsrc%2FWiFiClient.cpp?ref=b7173ed06c5e207ca5fc68929b05af7141dd9d78",
+  "patch": "@@ -140,8 +140,7 @@ int WiFiClient::peek() {\n }\n \n void WiFiClient::flush() {\n-  while (available())\n-    read();\n+  // TODO: a real check to ensure transmission has been completed\n }\n \n void WiFiClient::stop() {"
+ },
+ {
+  "sha": "954024339509e952ec8068bf7195aa56964b8341",
+  "filename": "libraries/WiFi/src/WiFiUdp.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 2,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b7173ed06c5e207ca5fc68929b05af7141dd9d78/libraries%2FWiFi%2Fsrc%2FWiFiUdp.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b7173ed06c5e207ca5fc68929b05af7141dd9d78/libraries%2FWiFi%2Fsrc%2FWiFiUdp.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FWiFi%2Fsrc%2FWiFiUdp.cpp?ref=b7173ed06c5e207ca5fc68929b05af7141dd9d78",
+  "patch": "@@ -155,8 +155,7 @@ int WiFiUDP::peek()\n \n void WiFiUDP::flush()\n {\n-  while (available())\n-    read();\n+  // TODO: a real check to ensure transmission has been completed\n }\n \n IPAddress  WiFiUDP::remoteIP()"
+ }
+]

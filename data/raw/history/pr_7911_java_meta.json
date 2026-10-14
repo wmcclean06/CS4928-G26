@@ -1,0 +1,19 @@
+{
+ "pr": 7911,
+ "base_sha": "ad623137a12f025d2e758f110c033a2d527ae6a4",
+ "head_sha": "a5ffb4a5953aaf88a2c5c15712c9d58549f8f1a7",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/AbstractTextMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 22,
+   "deletions": 14,
+   "old_sha": "72b5c4dee9ff2c8cd70968ec9562cf80cf58bfb4",
+   "new_sha": "fdfcfba760a86ad54fc522ff679baede9cab4520",
+   "head_sha_check": "fdfcfba760a86ad54fc522ff679baede9cab4520",
+   "loc_at_head": 176,
+   "notes": ""
+  }
+ ]
+}

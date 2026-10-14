@@ -1,0 +1,43 @@
+{
+ "pr": 2491,
+ "base_sha": "1be99c3a1d2a806836e4a278010b24c2a7170fe9",
+ "head_sha": "8e0a311e871a3feb505f18771a6fd58abf5048cd",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Serial.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 16,
+   "deletions": 41,
+   "old_sha": "14c0933c0a65169d30927f084575771c88c5fe8d",
+   "new_sha": "b9432f9043f34b4d2271ee470cd740c267840161",
+   "head_sha_check": "b9432f9043f34b4d2271ee470cd740c267840161",
+   "loc_at_head": 543,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/SerialMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 41,
+   "deletions": 16,
+   "old_sha": "1f34e8f7e55013a358aa035cb091bf31d5cbaf2c",
+   "new_sha": "7ce00474bb5e179702204d264dc1b149dbe94a8a",
+   "head_sha_check": "7ce00474bb5e179702204d264dc1b149dbe94a8a",
+   "loc_at_head": 210,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/debug/TextAreaFIFO.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 92,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "9783cd42c179b4232d1cf658379d0f3e6cfe2ffa",
+   "head_sha_check": "9783cd42c179b4232d1cf658379d0f3e6cfe2ffa",
+   "loc_at_head": 75,
+   "notes": "added"
+  }
+ ]
+}

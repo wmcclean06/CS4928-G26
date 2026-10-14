@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "b9aa0d771b90933ca2f192c6df194a09b7acfe6e",
+  "filename": "app/src/cc/arduino/view/preferences/Preferences.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 5,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2191315123b4c04e80eb243f6c84c420fb53c7c5/app%2Fsrc%2Fcc%2Farduino%2Fview%2Fpreferences%2FPreferences.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2191315123b4c04e80eb243f6c84c420fb53c7c5/app%2Fsrc%2Fcc%2Farduino%2Fview%2Fpreferences%2FPreferences.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fview%2Fpreferences%2FPreferences.java?ref=2191315123b4c04e80eb243f6c84c420fb53c7c5",
+  "patch": "@@ -552,7 +552,7 @@ public void itemStateChanged(java.awt.event.ItemEvent evt) {\n         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)\n           .addComponent(manualProxyPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)\n           .addComponent(manualProxyPasswordLabel))\n-        .addContainerGap(190, Short.MAX_VALUE))\n+        .addContainerGap(50, Short.MAX_VALUE))\n     );\n \n     jTabbedPane1.addTab(tr(\"Network\"), jPanel4);\n@@ -587,11 +587,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {\n     jPanel3Layout.setVerticalGroup(\n       jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)\n       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()\n-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)\n         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)\n           .addComponent(okButton)\n-          .addComponent(cancelButton))\n-        .addContainerGap())\n+          .addComponent(cancelButton)))\n     );\n \n     jPanel2.add(jPanel3);\n@@ -606,7 +604,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {\n     );\n     layout.setVerticalGroup(\n       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)\n-      .addGap(0, 637, Short.MAX_VALUE)\n+      .addGap(0, 580, Short.MAX_VALUE)\n       .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)\n         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))\n     );"
+ }
+]

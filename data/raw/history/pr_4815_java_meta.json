@@ -1,0 +1,19 @@
+{
+ "pr": 4815,
+ "base_sha": "aa68acd6c4fe3797e04465fd7a80271f3428d854",
+ "head_sha": "a70bab3ea0a2490fc21f46aa94e5840ec5c581f6",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/syntax/SketchTextArea.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 11,
+   "deletions": 0,
+   "old_sha": "ac50a2dc2a6959edefef2c191f99037e07c184da",
+   "new_sha": "aace515fb7c0a46eda30ca3ee8f4c2ea0e6f3294",
+   "head_sha_check": "aace515fb7c0a46eda30ca3ee8f4c2ea0e6f3294",
+   "loc_at_head": 341,
+   "notes": ""
+  }
+ ]
+}

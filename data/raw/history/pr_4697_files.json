@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "0e8bc54ed2913d7b6d55d30908bd8e4fc9d2e36e",
+  "filename": "hardware/arduino/avr/platform.txt",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 6,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bd39621f46927662da5b9f58764db2655bcbdee0/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bd39621f46927662da5b9f58764db2655bcbdee0/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fplatform.txt?ref=bd39621f46927662da5b9f58764db2655bcbdee0",
+  "patch": "@@ -9,20 +9,18 @@ name=Arduino AVR Boards\n version=1.6.10\n \n # AVR compile variables\n-# --------------------- \n+# ---------------------\n \n compiler.warning_flags=-w\n compiler.warning_flags.none=-w\n compiler.warning_flags.default=\n compiler.warning_flags.more=-Wall\n compiler.warning_flags.all=-Wall -Wextra\n \n-# Default \"compiler.path\" is correct, change only if you want to overidde the initial value\n+# Default \"compiler.path\" is correct, change only if you want to override the initial value\n compiler.path={runtime.tools.avr-gcc.path}/bin/\n compiler.c.cmd=avr-gcc\n compiler.c.flags=-c -g -Os {compiler.warning_flags} -std=gnu11 -ffunction-sections -fdata-sections -MMD\n-# -w flag added to avoid printing a wrong warning http://gcc.gnu.org/bugzilla/show_bug.cgi?id=59396\n-# This is fixed in gcc 4.8.3 and will be removed as soon as we update the toolchain\n compiler.c.elf.flags={compiler.warning_flags} -Os -Wl,--gc-sections\n compiler.c.elf.cmd=avr-gcc\n compiler.S.flags=-c -g -x assembler-with-cpp\n@@ -37,7 +35,7 @@ compiler.elf2hex.cmd=avr-objcopy\n compiler.ldflags=\n compiler.size.cmd=avr-size\n \n-# This can be overriden in boards.txt\n+# This can be overridden in boards.txt\n build.extra_flags=\n \n # These can be overridden in platform.local.txt\n@@ -113,7 +111,7 @@ tools.avrdude.bootloader.pattern=\"{cmd.path}\" \"-C{config.path}\" {bootloader.verb\n \n \n # USB Default Flags\n-# Default blank usb manufacturer will be filled it at compile time\n+# Default blank usb manufacturer will be filled in at compile time\n # - from numeric vendor ID, set to Unknown otherwise\n build.usb_manufacturer=\"Unknown\"\n build.usb_flags=-DUSB_VID={build.vid} -DUSB_PID={build.pid} '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}'"
+ },
+ {
+  "sha": "0f376b6b3246f7ccda618847f98a5c78a8bd0dab",
+  "filename": "hardware/arduino/sam/platform.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bd39621f46927662da5b9f58764db2655bcbdee0/hardware%2Farduino%2Fsam%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bd39621f46927662da5b9f58764db2655bcbdee0/hardware%2Farduino%2Fsam%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fplatform.txt?ref=bd39621f46927662da5b9f58764db2655bcbdee0",
+  "patch": "@@ -36,7 +36,7 @@ compiler.ldflags=\n compiler.size.cmd=arm-none-eabi-size\n compiler.define=-DARDUINO=\n \n-# this can be overriden in boards.txt\n+# This can be overridden in boards.txt\n build.extra_flags=\n \n # These can be overridden in platform.local.txt"
+ }
+]

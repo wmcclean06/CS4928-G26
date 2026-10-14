@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "069f552dc998cf7c51c3fc34ef481da2fe0c8a72",
+  "filename": "app/src/processing/app/Sketch.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f3944b2df071570778f2f67b34569772f92a41ff/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f3944b2df071570778f2f67b34569772f92a41ff/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java?ref=f3944b2df071570778f2f67b34569772f92a41ff",
+  "patch": "@@ -2024,7 +2024,7 @@ static public String checkName(String origName) {\n       String msg =\n         _(\"The sketch name had to be modified. Sketch names can only consist\\n\" +\n           \"of ASCII characters and numbers (but cannot start with a number).\\n\" +\n-          \"They should also be less less than 64 characters long.\");\n+          \"They should also be less than 64 characters long.\");\n       System.out.println(msg);\n     }\n     return newName;"
+ }
+]

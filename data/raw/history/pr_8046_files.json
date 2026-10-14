@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "4fb819a73465c34c397b1e1634e7a7d8e2db28a1",
+  "filename": "app/src/processing/app/AbstractMonitor.java",
+  "status": "modified",
+  "additions": 28,
+  "deletions": 0,
+  "changes": 28,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d2f8e15d9e5cc07e478e73e7a5f20b7f81e8560b/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d2f8e15d9e5cc07e478e73e7a5f20b7f81e8560b/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java?ref=d2f8e15d9e5cc07e478e73e7a5f20b7f81e8560b",
+  "patch": "@@ -1,6 +1,7 @@\n package processing.app;\n \n import cc.arduino.packages.BoardPort;\n+import cc.arduino.packages.DiscoveryManager;\n import processing.app.legacy.PApplet;\n \n import javax.swing.*;\n@@ -9,6 +10,7 @@\n import java.awt.event.ActionListener;\n import java.awt.event.WindowAdapter;\n import java.awt.event.WindowEvent;\n+import java.util.List;\n \n @SuppressWarnings(\"serial\")\n public abstract class AbstractMonitor extends JFrame implements ActionListener {\n@@ -17,6 +19,7 @@ public abstract class AbstractMonitor extends JFrame implements ActionListener {\n \n   private StringBuffer updateBuffer;\n   private Timer updateTimer;\n+  private Timer portExistsTimer;\n \n   private BoardPort boardPort;\n \n@@ -73,6 +76,26 @@ public void actionPerformed(ActionEvent event) {\n     updateTimer = new Timer(33, this);  // redraw serial monitor at 30 Hz\n     updateTimer.start();\n \n+    ActionListener portExists = new ActionListener() {\n+      @Override\n+      public void actionPerformed(ActionEvent ae) {\n+        try {\n+          if (!Base.getDiscoveryManager().discovery().contains(boardPort)) {\n+            if (!closed) {\n+              suspend();\n+            }\n+          } else {\n+            if (closed && (Editor.avoidMultipleOperations == false)) {\n+              resume(boardPort);\n+            }\n+          }\n+        } catch (Exception e) {}\n+      }\n+    };\n+\n+    portExistsTimer = new Timer(1000, portExists);  // check if the port is still there every second\n+    portExistsTimer.start();\n+\n     closed = false;\n   }\n \n@@ -92,6 +115,11 @@ public void suspend() throws Exception {\n     close();\n   }\n \n+  public void dispose() {\n+    super.dispose();\n+    portExistsTimer.stop();\n+  }\n+\n   public void resume(BoardPort boardPort) throws Exception {\n     setBoardPort(boardPort);\n "
+ },
+ {
+  "sha": "a8e5b7b749330d7534a4021534c2c8de69d0e4fd",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 11,
+  "deletions": 13,
+  "changes": 24,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d2f8e15d9e5cc07e478e73e7a5f20b7f81e8560b/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d2f8e15d9e5cc07e478e73e7a5f20b7f81e8560b/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=d2f8e15d9e5cc07e478e73e7a5f20b7f81e8560b",
+  "patch": "@@ -181,7 +181,7 @@ public boolean test(SketchController controller) {\n \n   private int numTools = 0;\n \n-  public boolean avoidMultipleOperations = false;\n+  static public boolean avoidMultipleOperations = false;\n \n   private final EditorToolbar toolbar;\n   // these menus are shared so that they needn't be rebuilt for all windows\n@@ -1015,22 +1015,20 @@ private void selectSerialPort(String name) {\n     //System.out.println(item.getLabel());\n \n     BaseNoGui.selectSerialPort(name);\n-    if (serialMonitor != null) {\n-      try {\n+    try {\n+      boolean reopenMonitor = ((serialMonitor != null && serialMonitor.isVisible()) ||\n+                                serialPlotter != null && serialPlotter.isVisible());\n+      if (serialMonitor != null) {\n         serialMonitor.close();\n-        serialMonitor.setVisible(false);\n-      } catch (Exception e) {\n-        // ignore\n       }\n-    }\n-\n-    if (serialPlotter != null) {\n-      try {\n+      if (serialPlotter != null) {\n         serialPlotter.close();\n-        serialPlotter.setVisible(false);\n-      } catch (Exception e) {\n-        // ignore\n       }\n+      if (reopenMonitor) {\n+        handleSerial();\n+      }\n+    } catch (Exception e) {\n+      // ignore\n     }\n \n     onBoardOrPortChange();"
+ },
+ {
+  "sha": "96ba383aceb0800deb82431987c9115f27f2886a",
+  "filename": "arduino-core/src/cc/arduino/packages/uploaders/SerialUploader.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 5,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d2f8e15d9e5cc07e478e73e7a5f20b7f81e8560b/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d2f8e15d9e5cc07e478e73e7a5f20b7f81e8560b/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java?ref=d2f8e15d9e5cc07e478e73e7a5f20b7f81e8560b",
+  "patch": "@@ -210,9 +210,9 @@ public boolean uploadUsingPreferences(File sourcePath, String buildPath, String\n \n           // Reuse waitForUploadPort for this task, but this time we are simply waiting\n           // for one port to reappear. If no port reappears before the timeout, actualUploadPort is selected\n-          finalUploadPort = waitForUploadPort(actualUploadPort, Serial.list(), false);\n+          finalUploadPort = waitForUploadPort(actualUploadPort, Serial.list(), false, 2000);\n         }\n-      } catch (InterruptedException ex) {\n+      } catch (RunnerException ex) {\n         // noop\n       }\n     }\n@@ -229,13 +229,13 @@ public boolean uploadUsingPreferences(File sourcePath, String buildPath, String\n   }\n \n   private String waitForUploadPort(String uploadPort, List<String> before) throws InterruptedException, RunnerException {\n-\t  return waitForUploadPort(uploadPort, before, verbose);\n+\t  return waitForUploadPort(uploadPort, before, verbose, 10000);\n   }\n \n-  private String waitForUploadPort(String uploadPort, List<String> before, boolean verbose) throws InterruptedException, RunnerException {\n+  private String waitForUploadPort(String uploadPort, List<String> before, boolean verbose, int timeout) throws InterruptedException, RunnerException {\n     // Wait for a port to appear on the list\n     int elapsed = 0;\n-    while (elapsed < 10000) {\n+    while (elapsed < timeout) {\n       List<String> now = Serial.list();\n       List<String> diff = new ArrayList<>(now);\n       diff.removeAll(before);"
+ }
+]

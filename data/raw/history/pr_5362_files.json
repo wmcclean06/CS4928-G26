@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "f2572d60883f545b90751dd95d72315f944e355c",
+  "filename": "hardware/arduino/avr/cores/arduino/WString.cpp",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 1,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/24cba16802a30923425af037ceeab44bfd4cfca3/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWString.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/24cba16802a30923425af037ceeab44bfd4cfca3/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWString.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWString.cpp?ref=24cba16802a30923425af037ceeab44bfd4cfca3",
+  "patch": "@@ -740,6 +740,11 @@ long String::toInt(void) const\n \n float String::toFloat(void) const\n {\n-\tif (buffer) return float(atof(buffer));\n+\treturn float(toDouble());\n+}\n+\n+double String::toDouble(void) const\n+{\n+\tif (buffer) return atof(buffer);\n \treturn 0;\n }"
+ },
+ {
+  "sha": "77709c3ba42f902c4598adece829c004ec6d4d34",
+  "filename": "hardware/arduino/avr/cores/arduino/WString.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/24cba16802a30923425af037ceeab44bfd4cfca3/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWString.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/24cba16802a30923425af037ceeab44bfd4cfca3/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWString.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWString.h?ref=24cba16802a30923425af037ceeab44bfd4cfca3",
+  "patch": "@@ -190,6 +190,7 @@ class String\n \t// parsing/conversion\n \tlong toInt(void) const;\n \tfloat toFloat(void) const;\n+\tdouble toDouble(void) const;\n \n protected:\n \tchar *buffer;\t        // the actual char array"
+ },
+ {
+  "sha": "71bbc07d13b8cde563fb64c513d979e46dc72b7b",
+  "filename": "hardware/arduino/sam/cores/arduino/WString.cpp",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 1,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/24cba16802a30923425af037ceeab44bfd4cfca3/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWString.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/24cba16802a30923425af037ceeab44bfd4cfca3/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWString.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWString.cpp?ref=24cba16802a30923425af037ceeab44bfd4cfca3",
+  "patch": "@@ -742,6 +742,11 @@ long String::toInt(void) const\n \n float String::toFloat(void) const\n {\n-\tif (buffer) return float(atof(buffer));\n+\treturn float(toDouble());\n+}\n+\n+double String::toDouble(void) const\n+{\n+\tif (buffer) return atof(buffer);\n \treturn 0;\n }"
+ },
+ {
+  "sha": "77709c3ba42f902c4598adece829c004ec6d4d34",
+  "filename": "hardware/arduino/sam/cores/arduino/WString.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/24cba16802a30923425af037ceeab44bfd4cfca3/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWString.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/24cba16802a30923425af037ceeab44bfd4cfca3/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWString.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2FWString.h?ref=24cba16802a30923425af037ceeab44bfd4cfca3",
+  "patch": "@@ -190,6 +190,7 @@ class String\n \t// parsing/conversion\n \tlong toInt(void) const;\n \tfloat toFloat(void) const;\n+\tdouble toDouble(void) const;\n \n protected:\n \tchar *buffer;\t        // the actual char array"
+ }
+]

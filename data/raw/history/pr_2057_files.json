@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "1a2f8ce20e3c2fcbc5554166cd8acd61013a51ae",
+  "filename": "hardware/arduino/cores/arduino/HardwareSerial.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f40e4713542fa862d5b99b256a642e001a796988/hardware%2Farduino%2Fcores%2Farduino%2FHardwareSerial.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f40e4713542fa862d5b99b256a642e001a796988/hardware%2Farduino%2Fcores%2Farduino%2FHardwareSerial.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FHardwareSerial.cpp?ref=f40e4713542fa862d5b99b256a642e001a796988",
+  "patch": "@@ -426,7 +426,7 @@ void HardwareSerial::end()\n \n int HardwareSerial::available(void)\n {\n-  return (unsigned int)(SERIAL_BUFFER_SIZE + _rx_buffer->head - _rx_buffer->tail) % SERIAL_BUFFER_SIZE;\n+  return (int)(SERIAL_BUFFER_SIZE + _rx_buffer->head - _rx_buffer->tail) % SERIAL_BUFFER_SIZE;\n }\n \n int HardwareSerial::peek(void)"
+ }
+]

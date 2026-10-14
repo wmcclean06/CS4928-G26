@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "34074cb6a32ce98c158aa7071cd446ba1c71b00b",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f79d06d142359623e86d3a4e8350b5d8dacfd945/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f79d06d142359623e86d3a4e8350b5d8dacfd945/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=f79d06d142359623e86d3a4e8350b5d8dacfd945",
+  "patch": "@@ -1970,7 +1970,7 @@ protected boolean handleOpenInternal(File sketchFile) {\n     return true;\n   }\n \n-  private void updateTitle() {\n+  public void updateTitle() {\n     if (sketchController == null) {\n       return;\n     }"
+ },
+ {
+  "sha": "6f99a1fb668b46391977aa8fa87de1b1d70f4063",
+  "filename": "app/src/processing/app/SketchController.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f79d06d142359623e86d3a4e8350b5d8dacfd945/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f79d06d142359623e86d3a4e8350b5d8dacfd945/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketchController.java?ref=f79d06d142359623e86d3a4e8350b5d8dacfd945",
+  "patch": "@@ -438,7 +438,7 @@ protected boolean saveAs() throws IOException {\n     //editor.sketchbook.rebuildMenusAsync();\n     editor.base.rebuildSketchbookMenus();\n     editor.header.rebuild();\n-\n+    editor.updateTitle();\n     // Make sure that it's not an untitled sketch\n     setUntitled(false);\n "
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "d43508d3e04051182bbf2847f17adc50c5a92546",
+  "filename": "README.md",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 6,
+  "changes": 12,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8158be62733ac3f0684d4c01eb7f089d4ddf8b42/README.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8158be62733ac3f0684d4c01eb7f089d4ddf8b42/README.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/README.md?ref=8158be62733ac3f0684d4c01eb7f089d4ddf8b42",
+  "patch": "@@ -6,15 +6,15 @@ board and a development environment that implements the Processing/Wiring\n language. Arduino can be used to develop stand-alone interactive objects or\n can be connected to software on your computer (e.g. Flash, Processing and MaxMSP).\n The boards can be assembled by hand or purchased preassembled; the open-source\n-IDE can be downloaded for free at http://www.arduino.cc/en/Main/Software\n+IDE can be downloaded for free at https://www.arduino.cc/en/Main/Software\n \n-* For more information, see the website at: http://www.arduino.cc/\n-or the forums at: http://www.arduino.cc/forum/  \n+* For more information, see the website at: https://www.arduino.cc/\n+or the forums at: https://forum.arduino.cc/  \n You can also follow Arduino on Twitter at: https://twitter.com/arduino or\n like Arduino on Facebook at: https://www.facebook.com/official.arduino\n \n * To report a *bug* in the software or to request *a simple enhancement* go to:\n-http://github.com/arduino/Arduino/issues\n+https://github.com/arduino/Arduino/issues\n \n * More complex requests and technical discussion should go on the Arduino Developers\n mailing list:\n@@ -41,7 +41,7 @@ The Arduino team is composed of Massimo Banzi, David Cuartielles, Tom Igoe\n and David A. Mellis.\n \n Arduino uses\n-[GNU avr-gcc toolchain](http://gcc.gnu.org/wiki/avr-gcc),\n+[GNU avr-gcc toolchain](https://gcc.gnu.org/wiki/avr-gcc),\n [GCC ARM Embedded toolchain](https://launchpad.net/gcc-arm-embedded),\n [avr-libc](http://www.nongnu.org/avr-libc/),\n [avrdude](http://www.nongnu.org/avrdude/),\n@@ -50,5 +50,5 @@ Arduino uses\n and code from [Processing](http://www.processing.org)\n and [Wiring](http://wiring.org.co).\n \n-Icon and about image designed by [ToDo](http://www.todo.to.it/)\n+Icon and about image designed by [ToDo](https://www.todo.to.it/)\n "
+ }
+]

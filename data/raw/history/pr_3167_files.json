@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ec888922148faf1697e8c9bb9f731c1b68f5aa05",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/00f36e7b26db8929b78ee07bd3856fbc9e7fe56a/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/00f36e7b26db8929b78ee07bd3856fbc9e7fe56a/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=00f36e7b26db8929b78ee07bd3856fbc9e7fe56a",
+  "patch": "@@ -880,7 +880,7 @@\n \n   <target name=\"windows-run\" depends=\"build\"\n \t  description=\"Run windows version\">\n-    <exec executable=\"windows/work/arduino.exe\" dir=\"windows/work\" spawn=\"true\" failonerror=\"true\"/>\n+    <exec executable=\"windows/work/arduino.exe\" dir=\"windows/work\" failonerror=\"true\"/>\n   </target>\n \n   <target name=\"windows-dist\" depends=\"build\" description=\"Create .zip files of windows version\">"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "b956f787e0ad641a90bd019354bffcfe8ad12990",
+  "filename": "hardware/arduino/avr/cores/arduino/wiring.c",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b1231c39e9fa6d8602ac24305b07f074c1145633/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b1231c39e9fa6d8602ac24305b07f074c1145633/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring.c?ref=b1231c39e9fa6d8602ac24305b07f074c1145633",
+  "patch": "@@ -105,11 +105,11 @@ unsigned long micros() {\n \n void delay(unsigned long ms)\n {\n-\tuint16_t start = (uint16_t)micros();\n+\tuint32_t start = micros();\n \n \twhile (ms > 0) {\n \t\tyield();\n-\t\tif (((uint16_t)micros() - start) >= 1000) {\n+\t\twhile ( ms > 0 && (micros() - start) >= 1000) {\n \t\t\tms--;\n \t\t\tstart += 1000;\n \t\t}"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "2663e6e6280128ca2db2591daccca1ec9f3eca11",
+  "filename": "libraries/Keyboard/src/Keyboard.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bd1124eb0fb0c1bc4d046e2d0bf94a7031497d0f/libraries%2FKeyboard%2Fsrc%2FKeyboard.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bd1124eb0fb0c1bc4d046e2d0bf94a7031497d0f/libraries%2FKeyboard%2Fsrc%2FKeyboard.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FKeyboard%2Fsrc%2FKeyboard.cpp?ref=bd1124eb0fb0c1bc4d046e2d0bf94a7031497d0f",
+  "patch": "@@ -209,7 +209,7 @@ const uint8_t _asciimap[128] =\n \t0x1b,          // x\n \t0x1c,          // y\n \t0x1d,          // z\n-\t0x2f|SHIFT,    // \n+\t0x2f|SHIFT,    // {\n \t0x31|SHIFT,    // |\n \t0x30|SHIFT,    // }\n \t0x35|SHIFT,    // ~"
+ }
+]

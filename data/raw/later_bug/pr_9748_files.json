@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "11436b2ccfba5f9f04c3a8bb54280d701d2210c0",
+  "filename": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryReleasesComparator.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 3,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/194d4bfb01dcee15d6427d84372a75be35ceeee4/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryReleasesComparator.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/194d4bfb01dcee15d6427d84372a75be35ceeee4/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryReleasesComparator.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryReleasesComparator.java?ref=194d4bfb01dcee15d6427d84372a75be35ceeee4",
+  "patch": "@@ -32,7 +32,9 @@\n import cc.arduino.contributions.libraries.ContributedLibrary;\n import cc.arduino.contributions.libraries.ContributedLibraryReleases;\n \n+import java.util.Arrays;\n import java.util.Comparator;\n+import java.util.List;\n \n public class ContributedLibraryReleasesComparator implements Comparator<ContributedLibraryReleases> {\n \n@@ -47,9 +49,11 @@ public int compare(ContributedLibraryReleases o1, ContributedLibraryReleases o2)\n     ContributedLibrary lib1 = o1.getLatest();\n     ContributedLibrary lib2 = o2.getLatest();\n \n-    if (lib1.getTypes() == null || lib2.getTypes() == null) {\n-      return compareName(lib1, lib2);\n-    }\n+    List<String> types1 = lib1.getTypes();\n+    List<String> types2 = lib2.getTypes();\n+    if (types1 == null) types1 = Arrays.asList();\n+    if (types2 == null) types2 = Arrays.asList();\n+\n     if (lib1.getTypes().contains(firstType) && lib2.getTypes().contains(firstType)) {\n       return compareName(lib1, lib2);\n     }"
+ }
+]

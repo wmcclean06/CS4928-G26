@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "e1bc97c475fd2b6972fe79aa787c9d3b55fa8271",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ee8b5a0162f6a81e69cd930f27e82ac1063166b1/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ee8b5a0162f6a81e69cd930f27e82ac1063166b1/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=ee8b5a0162f6a81e69cd930f27e82ac1063166b1",
+  "patch": "@@ -814,8 +814,8 @@\n \n     <!-- Unzip AVR tools -->\n     <antcall target=\"unzip\">\n-      <param name=\"archive_file\" value=\"${staging_folder}/avr-toolchain-win32-3.4.5.zip\" />\n-      <param name=\"archive_url\" value=\"http://arduino.cc/download.php?f=/avr-toolchain-win32-3.4.5.zip\" />\n+      <param name=\"archive_file\" value=\"${staging_folder}/avr-toolchain-win32-3.4.5-arduino1.zip\" />\n+      <param name=\"archive_url\" value=\"http://arduino.cc/download.php?f=/avr-toolchain-win32-3.4.5-arduino1.zip\" />\n       <param name=\"final_folder\" value=\"${staging_folder}/work/${staging_hardware_folder}/tools/avr\" />\n       <param name=\"dest_folder\" value=\"${staging_folder}/work/${staging_hardware_folder}/tools/avr\" />\n     </antcall>"
+ },
+ {
+  "sha": "bd01f1daed5830e93006e9f5b4f9e0019b35f907",
+  "filename": "build/windows/avr-toolchain-win32-3.4.5-arduino1.zip.sha",
+  "status": "added",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ee8b5a0162f6a81e69cd930f27e82ac1063166b1/build%2Fwindows%2Favr-toolchain-win32-3.4.5-arduino1.zip.sha",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ee8b5a0162f6a81e69cd930f27e82ac1063166b1/build%2Fwindows%2Favr-toolchain-win32-3.4.5-arduino1.zip.sha",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Favr-toolchain-win32-3.4.5-arduino1.zip.sha?ref=ee8b5a0162f6a81e69cd930f27e82ac1063166b1",
+  "patch": "@@ -0,0 +1 @@\n+077d8d7f0234a65f754bca44fe37497f08c0bd90"
+ },
+ {
+  "sha": "fd8cce89b8f03f152e9e26cedd2981f9a4ca42f2",
+  "filename": "build/windows/avr-toolchain-win32-3.4.5.zip.sha",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/375013173d38bace3aac2d4a467b8d1053e26168/build%2Fwindows%2Favr-toolchain-win32-3.4.5.zip.sha",
+  "raw_url": "https://github.com/arduino/Arduino/raw/375013173d38bace3aac2d4a467b8d1053e26168/build%2Fwindows%2Favr-toolchain-win32-3.4.5.zip.sha",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Favr-toolchain-win32-3.4.5.zip.sha?ref=375013173d38bace3aac2d4a467b8d1053e26168",
+  "patch": "@@ -1 +0,0 @@\n-e089689f38dbd98acca2e7ae4e1219773afbeecd"
+ }
+]

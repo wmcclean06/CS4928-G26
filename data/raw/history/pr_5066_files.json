@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "701218e2090eea27740b80519de1556ad99bdd87",
+  "filename": "app/src/processing/app/Sketch.java",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 9,
+  "changes": 18,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8f20f4d98ba542ef3cf424d6b1ed3d689ceb1864/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8f20f4d98ba542ef3cf424d6b1ed3d689ceb1864/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java?ref=8f20f4d98ba542ef3cf424d6b1ed3d689ceb1864",
+  "patch": "@@ -917,20 +917,20 @@ public boolean addFile(File sourceFile) {\n   }\n \n \n-  public void importLibrary(UserLibrary lib) throws IOException {\n-    importLibrary(lib.getSrcFolder());\n-  }\n-\n   /**\n-   * Add import statements to the current tab for all of packages inside\n-   * the specified jar file.\n+   * Add import statements to the current tab for the specified library\n    */\n-  private void importLibrary(File jarPath) throws IOException {\n+  public void importLibrary(UserLibrary lib) throws IOException {\n     // make sure the user didn't hide the sketch folder\n     ensureExistence();\n \n-    String list[] = Base.headerListFromIncludePath(jarPath);\n-    if (list == null || list.length == 0) {\n+    List<String> list = lib.getIncludes();\n+    if (list == null) {\n+      File srcFolder = lib.getSrcFolder();\n+      String[] headers = Base.headerListFromIncludePath(srcFolder);\n+      list = Arrays.asList(headers);\n+    }\n+    if (list.isEmpty()) {\n       return;\n     }\n "
+ },
+ {
+  "sha": "69ba15a3c34b9cd3420272e8804139ec67597d4f",
+  "filename": "arduino-core/src/processing/app/packages/UserLibrary.java",
+  "status": "modified",
+  "additions": 15,
+  "deletions": 0,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8f20f4d98ba542ef3cf424d6b1ed3d689ceb1864/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FUserLibrary.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8f20f4d98ba542ef3cf424d6b1ed3d689ceb1864/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FUserLibrary.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fpackages%2FUserLibrary.java?ref=8f20f4d98ba542ef3cf424d6b1ed3d689ceb1864",
+  "patch": "@@ -56,6 +56,7 @@ public class UserLibrary extends ContributedLibrary {\n   private List<String> types;\n   private List<String> declaredTypes;\n   private boolean onGoingDevelopment;\n+  private List<String> includes;\n \n   public static UserLibrary create(File libFolder) throws IOException {\n     // Parse metadata\n@@ -131,6 +132,13 @@ public static UserLibrary create(File libFolder) throws IOException {\n       typesList.add(type.trim());\n     }\n \n+    List<String> includes = null;\n+    if (properties.containsKey(\"includes\")) {\n+      includes = new ArrayList<>();\n+      for (String i : properties.get(\"includes\").split(\",\"))\n+        includes.add(i.trim());\n+    }\n+\n     UserLibrary res = new UserLibrary();\n     res.setInstalledFolder(libFolder);\n     res.setInstalled(true);\n@@ -147,6 +155,7 @@ public static UserLibrary create(File libFolder) throws IOException {\n     res.layout = layout;\n     res.declaredTypes = typesList;\n     res.onGoingDevelopment = Files.exists(Paths.get(libFolder.getAbsolutePath(), Constants.LIBRARY_DEVELOPMENT_FLAG_FILE));\n+    res.includes = includes;\n     return res;\n   }\n \n@@ -247,6 +256,10 @@ public boolean onGoingDevelopment() {\n     return onGoingDevelopment;\n   }\n \n+  public List<String> getIncludes() {\n+    return includes;\n+  }\n+\n   protected enum LibraryLayout {\n     FLAT, RECURSIVE\n   }\n@@ -278,6 +291,8 @@ public String toString() {\n     res += \"         (paragraph=\" + paragraph + \")\\n\";\n     res += \"         (url=\" + website + \")\\n\";\n     res += \"         (architectures=\" + architectures + \")\\n\";\n+    if (includes != null)\n+      res += \"         (includes=\" + includes + \")\\n\";\n     return res;\n   }\n "
+ }
+]

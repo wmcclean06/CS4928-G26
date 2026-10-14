@@ -1,0 +1,15 @@
+[
+ {
+  "sha": "11574013769704f7e052e142fbf2db922bbc8af5",
+  "filename": "README.md",
+  "status": "renamed",
+  "additions": 10,
+  "deletions": 5,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7ea7c5291dd25f2cdec332ce8e505cfc11de74bf/README.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7ea7c5291dd25f2cdec332ce8e505cfc11de74bf/README.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/README.md?ref=7ea7c5291dd25f2cdec332ce8e505cfc11de74bf",
+  "patch": "@@ -1,32 +1,37 @@\n-Arduino is an open-source physical computing platform based on a simple i/o\n+Arduino\n+========\n+\n+* Arduino is an open-source physical computing platform based on a simple i/o\n board and a development environment that implements the Processing/Wiring\n language. Arduino can be used to develop stand-alone interactive objects or\n can be connected to software on your computer (e.g. Flash, Processing, MaxMSP).\n The boards can be assembled by hand or purchased preassembled; the open-source\n IDE can be downloaded for free.\n \n-For more information, see the website at: http://www.arduino.cc/\n+* For more information, see the website at: http://www.arduino.cc/\n or the forums at: http://arduino.cc/forum/\n \n-To report a *bug* in the software or to request *a simple enhancement* go to:\n+* To report a *bug* in the software or to request *a simple enhancement* go to:\n http://github.com/arduino/Arduino/issues\n \n-More complex requests and technical discussion should go on the Arduino Developers\n+* More complex requests and technical discussion should go on the Arduino Developers\n mailing list:\n https://groups.google.com/a/arduino.cc/forum/#!forum/developers\n \n-If you're interested in modifying or extending the Arduino software, we strongly \n+* If you're interested in modifying or extending the Arduino software, we strongly \n suggest discussing your ideas on the Developers mailing list *before* starting\n to work on them. That way you can coordinate with the Arduino Team and others,\n giving your work a higher chance of being integrated into the official release\n https://groups.google.com/a/arduino.cc/forum/#!forum/developers\n \n INSTALLATION\n+------------\n Detailed instructions are in reference/Guide_Windows.html and\n reference/Guide_MacOSX.html.  For Linux, see the Arduino playground:\n http://www.arduino.cc/playground/Learning/Linux\n \n CREDITS\n+--------\n Arduino is an open source project, supported by many.\n \n The Arduino team is composed of Massimo Banzi, David Cuartielles, Tom Igoe,",
+  "previous_filename": "readme.txt"
+ }
+]

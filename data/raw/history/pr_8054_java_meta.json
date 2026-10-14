@@ -1,0 +1,19 @@
+{
+ "pr": 8054,
+ "base_sha": "8ba209a64d8ad3042150bba829279114b21b99c3",
+ "head_sha": "8f3c54d8ba741fc119321002199e763291a02130",
+ "java_files": [
+  {
+   "path": "build/shared/tools/Mangler/src/Mangler.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 7,
+   "deletions": 6,
+   "old_sha": "cfd527954981eb40786fd819b55b4607ba1e24dd",
+   "new_sha": "e30250f1030c94523f078c4bf89154b2d787b95b",
+   "head_sha_check": "e30250f1030c94523f078c4bf89154b2d787b95b",
+   "loc_at_head": 72,
+   "notes": ""
+  }
+ ]
+}

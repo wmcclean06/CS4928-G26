@@ -1,0 +1,19 @@
+{
+ "pr": 3878,
+ "base_sha": "7e0adebd2808e5d6be972b14a5fd065b6dc002b3",
+ "head_sha": "d8f30549bc6f14f41149722fa59be0ac498c5ec1",
+ "java_files": [
+  {
+   "path": "arduino-core/src/processing/app/debug/LegacyTargetPlatform.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 17,
+   "deletions": 2,
+   "old_sha": "9dd5bd48e7b00f43dffa31bf60e3cb178d168730",
+   "new_sha": "03686083253dac2d3eb4d2e1c0063b37b5986b4f",
+   "head_sha_check": "03686083253dac2d3eb4d2e1c0063b37b5986b4f",
+   "loc_at_head": 214,
+   "notes": ""
+  }
+ ]
+}

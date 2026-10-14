@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "22b7a1ec53d8deea816b9f9a14eeb6c8a73fb9ae",
+  "filename": "hardware/arduino/avr/variants/leonardo/pins_arduino.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e8f9002e75f71486ac86e6696c8eaf181f06318c/hardware%2Farduino%2Favr%2Fvariants%2Fleonardo%2Fpins_arduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e8f9002e75f71486ac86e6696c8eaf181f06318c/hardware%2Farduino%2Favr%2Fvariants%2Fleonardo%2Fpins_arduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fvariants%2Fleonardo%2Fpins_arduino.h?ref=e8f9002e75f71486ac86e6696c8eaf181f06318c",
+  "patch": "@@ -367,7 +367,7 @@ const uint8_t PROGMEM analog_pin_to_channel_PGM[] = {\n #define SerialUSB SERIAL_PORT_USBVIRTUAL\n \n // Bootloader related fields\n-// Old Caterian bootloader places the MAGIC key into unsafe RAM locations (it can be rewritten\n+// Old Caterina bootloader places the MAGIC key into unsafe RAM locations (it can be rewritten\n // by the running sketch before to actual reboot).\n // Newer bootloaders, recognizable by the LUFA \"signature\" at the end of the flash, can handle both\n // the usafe and the safe location. Check once (in USBCore.cpp) if the bootloader in new, then set the global"
+ }
+]

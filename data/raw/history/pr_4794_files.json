@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "7bb7dee11e618d9ef9999c361e1c2a757ee84038",
+  "filename": "app/src/processing/app/Sketch.java",
+  "status": "modified",
+  "additions": 11,
+  "deletions": 2,
+  "changes": 13,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0584b2c2bd8d6c0f72fe62ebd16cff13bcbc150b/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0584b2c2bd8d6c0f72fe62ebd16cff13bcbc150b/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java?ref=0584b2c2bd8d6c0f72fe62ebd16cff13bcbc150b",
+  "patch": "@@ -1164,7 +1164,8 @@ private boolean exportApplet(String appletPath, boolean usingProgrammer)\n \n   private boolean upload(String buildPath, String suggestedClassName, boolean usingProgrammer) throws Exception {\n \n-    Uploader uploader = new UploaderUtils().getUploaderByPreferences(false);\n+    UploaderUtils uploaderInstance = new UploaderUtils();\n+    Uploader uploader = uploaderInstance.getUploaderByPreferences(false);\n \n     boolean success = false;\n     do {\n@@ -1183,7 +1184,7 @@ private boolean upload(String buildPath, String suggestedClassName, boolean usin\n \n       List<String> warningsAccumulator = new LinkedList<>();\n       try {\n-        success = new UploaderUtils().upload(data, uploader, buildPath, suggestedClassName, usingProgrammer, false, warningsAccumulator);\n+        success = uploaderInstance.upload(data, uploader, buildPath, suggestedClassName, usingProgrammer, false, warningsAccumulator);\n       } finally {\n         if (uploader.requiresAuthorization() && !success) {\n           PreferencesData.remove(uploader.getAuthorizationKey());\n@@ -1198,6 +1199,14 @@ private boolean upload(String buildPath, String suggestedClassName, boolean usin\n \n     } while (uploader.requiresAuthorization() && !success);\n \n+    if (!success) {\n+      String errorMessage = uploader.getFailureMessage();\n+      if (errorMessage.equals(\"\")) {\n+        errorMessage = tr(\"An error occurred while uploading the sketch\");\n+      }\n+      editor.statusError(errorMessage);\n+    }\n+\n     return success;\n   }\n "
+ },
+ {
+  "sha": "a93734ed6a6425ee2dd5d84869f24dbabf7377ee",
+  "filename": "arduino-core/src/cc/arduino/packages/Uploader.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 8,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0584b2c2bd8d6c0f72fe62ebd16cff13bcbc150b/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0584b2c2bd8d6c0f72fe62ebd16cff13bcbc150b/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploader.java?ref=0584b2c2bd8d6c0f72fe62ebd16cff13bcbc150b",
+  "patch": "@@ -85,7 +85,7 @@ protected Uploader(boolean nup) {\n   }\n \n   private void init(boolean nup) {\n-    this.error = null;\n+    this.error = \"\";\n     this.notFoundError = false;\n     this.noUploadPort = nup;\n   }\n@@ -130,15 +130,13 @@ protected boolean executeUploadCommand(String command[]) throws Exception {\n       e.printStackTrace();\n     }\n \n-    if (error != null) {\n-      RunnerException exception = new RunnerException(error);\n-      exception.hideStackTrace();\n-      throw exception;\n-    }\n-\n     return result == 0;\n   }\n \n+  public String getFailureMessage() {\n+    return error;\n+  }\n+\n   public void message(String s) {\n     // selectively suppress a bunch of avrdude output for AVR109/Caterina that should already be quelled but isn't\n     if (!verbose && StringUtils.stringContainsOneOf(s, STRINGS_TO_SUPPRESS)) {\n@@ -148,8 +146,9 @@ public void message(String s) {\n     System.err.print(s);\n \n     // ignore cautions\n-    if (s.contains(\"Error\")) {\n+    if (s.toLowerCase().contains(\"error\")) {\n       notFoundError = true;\n+      error = s;\n       return;\n     }\n     if (notFoundError) {"
+ },
+ {
+  "sha": "cc0a108082771607341d5fdb8a85dbb18a4ac079",
+  "filename": "arduino-core/src/cc/arduino/packages/uploaders/SSHUploader.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0584b2c2bd8d6c0f72fe62ebd16cff13bcbc150b/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSSHUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0584b2c2bd8d6c0f72fe62ebd16cff13bcbc150b/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSSHUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSSHUploader.java?ref=0584b2c2bd8d6c0f72fe62ebd16cff13bcbc150b",
+  "patch": "@@ -135,7 +135,7 @@ public boolean uploadUsingPreferences(File sourcePath, String buildPath, String\n       return runUploadTool(ssh, prefs);\n     } catch (JSchException e) {\n       String message = e.getMessage();\n-      if (\"Auth cancel\".equals(message) || \"Auth fail\".equals(message)) {\n+      if (message.contains(\"Auth cancel\") || message.contains(\"Auth fail\") || message.contains(\"authentication fail\")) {\n         return false;\n       }\n       if (e.getMessage().contains(\"Connection refused\")) {"
+ }
+]

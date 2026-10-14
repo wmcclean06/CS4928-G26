@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "026cf65fc12915a841b89e57a2bc38a976ccd0b8",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 38,
+  "deletions": 0,
+  "changes": 38,
+  "blob_url": "https://github.com/arduino/Arduino/blob/30f7fc451814032572fe0e56e39bdfa3872b08d3/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/30f7fc451814032572fe0e56e39bdfa3872b08d3/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=30f7fc451814032572fe0e56e39bdfa3872b08d3",
+  "patch": "@@ -52,6 +52,24 @@\n \n   <property name=\"MACOSX_BUNDLED_JVM\" value=\"${java.home}/../\"/>\n   <property name=\"WINDOWS_BUNDLED_JVM\" value=\"${java.home}\"/>\n+  <property name=\"LINUX32_BUNDLED_JVM\" value=\"none\"/>\n+  <property name=\"LINUX64_BUNDLED_JVM\" value=\"none\"/>\n+  <condition property=\"linux-bundle-jvm-task\" value=\"noop\">\n+    <and>\n+      <equals arg1=\"${LINUX32_BUNDLED_JVM}\" arg2=\"none\"/>\n+      <equals arg1=\"${LINUX64_BUNDLED_JVM}\" arg2=\"none\"/>\n+    </and>\n+  </condition>\n+  <condition property=\"linux-bundle-jvm-task\" value=\"bundle\">\n+    <or>\n+      <not>\n+        <equals arg1=\"${LINUX32_BUNDLED_JVM}\" arg2=\"none\"/>\n+      </not>\n+      <not>\n+        <equals arg1=\"${LINUX64_BUNDLED_JVM}\" arg2=\"none\"/>\n+      </not>\n+    </or>\n+  </condition>\n \n   <!-- Libraries required for running arduino -->\n   <fileset dir=\"..\" id=\"runtime.jars\">\n@@ -620,6 +638,10 @@\n   </target>\n \n   <target name=\"linux32-build\" depends=\"linux-build\" description=\"Build linux (32-bit) version\">\n+    <antcall target=\"linux-jvm-${linux-bundle-jvm-task}\">\n+      <param name=\"JVM\" value=\"${LINUX32_BUNDLED_JVM}\"/>\n+    </antcall>\n+\n     <antcall target=\"avr-toolchain-bundle\">\n       <param name=\"unpack_target\" value=\"untar\"/>\n       <param name=\"gcc_archive_file\" value=\"avr-gcc-4.8.1-arduino5-i686-pc-linux-gnu.tar.bz2\"/>\n@@ -632,6 +654,10 @@\n   </target>\n \n   <target name=\"linux64-build\" depends=\"linux-build\" description=\"Build linux (64-bit) version\">\n+    <antcall target=\"linux-jvm-${linux-bundle-jvm-task}\">\n+      <param name=\"JVM\" value=\"${LINUX64_BUNDLED_JVM}\"/>\n+    </antcall>\n+\n     <antcall target=\"avr-toolchain-bundle\">\n       <param name=\"unpack_target\" value=\"untar\"/>\n       <param name=\"gcc_archive_file\" value=\"avr-gcc-4.8.1-arduino5-x86_64-pc-linux-gnu.tar.bz2\"/>\n@@ -643,6 +669,18 @@\n     <antcall target=\"package-library-index-json-bundle\"/>\n   </target>\n \n+  <target name=\"linux-jvm-noop\"/>\n+\n+  <target name=\"linux-jvm-bundle\">\n+    <mkdir dir=\"${staging_folder}/work/java\" />\n+\n+    <exec executable=\"rsync\">\n+      <arg value=\"-a\"/>\n+      <arg value=\"${JVM}\"/>\n+      <arg value=\"${staging_folder}/work/java/\"/>\n+    </exec>\n+  </target>\n+\n   <target name=\"linux32-run\" depends=\"build\" description=\"Run Linux (32-bit) version\">\n     <exec executable=\"./linux/work/arduino\" spawn=\"false\" failonerror=\"true\"/>\n   </target>"
+ },
+ {
+  "sha": "2ca6a70928264073f15707f8e19620d9cdaf0cc2",
+  "filename": "build/build_pull_request.bash",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/30f7fc451814032572fe0e56e39bdfa3872b08d3/build%2Fbuild_pull_request.bash",
+  "raw_url": "https://github.com/arduino/Arduino/raw/30f7fc451814032572fe0e56e39bdfa3872b08d3/build%2Fbuild_pull_request.bash",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild_pull_request.bash?ref=30f7fc451814032572fe0e56e39bdfa3872b08d3",
+  "patch": "@@ -18,5 +18,5 @@ fi\n \n VERSION=\"PR-${ghprbPullId}-BUILD-${BUILD_NUMBER}\"\n \n-./build_all_dist.bash -Dversion=\"${VERSION}\" -DMACOSX_BUNDLED_JVM=$MACOSX_BUNDLED_JVM -DWINDOWS_BUNDLED_JVM=$WINDOWS_BUNDLED_JVM\n+./build_all_dist.bash -Dversion=\"${VERSION}\" -DMACOSX_BUNDLED_JVM=$MACOSX_BUNDLED_JVM -DWINDOWS_BUNDLED_JVM=$WINDOWS_BUNDLED_JVM -DLINUX32_BUNDLED_JVM=$LINUX32_BUNDLED_JVM -DLINUX64_BUNDLED_JVM=$LINUX64_BUNDLED_JVM\n "
+ },
+ {
+  "sha": "040b7aec2b5a7619ccca2b95c9e7c78579a1ba0c",
+  "filename": "build/linux/dist/arduino",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 1,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/30f7fc451814032572fe0e56e39bdfa3872b08d3/build%2Flinux%2Fdist%2Farduino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/30f7fc451814032572fe0e56e39bdfa3872b08d3/build%2Flinux%2Fdist%2Farduino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Farduino?ref=30f7fc451814032572fe0e56e39bdfa3872b08d3",
+  "patch": "@@ -28,5 +28,9 @@ fi\n \n export JAVA_TOOL_OPTIONS=`echo $JAVA_TOOL_OPTIONS | sed 's|-javaagent:/usr/share/java/jayatanaag.jar||g'`\n \n-java -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel $SPLASH processing.app.Base --curdir $CURDIR \"$@\"\n+JAVA=java\n+if [ -x ./java/bin/java ]; then\n+  JAVA=./java/bin/java\n+fi\n \n+$JAVA -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel $SPLASH processing.app.Base --curdir $CURDIR \"$@\""
+ }
+]

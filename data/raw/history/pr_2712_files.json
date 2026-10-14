@@ -1,0 +1,62 @@
+[
+ {
+  "sha": "c57d720106e0a39871192a54954398bca31eb9c5",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 4,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3e8ebaad889561708956066c4ffb8b044ad677ef/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3e8ebaad889561708956066c4ffb8b044ad677ef/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=3e8ebaad889561708956066c4ffb8b044ad677ef",
+  "patch": "@@ -301,7 +301,7 @@\n       <option value=\"-Dfile.encoding=UTF-8\"/>\n \n       <option value=\"-Xms128M\"/>\n-      <option value=\"-Xmx256M\"/>\n+      <option value=\"-Xmx1024M\"/>\n \n       <bundledocument extensions=\"ino,c,cpp,h\"\n                       icon=\"macosx/template.app/Contents/Resources/pde.icns\"\n@@ -854,12 +854,12 @@\n \n     <copy todir=\"windows/work\">\n       <fileset dir=\"windows/launcher\"\n-\t       includes=\"about.bmp, application.ico, config.xml, config_debug.xml\"/>\n+\t       includes=\"about.bmp, application.ico, config.xml, config_debug.xml, arduino.l4j.ini\"/>\n     </copy>\n     <launch4j configFile=\"windows/work/config.xml\" />\n     <launch4j configFile=\"windows/work/config_debug.xml\" />\n-    <delete dir=\"windows/work\"\n-\t    includes=\"about.bmp, application.ico, config.xml, config_debug.xml\" />\n+    <delete dir=\"windows/work\" includes=\"about.bmp, application.ico, config.xml, config_debug.xml\" />\n+    <copy file=\"windows/work/arduino.l4j.ini\" tofile=\"windows/work/arduino_debug.l4j.ini\" />\n \n     <!-- cygwin requires html, dll, and exe to have the +x flag -->\n     <chmod perm=\"755\">"
+ },
+ {
+  "sha": "55f47f49a8b954221345b6963ecf2b2fce216b05",
+  "filename": "build/macosx/template.app/Contents/Info.plist",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3e8ebaad889561708956066c4ffb8b044ad677ef/build%2Fmacosx%2Ftemplate.app%2FContents%2FInfo.plist",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3e8ebaad889561708956066c4ffb8b044ad677ef/build%2Fmacosx%2Ftemplate.app%2FContents%2FInfo.plist",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fmacosx%2Ftemplate.app%2FContents%2FInfo.plist?ref=3e8ebaad889561708956066c4ffb8b044ad677ef",
+  "patch": "@@ -81,7 +81,7 @@\n       <key>VMOptions</key>\n       <array>\n         <string>-Xms128M</string>\n-        <string>-Xmx256M</string>\n+        <string>-Xmx1024M</string>\n       </array>\n \n       <key>MainClass</key>"
+ },
+ {
+  "sha": "b0ef03811680c87b78d1347b77c004145c69451d",
+  "filename": "build/windows/launcher/arduino.l4j.ini",
+  "status": "added",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3e8ebaad889561708956066c4ffb8b044ad677ef/build%2Fwindows%2Flauncher%2Farduino.l4j.ini",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3e8ebaad889561708956066c4ffb8b044ad677ef/build%2Fwindows%2Flauncher%2Farduino.l4j.ini",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Farduino.l4j.ini?ref=3e8ebaad889561708956066c4ffb8b044ad677ef",
+  "patch": "@@ -0,0 +1,2 @@\n+-Xms128M\r\n+-Xmx1024M\r"
+ },
+ {
+  "sha": "ac30c38dfdb3c64a19816454001ef38d446f3af5",
+  "filename": "build/windows/launcher/config.xml",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3e8ebaad889561708956066c4ffb8b044ad677ef/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3e8ebaad889561708956066c4ffb8b044ad677ef/build%2Fwindows%2Flauncher%2Fconfig.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig.xml?ref=3e8ebaad889561708956066c4ffb8b044ad677ef",
+  "patch": "@@ -32,7 +32,6 @@\n     <minVersion>1.6.0</minVersion>\n     <maxVersion></maxVersion>\n     <jdkPreference>preferJre</jdkPreference>\n-    <opt>-Xms128m -Xmx128m</opt>\n   </jre>\n   <splash>\n     <file>about.bmp</file>"
+ },
+ {
+  "sha": "5675e7e16a97d3660dd83138ff26510c5670a97f",
+  "filename": "build/windows/launcher/config_debug.xml",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3e8ebaad889561708956066c4ffb8b044ad677ef/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3e8ebaad889561708956066c4ffb8b044ad677ef/build%2Fwindows%2Flauncher%2Fconfig_debug.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fwindows%2Flauncher%2Fconfig_debug.xml?ref=3e8ebaad889561708956066c4ffb8b044ad677ef",
+  "patch": "@@ -32,7 +32,6 @@\n     <minVersion>1.6.0</minVersion>\n     <maxVersion></maxVersion>\n     <jdkPreference>preferJre</jdkPreference>\n-    <opt>-Xms128m -Xmx128m</opt>\n   </jre>\n   <messages>\n     <startupErr>An error occurred while starting the application.</startupErr>"
+ }
+]

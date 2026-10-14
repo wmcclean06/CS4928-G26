@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "444888c907d0e4858a7009841a5db346de984349",
+  "filename": "app/src/processing/app/Sketch.java",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 5,
+  "changes": 19,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7949e7e81f24c089e73fa8b36310513799e31a18/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7949e7e81f24c089e73fa8b36310513799e31a18/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSketch.java?ref=7949e7e81f24c089e73fa8b36310513799e31a18",
+  "patch": "@@ -26,7 +26,6 @@\n import cc.arduino.Compiler;\n import cc.arduino.CompilerProgressListener;\n import cc.arduino.UploaderUtils;\n-import cc.arduino.files.DeleteFilesOnShutdown;\n import cc.arduino.packages.Uploader;\n import org.apache.commons.codec.digest.DigestUtils;\n import processing.app.debug.RunnerException;\n@@ -463,7 +462,7 @@ public void handleDeleteCode() throws IOException {\n \n       } else {\n         // delete the file\n-        if (!current.getCode().deleteFile(BaseNoGui.getBuildFolder(data).toPath(), Paths.get(System.getProperty(\"java.io.tmpdir\"), \"arduino_\" + DigestUtils.md5Hex(getMainFilePath())))) {\n+        if (!current.getCode().deleteFile(BaseNoGui.getBuildFolder(data).toPath())) {\n           Base.showMessage(tr(\"Couldn't do it\"),\n                            I18n.format(tr(\"Could not delete \\\"{0}\\\".\"), current.getCode().getFileName()));\n           return;\n@@ -1100,17 +1099,27 @@ private String build(String buildPath, boolean verbose, boolean save) throws Run\n \n     CompilerProgressListener progressListener = editor.status::progressUpdate;\n \n+    boolean deleteTemp = false;\n     String pathToSketch = data.getMainFilePath();\n     if (isModified()) {\n+      // If any files are modified, make a copy of the sketch with the changes\n+      // saved, so arduino-builder will see the modifications.\n       pathToSketch = saveSketchInTempFolder();\n+      deleteTemp = true;\n     }\n \n-    return new Compiler(pathToSketch, data, buildPath).build(progressListener, save);\n+    try {\n+      return new Compiler(pathToSketch, data, buildPath).build(progressListener,\n+                                                               save);\n+    } finally {\n+      // Make sure we clean up any temporary sketch copy\n+      if (deleteTemp)\n+        FileUtils.recursiveDelete(new File(pathToSketch).getParentFile());\n+    }\n   }\n \n   private String saveSketchInTempFolder() throws IOException {\n-    File tempFolder = FileUtils.createTempFolder(\"arduino_\", DigestUtils.md5Hex(data.getMainFilePath()));\n-    DeleteFilesOnShutdown.add(tempFolder);\n+    File tempFolder = FileUtils.createTempFolder(\"arduino_modified_sketch_\");\n     FileUtils.copy(getFolder(), tempFolder);\n \n     for (SketchCode sc : Stream.of(data.getCodes()).filter(SketchCode::isModified).collect(Collectors.toList())) {"
+ },
+ {
+  "sha": "19c91d70ffed3d8a349f6a3038a5df0a82ce33f1",
+  "filename": "arduino-core/src/processing/app/SketchCode.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 4,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7949e7e81f24c089e73fa8b36310513799e31a18/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7949e7e81f24c089e73fa8b36310513799e31a18/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketchCode.java?ref=7949e7e81f24c089e73fa8b36310513799e31a18",
+  "patch": "@@ -91,14 +91,13 @@ protected boolean fileReadOnly() {\n   }\n \n \n-  protected boolean deleteFile(Path tempBuildFolder, Path tempUnsavedSketchPath) throws IOException {\n+  protected boolean deleteFile(Path tempBuildFolder) throws IOException {\n     if (!file.delete()) {\n       return false;\n     }\n \n-    List<Path> tempBuildFolders = Stream.of(tempBuildFolder, tempBuildFolder.resolve(\"sketch\"), tempUnsavedSketchPath)\n-      .filter(path -> Files.exists(path))\n-      .collect(Collectors.toList());\n+    List<Path> tempBuildFolders = Stream.of(tempBuildFolder, tempBuildFolder.resolve(\"sketch\"))\n+        .filter(path -> Files.exists(path)).collect(Collectors.toList());\n \n     for (Path folder : tempBuildFolders) {\n       if (!deleteCompiledFilesFrom(folder)) {"
+ }
+]

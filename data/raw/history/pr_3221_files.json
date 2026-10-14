@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "6663462be851a876e71775b9b3c869ac2d33e2d9",
+  "filename": "hardware/arduino/avr/cores/arduino/WInterrupts.c",
+  "status": "modified",
+  "additions": 12,
+  "deletions": 0,
+  "changes": 12,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e9045d8b8a6896d7862ea0eb8002c3e452f9da9f/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWInterrupts.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e9045d8b8a6896d7862ea0eb8002c3e452f9da9f/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWInterrupts.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FWInterrupts.c?ref=e9045d8b8a6896d7862ea0eb8002c3e452f9da9f",
+  "patch": "@@ -223,6 +223,18 @@ void detachInterrupt(uint8_t interruptNum) {\n       #warning detachInterrupt may need some more work for this cpu (case 1)\n     #endif\n       break;\n+      \n+    case 2:\n+    #if defined(EIMSK) && defined(INT2)\n+      EIMSK &= ~(1 << INT2);\n+    #elif defined(GICR) && defined(INT2)\n+      GICR &= ~(1 << INT2); // atmega32\n+    #elif defined(GIMSK) && defined(INT2)\n+      GIMSK &= ~(1 << INT2);\n+    #else\n+      #warning detachInterrupt may need some more work for this cpu (case 2)\n+    #endif\n+      break;       \n #endif\n     }\n       "
+ }
+]

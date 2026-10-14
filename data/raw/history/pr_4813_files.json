@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "4ce2d1a08f1a1f27a9652ad41374f1c3455d9e37",
+  "filename": "hardware/arduino/sam/variants/arduino_due_x/variant.h",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 0,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ea7fbdec6b228f86ed8c53c6c367db45c3396071/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ea7fbdec6b228f86ed8c53c6c367db45c3396071/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fvariants%2Farduino_due_x%2Fvariant.h?ref=ea7fbdec6b228f86ed8c53c6c367db45c3396071",
+  "patch": "@@ -153,6 +153,11 @@ static const uint8_t SCK  = PIN_SPI_SCK;\n #define WIRE1_ISR_HANDLER    TWI0_Handler\n #define WIRE1_ISR_ID         TWI0_IRQn\n \n+static const uint8_t SDA  = PIN_WIRE_SDA;\n+static const uint8_t SCL  = PIN_WIRE_SCL;\n+static const uint8_t SDA1 = PIN_WIRE1_SDA;\n+static const uint8_t SCL1 = PIN_WIRE1_SCL;\n+\n /*\n  * UART/USART Interfaces\n  */"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "98543e3c8e247823733937425d3e4eeed3b6063d",
+  "filename": "libraries/WiFi/examples/WiFiWebClient/WiFiWebClient.ino",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 3,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/72754d8dadceb7fac5a586edb6ee3149ba3935de/libraries%2FWiFi%2Fexamples%2FWiFiWebClient%2FWiFiWebClient.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/72754d8dadceb7fac5a586edb6ee3149ba3935de/libraries%2FWiFi%2Fexamples%2FWiFiWebClient%2FWiFiWebClient.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FWiFi%2Fexamples%2FWiFiWebClient%2FWiFiWebClient.ino?ref=72754d8dadceb7fac5a586edb6ee3149ba3935de",
+  "patch": "@@ -8,9 +8,6 @@\n  This example is written for a network using WPA encryption. For\n  WEP or WPA, change the Wifi.begin() call accordingly.\n \n- This example is written for a network using WPA encryption. For\n- WEP or WPA, change the Wifi.begin() call accordingly.\n-\n  Circuit:\n  * WiFi shield attached\n "
+ }
+]

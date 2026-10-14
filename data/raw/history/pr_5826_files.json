@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "6b8ae577d3369e45981a5e228e93d881ecb1d1fe",
+  "filename": "build/shared/examples/02.Digital/BlinkWithoutDelay/BlinkWithoutDelay.ino",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 4,
+  "changes": 13,
+  "blob_url": "https://github.com/arduino/Arduino/blob/07464ded816dcf4b92daf6c4e1d5879af82d4d91/build%2Fshared%2Fexamples%2F02.Digital%2FBlinkWithoutDelay%2FBlinkWithoutDelay.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/07464ded816dcf4b92daf6c4e1d5879af82d4d91/build%2Fshared%2Fexamples%2F02.Digital%2FBlinkWithoutDelay%2FBlinkWithoutDelay.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F02.Digital%2FBlinkWithoutDelay%2FBlinkWithoutDelay.ino?ref=07464ded816dcf4b92daf6c4e1d5879af82d4d91",
+  "patch": "@@ -5,16 +5,21 @@\n  can run at the same time without being interrupted by the LED code.\n \n  The circuit:\n- * LED attached from pin 13 to ground.\n- * Note: on most Arduinos, there is already an LED on the board\n- that's attached to pin 13, so no hardware is needed for this example.\n+ * Use the onboard LED.\n+ * Note: Most Arduinos have an on-board LED you can control. On the UNO, MEGA and ZERO \n+  it is attached to digital pin 13, on MKR1000 on pin 6. LED_BUILTIN is set to\n+  the correct LED pin independent of which board is used.\n+  If you want to know what pin the on-board LED is connected to on your Arduino model, check\n+  the Technical Specs of your board  at https://www.arduino.cc/en/Main/Products\n \n  created 2005\n  by David A. Mellis\n  modified 8 Feb 2010\n  by Paul Stoffregen\n  modified 11 Nov 2013\n  by Scott Fitzgerald\n+ modified 9 Jan 2017\n+ by Arturo Guadalupi\n \n \n  This example code is in the public domain.\n@@ -23,7 +28,7 @@\n  */\n \n // constants won't change. Used here to set a pin number :\n-const int ledPin =  13;      // the number of the LED pin\n+const int ledPin =  LED_BUILTIN;// the number of the LED pin\n \n // Variables will change :\n int ledState = LOW;             // ledState used to set the LED"
+ }
+]

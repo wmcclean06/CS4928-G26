@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "4e08d711b56a2ff88156fc767d2311c68621240c",
+  "filename": "hardware/arduino/avr/cores/arduino/USBCore.h",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e69021550eb4f88c0027d5ec64a39a2512eadc37/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e69021550eb4f88c0027d5ec64a39a2512eadc37/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FUSBCore.h?ref=e69021550eb4f88c0027d5ec64a39a2512eadc37",
+  "patch": "@@ -49,9 +49,9 @@\n #define REQUEST_OTHER\t\t\t0x03\n #define REQUEST_RECIPIENT\t\t0x03\n \n-#define REQUEST_DEVICETOHOST_CLASS_INTERFACE    (REQUEST_DEVICETOHOST + REQUEST_CLASS + REQUEST_INTERFACE)\n-#define REQUEST_HOSTTODEVICE_CLASS_INTERFACE    (REQUEST_HOSTTODEVICE + REQUEST_CLASS + REQUEST_INTERFACE)\n-#define REQUEST_DEVICETOHOST_STANDARD_INTERFACE (REQUEST_DEVICETOHOST + REQUEST_STANDARD + REQUEST_INTERFACE)\n+#define REQUEST_DEVICETOHOST_CLASS_INTERFACE    (REQUEST_DEVICETOHOST | REQUEST_CLASS | REQUEST_INTERFACE)\n+#define REQUEST_HOSTTODEVICE_CLASS_INTERFACE    (REQUEST_HOSTTODEVICE | REQUEST_CLASS | REQUEST_INTERFACE)\n+#define REQUEST_DEVICETOHOST_STANDARD_INTERFACE (REQUEST_DEVICETOHOST | REQUEST_STANDARD | REQUEST_INTERFACE)\n \n //\tClass requests\n "
+ },
+ {
+  "sha": "cce3834da07b449171f610f4de9a287ffeff0eab",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.cpp",
+  "status": "modified",
+  "additions": 13,
+  "deletions": 1,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e69021550eb4f88c0027d5ec64a39a2512eadc37/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e69021550eb4f88c0027d5ec64a39a2512eadc37/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.cpp?ref=e69021550eb4f88c0027d5ec64a39a2512eadc37",
+  "patch": "@@ -30,7 +30,7 @@ int HID_::getInterface(uint8_t* interfaceCount)\n {\n \t*interfaceCount += 1; // uses 1\n \tHIDDescriptor hidInterface = {\n-\t\tD_INTERFACE(pluggedInterface, 1, 3, 0, 0),\n+\t\tD_INTERFACE(pluggedInterface, 1, USB_DEVICE_CLASS_HUMAN_INTERFACE, HID_SUBCLASS_NONE, HID_PROTOCOL_NONE),\n \t\tD_HIDREPORT(descriptorSize),\n \t\tD_ENDPOINT(USB_ENDPOINT_IN(pluggedEndpoint), USB_ENDPOINT_TYPE_INTERRUPT, USB_EP_SIZE, 0x01)\n \t};\n@@ -96,11 +96,16 @@ bool HID_::setup(USBSetup& setup)\n \t\t\t// TODO: Send8(protocol);\n \t\t\treturn true;\n \t\t}\n+\t\tif (request == HID_GET_IDLE) {\n+\t\t\t// TODO: Send8(idle);\n+\t\t}\n \t}\n \n \tif (requestType == REQUEST_HOSTTODEVICE_CLASS_INTERFACE)\n \t{\n \t\tif (request == HID_SET_PROTOCOL) {\n+\t\t\t// The USB Host tells us if we are in boot or report mode.\n+\t\t\t// This only works with a real boot compatible device.\n \t\t\tprotocol = setup.wValueL;\n \t\t\treturn true;\n \t\t}\n@@ -110,6 +115,13 @@ bool HID_::setup(USBSetup& setup)\n \t\t}\n \t\tif (request == HID_SET_REPORT)\n \t\t{\n+\t\t\t//uint8_t reportID = setup.wValueL;\n+\t\t\t//uint16_t length = setup.wLength;\n+\t\t\t//uint8_t data[length];\n+\t\t\t// Make sure to not read more data than USB_EP_SIZE.\n+\t\t\t// You can read multiple times through a loop.\n+\t\t\t// The first byte (may!) contain the reportID on a multreport.\n+\t\t\t//USB_RecvControl(data, length);\n \t\t}\n \t}\n "
+ },
+ {
+  "sha": "77a9f24c555247dffa924c426a9e9db5a392bc00",
+  "filename": "hardware/arduino/avr/libraries/HID/HID.h",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 0,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e69021550eb4f88c0027d5ec64a39a2512eadc37/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e69021550eb4f88c0027d5ec64a39a2512eadc37/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FHID%2FHID.h?ref=e69021550eb4f88c0027d5ec64a39a2512eadc37",
+  "patch": "@@ -40,6 +40,20 @@\n #define HID_REPORT_DESCRIPTOR_TYPE      0x22\n #define HID_PHYSICAL_DESCRIPTOR_TYPE    0x23\n \n+// HID subclass HID1.11 Page 8 4.2 Subclass\n+#define HID_SUBCLASS_NONE 0\n+#define HID_SUBCLASS_BOOT_INTERFACE 1\n+\n+// HID Keyboard/Mouse bios compatible protocols HID1.11 Page 9 4.3 Protocols\n+#define HID_PROTOCOL_NONE 0\n+#define HID_PROTOCOL_KEYBOARD 1\n+#define HID_PROTOCOL_MOUSE 2\n+\n+// Normal or bios protocol (Keyboard/Mouse) HID1.11 Page 54 7.2.5 Get_Protocol Request\n+// \"protocol\" variable is used for this purpose.\n+#define HID_BOOT_PROTOCOL\t0\n+#define HID_REPORT_PROTOCOL\t1\n+\n typedef struct\n {\n   uint8_t len;      // 9"
+ }
+]

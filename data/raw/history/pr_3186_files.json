@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "938c36768918f1b5229a14adb65f42bbc846d8d1",
+  "filename": "arduino-core/src/processing/app/BaseNoGui.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/af812a551b11275c58301b6a6276d3cb064bdf28/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/af812a551b11275c58301b6a6276d3cb064bdf28/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java?ref=af812a551b11275c58301b6a6276d3cb064bdf28",
+  "patch": "@@ -417,7 +417,7 @@ static public LibraryList getUserLibs() {\n    * within the header files at the top-level).\n    */\n   static public String[] headerListFromIncludePath(File path) throws IOException {\n-    String[] list = path.list(new OnlyFilesWithExtension(\".h\"));\n+    String[] list = path.list(new OnlyFilesWithExtension(\".h\", \".hh\", \".hpp\"));\n     if (list == null) {\n       throw new IOException();\n     }"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "d55870627211e2dcb53f890bf1b7e04d1c641515",
+  "filename": "build/linux/dist/appdata.xml",
+  "status": "modified",
+  "additions": 11,
+  "deletions": 0,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a5b51ee32256586e38e674ecf3a930c8ece130b6/build%2Flinux%2Fdist%2Fappdata.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a5b51ee32256586e38e674ecf3a930c8ece130b6/build%2Flinux%2Fdist%2Fappdata.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Fappdata.xml?ref=a5b51ee32256586e38e674ecf3a930c8ece130b6",
+  "patch": "@@ -3,6 +3,7 @@\n <component type=\"desktop-application\">\n   <id>cc.arduino.arduinoide.desktop</id>\n   <metadata_license>CC-BY-SA-3.0</metadata_license>\n+  <project_license>LGPL-2.1</project_license>\n   <developer_name>Arduino LLC</developer_name>\n \n   <name>Arduino IDE</name>\n@@ -32,6 +33,16 @@\n     </screenshot>\n   </screenshots>\n \n+  <content_rating type=\"oars-1.1\" />\n+\n+  <releases>\n+    <release date=\"2017-10-02\" version=\"1.8.5\"/>\n+    <release date=\"2017-08-21\" version=\"1.8.4\"/>\n+    <release date=\"2017-06-05\" version=\"1.8.3\"/>\n+    <release date=\"2017-03-22\" version=\"1.8.2\"/>\n+    <release date=\"2017-01-09\" version=\"1.8.1\"/>\n+  </releases>\n+\n   <url type=\"homepage\">http://www.arduino.cc/</url>\n   <url type=\"help\">https://www.arduino.cc/en/Guide/HomePage</url>\n   <url type=\"bugtracker\">https://github.com/arduino/Arduino/issues</url>"
+ }
+]

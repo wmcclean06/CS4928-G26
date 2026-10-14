@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "f21a411f83b667926b30817c86c1d4f9eeff336d",
+  "filename": "hardware/arduino/cores/arduino/Stream.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2c3058b2d5ae889feacde25880464dce84a5e1fd/hardware%2Farduino%2Fcores%2Farduino%2FStream.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2c3058b2d5ae889feacde25880464dce84a5e1fd/hardware%2Farduino%2Fcores%2Farduino%2FStream.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FStream.cpp?ref=2c3058b2d5ae889feacde25880464dce84a5e1fd",
+  "patch": "@@ -75,7 +75,7 @@ void Stream::setTimeout(unsigned long timeout)  // sets the maximum number of mi\n  // find returns true if the target string is found\n bool  Stream::find(char *target)\n {\n-  return findUntil(target, NULL);\n+  return findUntil(target, \"\");\n }\n \n // reads data from the stream until the target string of given length is found"
+ },
+ {
+  "sha": "f21a411f83b667926b30817c86c1d4f9eeff336d",
+  "filename": "hardware/arduino/cores/robot/Stream.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2c3058b2d5ae889feacde25880464dce84a5e1fd/hardware%2Farduino%2Fcores%2Frobot%2FStream.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2c3058b2d5ae889feacde25880464dce84a5e1fd/hardware%2Farduino%2Fcores%2Frobot%2FStream.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Frobot%2FStream.cpp?ref=2c3058b2d5ae889feacde25880464dce84a5e1fd",
+  "patch": "@@ -75,7 +75,7 @@ void Stream::setTimeout(unsigned long timeout)  // sets the maximum number of mi\n  // find returns true if the target string is found\n bool  Stream::find(char *target)\n {\n-  return findUntil(target, NULL);\n+  return findUntil(target, \"\");\n }\n \n // reads data from the stream until the target string of given length is found"
+ }
+]

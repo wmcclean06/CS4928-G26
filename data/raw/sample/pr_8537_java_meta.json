@@ -1,0 +1,31 @@
+{
+ "pr": 8537,
+ "base_sha": "2b11e94afe85888bd5ebd507de6c6e0220a49bf3",
+ "head_sha": "8f5f4f594d679408863933ecd6bbdcec03c900dc",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/contributions/ui/FilterJTextField.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 29,
+   "deletions": 9,
+   "old_sha": "9dc7fd8d6b50536034b44042c10bfe0bd702ee1c",
+   "new_sha": "90759449397c7567b6b0be7998e762f8ea81392f",
+   "head_sha_check": "90759449397c7567b6b0be7998e762f8ea81392f",
+   "loc_at_head": 116,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/ui/InstallerJDialog.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 0,
+   "old_sha": "3dd864134c47a5f0e76c10c891011bca31036a1e",
+   "new_sha": "466bd0dfafcad6c77d6aafe87d2f1e43aaf36c91",
+   "head_sha_check": "466bd0dfafcad6c77d6aafe87d2f1e43aaf36c91",
+   "loc_at_head": 298,
+   "notes": ""
+  }
+ ]
+}

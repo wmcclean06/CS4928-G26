@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "29ca80dadddad6a9bb80fac1f077b9b68ecc9f6a",
+  "filename": "arduino-core/src/cc/arduino/Compiler.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 0,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/723393227cc274746a1023c8f22e306875e25fb0/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/723393227cc274746a1023c8f22e306875e25fb0/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java?ref=723393227cc274746a1023c8f22e306875e25fb0",
+  "patch": "@@ -51,6 +51,7 @@\n import java.util.ArrayList;\n import java.util.Collections;\n import java.util.List;\n+import java.util.Map;\n import java.util.regex.Pattern;\n import java.util.stream.Collectors;\n import java.util.stream.Stream;\n@@ -235,6 +236,12 @@ private void callArduinoBuilder(TargetBoard board, TargetPlatform platform, Targ\n \n     commandLine.addArgument(\"-prefs=build.warn_data_percentage=\" + PreferencesData.get(\"build.warn_data_percentage\"));\n \n+    for (Map.Entry<String, String> entry : BaseNoGui.getBoardPreferences().entrySet()) {\n+        if (entry.getKey().startsWith(\"runtime.tools\")) {\n+          commandLine.addArgument(\"-prefs=\" + entry.getKey() + \"=\" + entry.getValue());\n+        }\n+    }\n+\n     //commandLine.addArgument(\"-debug-level=10\", false);\n \n     if (verbose) {"
+ },
+ {
+  "sha": "db63cdb73580a1be3141713dc2897b38c709b4b1",
+  "filename": "arduino-core/src/cc/arduino/contributions/packages/ContributedTool.java",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 0,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/723393227cc274746a1023c8f22e306875e25fb0/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributedTool.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/723393227cc274746a1023c8f22e306875e25fb0/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributedTool.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributedTool.java?ref=723393227cc274746a1023c8f22e306875e25fb0",
+  "patch": "@@ -42,6 +42,20 @@ public abstract class ContributedTool {\n \n   public abstract List<HostDependentDownloadableContribution> getSystems();\n \n+  private ContributedPackage contributedPackage;\n+\n+  public ContributedPackage getPackage() {\n+    return contributedPackage;\n+  }\n+\n+  public void setPackage(ContributedPackage pack) {\n+    contributedPackage = pack;\n+  }\n+\n+  public String getPackager() {\n+    return contributedPackage.getName();\n+  }\n+\n   public DownloadableContribution getDownloadableContribution(Platform platform) {\n     for (HostDependentDownloadableContribution c : getSystems()) {\n       if (c.isCompatible(platform))"
+ },
+ {
+  "sha": "5e8fb03ab95835fe88d490e2e299d550fbb57b00",
+  "filename": "arduino-core/src/cc/arduino/contributions/packages/ContributionsIndexer.java",
+  "status": "modified",
+  "additions": 13,
+  "deletions": 0,
+  "changes": 13,
+  "blob_url": "https://github.com/arduino/Arduino/blob/723393227cc274746a1023c8f22e306875e25fb0/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/723393227cc274746a1023c8f22e306875e25fb0/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java?ref=723393227cc274746a1023c8f22e306875e25fb0",
+  "patch": "@@ -104,6 +104,11 @@ public void parseIndex() throws Exception {\n       .collect(Collectors.toList());\n \n     for (ContributedPackage pack : packages) {\n+      // Fill references to package in tools\n+      for (ContributedTool tool : pack.getTools()) {\n+        tool.setPackage(pack);\n+      }\n+\n       for (ContributedPlatform platform : pack.getPlatforms()) {\n         // Set a reference to parent packages\n         platform.setParentPackage(pack);\n@@ -434,4 +439,12 @@ public ContributedPlatform getPlatformByFolder(final File folder) {\n \n     return platformOptional.orElse(null);\n   }\n+\n+  public ContributedPlatform getContributedPlaform(TargetPlatform targetPlatform) {\n+    for (ContributedPlatform plat : getInstalledPlatforms()) {\n+      if (plat.getInstalledFolder().equals(targetPlatform.getFolder()))\n+        return plat;\n+    }\n+    return null;\n+  }\n }"
+ },
+ {
+  "sha": "28826070eec37c7398e72eb2880e3cb02cf9d420",
+  "filename": "arduino-core/src/processing/app/BaseNoGui.java",
+  "status": "modified",
+  "additions": 43,
+  "deletions": 5,
+  "changes": 48,
+  "blob_url": "https://github.com/arduino/Arduino/blob/723393227cc274746a1023c8f22e306875e25fb0/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/723393227cc274746a1023c8f22e306875e25fb0/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java?ref=723393227cc274746a1023c8f22e306875e25fb0",
+  "patch": "@@ -5,7 +5,9 @@\n import cc.arduino.UploaderUtils;\n import cc.arduino.contributions.GPGDetachedSignatureVerifier;\n import cc.arduino.contributions.SignatureVerificationFailedException;\n+import cc.arduino.contributions.VersionComparator;\n import cc.arduino.contributions.libraries.LibrariesIndexer;\n+import cc.arduino.contributions.packages.ContributedPlatform;\n import cc.arduino.contributions.packages.ContributedTool;\n import cc.arduino.contributions.packages.ContributionsIndexer;\n import cc.arduino.files.DeleteFilesOnShutdown;\n@@ -160,6 +162,33 @@ static public PreferencesMap getBoardPreferences() {\n       }\n     }\n     prefs.put(\"name\", extendedName);\n+\n+    // Resolve tools needed for this board\n+    List<ContributedTool> requiredTools = new ArrayList<>();\n+\n+    // Add all tools dependencies specified in package index\n+    ContributedPlatform platform = indexer.getContributedPlaform(getTargetPlatform());\n+    if (platform != null)\n+      requiredTools.addAll(platform.getResolvedTools());\n+\n+    // Add all tools dependencies from the (possibily) referenced core\n+    String core = prefs.get(\"build.core\");\n+    if (core.contains(\":\")) {\n+      String split[] = core.split(\":\");\n+      TargetPlatform referenced = BaseNoGui.getCurrentTargetPlatformFromPackage(split[0]);\n+      ContributedPlatform referencedPlatform = indexer.getContributedPlaform(referenced);\n+      if (referencedPlatform != null)\n+        requiredTools.addAll(referencedPlatform.getResolvedTools());\n+    }\n+\n+    String prefix = \"runtime.tools.\";\n+    for (ContributedTool tool : requiredTools) {\n+      File folder = tool.getDownloadableContribution(getPlatform()).getInstalledFolder();\n+      String toolPath = folder.getAbsolutePath();\n+      prefs.put(prefix + tool.getName() + \".path\", toolPath);\n+      PreferencesData.set(prefix + tool.getName() + \".path\", toolPath);\n+      PreferencesData.set(prefix + tool.getName() + \"-\" + tool.getVersion() + \".path\", toolPath);\n+    }\n     return prefs;\n   }\n \n@@ -852,16 +881,25 @@ public static void createToolPreferences(Collection<ContributedTool> installedTo\n       PreferencesData.removeAllKeysWithPrefix(prefix);\n     }\n \n+    Map<String, String> latestVersions = new HashMap<>();\n+    VersionComparator comparator = new VersionComparator();\n     for (ContributedTool tool : installedTools) {\n       File installedFolder = tool.getDownloadableContribution(getPlatform()).getInstalledFolder();\n-      String absolutePath;\n+      String toolPath;\n       if (installedFolder != null) {\n-        absolutePath = installedFolder.getAbsolutePath();\n+        toolPath = installedFolder.getAbsolutePath();\n       } else {\n-        absolutePath = Constants.PREF_REMOVE_PLACEHOLDER;\n+        toolPath = Constants.PREF_REMOVE_PLACEHOLDER;\n+      }\n+      String toolName = tool.getName();\n+      String toolVersion = tool.getVersion();\n+      PreferencesData.set(prefix + toolName + \"-\" + toolVersion + \".path\", toolPath);\n+      PreferencesData.set(prefix + tool.getPackager() + \"-\" + toolName + \"-\" + toolVersion + \".path\", toolPath);\n+      // In the generic tool property put the path of the latest version if more are available\n+      if (!latestVersions.containsKey(toolName) || comparator.greaterThan(toolVersion, latestVersions.get(toolName))) {\n+        latestVersions.put(toolName, toolVersion);\n+        PreferencesData.set(prefix + toolName + \".path\", toolPath);\n       }\n-      PreferencesData.set(prefix + tool.getName() + \".path\", absolutePath);\n-      PreferencesData.set(prefix + tool.getName() + \"-\" + tool.getVersion() + \".path\", absolutePath);\n     }\n   }\n "
+ }
+]

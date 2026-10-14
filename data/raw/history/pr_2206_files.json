@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "553b7463c4878c35f73527b81fa762a85989fcb1",
+  "filename": "hardware/arduino/cores/arduino/HID.cpp",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/97dc72ce05ddaeb9979c02b07a31031116ebbfc3/hardware%2Farduino%2Fcores%2Farduino%2FHID.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/97dc72ce05ddaeb9979c02b07a31031116ebbfc3/hardware%2Farduino%2Fcores%2Farduino%2FHID.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FHID.cpp?ref=97dc72ce05ddaeb9979c02b07a31031116ebbfc3",
+  "patch": "@@ -106,7 +106,7 @@ const u8 _hidReportDescriptor[] = {\n     0x81, 0x00,                    //   INPUT (Data,Ary,Abs)\n     0xc0,                          // END_COLLECTION\n \n-#if RAWHID_ENABLED\n+#ifdef RAWHID_ENABLED\n \t//\tRAW HID\n \t0x06, LSB(RAWHID_USAGE_PAGE), MSB(RAWHID_USAGE_PAGE),\t// 30\n \t0x0A, LSB(RAWHID_USAGE), MSB(RAWHID_USAGE),\n@@ -517,4 +517,4 @@ size_t Keyboard_::write(uint8_t c)\n \n #endif\n \n-#endif /* if defined(USBCON) */\n\\ No newline at end of file\n+#endif /* if defined(USBCON) */"
+ },
+ {
+  "sha": "d7bd9e453e5361b849ed81c00c309a8aac4b8645",
+  "filename": "libraries/LiquidCrystal/LiquidCrystal.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/97dc72ce05ddaeb9979c02b07a31031116ebbfc3/libraries%2FLiquidCrystal%2FLiquidCrystal.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/97dc72ce05ddaeb9979c02b07a31031116ebbfc3/libraries%2FLiquidCrystal%2FLiquidCrystal.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FLiquidCrystal%2FLiquidCrystal.cpp?ref=97dc72ce05ddaeb9979c02b07a31031116ebbfc3",
+  "patch": "@@ -96,7 +96,7 @@ void LiquidCrystal::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) {\n \n   // SEE PAGE 45/46 FOR INITIALIZATION SPECIFICATION!\n   // according to datasheet, we need at least 40ms after power rises above 2.7V\n-  // before sending commands. Arduino can turn on way befer 4.5V so we'll wait 50\n+  // before sending commands. Arduino can turn on way before 4.5V so we'll wait 50\n   delayMicroseconds(50000); \n   // Now we pull both RS and R/W low to begin commands\n   digitalWrite(_rs_pin, LOW);"
+ }
+]

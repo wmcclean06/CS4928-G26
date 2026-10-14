@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "80513e8f8498cfc76ae6a7a26ee39f71efe1cf69",
+  "filename": "hardware/arduino/avr/platform.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a20b44801ab4d75ee245e7d6b402856b4c9d03cd/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a20b44801ab4d75ee245e7d6b402856b4c9d03cd/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fplatform.txt?ref=a20b44801ab4d75ee245e7d6b402856b4c9d03cd",
+  "patch": "@@ -3,7 +3,7 @@\n # ------------------------------\n #\n # For more info:\n-# https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5---3rd-party-Hardware-specification\n+# https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification\n \n name=Arduino AVR Boards\n version=1.6.7"
+ },
+ {
+  "sha": "d0c4e11a384925053e3c47f1072c7c92009c00d7",
+  "filename": "hardware/arduino/sam/platform.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/a20b44801ab4d75ee245e7d6b402856b4c9d03cd/hardware%2Farduino%2Fsam%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/a20b44801ab4d75ee245e7d6b402856b4c9d03cd/hardware%2Farduino%2Fsam%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fplatform.txt?ref=a20b44801ab4d75ee245e7d6b402856b4c9d03cd",
+  "patch": "@@ -3,7 +3,7 @@\n # ------------------------------\n #\n # For more info:\n-# https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5---3rd-party-Hardware-specification\n+# https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification\n \n name=Arduino ARM (32-bits) Boards\n version=1.6.4"
+ }
+]

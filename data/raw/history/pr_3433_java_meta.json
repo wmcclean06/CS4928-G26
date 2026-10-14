@@ -1,0 +1,103 @@
+{
+ "pr": 3433,
+ "base_sha": "16c852ada5b07af12eb3f871ce9dc1209830a8cf",
+ "head_sha": "98874e4af29858136f0714c258c19d52499680fd",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/ConsoleOutputStream.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 132,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "b4460398495cb07e56c7cbdc92111e5625f0953e",
+   "head_sha_check": "b4460398495cb07e56c7cbdc92111e5625f0953e",
+   "loc_at_head": 112,
+   "notes": "added"
+  },
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "ba95406e3a7804cd693c9dd6fdd20bd74b7c2fee",
+   "new_sha": "19782e96a208d34792beb61b3643b3d1789cd0a9",
+   "head_sha_check": "19782e96a208d34792beb61b3643b3d1789cd0a9",
+   "loc_at_head": 2163,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "de5688bd01512800831c6e92c2c3e2514577233b",
+   "new_sha": "8871a214a7ff7ebeb39a92f846db516cd991bf24",
+   "head_sha_check": "8871a214a7ff7ebeb39a92f846db516cd991bf24",
+   "loc_at_head": 2491,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/EditorConsole.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 61,
+   "deletions": 191,
+   "old_sha": "a2116f8b4364ffe4ab4db008808291ae2548f927",
+   "new_sha": "b922b1b2d188776e8f8a6105d24873cc6b292d33",
+   "head_sha_check": "b922b1b2d188776e8f8a6105d24873cc6b292d33",
+   "loc_at_head": 98,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/EditorConsoleStream.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 65,
+   "old_sha": "57d06cc910dc191707486d3ae5126be476a12c47",
+   "new_sha": "57d06cc910dc191707486d3ae5126be476a12c47",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  },
+  {
+   "path": "app/src/processing/app/EditorStatus.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "ce84c8c820c1b900ab34bb4d22812bd1577c3a22",
+   "new_sha": "6114575435d20e5f95792c6056e03ba2e3141ec5",
+   "head_sha_check": "6114575435d20e5f95792c6056e03ba2e3141ec5",
+   "loc_at_head": 451,
+   "notes": ""
+  },
+  {
+   "path": "app/test/processing/app/HittingEscapeOnCloseConfirmationDialogTest.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "b56559659505baa74820587fa769596821efaf46",
+   "new_sha": "83897b1963c0baec1e01f5ab887ab6ea0b10c677",
+   "head_sha_check": "83897b1963c0baec1e01f5ab887ab6ea0b10c677",
+   "loc_at_head": 49,
+   "notes": ""
+  },
+  {
+   "path": "app/test/processing/app/ReduceIndentWith1CharOnLastLineTest.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "f5cd01f89bb192f8aaa125dc78425b7f78031719",
+   "new_sha": "81c4675431152459be928b0491a34095d1856625",
+   "head_sha_check": "81c4675431152459be928b0491a34095d1856625",
+   "loc_at_head": 46,
+   "notes": ""
+  }
+ ]
+}

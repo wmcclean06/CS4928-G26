@@ -1,0 +1,19 @@
+{
+ "pr": 7159,
+ "base_sha": "3d3bb385ad7575596b07ca20bf55d50a0166a215",
+ "head_sha": "03a7b6eb826dc529e23fc1ada8a078a48001a714",
+ "java_files": [
+  {
+   "path": "arduino-core/src/processing/app/windows/Platform.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 1,
+   "old_sha": "2b426f72885d7cbeaf961adf49ca1af9ed23339b",
+   "new_sha": "3cdb1059497577a5cc15732c74d98a524ce08918",
+   "head_sha_check": "3cdb1059497577a5cc15732c74d98a524ce08918",
+   "loc_at_head": 240,
+   "notes": ""
+  }
+ ]
+}

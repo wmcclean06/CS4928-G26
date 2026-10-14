@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "376762e75c80703174b843349ee4b28afa2050df",
+  "filename": "hardware/arduino/avr/libraries/SoftwareSerial/src/SoftwareSerial.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/98699dfa7c6a3961f68e152334242ad829f88d4d/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fsrc%2FSoftwareSerial.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/98699dfa7c6a3961f68e152334242ad829f88d4d/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fsrc%2FSoftwareSerial.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fsrc%2FSoftwareSerial.cpp?ref=98699dfa7c6a3961f68e152334242ad829f88d4d",
+  "patch": "@@ -48,7 +48,7 @@ The latest version of this library can always be found at\n // Statics\r\n //\r\n SoftwareSerial *SoftwareSerial::active_object = 0;\r\n-char SoftwareSerial::_receive_buffer[_SS_MAX_RX_BUFF]; \r\n+uint8_t SoftwareSerial::_receive_buffer[_SS_MAX_RX_BUFF]; \r\n volatile uint8_t SoftwareSerial::_receive_buffer_tail = 0;\r\n volatile uint8_t SoftwareSerial::_receive_buffer_head = 0;\r\n \r"
+ },
+ {
+  "sha": "26183ba853dd7cae609aa4c50401e25fae5a0f8d",
+  "filename": "hardware/arduino/avr/libraries/SoftwareSerial/src/SoftwareSerial.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/98699dfa7c6a3961f68e152334242ad829f88d4d/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fsrc%2FSoftwareSerial.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/98699dfa7c6a3961f68e152334242ad829f88d4d/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fsrc%2FSoftwareSerial.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FSoftwareSerial%2Fsrc%2FSoftwareSerial.h?ref=98699dfa7c6a3961f68e152334242ad829f88d4d",
+  "patch": "@@ -66,7 +66,7 @@ class SoftwareSerial : public Stream\n   uint16_t _inverse_logic:1;\r\n \r\n   // static data\r\n-  static char _receive_buffer[_SS_MAX_RX_BUFF]; \r\n+  static uint8_t _receive_buffer[_SS_MAX_RX_BUFF]; \r\n   static volatile uint8_t _receive_buffer_tail;\r\n   static volatile uint8_t _receive_buffer_head;\r\n   static SoftwareSerial *active_object;\r"
+ }
+]

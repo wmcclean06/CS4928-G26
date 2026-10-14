@@ -1,0 +1,31 @@
+{
+ "pr": 7674,
+ "base_sha": "0a84ac21387abc92f63a56ec920f4b7e4b3d0520",
+ "head_sha": "f79d06d142359623e86d3a4e8350b5d8dacfd945",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "186f661925562ed78efcdcf895ea6bc041752b9e",
+   "new_sha": "34074cb6a32ce98c158aa7071cd446ba1c71b00b",
+   "head_sha_check": "34074cb6a32ce98c158aa7071cd446ba1c71b00b",
+   "loc_at_head": 2328,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/SketchController.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "e66f138f284e58a32e51d41813dc0a263cd6f784",
+   "new_sha": "6f99a1fb668b46391977aa8fa87de1b1d70f4063",
+   "head_sha_check": "6f99a1fb668b46391977aa8fa87de1b1d70f4063",
+   "loc_at_head": 721,
+   "notes": ""
+  }
+ ]
+}

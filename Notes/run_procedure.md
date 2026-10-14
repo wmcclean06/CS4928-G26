@@ -46,3 +46,10 @@ MATCH (f:Function) WHERE f.pagerank IS NOT NULL RETURN count(f) AS withPagerank,
 ```
 
 - Results: 2,124 functions, 3,355 calls, 1,701 with PageRank, PageRank sum 1.0 (confirms PageRank ran with the artefact's normalisation).
+
+## §2 Prepare the run: collect PR data (14/10/2026)
+```powershell
+python scripts/fetch_pr_data.py
+```
+- Fetches raw GitHub data for the 10 sample PRs, the 474 merged PRs created before the last sample PR (history), and the 11 later merged bug-labelled PRs (RQ2), into data/raw/. No method rules are applied at this stage.
+- Every request is logged in data/raw/fetch_log.csv.

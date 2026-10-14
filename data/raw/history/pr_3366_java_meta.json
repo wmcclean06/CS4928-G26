@@ -1,0 +1,19 @@
+{
+ "pr": 3366,
+ "base_sha": "a1e5271015b67f2825fe20012a27960f4c2ffaf6",
+ "head_sha": "505ff17d43d0823376d7f741f5cba3e6f929ff5e",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 12,
+   "deletions": 3,
+   "old_sha": "c10fa824c4503c913c8a703f9954555cc4a22cf5",
+   "new_sha": "15acb588a61b074f9254da82b2d7f6fdac458a61",
+   "head_sha_check": "15acb588a61b074f9254da82b2d7f6fdac458a61",
+   "loc_at_head": 2155,
+   "notes": ""
+  }
+ ]
+}

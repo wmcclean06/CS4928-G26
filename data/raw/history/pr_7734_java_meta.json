@@ -1,0 +1,31 @@
+{
+ "pr": 7734,
+ "base_sha": "ee1967cd530ceb9a1d638875e385157e90d532e8",
+ "head_sha": "5a5ca0adee064de891b33300d37e085a0ff5d626",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/SketchController.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 3,
+   "deletions": 2,
+   "old_sha": "e66f138f284e58a32e51d41813dc0a263cd6f784",
+   "new_sha": "5e6177a03d207d4fdc1617a1fb416f71197612b8",
+   "head_sha_check": "5e6177a03d207d4fdc1617a1fb416f71197612b8",
+   "loc_at_head": 721,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndexer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 2,
+   "old_sha": "e088cca845f2ebb00ca6fd53559009b76865b380",
+   "new_sha": "e30ff15f52b43e013e29e81e18043e5d177618d9",
+   "head_sha_check": "e30ff15f52b43e013e29e81e18043e5d177618d9",
+   "loc_at_head": 218,
+   "notes": ""
+  }
+ ]
+}

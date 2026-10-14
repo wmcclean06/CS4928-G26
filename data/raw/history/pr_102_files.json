@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "d592aab9592e79a20ce8b19aa5ae2aa7936cebd9",
+  "filename": "hardware/arduino/cores/arduino/Arduino.h",
+  "status": "modified",
+  "additions": 65,
+  "deletions": 0,
+  "changes": 65,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f60f17f79ae383a948a9cc4baa8bd0983fad6465/hardware%2Farduino%2Fcores%2Farduino%2FArduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f60f17f79ae383a948a9cc4baa8bd0983fad6465/hardware%2Farduino%2Fcores%2Farduino%2FArduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FArduino.h?ref=f60f17f79ae383a948a9cc4baa8bd0983fad6465",
+  "patch": "@@ -11,6 +11,71 @@\n \n #include \"binary.h\"\n \n+// Workaround for wrong definitions in \"iom32u4.h\".\n+// This should be fixed in the AVR toolchain.\n+#ifdef __AVR_ATmega32U4__\n+#undef UHCON\n+#undef UHINT\n+#undef UHIEN\n+#undef UHADDR\n+#undef UHFNUM\n+#undef UHFNUML\n+#undef UHFNUMH\n+#undef UHFLEN\n+#undef UPINRQX\n+#undef UPINTX\n+#undef UPNUM\n+#undef UPRST\n+#undef UPCONX\n+#undef UPCFG0X\n+#undef UPCFG1X\n+#undef UPSTAX\n+#undef UPCFG2X\n+#undef UPIENX\n+#undef UPDATX\n+#undef TCCR2A\n+#undef WGM20\n+#undef WGM21\n+#undef COM2B0\n+#undef COM2B1\n+#undef COM2A0\n+#undef COM2A1\n+#undef TCCR2B\n+#undef CS20\n+#undef CS21\n+#undef CS22\n+#undef WGM22\n+#undef FOC2B\n+#undef FOC2A\n+#undef TCNT2\n+#undef TCNT2_0\n+#undef TCNT2_1\n+#undef TCNT2_2\n+#undef TCNT2_3\n+#undef TCNT2_4\n+#undef TCNT2_5\n+#undef TCNT2_6\n+#undef TCNT2_7\n+#undef OCR2A\n+#undef OCR2_0\n+#undef OCR2_1\n+#undef OCR2_2\n+#undef OCR2_3\n+#undef OCR2_4\n+#undef OCR2_5\n+#undef OCR2_6\n+#undef OCR2_7\n+#undef OCR2B\n+#undef OCR2_0\n+#undef OCR2_1\n+#undef OCR2_2\n+#undef OCR2_3\n+#undef OCR2_4\n+#undef OCR2_5\n+#undef OCR2_6\n+#undef OCR2_7\n+#endif\n+\n #ifdef __cplusplus\n extern \"C\"{\n #endif"
+ },
+ {
+  "sha": "9bb6fe721c63ac08e10799b83912735e49dbb704",
+  "filename": "hardware/arduino/cores/arduino/Tone.cpp",
+  "status": "modified",
+  "additions": 23,
+  "deletions": 8,
+  "changes": 31,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f60f17f79ae383a948a9cc4baa8bd0983fad6465/hardware%2Farduino%2Fcores%2Farduino%2FTone.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f60f17f79ae383a948a9cc4baa8bd0983fad6465/hardware%2Farduino%2Fcores%2Farduino%2FTone.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fcores%2Farduino%2FTone.cpp?ref=f60f17f79ae383a948a9cc4baa8bd0983fad6465",
+  "patch": "@@ -29,6 +29,7 @@ Version Modified By Date     Comments\n                     09/11/25 Fixed timer0 from being excluded\n 0006    D Mellis    09/12/29 Replaced objects with functions\n 0007    M Sproul    10/08/29 Changed #ifdefs from cpu to register\n+0008    S Kanemoto  12/06/22 Fixed for Leonardo by @maris_HY\n *************************************************/\n \n #include <avr/interrupt.h>\n@@ -85,24 +86,34 @@ volatile uint8_t timer5_pin_mask;\n #endif\n \n \n-// MLS: This does not make sense, the 3 options are the same\n #if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)\n \n #define AVAILABLE_TONE_PINS 1\n+#define USE_TIMER2\n \n const uint8_t PROGMEM tone_pin_to_timer_PGM[] = { 2 /*, 3, 4, 5, 1, 0 */ };\n static uint8_t tone_pins[AVAILABLE_TONE_PINS] = { 255 /*, 255, 255, 255, 255, 255 */ };\n \n #elif defined(__AVR_ATmega8__)\n \n #define AVAILABLE_TONE_PINS 1\n+#define USE_TIMER2\n \n const uint8_t PROGMEM tone_pin_to_timer_PGM[] = { 2 /*, 1 */ };\n static uint8_t tone_pins[AVAILABLE_TONE_PINS] = { 255 /*, 255 */ };\n \n+#elif defined(__AVR_ATmega32U4__)\n+ \n+#define AVAILABLE_TONE_PINS 1\n+#define USE_TIMER3\n+ \n+const uint8_t PROGMEM tone_pin_to_timer_PGM[] = { 3 /*, 1 */ };\n+static uint8_t tone_pins[AVAILABLE_TONE_PINS] = { 255 /*, 255 */ };\n+ \n #else\n \n #define AVAILABLE_TONE_PINS 1\n+#define USE_TIMER2\n \n // Leave timer 0 to last.\n const uint8_t PROGMEM tone_pin_to_timer_PGM[] = { 2 /*, 1, 0 */ };\n@@ -480,8 +491,7 @@ void noTone(uint8_t _pin)\n   digitalWrite(_pin, 0);\n }\n \n-#if 0\n-#if !defined(__AVR_ATmega8__)\n+#ifdef USE_TIMER0\n ISR(TIMER0_COMPA_vect)\n {\n   if (timer0_toggle_count != 0)\n@@ -501,6 +511,7 @@ ISR(TIMER0_COMPA_vect)\n #endif\n \n \n+#ifdef USE_TIMER1\n ISR(TIMER1_COMPA_vect)\n {\n   if (timer1_toggle_count != 0)\n@@ -520,6 +531,7 @@ ISR(TIMER1_COMPA_vect)\n #endif\n \n \n+#ifdef USE_TIMER2\n ISR(TIMER2_COMPA_vect)\n {\n \n@@ -541,12 +553,10 @@ ISR(TIMER2_COMPA_vect)\n //    *timer2_pin_port &= ~(timer2_pin_mask);  // keep pin low after stop\n   }\n }\n+#endif\n \n \n-\n-//#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)\n-#if 0\n-\n+#ifdef USE_TIMER3\n ISR(TIMER3_COMPA_vect)\n {\n   if (timer3_toggle_count != 0)\n@@ -563,7 +573,10 @@ ISR(TIMER3_COMPA_vect)\n     *timer3_pin_port &= ~(timer3_pin_mask);  // keep pin low after stop\n   }\n }\n+#endif\n+\n \n+#ifdef USE_TIMER4\n ISR(TIMER4_COMPA_vect)\n {\n   if (timer4_toggle_count != 0)\n@@ -580,7 +593,10 @@ ISR(TIMER4_COMPA_vect)\n     *timer4_pin_port &= ~(timer4_pin_mask);  // keep pin low after stop\n   }\n }\n+#endif\n \n+\n+#ifdef USE_TIMER5\n ISR(TIMER5_COMPA_vect)\n {\n   if (timer5_toggle_count != 0)\n@@ -597,5 +613,4 @@ ISR(TIMER5_COMPA_vect)\n     *timer5_pin_port &= ~(timer5_pin_mask);  // keep pin low after stop\n   }\n }\n-\n #endif"
+ },
+ {
+  "sha": "8168494c3ef0d52f9472a523225bf64bb541b0ca",
+  "filename": "libraries/Servo/Servo.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 3,
+  "changes": 5,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f60f17f79ae383a948a9cc4baa8bd0983fad6465/libraries%2FServo%2FServo.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f60f17f79ae383a948a9cc4baa8bd0983fad6465/libraries%2FServo%2FServo.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FServo%2FServo.h?ref=f60f17f79ae383a948a9cc4baa8bd0983fad6465",
+  "patch": "@@ -65,9 +65,8 @@\n typedef enum { _timer5, _timer1, _timer3, _timer4, _Nbr_16timers } timer16_Sequence_t ;\n \n #elif defined(__AVR_ATmega32U4__)  \n-#define _useTimer3\n #define _useTimer1 \n-typedef enum { _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t ;\n+typedef enum { _timer1, _Nbr_16timers } timer16_Sequence_t ;\n \n #elif defined(__AVR_AT90USB646__) || defined(__AVR_AT90USB1286__)\n #define _useTimer3\n@@ -124,4 +123,4 @@ class Servo\n    int8_t max;                       // maximum is this value times 4 added to MAX_PULSE_WIDTH   \n };\n \n-#endif\n\\ No newline at end of file\n+#endif"
+ }
+]

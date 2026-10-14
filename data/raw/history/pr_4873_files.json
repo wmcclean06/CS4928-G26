@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "5354d75217938b995d0d60369030ba032be7d744",
+  "filename": "arduino-core/src/cc/arduino/packages/Uploader.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4b64ef74ba5fd8e298a8fa7d43bb3910540fc344/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4b64ef74ba5fd8e298a8fa7d43bb3910540fc344/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FUploader.java?ref=4b64ef74ba5fd8e298a8fa7d43bb3910540fc344",
+  "patch": "@@ -70,18 +70,21 @@ public abstract class Uploader implements MessageConsumer {\n   }\n \n   protected final boolean verbose;\n+  protected final boolean verifyUpload;\n \n   private String error;\n   protected boolean notFoundError;\n   protected boolean noUploadPort;\n \n   protected Uploader() {\n     this.verbose = PreferencesData.getBoolean(\"upload.verbose\");\n+    this.verifyUpload = PreferencesData.getBoolean(\"upload.verify\");\n     init(false);\n   }\n \n   protected Uploader(boolean nup) {\n     this.verbose = PreferencesData.getBoolean(\"upload.verbose\");\n+    this.verifyUpload = PreferencesData.getBoolean(\"upload.verify\");\n     init(nup);\n   }\n "
+ },
+ {
+  "sha": "aa9ac4c07c63438bd4aa10f20b74fe82bc2fbd85",
+  "filename": "arduino-core/src/cc/arduino/packages/uploaders/SerialUploader.java",
+  "status": "modified",
+  "additions": 15,
+  "deletions": 0,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4b64ef74ba5fd8e298a8fa7d43bb3910540fc344/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4b64ef74ba5fd8e298a8fa7d43bb3910540fc344/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2Fuploaders%2FSerialUploader.java?ref=4b64ef74ba5fd8e298a8fa7d43bb3910540fc344",
+  "patch": "@@ -102,6 +102,11 @@ public boolean uploadUsingPreferences(File sourcePath, String buildPath, String\n       else\n         prefs.put(\"upload.verbose\", prefs.getOrExcept(\"upload.params.quiet\"));\n \n+      if (verifyUpload)\n+        prefs.put(\"upload.verify\", prefs.get(\"upload.params.verify\", \"\"));\n+      else\n+        prefs.put(\"upload.verify\", prefs.get(\"upload.params.noverify\", \"\"));\n+\n       boolean uploadResult;\n       try {\n         String pattern = prefs.getOrExcept(\"upload.pattern\");\n@@ -192,6 +197,11 @@ public boolean uploadUsingPreferences(File sourcePath, String buildPath, String\n       prefs.put(\"upload.verbose\", prefs.getOrExcept(\"upload.params.quiet\"));\n     }\n \n+    if (verifyUpload)\n+      prefs.put(\"upload.verify\", prefs.get(\"upload.params.verify\", \"\"));\n+    else\n+      prefs.put(\"upload.verify\", prefs.get(\"upload.params.noverify\", \"\"));\n+\n     boolean uploadResult;\n     try {\n       String pattern = prefs.getOrExcept(\"upload.pattern\");\n@@ -318,6 +328,11 @@ private boolean uploadUsingProgrammer(String buildPath, String className) throws\n     else\n       prefs.put(\"program.verbose\", prefs.getOrExcept(\"program.params.quiet\"));\n \n+    if (verifyUpload)\n+      prefs.put(\"program.verify\", prefs.get(\"program.params.verify\", \"\"));\n+    else\n+      prefs.put(\"program.verify\", prefs.get(\"program.params.noverify\", \"\"));\n+\n     try {\n       // if (prefs.get(\"program.disable_flushing\") == null\n       // || prefs.get(\"program.disable_flushing\").toLowerCase().equals(\"false\"))"
+ },
+ {
+  "sha": "08171ad7f2fcedefecbf6b40da43cf063452a6d4",
+  "filename": "hardware/arduino/avr/platform.txt",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 2,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/4b64ef74ba5fd8e298a8fa7d43bb3910540fc344/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/4b64ef74ba5fd8e298a8fa7d43bb3910540fc344/hardware%2Farduino%2Favr%2Fplatform.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fplatform.txt?ref=4b64ef74ba5fd8e298a8fa7d43bb3910540fc344",
+  "patch": "@@ -97,11 +97,13 @@ tools.avrdude.config.path={path}/etc/avrdude.conf\n \n tools.avrdude.upload.params.verbose=-v\n tools.avrdude.upload.params.quiet=-q -q\n-tools.avrdude.upload.pattern=\"{cmd.path}\" \"-C{config.path}\" {upload.verbose} -p{build.mcu} -c{upload.protocol} -P{serial.port} -b{upload.speed} -D \"-Uflash:w:{build.path}/{build.project_name}.hex:i\"\n+tools.avrdude.upload.params.noverify=-V\n+tools.avrdude.upload.pattern=\"{cmd.path}\" \"-C{config.path}\" {upload.verbose} {upload.verify} -p{build.mcu} -c{upload.protocol} -P{serial.port} -b{upload.speed} -D \"-Uflash:w:{build.path}/{build.project_name}.hex:i\"\n \n tools.avrdude.program.params.verbose=-v\n tools.avrdude.program.params.quiet=-q -q\n-tools.avrdude.program.pattern=\"{cmd.path}\" \"-C{config.path}\" {program.verbose} -p{build.mcu} -c{protocol} {program.extra_params} \"-Uflash:w:{build.path}/{build.project_name}.hex:i\"\n+tools.avrdude.program.params.noverify=-V\n+tools.avrdude.program.pattern=\"{cmd.path}\" \"-C{config.path}\" {program.verbose} {program.verify} -p{build.mcu} -c{protocol} {program.extra_params} \"-Uflash:w:{build.path}/{build.project_name}.hex:i\"\n \n tools.avrdude.erase.params.verbose=-v\n tools.avrdude.erase.params.quiet=-q -q"
+ }
+]

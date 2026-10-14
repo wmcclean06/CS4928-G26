@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "d6e04347e927155fc6c056f508b764efd004319a",
+  "filename": "hardware/arduino/avr/cores/arduino/wiring_pulse.c",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 6,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/480cd227eab0c36e9c1eddc5c68c09589e500ab1/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring_pulse.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/480cd227eab0c36e9c1eddc5c68c09589e500ab1/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring_pulse.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2Fwiring_pulse.c?ref=480cd227eab0c36e9c1eddc5c68c09589e500ab1",
+  "patch": "@@ -69,22 +69,24 @@ unsigned long pulseInLong(uint8_t pin, uint8_t state, unsigned long timeout)\n \tuint8_t port = digitalPinToPort(pin);\n \tuint8_t stateMask = (state ? bit : 0);\n \n-\tunsigned long maxMicros = micros() + timeout;\n+\tunsigned long startMicros = micros();\n \n \t// wait for any previous pulse to end\n-\twhile ((*portInputRegister(port) & bit) == stateMask)\n-\t\tif (micros() > maxMicros)\n+\twhile ((*portInputRegister(port) & bit) == stateMask) {\n+\t\tif (micros() - startMicros > timeout)\n \t\t\treturn 0;\n+\t}\n \n \t// wait for the pulse to start\n-\twhile ((*portInputRegister(port) & bit) != stateMask)\n-\t\tif (micros() > maxMicros)\n+\twhile ((*portInputRegister(port) & bit) != stateMask) {\n+\t\tif (micros() - startMicros > timeout)\n \t\t\treturn 0;\n+\t}\n \n \tunsigned long start = micros();\n \t// wait for the pulse to stop\n \twhile ((*portInputRegister(port) & bit) == stateMask) {\n-\t\tif (micros() > maxMicros)\n+\t\tif (micros() - startMicros > timeout)\n \t\t\treturn 0;\n \t}\n \treturn micros() - start;"
+ },
+ {
+  "sha": "4ffc9aaa073f62860bfd0d76958993e942b2d977",
+  "filename": "hardware/arduino/sam/cores/arduino/wiring_pulse.cpp",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 6,
+  "changes": 14,
+  "blob_url": "https://github.com/arduino/Arduino/blob/480cd227eab0c36e9c1eddc5c68c09589e500ab1/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwiring_pulse.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/480cd227eab0c36e9c1eddc5c68c09589e500ab1/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwiring_pulse.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Fwiring_pulse.cpp?ref=480cd227eab0c36e9c1eddc5c68c09589e500ab1",
+  "patch": "@@ -69,22 +69,24 @@ uint32_t pulseInLong(uint8_t pin, uint8_t state, unsigned long timeout)\n \tuint32_t bit = p.ulPin;\n \tuint32_t stateMask = state ? bit : 0;\n \n-\tunsigned long maxMicros = micros() + timeout;\n+\tunsigned long startMicros = micros();\n \n \t// wait for any previous pulse to end\n-\twhile ((p.pPort->PIO_PDSR & bit) == stateMask)\n-\t\tif (micros() > maxMicros)\n+\twhile ((p.pPort->PIO_PDSR & bit) == stateMask) {\n+\t\tif (micros() - startMicros > timeout)\n \t\t\treturn 0;\n+\t}\n \n \t// wait for the pulse to start\n-\twhile ((p.pPort->PIO_PDSR & bit) != stateMask)\n-\t\tif (micros() > maxMicros)\n+\twhile ((p.pPort->PIO_PDSR & bit) != stateMask) {\n+\t\tif (micros() - startMicros > timeout)\n \t\t\treturn 0;\n+\t}\n \n \tunsigned long start = micros();\n \t// wait for the pulse to stop\n \twhile ((p.pPort->PIO_PDSR & bit) == stateMask) {\n-\t\tif (micros() > maxMicros)\n+\t\tif (micros() - startMicros > timeout)\n \t\t\treturn 0;\n \t}\n \treturn micros() - start;"
+ }
+]

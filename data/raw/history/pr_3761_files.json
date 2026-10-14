@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "3feafad588d237c54ec140ffa264be225a171000",
+  "filename": "libraries/Ethernet/examples/DhcpAddressPrinter/DhcpAddressPrinter.ino",
+  "status": "modified",
+  "additions": 54,
+  "deletions": 15,
+  "changes": 69,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3f28c2452aaf6b61d2bceac5f6ea5458a585479f/libraries%2FEthernet%2Fexamples%2FDhcpAddressPrinter%2FDhcpAddressPrinter.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3f28c2452aaf6b61d2bceac5f6ea5458a585479f/libraries%2FEthernet%2Fexamples%2FDhcpAddressPrinter%2FDhcpAddressPrinter.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FDhcpAddressPrinter%2FDhcpAddressPrinter.ino?ref=3f28c2452aaf6b61d2bceac5f6ea5458a585479f",
+  "patch": "@@ -1,18 +1,20 @@\n /*\n   DHCP-based IP printer\n \n- This sketch uses the DHCP extensions to the Ethernet library\n- to get an IP address via DHCP and print the address obtained.\n- using an Arduino Wiznet Ethernet shield.\n+  This sketch uses the DHCP extensions to the Ethernet library\n+  to get an IP address via DHCP and print the address obtained.\n+  using an Arduino Wiznet Ethernet shield.\n \n- Circuit:\n- * Ethernet shield attached to pins 10, 11, 12, 13\n+  Circuit:\n+   Ethernet shield attached to pins 10, 11, 12, 13\n \n- created 12 April 2011\n- modified 9 Apr 2012\n- by Tom Igoe\n+  created 12 April 2011\n+  modified 9 Apr 2012\n+  by Tom Igoe\n+  modified 02 Sept 2015\n+  by Arturo Guadalupi\n \n- */\n+*/\n \n #include <SPI.h>\n #include <Ethernet.h>\n@@ -44,17 +46,54 @@ void setup() {\n       ;\n   }\n   // print your local IP address:\n+  printIPAddress();\n+}\n+\n+void loop() {\n+\n+  switch (Ethernet.maintain())\n+  {\n+    case 1:\n+      //renewed fail\n+      Serial.println(\"Error: renewed fail\");\n+      break;\n+\n+    case 2:\n+      //renewed success\n+      Serial.println(\"Renewed success\");\n+\n+      //print your local IP address:\n+      printIPAddress();\n+      break;\n+\n+    case 3:\n+      //rebind fail\n+      Serial.println(\"Error: rebind fail\");\n+      break;\n+\n+    case 4:\n+      //rebind success\n+      Serial.println(\"Rebind success\");\n+\n+      //print your local IP address:\n+      printIPAddress();\n+      break;\n+\n+    default:\n+      //nothing happened\n+      break;\n+\n+  }\n+}\n+\n+void printIPAddress()\n+{\n   Serial.print(\"My IP address: \");\n   for (byte thisByte = 0; thisByte < 4; thisByte++) {\n     // print the value of each byte of the IP address:\n     Serial.print(Ethernet.localIP()[thisByte], DEC);\n     Serial.print(\".\");\n   }\n-  Serial.println();\n-}\n-\n-void loop() {\n \n+  Serial.println();\n }\n-\n-"
+ },
+ {
+  "sha": "32e35789af4486c67635544e51d69ee37c79e9c7",
+  "filename": "libraries/Ethernet/examples/DhcpChatServer/DhcpChatServer.ino",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3f28c2452aaf6b61d2bceac5f6ea5458a585479f/libraries%2FEthernet%2Fexamples%2FDhcpChatServer%2FDhcpChatServer.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3f28c2452aaf6b61d2bceac5f6ea5458a585479f/libraries%2FEthernet%2Fexamples%2FDhcpChatServer%2FDhcpChatServer.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FDhcpChatServer%2FDhcpChatServer.ino?ref=3f28c2452aaf6b61d2bceac5f6ea5458a585479f",
+  "patch": "@@ -14,6 +14,8 @@\n  created 21 May 2011\n  modified 9 Apr 2012\n  by Tom Igoe\n+ modified 02 Sept 2015\n+ by Arturo Guadalupi\n  Based on ChatServer example by David A. Mellis\n \n  */\n@@ -83,6 +85,7 @@ void loop() {\n     server.write(thisChar);\n     // echo the bytes to the server as well:\n     Serial.print(thisChar);\n+    Ethernet.maintain();\n   }\n }\n "
+ },
+ {
+  "sha": "af4bf5387b84db2d6167dffe4dbc86fa1cdcd9fa",
+  "filename": "libraries/Ethernet/examples/UdpNtpClient/UdpNtpClient.ino",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3f28c2452aaf6b61d2bceac5f6ea5458a585479f/libraries%2FEthernet%2Fexamples%2FUdpNtpClient%2FUdpNtpClient.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3f28c2452aaf6b61d2bceac5f6ea5458a585479f/libraries%2FEthernet%2Fexamples%2FUdpNtpClient%2FUdpNtpClient.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FUdpNtpClient%2FUdpNtpClient.ino?ref=3f28c2452aaf6b61d2bceac5f6ea5458a585479f",
+  "patch": "@@ -11,6 +11,8 @@\n  by Michael Margolis\n  modified 9 Apr 2012\n  by Tom Igoe\n+ modified 02 Sept 2015\n+ by Arturo Guadalupi\n \n  This code is in the public domain.\n \n@@ -103,6 +105,7 @@ void loop() {\n   }\n   // wait ten seconds before asking for the time again\n   delay(10000);\n+  Ethernet.maintain();\n }\n \n // send an NTP request to the time server at the given address"
+ },
+ {
+  "sha": "0dac664600d3880c142013b981b538db0f46710d",
+  "filename": "libraries/Ethernet/examples/WebServer/WebServer.ino",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3f28c2452aaf6b61d2bceac5f6ea5458a585479f/libraries%2FEthernet%2Fexamples%2FWebServer%2FWebServer.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3f28c2452aaf6b61d2bceac5f6ea5458a585479f/libraries%2FEthernet%2Fexamples%2FWebServer%2FWebServer.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Fexamples%2FWebServer%2FWebServer.ino?ref=3f28c2452aaf6b61d2bceac5f6ea5458a585479f",
+  "patch": "@@ -12,6 +12,8 @@\n  by David A. Mellis\n  modified 9 Apr 2012\n  by Tom Igoe\n+ modified 02 Sept 2015\n+ by Arturo Guadalupi\n \n  */\n \n@@ -95,6 +97,7 @@ void loop() {\n     // close the connection:\n     client.stop();\n     Serial.println(\"client disconnected\");\n+    Ethernet.maintain();\n   }\n }\n "
+ }
+]

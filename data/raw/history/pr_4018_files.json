@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "d5940ad70db8612768bd4b076dad6e53b6b914cd",
+  "filename": "arduino-core/src/cc/arduino/Compiler.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5b64cebdc581972c8d9e2ff8269ab46a0d2703c6/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5b64cebdc581972c8d9e2ff8269ab46a0d2703c6/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2FCompiler.java?ref=5b64cebdc581972c8d9e2ff8269ab46a0d2703c6",
+  "patch": "@@ -549,12 +549,12 @@ public void message(String s) {\n       }\n \n       if (error.trim().equals(\"'Mouse' was not declared in this scope\")) {\n-        error = tr(\"'Mouse' only supported on the Arduino Leonardo\");\n+        error = tr(\"'Mouse' not found. Does your sketch include the line '#include <Mouse.h>'?\");\n         //msg = _(\"\\nThe 'Mouse' class is only supported on the Arduino Leonardo.\\n\\n\");\n       }\n \n       if (error.trim().equals(\"'Keyboard' was not declared in this scope\")) {\n-        error = tr(\"'Keyboard' only supported on the Arduino Leonardo\");\n+        error = tr(\"'Keyboard' not found. Does your sketch include the line '#include <Keyboard.h>'?\");\n         //msg = _(\"\\nThe 'Keyboard' class is only supported on the Arduino Leonardo.\\n\\n\");\n       }\n "
+ }
+]

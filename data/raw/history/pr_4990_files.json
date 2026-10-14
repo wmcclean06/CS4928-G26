@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "5650abbaf4dc79e8451e696e752a6936d4f1c743",
+  "filename": "build/shared/examples/04.Communication/SerialPassthrough/SerialPassthrough.ino",
+  "status": "added",
+  "additions": 39,
+  "deletions": 0,
+  "changes": 39,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bd1135eb60798933c34f387b6d3ebcbc97f77521/build%2Fshared%2Fexamples%2F04.Communication%2FSerialPassthrough%2FSerialPassthrough.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bd1135eb60798933c34f387b6d3ebcbc97f77521/build%2Fshared%2Fexamples%2F04.Communication%2FSerialPassthrough%2FSerialPassthrough.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F04.Communication%2FSerialPassthrough%2FSerialPassthrough.ino?ref=bd1135eb60798933c34f387b6d3ebcbc97f77521",
+  "patch": "@@ -0,0 +1,39 @@\n+/*\n+  SerialPassthrough sketch\n+\n+  Some boards, like the Arduino 101, the MKR1000, Zero, or the Micro,\n+  have one hardware serial port attached to Digital pins 0-1, and a\n+  separate USB serial port attached to the IDE Serial Monitor.\n+  This means that the \"serial passthrough\" which is possible with\n+  the Arduino UNO (commonly used to interact with devices/shields that\n+  require configuration via serial AT commands) will not work by default.\n+\n+  This sketch allows you to  emulate the serial passthrough behaviour.\n+  Any text you type in the IDE Serial monitor will be written\n+  out to the serial port on Digital pins 0 and 1, and vice-versa.\n+\n+  On the 101, MKR1000, Zero, and Micro, \"Serial\" refers to the USB Serial port\n+  attached to the Serial Monitor, and \"Serial1\" refers to the hardware\n+  serial port attached to pins 0 and 1. This sketch will emulate Serial passthrough\n+  using those two Serial ports on the boards mentioned above,\n+  but you can change these names to connect any two serial ports on a board\n+  that has multiple ports.\n+\n+   Created 23 May 2016\n+   by Erik Nyquist\n+*/\n+\n+void setup() {\n+  Serial.begin(9600);\n+  Serial1.begin(9600);\n+}\n+\n+void loop() {\n+  if (Serial.available()) {      // If anything comes in Serial (USB),\n+    Serial1.write(Serial.read());   // read it and send it out Serial1 (pins 0 & 1)\n+  }\n+\n+  if (Serial1.available()) {     // If anything comes in Serial1 (pins 0 & 1)\n+    Serial.write(Serial1.read());   // read it and send it out Serial (USB)\n+  }\n+}"
+ }
+]

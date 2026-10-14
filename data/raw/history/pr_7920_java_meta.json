@@ -1,0 +1,67 @@
+{
+ "pr": 7920,
+ "base_sha": "97f11945c6638af99fabed2149af63d09269d64c",
+ "head_sha": "fb5ed00547ae394784bee2bd9f617fdf4f54ebf5",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/DownloadableContribution.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 5,
+   "deletions": 4,
+   "old_sha": "531ad5b3dc9f8a17d8c3f9dac071077fee080974",
+   "new_sha": "87ef9cee46564fea099b5bac60222836fb35ac54",
+   "head_sha_check": "87ef9cee46564fea099b5bac60222836fb35ac54",
+   "loc_at_head": 60,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/VersionComparator.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 19,
+   "deletions": 29,
+   "old_sha": "ccdca994091a3c44100598bc3ce6cad3e12599e6",
+   "new_sha": "ba0ebb639c7b080421cc121d7ca9d9b4a9c031e2",
+   "head_sha_check": "ba0ebb639c7b080421cc121d7ca9d9b4a9c031e2",
+   "loc_at_head": 65,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/VersionHelper.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 7,
+   "deletions": 6,
+   "old_sha": "0f108aed5a75d37f7c12218584c628e0690bbe00",
+   "new_sha": "caf98c8f1202a34acc9f2a0c2b648b76bf2a1792",
+   "head_sha_check": "caf98c8f1202a34acc9f2a0c2b648b76bf2a1792",
+   "loc_at_head": 62,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndexer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 3,
+   "deletions": 2,
+   "old_sha": "4193b2ba088b8d0b1582ba7bf4e48de8284cde96",
+   "new_sha": "8b7acae748c4090297ecfbf087d1758df136c181",
+   "head_sha_check": "8b7acae748c4090297ecfbf087d1758df136c181",
+   "loc_at_head": 219,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/packages/UserLibrary.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 15,
+   "deletions": 7,
+   "old_sha": "ee9c0bd031ba369ae3a76b80253dc25394f7716c",
+   "new_sha": "e22ae36eb290ed5aa5e4133dab5487a01e0ecdd9",
+   "head_sha_check": "e22ae36eb290ed5aa5e4133dab5487a01e0ecdd9",
+   "loc_at_head": 239,
+   "notes": ""
+  }
+ ]
+}

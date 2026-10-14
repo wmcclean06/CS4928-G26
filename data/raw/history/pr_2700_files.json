@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "7313f61f2c03d1b4cebf0e058d3fc429026da63a",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2dbe0059c5e210cb5df81e5fdc48689a55de4d7a/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2dbe0059c5e210cb5df81e5fdc48689a55de4d7a/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=2dbe0059c5e210cb5df81e5fdc48689a55de4d7a",
+  "patch": "@@ -2212,7 +2212,7 @@ protected boolean handleOpenInternal(File sketchFile) {\n           // copy the sketch inside\n           File properPdeFile = new File(properFolder, sketchFile.getName());\n           try {\n-            Base.copyFile(file, properPdeFile);\n+            Base.copyFile(sketchFile, properPdeFile);\n           } catch (IOException e) {\n             Base.showWarning(_(\"Error\"), _(\"Could not copy to a proper location.\"), e);\n             return false;"
+ }
+]

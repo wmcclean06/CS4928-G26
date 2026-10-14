@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "6c417403ec9ef9f5566d2d120bc84003d6905d46",
+  "filename": "arduino-core/src/processing/app/Sketch.java",
+  "status": "modified",
+  "additions": 10,
+  "deletions": 1,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/7714a41c0c97f7c22ef377ef12c0976944b45fc6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/7714a41c0c97f7c22ef377ef12c0976944b45fc6/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketch.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FSketch.java?ref=7714a41c0c97f7c22ef377ef12c0976944b45fc6",
+  "patch": "@@ -351,13 +351,22 @@ public void saveAs(File newFolder) throws IOException {\n         file.saveAs(new File(newFolder, file.getFileName()));\n     }\n \n-    folder = newFolder;\n \n     // Copy the data folder (this may take a while.. add progress bar?)\n     if (getDataFolder().exists()) {\n       File newDataFolder = new File(newFolder, \"data\");\n+      // Check if data folder exits, if not try to create the data folder\n+      if (!newDataFolder.exists() && !newDataFolder.mkdirs()) {\n+        String msg = I18n.format(tr(\"Could not create directory \\\"{0}\\\"\"), newFolder.getAbsolutePath());\n+        throw new IOException(msg);\n+      }\n+      // Copy the data files into the new folder\n       FileUtils.copy(getDataFolder(), newDataFolder);\n     }\n+    \n+    // Change folder to the new folder\n+    folder = newFolder;\n+    \n   }\n \n   /**"
+ }
+]

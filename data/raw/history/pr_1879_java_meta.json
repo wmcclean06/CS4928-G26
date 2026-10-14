@@ -1,0 +1,19 @@
+{
+ "pr": 1879,
+ "base_sha": "3a72c02480e5b85a59a08b6739ed7b45d81d390a",
+ "head_sha": "f3944b2df071570778f2f67b34569772f92a41ff",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Sketch.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "dd3bcb2b8d4a448e9e1b272f73e30b4a0ef44b4e",
+   "new_sha": "069f552dc998cf7c51c3fc34ef481da2fe0c8a72",
+   "head_sha_check": "069f552dc998cf7c51c3fc34ef481da2fe0c8a72",
+   "loc_at_head": 1751,
+   "notes": ""
+  }
+ ]
+}

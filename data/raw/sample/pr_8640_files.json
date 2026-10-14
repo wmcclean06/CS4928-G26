@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "4e950b36b04fd9a44cf9bcf181ec6523f56d8785",
+  "filename": "app/src/processing/app/AbstractTextMonitor.java",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 0,
+  "changes": 9,
+  "blob_url": "https://github.com/arduino/Arduino/blob/14fb22775a41179c8a4481e18ab84d8323517b15/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/14fb22775a41179c8a4481e18ab84d8323517b15/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java?ref=14fb22775a41179c8a4481e18ab84d8323517b15",
+  "patch": "@@ -38,6 +38,7 @@ public abstract class AbstractTextMonitor extends AbstractMonitor {\n   protected JTextField textField;\n   protected JButton sendButton;\n   protected JButton clearButton;\n+  protected JButton copyButton;\n   protected JCheckBox autoscrollBox;\n   protected JCheckBox addTimeStampBox;\n   protected JComboBox<String> lineEndings;\n@@ -84,6 +85,7 @@ public void windowGainedFocus(WindowEvent e) {\n \n     sendButton = new JButton(tr(\"Send\"));\n     clearButton = new JButton(tr(\"Clear output\"));\n+    copyButton = new JButton(tr(\"Copy output\"));\n \n     upperPane.add(textField);\n     upperPane.add(Box.createRigidArea(new Dimension(4, 0)));\n@@ -131,6 +133,8 @@ public void windowGainedFocus(WindowEvent e) {\n     pane.add(Box.createRigidArea(new Dimension(8, 0)));\n     pane.add(serialRates);\n     pane.add(Box.createRigidArea(new Dimension(8, 0)));\n+    pane.add(copyButton);\n+    pane.add(Box.createRigidArea(new Dimension(8, 0)));\n     pane.add(clearButton);\n \n     applyPreferences();\n@@ -143,6 +147,7 @@ protected void onEnableWindow(boolean enable)\n   {\n     textArea.setEnabled(enable);\n     clearButton.setEnabled(enable);\n+    copyButton.setEnabled(enable);\n     scrollPane.setEnabled(enable);\n     textField.setEnabled(enable);\n     sendButton.setEnabled(enable);\n@@ -161,6 +166,10 @@ public void onClearCommand(ActionListener listener) {\n     clearButton.addActionListener(listener);\n   }\n \n+  public void onCopyCommand(ActionListener listener) {\n+    copyButton.addActionListener(listener);\n+  }\n+\n   public void onSerialRateChange(ActionListener listener) {\n     serialRates.addActionListener(listener);\n   }"
+ },
+ {
+  "sha": "bc66af2fd21f9e18548c2baa570099dd95085653",
+  "filename": "app/src/processing/app/SerialMonitor.java",
+  "status": "modified",
+  "additions": 10,
+  "deletions": 1,
+  "changes": 11,
+  "blob_url": "https://github.com/arduino/Arduino/blob/14fb22775a41179c8a4481e18ab84d8323517b15/app%2Fsrc%2Fprocessing%2Fapp%2FSerialMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/14fb22775a41179c8a4481e18ab84d8323517b15/app%2Fsrc%2Fprocessing%2Fapp%2FSerialMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSerialMonitor.java?ref=14fb22775a41179c8a4481e18ab84d8323517b15",
+  "patch": "@@ -22,6 +22,9 @@\n import processing.app.legacy.PApplet;\n \n import java.awt.Color;\n+import java.awt.Toolkit;\n+import java.awt.datatransfer.Clipboard;\n+import java.awt.datatransfer.StringSelection;\n import java.awt.event.ActionEvent;\n \n import static processing.app.I18n.tr;\n@@ -57,8 +60,14 @@ public SerialMonitor(Base base, BoardPort port) {\n       send(textField.getText());\n       textField.setText(\"\");\n     });\n-    \n+\n     onClearCommand((ActionEvent event) -> textArea.setText(\"\"));\n+\n+    onCopyCommand((ActionEvent event) -> {\n+      String text = textArea.getText();\n+      Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();\n+      clipboard.setContents(new StringSelection(text), null);\n+    });\n   }\n \n   private void send(String s) {"
+ }
+]

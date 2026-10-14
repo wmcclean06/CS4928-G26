@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "c9698a6e5640198d584ba78d6f74ef892bc5b7aa",
+  "filename": "libraries/TFT/src/utility/Adafruit_ST7735.cpp",
+  "status": "modified",
+  "additions": 35,
+  "deletions": 0,
+  "changes": 35,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bfd0da0b17a9de1ef861ef29b7ec637b9f39fd0a/libraries%2FTFT%2Fsrc%2Futility%2FAdafruit_ST7735.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bfd0da0b17a9de1ef861ef29b7ec637b9f39fd0a/libraries%2FTFT%2Fsrc%2Futility%2FAdafruit_ST7735.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FTFT%2Fsrc%2Futility%2FAdafruit_ST7735.cpp?ref=bfd0da0b17a9de1ef861ef29b7ec637b9f39fd0a",
+  "patch": "@@ -76,7 +76,12 @@ void Adafruit_ST7735::writecommand(uint8_t c) {\n #ifdef SPI_HAS_TRANSACTION\n   if (hwSPI) SPI.beginTransaction(spisettings);\n #endif\n+\n+#ifdef __ARDUINO_ARC__\n+  digitalWrite(_rs, LOW);\n+#else\n   *rsport &= ~rspinmask;\n+#endif\n   *csport &= ~cspinmask;\n \n   //Serial.print(\"C \");\n@@ -93,7 +98,12 @@ void Adafruit_ST7735::writedata(uint8_t c) {\n #ifdef SPI_HAS_TRANSACTION\n   if (hwSPI) SPI.beginTransaction(spisettings);\n #endif\n+\n+#ifdef __ARDUINO_ARC__\n+  digitalWrite(_rs, HIGH);\n+#else\n   *rsport |=  rspinmask;\n+#endif\n   *csport &= ~cspinmask;\n     \n   //Serial.print(\"D \");\n@@ -432,7 +442,12 @@ void Adafruit_ST7735::pushColor(uint16_t color) {\n #ifdef SPI_HAS_TRANSACTION\n   if (hwSPI) SPI.beginTransaction(spisettings);\n #endif\n+\n+#ifdef __ARDUINO_ARC__\n+  digitalWrite(_rs, HIGH);\n+#else\n   *rsport |=  rspinmask;\n+#endif\n   *csport &= ~cspinmask;\n \n   if (tabcolor == INITR_BLACKTAB)   color = swapcolor(color);\n@@ -454,7 +469,12 @@ void Adafruit_ST7735::drawPixel(int16_t x, int16_t y, uint16_t color) {\n #ifdef SPI_HAS_TRANSACTION\n   if (hwSPI) SPI.beginTransaction(spisettings);\n #endif\n+\n+#ifdef __ARDUINO_ARC__\n+  digitalWrite(_rs, HIGH);\n+#else\n   *rsport |=  rspinmask;\n+#endif\n   *csport &= ~cspinmask;\n \n   if (tabcolor == INITR_BLACKTAB)   color = swapcolor(color);\n@@ -483,7 +503,12 @@ void Adafruit_ST7735::drawFastVLine(int16_t x, int16_t y, int16_t h,\n #ifdef SPI_HAS_TRANSACTION\n   if (hwSPI) SPI.beginTransaction(spisettings);\n #endif\n+\n+#ifdef __ARDUINO_ARC__\n+  digitalWrite(_rs, HIGH);\n+#else\n   *rsport |=  rspinmask;\n+#endif\n   *csport &= ~cspinmask;\n   while (h--) {\n     spiwrite(hi);\n@@ -510,7 +535,12 @@ void Adafruit_ST7735::drawFastHLine(int16_t x, int16_t y, int16_t w,\n #ifdef SPI_HAS_TRANSACTION\n   if (hwSPI) SPI.beginTransaction(spisettings);\n #endif\n+\n+#ifdef __ARDUINO_ARC__\n+  digitalWrite(_rs, HIGH);\n+#else\n   *rsport |=  rspinmask;\n+#endif\n   *csport &= ~cspinmask;\n   while (w--) {\n     spiwrite(hi);\n@@ -547,7 +577,12 @@ void Adafruit_ST7735::fillRect(int16_t x, int16_t y, int16_t w, int16_t h,\n #ifdef SPI_HAS_TRANSACTION\n   if (hwSPI) SPI.beginTransaction(spisettings);\n #endif\n+\n+#ifdef __ARDUINO_ARC__\n+  digitalWrite(_rs, HIGH);\n+#else\n   *rsport |=  rspinmask;\n+#endif\n   *csport &= ~cspinmask;\n   for(y=h; y>0; y--) {\n     for(x=w; x>0; x--) {"
+ },
+ {
+  "sha": "077045dca4fc9e3815cf6f18a12379af51c9f29b",
+  "filename": "libraries/TFT/src/utility/Adafruit_ST7735.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bfd0da0b17a9de1ef861ef29b7ec637b9f39fd0a/libraries%2FTFT%2Fsrc%2Futility%2FAdafruit_ST7735.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bfd0da0b17a9de1ef861ef29b7ec637b9f39fd0a/libraries%2FTFT%2Fsrc%2Futility%2FAdafruit_ST7735.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FTFT%2Fsrc%2Futility%2FAdafruit_ST7735.h?ref=bfd0da0b17a9de1ef861ef29b7ec637b9f39fd0a",
+  "patch": "@@ -139,7 +139,7 @@ class Adafruit_ST7735 : public Adafruit_GFX {\n #ifdef SPI_HAS_TRANSACTION\n   SPISettings spisettings;\n #endif\n-#if defined(ARDUINO_ARCH_SAM)\n+#if defined(ARDUINO_ARCH_SAM) || defined(__ARDUINO_ARC__)\n   volatile uint32_t *dataport, *clkport, *csport, *rsport;\n   uint32_t  _cs, _rs, _rst, _sid, _sclk,\n            datapinmask, clkpinmask, cspinmask, rspinmask,"
+ },
+ {
+  "sha": "2f857b06c913ba44b6976fa61565ccebfb3dd5eb",
+  "filename": "libraries/TFT/src/utility/glcdfont.c",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/bfd0da0b17a9de1ef861ef29b7ec637b9f39fd0a/libraries%2FTFT%2Fsrc%2Futility%2Fglcdfont.c",
+  "raw_url": "https://github.com/arduino/Arduino/raw/bfd0da0b17a9de1ef861ef29b7ec637b9f39fd0a/libraries%2FTFT%2Fsrc%2Futility%2Fglcdfont.c",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FTFT%2Fsrc%2Futility%2Fglcdfont.c?ref=bfd0da0b17a9de1ef861ef29b7ec637b9f39fd0a",
+  "patch": "@@ -1,4 +1,4 @@\n-#ifndef ARDUINO_ARCH_SAM\n+#if !defined(ARDUINO_ARCH_SAM) && !defined(__ARDUINO_ARC__)\n #include <avr/io.h>\n #endif\n #include <avr/pgmspace.h> "
+ }
+]

@@ -1,0 +1,19 @@
+{
+ "pr": 2582,
+ "base_sha": "379df90b30a6da6e2d14c13e93e09a0a5b70856d",
+ "head_sha": "e360f82cae38254d9e299db5e66e4fdbbe074bc1",
+ "java_files": [
+  {
+   "path": "arduino-core/src/processing/app/BaseNoGui.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 14,
+   "deletions": 5,
+   "old_sha": "2eff168a74382941de6033941d4cafc41fb6cf80",
+   "new_sha": "ee1b1d0a697ddd89360f8268a498f21b2c1b6856",
+   "head_sha_check": "ee1b1d0a697ddd89360f8268a498f21b2c1b6856",
+   "loc_at_head": 836,
+   "notes": ""
+  }
+ ]
+}

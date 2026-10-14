@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "a4b12817ac3c773798207f79b6ec5e3f4f409ec5",
+  "filename": "build/linux/dist/desktop.template",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/66128dabccb69c3bc72a5d94cc83e7eaa0dc0632/build%2Flinux%2Fdist%2Fdesktop.template",
+  "raw_url": "https://github.com/arduino/Arduino/raw/66128dabccb69c3bc72a5d94cc83e7eaa0dc0632/build%2Flinux%2Fdist%2Fdesktop.template",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Fdesktop.template?ref=66128dabccb69c3bc72a5d94cc83e7eaa0dc0632",
+  "patch": "@@ -7,6 +7,6 @@ Exec=<BINARY_LOCATION>\n Icon=<ICON_NAME>\n Terminal=false\n Categories=Development;IDE;Electronics;\n-MimeType=text/x-arduino\n+MimeType=text/x-arduino;\n Keywords=embedded electronics;electronics;avr;microcontroller;\n StartupWMClass=processing-app-Base"
+ }
+]

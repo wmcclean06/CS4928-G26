@@ -1,0 +1,31 @@
+{
+ "pr": 5878,
+ "base_sha": "6fc03792981958334b7f81894c11829ba52cdf49",
+ "head_sha": "e8ad69630583a000c130cc7f115dabce770e8cb2",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 1,
+   "old_sha": "9aa81d2d0c696e9da0c9b8d0bde9e2922e3ef864",
+   "new_sha": "f983ffe8f68d4ab236930651325424f1d1fc88c6",
+   "head_sha_check": "f983ffe8f68d4ab236930651325424f1d1fc88c6",
+   "loc_at_head": 1953,
+   "notes": ""
+  },
+  {
+   "path": "app/test/processing/app/CommandLineTest.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 85,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "f49e21c1a7ea333e156bb24f64fe5672b5a29c56",
+   "head_sha_check": "f49e21c1a7ea333e156bb24f64fe5672b5a29c56",
+   "loc_at_head": 75,
+   "notes": "added"
+  }
+ ]
+}

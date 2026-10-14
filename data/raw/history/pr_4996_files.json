@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "0f732bbad9430741fb9bf36f893dcef43faaebe8",
+  "filename": "hardware/arduino/sam/cores/arduino/avr/pgmspace.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/43a8c3868e69a7ecca210f83fec812bebd583625/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Favr%2Fpgmspace.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/43a8c3868e69a7ecca210f83fec812bebd583625/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Favr%2Fpgmspace.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fsam%2Fcores%2Farduino%2Favr%2Fpgmspace.h?ref=43a8c3868e69a7ecca210f83fec812bebd583625",
+  "patch": "@@ -97,6 +97,7 @@ typedef const void* uint_farptr_t;\n #define memcmp_PF(s1, s2, n) memcmp((s1), (s2), (n))\n \n #define sprintf_P(s, f, ...) sprintf((s), (f), __VA_ARGS__)\n+#define snprintf_P(s, f, ...) snprintf((s), (f), __VA_ARGS__)\n \n #define pgm_read_byte(addr) (*(const unsigned char *)(addr))\n #define pgm_read_word(addr) (*(const unsigned short *)(addr))"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "29540399be9ff575e4124429d4a4b4273747db24",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 0,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ef4f0f3bc908fde009a3da7a255c0a0f098b0c4b/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ef4f0f3bc908fde009a3da7a255c0a0f098b0c4b/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=ef4f0f3bc908fde009a3da7a255c0a0f098b0c4b",
+  "patch": "@@ -1245,6 +1245,13 @@ public void actionPerformed(ActionEvent event) {\n         String packages[] =\n           Compiler.headerListFromIncludePath(subfolder.getAbsolutePath());\n         for (String pkg : packages) {\n+          File old = importToLibraryTable.get(pkg);\n+          if (old != null) {\n+            // If a library was already found with this header, keep it if\n+            // the library's directory name matches the header name.\n+            String name = pkg.substring(0, pkg.length() - 2);\n+            if (old.getPath().endsWith(name)) continue;\n+          }\n           importToLibraryTable.put(pkg, subfolder);\n         }\n       } catch (IOException e) {"
+ }
+]

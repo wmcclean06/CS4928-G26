@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "c2ce096ce6e5ae616df832bab52749d9c8677b43",
+  "filename": "hardware/arduino/variants/leonardo/pins_arduino.h",
+  "status": "modified",
+  "additions": 16,
+  "deletions": 1,
+  "changes": 17,
+  "blob_url": "https://github.com/arduino/Arduino/blob/dfb3cab853ab8a9ddc7b915c31ee6826239a0fb3/hardware%2Farduino%2Fvariants%2Fleonardo%2Fpins_arduino.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/dfb3cab853ab8a9ddc7b915c31ee6826239a0fb3/hardware%2Farduino%2Fvariants%2Fleonardo%2Fpins_arduino.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Fvariants%2Fleonardo%2Fpins_arduino.h?ref=dfb3cab853ab8a9ddc7b915c31ee6826239a0fb3",
+  "patch": "@@ -278,7 +278,7 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[30] = {\n \t_BV(6), // D29 / D12 - A11 - PD6\n };\n \n-const uint8_t PROGMEM digital_pin_to_timer_PGM[16] = {\n+const uint8_t PROGMEM digital_pin_to_timer_PGM[30] = {\n \tNOT_ON_TIMER,\t\n \tNOT_ON_TIMER,\n \tNOT_ON_TIMER,\n@@ -298,6 +298,21 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[16] = {\n \t\n \tNOT_ON_TIMER,\t\n \tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n+\tNOT_ON_TIMER,\n };\n \n const uint8_t PROGMEM analog_pin_to_channel_PGM[12] = {"
+ }
+]

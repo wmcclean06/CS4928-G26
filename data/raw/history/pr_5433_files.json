@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ffe15ae447c95723a7250f40b5b83c02f6b4ca4d",
+  "filename": "app/src/processing/app/SerialPlotter.java",
+  "status": "modified",
+  "additions": 5,
+  "deletions": 3,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/8b5a900ae16332e92511878a32e88d33904d5d6d/app%2Fsrc%2Fprocessing%2Fapp%2FSerialPlotter.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/8b5a900ae16332e92511878a32e88d33904d5d6d/app%2Fsrc%2Fprocessing%2Fapp%2FSerialPlotter.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSerialPlotter.java?ref=8b5a900ae16332e92511878a32e88d33904d5d6d",
+  "patch": "@@ -87,8 +87,10 @@ private Ticks computeBounds() {\n       minY = Double.POSITIVE_INFINITY;\n       maxY = Double.NEGATIVE_INFINITY;\n       for(Graph g : graphs) {\n-        minY = Math.min(g.buffer.min(), minY);\n-        maxY = Math.max(g.buffer.max(), maxY);\n+        if (!g.buffer.isEmpty()) {\n+          minY = Math.min(g.buffer.min(), minY);\n+          maxY = Math.max(g.buffer.max(), maxY);\n+        }\n       }\n \n       final double MIN_DELTA = 10.0;\n@@ -239,7 +241,7 @@ public void message(final String s) {\n       for(int i = 0; i < parts.length; ++i) {\n         try {          \n           double value = Double.valueOf(parts[i]);\n-          if(i >= graphs.size()) {\n+          if(validParts >= graphs.size()) {\n             graphs.add(new Graph(validParts));\n           }\n           graphs.get(validParts).buffer.add(value);"
+ }
+]

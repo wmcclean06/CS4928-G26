@@ -1,0 +1,19 @@
+{
+ "pr": 2628,
+ "base_sha": "5128a062d8ca7612cc1f39a181c2be4142143757",
+ "head_sha": "fea3848ee06dd1195732047f81f08af2833261ff",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 29,
+   "deletions": 3,
+   "old_sha": "6842a5bbd818e5b93b9493ce016fddfc1a3010f0",
+   "new_sha": "3794c0f2a38db66f0c6afd5f9ffe435befdd0b7a",
+   "head_sha_check": "3794c0f2a38db66f0c6afd5f9ffe435befdd0b7a",
+   "loc_at_head": 2386,
+   "notes": ""
+  }
+ ]
+}

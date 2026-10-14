@@ -1,0 +1,43 @@
+{
+ "pr": 8281,
+ "base_sha": "3f2635717ab99f7fee4430a21bb63a87474520bb",
+ "head_sha": "3b2e41fd6e8212e48fba15da3d3e1c0f6a8c42d1",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/EditorToolbar.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 1,
+   "old_sha": "45e075b55c0bb7f852671dcdeb94adcdd2b10f2b",
+   "new_sha": "5dede700a78c482fcd7534422abc644ece330ba3",
+   "head_sha_check": "5dede700a78c482fcd7534422abc644ece330ba3",
+   "loc_at_head": 452,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/VersionComparator.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 4,
+   "deletions": 0,
+   "old_sha": "ba0ebb639c7b080421cc121d7ca9d9b4a9c031e2",
+   "new_sha": "c9ec5ca81b979dc4dd41a0ce5db0b6c341af2464",
+   "head_sha_check": "c9ec5ca81b979dc4dd41a0ce5db0b6c341af2464",
+   "loc_at_head": 68,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/helpers/OSUtils.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 4,
+   "deletions": 0,
+   "old_sha": "be6cccd6b750c95f7af9844aff2319c40fc29835",
+   "new_sha": "b063b18deb7ce256f9dfdacd9cdd136813362f06",
+   "head_sha_check": "b063b18deb7ce256f9dfdacd9cdd136813362f06",
+   "loc_at_head": 30,
+   "notes": ""
+  }
+ ]
+}

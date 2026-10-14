@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ccac8232d81f9d80c31ad7b079283288ea72fadb",
+  "filename": "libraries/SD/library.properties",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/6314a926a428127dbd52ba27ec88a91cce1665b7/libraries%2FSD%2Flibrary.properties",
+  "raw_url": "https://github.com/arduino/Arduino/raw/6314a926a428127dbd52ba27ec88a91cce1665b7/libraries%2FSD%2Flibrary.properties",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FSD%2Flibrary.properties?ref=6314a926a428127dbd52ba27ec88a91cce1665b7",
+  "patch": "@@ -3,7 +3,7 @@ version=1.0.7\n author=Arduino, SparkFun\n maintainer=Arduino <info@arduino.cc>\n sentence=Enables reading and writing on SD cards. \n-paragraph=Once an SD memory card is connected to the SPI interfare of the Arduino/Genuino board you are enabled to create files and read/write on them. You can also move through directories on the SD card.\n+paragraph=Once an SD memory card is connected to the SPI interface of the Arduino or Genuino board you can create files and read/write on them. You can also move through directories on the SD card.\n category=Data Storage\n url=http://www.arduino.cc/en/Reference/SD\n architectures=*"
+ }
+]

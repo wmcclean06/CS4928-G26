@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "637f9a07698933855508e70a6e5e19c124958bef",
+  "filename": "build/shared/lib/keywords.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c67e4244e34cb8457a12db786ac313f11ea8e2fc/build%2Fshared%2Flib%2Fkeywords.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c67e4244e34cb8457a12db786ac313f11ea8e2fc/build%2Fshared%2Flib%2Fkeywords.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Flib%2Fkeywords.txt?ref=c67e4244e34cb8457a12db786ac313f11ea8e2fc",
+  "patch": "@@ -126,6 +126,7 @@ noInterrupts\tKEYWORD2\tNoInterrupts\n noTone\tKEYWORD2\tNoTone\n pinMode\tKEYWORD2\tPinMode\n pulseIn\tKEYWORD2\tPulseIn\n+pulseInLong\tKEYWORD2\tPulseInLong\n shiftIn\tKEYWORD2\tShiftIn\n shiftOut\tKEYWORD2\tShiftOut\n tone\tKEYWORD2\tTone"
+ }
+]

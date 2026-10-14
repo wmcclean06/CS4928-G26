@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "8719058e75c14a2cee65cc1199f6c424d40e83b2",
+  "filename": "hardware/arduino/avr/libraries/SPI/examples/DigitalPotControl/DigitalPotControl.ino",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f7a395fbdb22f72c3b2263f68bae7872e56bb73d/hardware%2Farduino%2Favr%2Flibraries%2FSPI%2Fexamples%2FDigitalPotControl%2FDigitalPotControl.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f7a395fbdb22f72c3b2263f68bae7872e56bb73d/hardware%2Farduino%2Favr%2Flibraries%2FSPI%2Fexamples%2FDigitalPotControl%2FDigitalPotControl.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Flibraries%2FSPI%2Fexamples%2FDigitalPotControl%2FDigitalPotControl.ino?ref=f7a395fbdb22f72c3b2263f68bae7872e56bb73d",
+  "patch": "@@ -63,9 +63,11 @@ void loop() {\n void digitalPotWrite(int address, int value) {\n   // take the SS pin low to select the chip:\n   digitalWrite(slaveSelectPin, LOW);\n+  delay(100);\n   //  send in the address and value via SPI:\n   SPI.transfer(address);\n   SPI.transfer(value);\n+  delay(100);\n   // take the SS pin high to de-select the chip:\n   digitalWrite(slaveSelectPin, HIGH);\n }"
+ }
+]

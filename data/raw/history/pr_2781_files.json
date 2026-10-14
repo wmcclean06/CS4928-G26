@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "677316e312a96ce56a0377827d3ffdf5fb38f727",
+  "filename": "libraries/Bridge/src/Bridge.cpp",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 3,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ff48ee4c5becc666c48efbcef87d650bd81884ee/libraries%2FBridge%2Fsrc%2FBridge.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ff48ee4c5becc666c48efbcef87d650bd81884ee/libraries%2FBridge%2Fsrc%2FBridge.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FBridge%2Fsrc%2FBridge.cpp?ref=ff48ee4c5becc666c48efbcef87d650bd81884ee",
+  "patch": "@@ -191,12 +191,13 @@ uint16_t BridgeClass::transfer(const uint8_t *buff1, uint16_t len1,\n \n     // Recv data\n     for (uint16_t i = 0; i < l; i++) {\n+      // Cut received data if rxbuffer is too small\n+      if (i >= rxlen)\n+          break;\n       int c = timedRead(5);\n       if (c < 0)\n         continue;\n-      // Cut received data if rxbuffer is too small\n-      if (i < rxlen)\n-        rxbuff[i] = c;\n+      rxbuff[i] = c;\n       crcUpdate(c);\n     }\n "
+ }
+]

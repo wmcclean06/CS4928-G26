@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "96d5c7eedbdc1444b3d6c455dac31e7a0a22f42d",
+  "filename": "libraries/Ethernet/Client.cpp",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 3,
+  "changes": 17,
+  "blob_url": "https://github.com/arduino/Arduino/blob/983d8af8140f09fd3975d5deef64244102912550/libraries%2FEthernet%2FClient.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/983d8af8140f09fd3975d5deef64244102912550/libraries%2FEthernet%2FClient.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2FClient.cpp?ref=983d8af8140f09fd3975d5deef64244102912550",
+  "patch": "@@ -77,14 +77,25 @@ int Client::available() {\n \n int Client::read() {\n   uint8_t b;\n-  if (!available())\n+  if ( recv(_sock, &b, 1) > 0 )\n+  {\n+    // recv worked\n+    return b;\n+  }\n+  else\n+  {\n+    // No data available\n     return -1;\n-  recv(_sock, &b, 1);\n-  return b;\n+  }\n+}\n+\n+int Client::read(uint8_t *buf, size_t size) {\n+  return recv(_sock, buf, size);\n }\n \n int Client::peek() {\n   uint8_t b;\n+  // Unlike recv, peek doesn't check to see if there's any data available, so we must\n   if (!available())\n     return -1;\n   ::peek(_sock, &b);"
+ },
+ {
+  "sha": "8725f158a9ca9032e5a920587bb1370f1a563383",
+  "filename": "libraries/Ethernet/Client.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/983d8af8140f09fd3975d5deef64244102912550/libraries%2FEthernet%2FClient.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/983d8af8140f09fd3975d5deef64244102912550/libraries%2FEthernet%2FClient.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2FClient.h?ref=983d8af8140f09fd3975d5deef64244102912550",
+  "patch": "@@ -17,6 +17,7 @@ class Client : public Stream {\n   virtual void write(const uint8_t *buf, size_t size);\n   virtual int available();\n   virtual int read();\n+  virtual int read(uint8_t *buf, size_t size);\n   virtual int peek();\n   virtual void flush();\n   void stop();"
+ },
+ {
+  "sha": "cad54a5e37953eebc802f1a7c1d5a84f054725ca",
+  "filename": "libraries/Ethernet/utility/socket.cpp",
+  "status": "modified",
+  "additions": 23,
+  "deletions": 4,
+  "changes": 27,
+  "blob_url": "https://github.com/arduino/Arduino/blob/983d8af8140f09fd3975d5deef64244102912550/libraries%2FEthernet%2Futility%2Fsocket.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/983d8af8140f09fd3975d5deef64244102912550/libraries%2FEthernet%2Futility%2Fsocket.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FEthernet%2Futility%2Fsocket.cpp?ref=983d8af8140f09fd3975d5deef64244102912550",
+  "patch": "@@ -146,13 +146,32 @@ uint16_t send(SOCKET s, const uint8_t * buf, uint16_t len)\n  */\n uint16_t recv(SOCKET s, uint8_t *buf, uint16_t len)\n {\n-  uint16_t ret=0;\n+  // Check how much data is available\n+  uint16_t ret = W5100.getRXReceivedSize(s);\n+  if ( ret == 0 )\n+  {\n+    // No data available.\n+    uint8_t status = W5100.readSnSR(s);\n+    if ( s == SnSR::LISTEN || s == SnSR::CLOSED || s == SnSR::CLOSE_WAIT )\n+    {\n+      // The remote end has closed its side of the connection, so this is the eof state\n+      ret = 0;\n+    }\n+    else\n+    {\n+      // The connection is still up, but there's no data waiting to be read\n+      ret = -1;\n+    }\n+  }\n+  else if (ret > len)\n+  {\n+    ret = len;\n+  }\n \n-  if ( len > 0 )\n+  if ( ret > 0 )\n   {\n-    W5100.recv_data_processing(s, buf, len);\n+    W5100.recv_data_processing(s, buf, ret);\n     W5100.execCmdSn(s, Sock_RECV);\n-    ret = len;\n   }\n   return ret;\n }"
+ }
+]

@@ -1,0 +1,103 @@
+{
+ "pr": 4462,
+ "base_sha": "19a9e4d5e046e79b21ebbad12e97fdc8c05aba54",
+ "head_sha": "3d47995915e08b4ba07a828b562fb6342ed858c6",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Sketch.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 1,
+   "old_sha": "444888c907d0e4858a7009841a5db346de984349",
+   "new_sha": "ecbd54938a68199ba924b82e815f88d42b3dc833",
+   "head_sha_check": "ecbd54938a68199ba924b82e815f88d42b3dc833",
+   "loc_at_head": 1178,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/uploaders/GenericNetworkUploader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 2,
+   "old_sha": "3a7cabf4915235a04163cf52351b4d19a8bafde6",
+   "new_sha": "1bc5befe4b468c89b4603a23f0fbe258f62d5eb7",
+   "head_sha_check": "1bc5befe4b468c89b4603a23f0fbe258f62d5eb7",
+   "loc_at_head": 92,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/utils/network/FileDownloader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 3,
+   "deletions": 1,
+   "old_sha": "4d090283d873fe3125e99c9cadac2490397b84a5",
+   "new_sha": "2702767dbaed0416c89d4da851d1634de9e45e79",
+   "head_sha_check": "2702767dbaed0416c89d4da851d1634de9e45e79",
+   "loc_at_head": 210,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/I18n.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 5,
+   "old_sha": "72b67a8ecd5f80fddf667f9ad9c117ff3549f870",
+   "new_sha": "0ab961aa9ed1e51026dd1fc122f1701b70018443",
+   "head_sha_check": "0ab961aa9ed1e51026dd1fc122f1701b70018443",
+   "loc_at_head": 99,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/SketchCode.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 1,
+   "old_sha": "3e1858676417db3c4d3a648f0881a78c99c8285a",
+   "new_sha": "db0f95af07f4da105c87fea28003573b60e2261e",
+   "head_sha_check": "db0f95af07f4da105c87fea28003573b60e2261e",
+   "loc_at_head": 181,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/linux/Platform.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 8,
+   "old_sha": "f28df35559b5a75185384f8844fa97c62feea1d3",
+   "new_sha": "505b9cf88b520a10fb6d76ef49a76b2a4916dfda",
+   "head_sha_check": "505b9cf88b520a10fb6d76ef49a76b2a4916dfda",
+   "loc_at_head": 91,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/macosx/Platform.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 2,
+   "old_sha": "7c07688237120c0917ce0b40bdaf3ff9f4484b2a",
+   "new_sha": "0325b5d50d9c3935b77cbcfd6c3cc0259bc4710a",
+   "head_sha_check": "0325b5d50d9c3935b77cbcfd6c3cc0259bc4710a",
+   "loc_at_head": 139,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/windows/Platform.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 8,
+   "old_sha": "1783a1760426935d87479d3e65b927cc0a3c2926",
+   "new_sha": "790be03ed9b769fa9abc8ccc9276b9ecb26a508d",
+   "head_sha_check": "790be03ed9b769fa9abc8ccc9276b9ecb26a508d",
+   "loc_at_head": 175,
+   "notes": ""
+  }
+ ]
+}

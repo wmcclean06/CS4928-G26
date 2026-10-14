@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "28bea92ae9645fe22484447628ba86f2e2fbe875",
+  "filename": "build/linux/dist/install.sh",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/cdae13c3cc8dc054f72d5f0f2d314031c1625fd9/build%2Flinux%2Fdist%2Finstall.sh",
+  "raw_url": "https://github.com/arduino/Arduino/raw/cdae13c3cc8dc054f72d5f0f2d314031c1625fd9/build%2Flinux%2Fdist%2Finstall.sh",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Flinux%2Fdist%2Finstall.sh?ref=cdae13c3cc8dc054f72d5f0f2d314031c1625fd9",
+  "patch": "@@ -13,5 +13,5 @@ rm arduino.desktop-bak\n cp arduino.desktop ~/.local/share/applications/arduino.desktop\n cp arduino.desktop ~/Desktop/arduino.desktop\n \n-echo \"Instaled Arduino IDE icons on menu and desktop !\"\n+echo \"Installed Arduino IDE icons on menu and desktop !\"\n "
+ }
+]

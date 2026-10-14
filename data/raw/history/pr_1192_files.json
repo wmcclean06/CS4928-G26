@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "3ead185032f080c6e05e863183a279afeab7df9b",
+  "filename": "build/shared/examples/02.Digital/Debounce/Debounce.ino",
+  "status": "modified",
+  "additions": 18,
+  "deletions": 4,
+  "changes": 22,
+  "blob_url": "https://github.com/arduino/Arduino/blob/b7da415d6f1376c2a3b0118bc59eb6911503e1e6/build%2Fshared%2Fexamples%2F02.Digital%2FDebounce%2FDebounce.ino",
+  "raw_url": "https://github.com/arduino/Arduino/raw/b7da415d6f1376c2a3b0118bc59eb6911503e1e6/build%2Fshared%2Fexamples%2F02.Digital%2FDebounce%2FDebounce.ino",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Fexamples%2F02.Digital%2FDebounce%2FDebounce.ino?ref=b7da415d6f1376c2a3b0118bc59eb6911503e1e6",
+  "patch": "@@ -19,6 +19,8 @@\n  by David A. Mellis\n  modified 30 Aug 2011\n  by Limor Fried\n+ modified 28 Dec 2012\n+ by Mike Walters\n  \n This example code is in the public domain.\n  \n@@ -43,6 +45,9 @@ long debounceDelay = 50;    // the debounce time; increase if the output flicker\n void setup() {\n   pinMode(buttonPin, INPUT);\n   pinMode(ledPin, OUTPUT);\n+\n+  // set initial LED state\n+  digitalWrite(ledPin, ledState);\n }\n \n void loop() {\n@@ -62,12 +67,21 @@ void loop() {\n   if ((millis() - lastDebounceTime) > debounceDelay) {\n     // whatever the reading is at, it's been there for longer\n     // than the debounce delay, so take it as the actual current state:\n-    buttonState = reading;\n+\n+    // if the button state has changed:\n+    if (reading != buttonState) {\n+      buttonState = reading;\n+\n+      // only toggle the LED if the new button state is HIGH\n+      if (buttonState == HIGH) {\n+        ledState = !ledState;\n+\n+        // set the LED:\n+        digitalWrite(ledPin, ledState);\n+      }\n+    }\n   }\n   \n-  // set the LED using the state of the button:\n-  digitalWrite(ledPin, buttonState);\n-\n   // save the reading.  Next time through the loop,\n   // it'll be the lastButtonState:\n   lastButtonState = reading;"
+ }
+]

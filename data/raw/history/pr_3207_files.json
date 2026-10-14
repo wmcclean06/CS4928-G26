@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "4022698934a488e2c9684660686aa0c59da150e9",
+  "filename": "hardware/arduino/avr/cores/arduino/HardwareSerial.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/ed331a817a1f14f0a6bfe60d24f5bdc73843eafe/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/ed331a817a1f14f0a6bfe60d24f5bdc73843eafe/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FHardwareSerial.cpp?ref=ed331a817a1f14f0a6bfe60d24f5bdc73843eafe",
+  "patch": "@@ -220,6 +220,7 @@ size_t HardwareSerial::write(uint8_t c)\n   if (_tx_buffer_head == _tx_buffer_tail && bit_is_set(*_ucsra, UDRE0)) {\n     *_udr = c;\n     sbi(*_ucsra, TXC0);\n+     _written = true;\n     return 1;\n   }\n   tx_buffer_index_t i = (_tx_buffer_head + 1) % SERIAL_TX_BUFFER_SIZE;"
+ }
+]

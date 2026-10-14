@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "9a45cbba49813029c415ddfe2f7efc71633fadab",
+  "filename": "libraries/Scheduler/src/Scheduler.h",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/2d5e76e10c2960619ce784b0c602621b9cc7e410/libraries%2FScheduler%2Fsrc%2FScheduler.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/2d5e76e10c2960619ce784b0c602621b9cc7e410/libraries%2FScheduler%2Fsrc%2FScheduler.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FScheduler%2Fsrc%2FScheduler.h?ref=2d5e76e10c2960619ce784b0c602621b9cc7e410",
+  "patch": "@@ -14,8 +14,8 @@\n  * limitations under the License.\n  */\n \n-#ifndef _SCHEDULDER_H_\n-#define _SCHEDULDER_H_\n+#ifndef _SCHEDULER_H_\n+#define _SCHEDULER_H_\n \n #include <Arduino.h>\n "
+ }
+]

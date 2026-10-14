@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "03686083253dac2d3eb4d2e1c0063b37b5986b4f",
+  "filename": "arduino-core/src/processing/app/debug/LegacyTargetPlatform.java",
+  "status": "modified",
+  "additions": 17,
+  "deletions": 2,
+  "changes": 19,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d8f30549bc6f14f41149722fa59be0ac498c5ec1/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FLegacyTargetPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d8f30549bc6f14f41149722fa59be0ac498c5ec1/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FLegacyTargetPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fdebug%2FLegacyTargetPlatform.java?ref=d8f30549bc6f14f41149722fa59be0ac498c5ec1",
+  "patch": "@@ -70,8 +70,23 @@ public LegacyTargetPlatform(String _name, File _folder, TargetPackage parent)\n \n     // Load boards\n     try {\n-      Map<String, PreferencesMap> boardsPreferences = new PreferencesMap(\n-          boardsFile).firstLevelMap();\n+      PreferencesMap bPrefs = new PreferencesMap(\n+          boardsFile);\n+\n+      // Allow overriding values in boards.txt. This allows changing\n+      // boards.txt (e.g. to add user-specific items to a menu), without\n+      // having to modify boards.txt (which, when running from git,\n+      // prevents files being marked as changed).\n+      File localboardsFile = new File(folder, \"boards.local.txt\");\n+      try {\n+        if (localboardsFile.exists() && localboardsFile.canRead()) {\n+          bPrefs.load(localboardsFile);\n+        }\n+      } catch (IOException e) {\n+        throw new TargetPlatformException(\n+            format(tr(\"Error loading {0}\"), localboardsFile.getAbsolutePath()), e);\n+      }\n+      Map<String, PreferencesMap> boardsPreferences = bPrefs.firstLevelMap();\n \n       // Create custom menus for this platform\n       PreferencesMap menus = boardsPreferences.get(\"menu\");"
+ }
+]

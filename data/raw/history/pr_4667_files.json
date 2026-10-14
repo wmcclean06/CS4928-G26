@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "d82990458b580ce6ca4bca98a74bd908328b3d95",
+  "filename": "hardware/arduino/avr/cores/arduino/Print.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/95095874720d5b32391f188394baae352ee55962/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/95095874720d5b32391f188394baae352ee55962/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/hardware%2Farduino%2Favr%2Fcores%2Farduino%2FPrint.cpp?ref=95095874720d5b32391f188394baae352ee55962",
+  "patch": "@@ -257,7 +257,7 @@ size_t Print::printFloat(double number, uint8_t digits)\n   while (digits-- > 0)\n   {\n     remainder *= 10.0;\n-    int toPrint = int(remainder);\n+    unsigned toPrint = unsigned(remainder);\n     n += print(toPrint);\n     remainder -= toPrint; \n   } "
+ }
+]

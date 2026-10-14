@@ -1,0 +1,62 @@
+[
+ {
+  "sha": "77f06bf0e7037c33dd383bb023caf4a17fbfe73d",
+  "filename": "libraries/Audio/README.adoc",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d7c32eefa1e3678a80f655a07f23d1e3386a9ece/libraries%2FAudio%2FREADME.adoc",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d7c32eefa1e3678a80f655a07f23d1e3386a9ece/libraries%2FAudio%2FREADME.adoc",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FAudio%2FREADME.adoc?ref=d7c32eefa1e3678a80f655a07f23d1e3386a9ece",
+  "patch": "@@ -7,7 +7,7 @@ http://arduino.cc/en/Reference/Audio\n \n == License ==\n \n-Copyright (c) Arduino LLC. All right reserved.\n+Copyright (c) 2012 Arduino LLC. All right reserved.\n \n This library is free software; you can redistribute it and/or\n modify it under the terms of the GNU Lesser General Public"
+ },
+ {
+  "sha": "c6bf4ade038d3fe1e30797b9fe79d53cb0705c14",
+  "filename": "libraries/Audio/src/Audio.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d7c32eefa1e3678a80f655a07f23d1e3386a9ece/libraries%2FAudio%2Fsrc%2FAudio.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d7c32eefa1e3678a80f655a07f23d1e3386a9ece/libraries%2FAudio%2Fsrc%2FAudio.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FAudio%2Fsrc%2FAudio.cpp?ref=d7c32eefa1e3678a80f655a07f23d1e3386a9ece",
+  "patch": "@@ -1,5 +1,5 @@\n /*\n- * Copyright (c) 2012 by Cristian Maglie <c.maglie@arduino.cc>\n+ * Copyright (c) 2012 Arduino LLC. All right reserved.\n  * Audio library for Arduino Due.\n  *\n  * This file is free software; you can redistribute it and/or modify"
+ },
+ {
+  "sha": "670b03b6e0bba55c9aa540e3957554bc49e3f0c3",
+  "filename": "libraries/Audio/src/Audio.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d7c32eefa1e3678a80f655a07f23d1e3386a9ece/libraries%2FAudio%2Fsrc%2FAudio.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d7c32eefa1e3678a80f655a07f23d1e3386a9ece/libraries%2FAudio%2Fsrc%2FAudio.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FAudio%2Fsrc%2FAudio.h?ref=d7c32eefa1e3678a80f655a07f23d1e3386a9ece",
+  "patch": "@@ -1,5 +1,5 @@\n /*\n- * Copyright (c) 2012 by Cristian Maglie <c.maglie@arduino.cc>\n+ * Copyright (c) 2012 Arduino LLC. All right reserved.\n  * Audio library for Arduino Due.\n  *\n  * This file is free software; you can redistribute it and/or modify"
+ },
+ {
+  "sha": "719031292232d480a9e1b800ec3dc442e9082f69",
+  "filename": "libraries/Audio/src/DAC.cpp",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d7c32eefa1e3678a80f655a07f23d1e3386a9ece/libraries%2FAudio%2Fsrc%2FDAC.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d7c32eefa1e3678a80f655a07f23d1e3386a9ece/libraries%2FAudio%2Fsrc%2FDAC.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FAudio%2Fsrc%2FDAC.cpp?ref=d7c32eefa1e3678a80f655a07f23d1e3386a9ece",
+  "patch": "@@ -1,5 +1,5 @@\n /*\n- * Copyright (c) 2012 by Cristian Maglie <c.maglie@arduino.cc>\n+ * Copyright (c) 2012 Arduino LLC. All right reserved.\n  * DAC library for Arduino Due.\n  *\n  * This file is free software; you can redistribute it and/or modify"
+ },
+ {
+  "sha": "49ec30260441fcd62c44cc69d223b3ae4714d17c",
+  "filename": "libraries/Audio/src/DAC.h",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d7c32eefa1e3678a80f655a07f23d1e3386a9ece/libraries%2FAudio%2Fsrc%2FDAC.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d7c32eefa1e3678a80f655a07f23d1e3386a9ece/libraries%2FAudio%2Fsrc%2FDAC.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FAudio%2Fsrc%2FDAC.h?ref=d7c32eefa1e3678a80f655a07f23d1e3386a9ece",
+  "patch": "@@ -1,5 +1,5 @@\n /*\n- * Copyright (c) 2012 by Cristian Maglie <c.maglie@arduino.cc>\n+ * Copyright (c) 2012 Arduino LLC. All right reserved.\n  * DAC library for Arduino Due.\n  *\n  * This file is free software; you can redistribute it and/or modify"
+ }
+]

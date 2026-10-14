@@ -1,0 +1,19 @@
+{
+ "pr": 6041,
+ "base_sha": "a700af1b4dace9490b0e25718a9e99e05d8fae52",
+ "head_sha": "7714a41c0c97f7c22ef377ef12c0976944b45fc6",
+ "java_files": [
+  {
+   "path": "arduino-core/src/processing/app/Sketch.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 10,
+   "deletions": 1,
+   "old_sha": "fa6a38bf04182b0a6717546ed8dc47881f85eacb",
+   "new_sha": "6c417403ec9ef9f5566d2d120bc84003d6905d46",
+   "head_sha_check": "6c417403ec9ef9f5566d2d120bc84003d6905d46",
+   "loc_at_head": 323,
+   "notes": ""
+  }
+ ]
+}

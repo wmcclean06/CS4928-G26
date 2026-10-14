@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "88b18b0d2527454d60f558d2caa2d59ac747b87f",
+  "filename": "libraries/WiFi/src/WiFi.cpp",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1fb0f84c469805f6b002b2f143c1951dcea5e709/libraries%2FWiFi%2Fsrc%2FWiFi.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1fb0f84c469805f6b002b2f143c1951dcea5e709/libraries%2FWiFi%2Fsrc%2FWiFi.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FWiFi%2Fsrc%2FWiFi.cpp?ref=1fb0f84c469805f6b002b2f143c1951dcea5e709",
+  "patch": "@@ -32,8 +32,6 @@ uint16_t \tWiFiClass::_server_port[MAX_SOCK_NUM] = { 0, 0, 0, 0 };\n \n WiFiClass::WiFiClass()\n {\n-\t// Driver initialization\n-\tinit();\n }\n \n void WiFiClass::init()"
+ },
+ {
+  "sha": "2bf1bb715125f780980a809398e80972558fee7c",
+  "filename": "libraries/WiFi/src/utility/spi_drv.cpp",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1fb0f84c469805f6b002b2f143c1951dcea5e709/libraries%2FWiFi%2Fsrc%2Futility%2Fspi_drv.cpp",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1fb0f84c469805f6b002b2f143c1951dcea5e709/libraries%2FWiFi%2Fsrc%2Futility%2Fspi_drv.cpp",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FWiFi%2Fsrc%2Futility%2Fspi_drv.cpp?ref=1fb0f84c469805f6b002b2f143c1951dcea5e709",
+  "patch": "@@ -43,8 +43,8 @@ void SpiDrv::begin()\n \t  pinMode(SLAVEREADY, INPUT);\n \t  pinMode(WIFILED, OUTPUT);\n \n-\t  digitalWrite(SCK, LOW);\n-\t  digitalWrite(MOSI, LOW);\n+\t  // digitalWrite(SCK, LOW);\n+\t  // digitalWrite(MOSI, LOW);\n \t  digitalWrite(SS, HIGH);\n \t  digitalWrite(SLAVESELECT, HIGH);\n \t  digitalWrite(WIFILED, LOW);"
+ },
+ {
+  "sha": "ab8d97d66b9eaa296d8b6d05b57dcd9f3cbede1c",
+  "filename": "libraries/WiFi/src/utility/spi_drv.h",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 3,
+  "changes": 10,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1fb0f84c469805f6b002b2f143c1951dcea5e709/libraries%2FWiFi%2Fsrc%2Futility%2Fspi_drv.h",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1fb0f84c469805f6b002b2f143c1951dcea5e709/libraries%2FWiFi%2Fsrc%2Futility%2Fspi_drv.h",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/libraries%2FWiFi%2Fsrc%2Futility%2Fspi_drv.h?ref=1fb0f84c469805f6b002b2f143c1951dcea5e709",
+  "patch": "@@ -30,11 +30,15 @@\n \n #define DUMMY_DATA  0xFF\n \n-#define WAIT_FOR_SLAVE_SELECT()\t \\\n-\tSpiDrv::waitForSlaveReady(); \\\n+#define WAIT_FOR_SLAVE_SELECT()\t      \\\n+\tif (!initialized) {           \\\n+\t\tSpiDrv::begin();      \\\n+\t\tinitialized = true;   \\\n+\t}                             \\\n+\tSpiDrv::waitForSlaveReady();  \\\n \tSpiDrv::spiSlaveSelect();\n \n-\n+static bool initialized = false;\n \n class SpiDrv\n {"
+ }
+]

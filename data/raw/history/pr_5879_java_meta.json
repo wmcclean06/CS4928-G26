@@ -1,0 +1,67 @@
+{
+ "pr": 5879,
+ "base_sha": "934cac171ca4ec84a05df58ee170a6f48dcc73e3",
+ "head_sha": "b2241dadf8f7777564bc5595265caa53a1fec399",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/packages/discoverers/NetworkDiscovery.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 59,
+   "deletions": 91,
+   "old_sha": "e88568a1e425d96b60030ae901647131c58fe331",
+   "new_sha": "42d6ec78ce34b2da7f062b623598a6de0ecf308d",
+   "head_sha_check": "42d6ec78ce34b2da7f062b623598a6de0ecf308d",
+   "loc_at_head": 166,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/discoverers/network/BoardReachabilityFilter.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 6,
+   "deletions": 1,
+   "old_sha": "433142eb3b9e69a5660317bf535144ce7e544fee",
+   "new_sha": "c8fbc15579831093fd8f9180301f6012248e2150",
+   "head_sha_check": "c8fbc15579831093fd8f9180301f6012248e2150",
+   "loc_at_head": 73,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/discoverers/network/NetworkChecker.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 84,
+   "old_sha": "df58c220d0a8739d85d4cc8726fa04fbaa0fe48a",
+   "new_sha": "df58c220d0a8739d85d4cc8726fa04fbaa0fe48a",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/discoverers/network/NetworkTopologyListener.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 40,
+   "old_sha": "f963baa6c5bf994d48fcd0a51c4367290dbd48ea",
+   "new_sha": "f963baa6c5bf994d48fcd0a51c4367290dbd48ea",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  },
+  {
+   "path": "arduino-core/src/processing/app/zeroconf/jmdns/ArduinoDNSTaskStarter.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 94,
+   "old_sha": "dd08cb9e1749b992540fc2a41031a0d92b38d2fc",
+   "new_sha": "dd08cb9e1749b992540fc2a41031a0d92b38d2fc",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  }
+ ]
+}

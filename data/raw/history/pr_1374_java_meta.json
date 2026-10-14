@@ -1,0 +1,43 @@
+{
+ "pr": 1374,
+ "base_sha": "a138309ff6cba7daeea949d30124ce3526a1b541",
+ "head_sha": "f9135178d1ce2fa59b09f960247b6ea4236f53d9",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/EditorStatus.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 36,
+   "deletions": 0,
+   "old_sha": "57b7fba0ff333f72dc0b178eaaf99aceb8034065",
+   "new_sha": "fbcd3fdb16c6ca2da188599555b2953ca97c5cf7",
+   "head_sha_check": "fbcd3fdb16c6ca2da188599555b2953ca97c5cf7",
+   "loc_at_head": 442,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/syntax/JEditTextArea.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 34,
+   "deletions": 1,
+   "old_sha": "fae0698cc5c16aab9b4661be848efb894baea5a1",
+   "new_sha": "924eeb7a9e1c6785dd9680d8eafb99dd0bf1794a",
+   "head_sha_check": "924eeb7a9e1c6785dd9680d8eafb99dd0bf1794a",
+   "loc_at_head": 2062,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/tools/DiscourseFormat.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 0,
+   "old_sha": "097d7ee2cc3ba5947ff6f0894750d6c31064b499",
+   "new_sha": "5494a9ca3cbaf3efa6b2979682c66e650076dead",
+   "head_sha_check": "5494a9ca3cbaf3efa6b2979682c66e650076dead",
+   "loc_at_head": 215,
+   "notes": ""
+  }
+ ]
+}
