@@ -1,0 +1,25 @@
+{
+ "prNumber": "8621",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "Base.java",
+   "status": "MODIFIED",
+   "oldSha": "ef4d9b30a4e944f61bc3dc432371e3123d7da947",
+   "newSha": "2916884fda665004f0909413fe4449ebd837ecc9"
+  },
+  {
+   "fileName": "UploaderUtils.java",
+   "status": "MODIFIED",
+   "oldSha": "875f41d767682a0bd341f50b884aa126e73a4ee9",
+   "newSha": "ee1ab0c09819c7d63609a2c100594e3d78f51857"
+  },
+  {
+   "fileName": "PluggableDiscovery.java",
+   "status": "MODIFIED",
+   "oldSha": "3f7202fa6a92a62fef5c2be89b99a02c2c7dd438",
+   "newSha": "dd475b322835641c897961652f28d3f4647b3c48"
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "prNumber": "8640",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "AbstractTextMonitor.java",
+   "status": "MODIFIED",
+   "oldSha": "64a0928e55e76af272e5ca51d1695f48e8857c11",
+   "newSha": "4e950b36b04fd9a44cf9bcf181ec6523f56d8785"
+  },
+  {
+   "fileName": "SerialMonitor.java",
+   "status": "MODIFIED",
+   "oldSha": "d4f59019eaedfcf06b18309f19521853353e31b8",
+   "newSha": "bc66af2fd21f9e18548c2baa570099dd95085653"
+  }
+ ]
+}

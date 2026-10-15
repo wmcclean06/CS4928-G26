@@ -1,0 +1,35 @@
+{
+ "pr": 8621,
+ "files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.6348088531187123,
+   "bug_freq": 0.027777777777777776,
+   "history_pr_count": 36,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/UploaderUtils.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.4430379746835444,
+   "bug_freq": 0.3333333333333333,
+   "history_pr_count": 3,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/discoverers/PluggableDiscovery.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.1187739463601531,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  }
+ ]
+}

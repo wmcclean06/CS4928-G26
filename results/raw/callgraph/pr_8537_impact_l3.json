@@ -1,0 +1,339 @@
+{
+ "nodes": [
+  {
+   "className": "Base",
+   "functionName": "onIndexesUpdated",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-03b4d02c-903e-4229-9881-610c68409619.onIndexesUpdated()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "onIndexesUpdated()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "ContributionsSelfCheck",
+   "functionName": "goToManager",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.ContributionsSelfCheck.goToManager(String)",
+   "filePath": "app\\src\\cc\\arduino\\contributions\\ContributionsSelfCheck.java",
+   "simplifiedSignature": "goToManager(String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildMenuBar",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildMenuBar()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildMenuBar()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "openBoardsManager",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "openBoardsManager(String,String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "actionPerformed",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-02d2d8fc-320d-48d5-99c3-c7c187acf7c3.actionPerformed(ActionEvent)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "actionPerformed(ActionEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildSketchMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildSketchMenu(JMenu)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildSketchMenu(JMenu)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "actionPerformed",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-eb6137e0-eea0-4120-bbb9-9b09c9a145e2.actionPerformed(ActionEvent)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "actionPerformed(ActionEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "UpdatableBoardsLibsFakeURLsHandler",
+   "functionName": "hyperlinkUpdate",
+   "packageName": "cc.arduino",
+   "functionSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.hyperlinkUpdate(HyperlinkEvent)",
+   "filePath": "app\\src\\cc\\arduino\\UpdatableBoardsLibsFakeURLsHandler.java",
+   "simplifiedSignature": "hyperlinkUpdate(HyperlinkEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "BuiltInCoreIsNewerCheck",
+   "functionName": "builtInPackageIsNewerCheck",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.BuiltInCoreIsNewerCheck.builtInPackageIsNewerCheck()",
+   "filePath": "app\\src\\cc\\arduino\\contributions\\BuiltInCoreIsNewerCheck.java",
+   "simplifiedSignature": "builtInPackageIsNewerCheck()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "openLibraryManager",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "openLibraryManager(String,String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "FilterJTextField",
+   "functionName": "applyFilter",
+   "packageName": "cc.arduino.contributions.ui",
+   "functionSignature": "cc.arduino.contributions.ui.FilterJTextField.applyFilter()",
+   "filePath": "app\\src\\cc\\arduino\\contributions\\ui\\FilterJTextField.java",
+   "simplifiedSignature": "applyFilter()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "BuiltInCoreIsNewerCheck",
+   "functionName": "run",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.BuiltInCoreIsNewerCheck.run()",
+   "filePath": "app\\src\\cc\\arduino\\contributions\\BuiltInCoreIsNewerCheck.java",
+   "simplifiedSignature": "run()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "onIndexesUpdated",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-ea721438-352f-4859-a079-c63a93656e98.onIndexesUpdated()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "onIndexesUpdated()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "InstallerJDialog",
+   "functionName": "setFilterText",
+   "packageName": "cc.arduino.contributions.ui",
+   "functionSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "filePath": "app\\src\\cc\\arduino\\contributions\\ui\\InstallerJDialog.java",
+   "simplifiedSignature": "setFilterText(String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "rebuildImportMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "rebuildImportMenu(JMenu)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "UpdatableBoardsLibsFakeURLsHandler",
+   "functionName": "openBoardLibManager",
+   "packageName": "cc.arduino",
+   "functionSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "filePath": "app\\src\\cc\\arduino\\UpdatableBoardsLibsFakeURLsHandler.java",
+   "simplifiedSignature": "openBoardLibManager(URL)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "EditorTab",
+   "functionName": "createTextArea",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.EditorTab.createTextArea(RSyntaxDocument)",
+   "filePath": "app\\src\\processing\\app\\EditorTab.java",
+   "simplifiedSignature": "createTextArea(RSyntaxDocument)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "createBoardMenusAndCustomMenus",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildToolsMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildToolsMenu()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildToolsMenu()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "endNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.hyperlinkUpdate(HyperlinkEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "endNodeSignature": "cc.arduino.contributions.ContributionsSelfCheck.goToManager(String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "endNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "endNodeSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "endNodeSignature": "processing.app.Base.Anonymous-03b4d02c-903e-4229-9881-610c68409619.onIndexesUpdated()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "endNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "endNodeSignature": "cc.arduino.contributions.BuiltInCoreIsNewerCheck.builtInPackageIsNewerCheck()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "endNodeSignature": "processing.app.EditorTab.createTextArea(RSyntaxDocument)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.Anonymous-eb6137e0-eea0-4120-bbb9-9b09c9a145e2.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "endNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "endNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.Anonymous-02d2d8fc-320d-48d5-99c3-c7c187acf7c3.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Editor.buildSketchMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.ui.FilterJTextField.applyFilter()",
+   "endNodeSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "impactLevel": 1
+  },
+  {
+   "startNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "endNodeSignature": "processing.app.Editor.buildToolsMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.BuiltInCoreIsNewerCheck.builtInPackageIsNewerCheck()",
+   "endNodeSignature": "cc.arduino.contributions.BuiltInCoreIsNewerCheck.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "endNodeSignature": "processing.app.Base.Anonymous-ea721438-352f-4859-a079-c63a93656e98.onIndexesUpdated()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.buildToolsMenu()",
+   "endNodeSignature": "processing.app.Editor.buildMenuBar()",
+   "impactLevel": 0
+  }
+ ]
+}

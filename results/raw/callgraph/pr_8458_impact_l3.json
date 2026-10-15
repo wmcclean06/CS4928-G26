@@ -1,0 +1,430 @@
+{
+ "nodes": [
+  {
+   "className": "Editor",
+   "functionName": "addLineHighlight",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.addLineHighlight(int)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "addLineHighlight(int)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Editor",
+   "functionName": "handleSerial",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.handleSerial()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "handleSerial()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "actionPerformed",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-eb6137e0-eea0-4120-bbb9-9b09c9a145e2.actionPerformed(ActionEvent)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "actionPerformed(ActionEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "handleNew",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.handleNew()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "handleNew()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildFileMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildFileMenu()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildFileMenu()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor.UploadHandler",
+   "functionName": "run",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.UploadHandler.run()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "run()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "handleAddLibrary",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.handleAddLibrary()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "handleAddLibrary()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "ThinkDifferent",
+   "functionName": "init",
+   "packageName": "processing.app.macosx",
+   "functionSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "filePath": "app\\src\\processing\\app\\macosx\\ThinkDifferent.java",
+   "simplifiedSignature": "init()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "resumeOrCloseSerialMonitor",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.resumeOrCloseSerialMonitor()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "resumeOrCloseSerialMonitor()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "statusError",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.statusError(Exception)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "statusError(Exception)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "selectSerialPort",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.selectSerialPort(String)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "selectSerialPort(String)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "EditorToolbar",
+   "functionName": "handleSelectionPressed",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.EditorToolbar.handleSelectionPressed(int,boolean,int,int)",
+   "filePath": "app\\src\\processing\\app\\EditorToolbar.java",
+   "simplifiedSignature": "handleSelectionPressed(int,boolean,int,int)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "ThinkDifferent",
+   "functionName": "appReOpened",
+   "packageName": "processing.app.macosx",
+   "functionSignature": "processing.app.macosx.ThinkDifferent.Anonymous-9f6e8469-f939-49d6-ad84-f91dfa628e06.appReOpened(AppReOpenedEvent)",
+   "filePath": "app\\src\\processing\\app\\macosx\\ThinkDifferent.java",
+   "simplifiedSignature": "appReOpened(AppReOpenedEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "run",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.Anonymous-520c107c-c6d9-4a6d-b4f0-ed5daf634301.run()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "run()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "handleSave2",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.handleSave2()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "handleSave2()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "rebuildImportMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "rebuildImportMenu(JMenu)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "resumeOrCloseSerialPlotter",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.resumeOrCloseSerialPlotter()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "resumeOrCloseSerialPlotter()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor.BuildHandler",
+   "functionName": "run",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.BuildHandler.run()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "run()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "handleSaveAs",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.handleSaveAs()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "handleSaveAs()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildToolsMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildToolsMenu()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildToolsMenu()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "handleSave",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.handleSave(boolean)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "handleSave(boolean)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "handlePlotter",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.handlePlotter()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "handlePlotter()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "processing.app.Editor.handleSerial()",
+   "endNodeSignature": "processing.app.Editor.resumeOrCloseSerialMonitor()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleAddLibrary()",
+   "endNodeSignature": "processing.app.Base.Anonymous-eb6137e0-eea0-4120-bbb9-9b09c9a145e2.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSaveAs()",
+   "endNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "endNodeSignature": "processing.app.Editor.resumeOrCloseSerialMonitor()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSaveAs()",
+   "endNodeSignature": "processing.app.Editor.handleSave(boolean)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "endNodeSignature": "processing.app.Editor.handlePlotter()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "endNodeSignature": "processing.app.Editor.handleSaveAs()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "endNodeSignature": "processing.app.Editor.UploadHandler.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.resumeOrCloseSerialMonitor()",
+   "endNodeSignature": "processing.app.Editor.UploadHandler.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleNew()",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleNew()",
+   "endNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "endNodeSignature": "processing.app.Editor.handleSave2()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSave2()",
+   "endNodeSignature": "processing.app.Editor.Anonymous-520c107c-c6d9-4a6d-b4f0-ed5daf634301.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "endNodeSignature": "processing.app.Editor.handleSerial()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handlePlotter()",
+   "endNodeSignature": "processing.app.EditorToolbar.handleSelectionPressed(int,boolean,int,int)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSave2()",
+   "endNodeSignature": "processing.app.Editor.handleSave(boolean)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.UploadHandler.run()",
+   "endNodeSignature": "processing.app.Editor.UploadHandler.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSerial()",
+   "endNodeSignature": "processing.app.EditorToolbar.handleSelectionPressed(int,boolean,int,int)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handlePlotter()",
+   "endNodeSignature": "processing.app.Editor.buildToolsMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.addLineHighlight(int)",
+   "endNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleNew()",
+   "endNodeSignature": "processing.app.EditorToolbar.handleSelectionPressed(int,boolean,int,int)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSaveAs()",
+   "endNodeSignature": "processing.app.EditorToolbar.handleSelectionPressed(int,boolean,int,int)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "endNodeSignature": "processing.app.Editor.BuildHandler.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "endNodeSignature": "processing.app.Base.handleAddLibrary()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handlePlotter()",
+   "endNodeSignature": "processing.app.Editor.resumeOrCloseSerialPlotter()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleNew()",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.Anonymous-9f6e8469-f939-49d6-ad84-f91dfa628e06.appReOpened(AppReOpenedEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleAddLibrary()",
+   "endNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.resumeOrCloseSerialPlotter()",
+   "endNodeSignature": "processing.app.Editor.UploadHandler.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSerial()",
+   "endNodeSignature": "processing.app.Editor.buildToolsMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSerial()",
+   "endNodeSignature": "processing.app.Editor.selectSerialPort(String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "endNodeSignature": "processing.app.Editor.resumeOrCloseSerialPlotter()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "endNodeSignature": "processing.app.Base.handleNew()",
+   "impactLevel": 0
+  }
+ ]
+}

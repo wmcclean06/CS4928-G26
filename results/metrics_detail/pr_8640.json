@@ -1,0 +1,25 @@
+{
+ "pr": 8640,
+ "files": [
+  {
+   "path": "app/src/processing/app/AbstractTextMonitor.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.6627906976744187,
+   "bug_freq": 0.2,
+   "history_pr_count": 5,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/SerialMonitor.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.6210526315789473,
+   "bug_freq": 0.0,
+   "history_pr_count": 2,
+   "highly_churned": false,
+   "highly_buggy": false
+  }
+ ]
+}

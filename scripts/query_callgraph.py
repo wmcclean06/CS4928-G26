@@ -11,6 +11,8 @@ step 1) and calls:
   POST /api/v1/callgraph/impact  level 3     -> impacted methods up to 3 levels
 Saved to results/raw/callgraph/pr_<n>_{request,pagerank,impact_l1,impact_l3}.json.
 Existing outputs are never overwritten (use a new run instead).
+If the server rejects a PR (HTTP error), its response is saved to pr_<n>_error.json
+and the script moves on; that PR is then reported as NOT SCORED by compute_metrics.
 
   python scripts/query_callgraph.py 8349            # one PR (the §3 pilot)
   python scripts/query_callgraph.py --all           # all 10 sample PRs (§4)
@@ -29,7 +31,6 @@ ROOT = Path(__file__).resolve().parent.parent
 SAMPLE = ROOT / "data" / "raw" / "sample"
 OUT = ROOT / "results" / "raw" / "callgraph"
 SERVER = "http://localhost:8080/api/v1/callgraph"
-STATUS = {"added": "ADDED", "removed": "REMOVED", "modified": "MODIFIED"}
 
 
 def post(endpoint, body):
@@ -44,12 +45,12 @@ def build_request(n):
     meta = json.loads((SAMPLE / f"pr_{n}_java_meta.json").read_text(encoding="utf-8"))
     files = []
     for f in meta["java_files"]:
-        if f["status"] not in STATUS:
-            sys.exit(f"PR #{n}: file {f['path']} has status '{f['status']}', which the "
-                     "server does not accept (ADDED/REMOVED/MODIFIED only). Stopping; record this.")
+        # Same as the bot (incremental_calculate_pagerank): GitHub status upper-cased and
+        # sent as-is. The server only accepts ADDED/REMOVED/MODIFIED, so a "renamed" file
+        # makes the server reject the request, exactly as it would for the bot.
         files.append({
             "fileName": os.path.basename(f["path"]),
-            "status": STATUS[f["status"]],
+            "status": f["status"].upper(),
             "oldSha": f["old_sha"] or "",
             "newSha": f["new_sha"] or "",
         })
@@ -59,6 +60,7 @@ def build_request(n):
 
 def run(n):
     targets = {k: OUT / f"pr_{n}_{k}.json" for k in ("request", "pagerank", "impact_l1", "impact_l3")}
+    targets["error"] = OUT / f"pr_{n}_error.json"
     existing = [p.name for p in targets.values() if p.exists()]
     if existing:
         print(f"PR #{n}: outputs already exist ({', '.join(existing)}); skipping, nothing overwritten")
@@ -68,7 +70,15 @@ def run(n):
     targets["request"].write_text(json.dumps(body, indent=1), encoding="utf-8")
     print(f"PR #{n}: {len(body['changedFilesWithSha'])} .java file(s)")
 
-    pagerank = post("pagerank", body)
+    try:
+        pagerank = post("pagerank", body)
+    except urllib.error.HTTPError as e:
+        err = {"endpoint": "pagerank", "http_status": e.code,
+               "response": e.read().decode("utf-8", "replace")}
+        (OUT / f"pr_{n}_error.json").write_text(json.dumps(err, indent=1), encoding="utf-8")
+        print(f"  server rejected the request (HTTP {e.code}); saved to pr_{n}_error.json. "
+              "PR not scored; continuing.")
+        return
     targets["pagerank"].write_text(json.dumps(pagerank), encoding="utf-8")
     print(f"  pagerank: {pagerank}")
     for level in (1, 3):

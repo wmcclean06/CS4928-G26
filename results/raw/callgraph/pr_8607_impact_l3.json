@@ -1,0 +1,1627 @@
+{
+ "nodes": [
+  {
+   "className": "BaseNoGui",
+   "functionName": "initPlatform",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.BaseNoGui.initPlatform()",
+   "filePath": "arduino-core\\src\\processing\\app\\BaseNoGui.java",
+   "simplifiedSignature": "initPlatform()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "SketchController",
+   "functionName": "handleRenameCode",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.handleRenameCode()",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "handleRenameCode()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "handleSerial",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.handleSerial()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "handleSerial()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "rebuildSketchbookMenus",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.rebuildSketchbookMenus()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "rebuildSketchbookMenus()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "addSketchesSubmenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.addSketchesSubmenu(JMenu,UserLibrary)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "addSketchesSubmenu(JMenu,UserLibrary)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "addEditorFontResizeListeners",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.addEditorFontResizeListeners(Component)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "addEditorFontResizeListeners(Component)",
+   "terminal": false,
+   "deleted": true,
+   "changed": true,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "addEditorFontResizeMouseWheelListener",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.addEditorFontResizeMouseWheelListener(Component)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "addEditorFontResizeMouseWheelListener(Component)",
+   "terminal": false,
+   "deleted": true,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "ThinkDifferent",
+   "functionName": "init",
+   "packageName": "processing.app.macosx",
+   "functionSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "filePath": "app\\src\\processing\\app\\macosx\\ThinkDifferent.java",
+   "simplifiedSignature": "init()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "JsonDownloaderTest",
+   "functionName": "testJsonDownload",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.JsonDownloaderTest.testJsonDownload()",
+   "filePath": "app\\test\\cc\\arduino\\contributions\\JsonDownloaderTest.java",
+   "simplifiedSignature": "testJsonDownload()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "GzippedJsonDownloaderTest",
+   "functionName": "testJsonDownload",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.GzippedJsonDownloaderTest.testJsonDownload()",
+   "filePath": "app\\test\\cc\\arduino\\contributions\\GzippedJsonDownloaderTest.java",
+   "simplifiedSignature": "testJsonDownload()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "createNewUntitled",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.createNewUntitled()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "createNewUntitled()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Sketch",
+   "functionName": "saveAs",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Sketch.saveAs(File)",
+   "filePath": "arduino-core\\src\\processing\\app\\Sketch.java",
+   "simplifiedSignature": "saveAs(File)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "retrieveSketchLocation",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.retrieveSketchLocation(String)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "retrieveSketchLocation(String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "SketchController",
+   "functionName": "build",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.build(boolean,boolean)",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "build(boolean,boolean)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "SketchController",
+   "functionName": "handleAddFile",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.handleAddFile()",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "handleAddFile()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "rebuildImportMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "rebuildImportMenu(JMenu)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "UpdatableBoardsLibsFakeURLsHandler",
+   "functionName": "openBoardLibManager",
+   "packageName": "cc.arduino",
+   "functionSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "filePath": "app\\src\\cc\\arduino\\UpdatableBoardsLibsFakeURLsHandler.java",
+   "simplifiedSignature": "openBoardLibManager(URL)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "createBoardMenusAndCustomMenus",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": true
+  },
+  {
+   "className": "BaseNoGui",
+   "functionName": "onBoardOrPortChange",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.BaseNoGui.onBoardOrPortChange()",
+   "filePath": "arduino-core\\src\\processing\\app\\BaseNoGui.java",
+   "simplifiedSignature": "onBoardOrPortChange()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "BaseNoGui",
+   "functionName": "saveFile",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.BaseNoGui.saveFile(String,File)",
+   "filePath": "arduino-core\\src\\processing\\app\\BaseNoGui.java",
+   "simplifiedSignature": "saveFile(String,File)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Editor",
+   "functionName": "serialPrompt",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.serialPrompt()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "serialPrompt()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "handleClose",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.handleClose(Editor)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "handleClose(Editor)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "ContributionsSelfCheck",
+   "functionName": "goToManager",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.ContributionsSelfCheck.goToManager(String)",
+   "filePath": "app\\src\\cc\\arduino\\contributions\\ContributionsSelfCheck.java",
+   "simplifiedSignature": "goToManager(String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "openBoardsManager",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "openBoardsManager(String,String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "actionPerformed",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-02d2d8fc-320d-48d5-99c3-c7c187acf7c3.actionPerformed(ActionEvent)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "actionPerformed(ActionEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildSketchMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildSketchMenu(JMenu)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildSketchMenu(JMenu)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "UpdatableBoardsLibsFakeURLsHandler",
+   "functionName": "hyperlinkUpdate",
+   "packageName": "cc.arduino",
+   "functionSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.hyperlinkUpdate(HyperlinkEvent)",
+   "filePath": "app\\src\\cc\\arduino\\UpdatableBoardsLibsFakeURLsHandler.java",
+   "simplifiedSignature": "hyperlinkUpdate(HyperlinkEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "handleNew",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.handleNew()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "handleNew()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildFileMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildFileMenu()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildFileMenu()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor.UploadHandler",
+   "functionName": "run",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.UploadHandler.run()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "run()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "windowClosing",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.Anonymous-30c3f047-d051-42ae-b9bd-f449a8e9bd12.windowClosing(WindowEvent)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "windowClosing(WindowEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "SketchController",
+   "functionName": "handleNewCode",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.handleNewCode()",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "handleNewCode()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "CommandlineParser",
+   "functionName": "parseArgumentsPhase2",
+   "packageName": "processing.app.helpers",
+   "functionSignature": "processing.app.helpers.CommandlineParser.parseArgumentsPhase2()",
+   "filePath": "arduino-core\\src\\processing\\app\\helpers\\CommandlineParser.java",
+   "simplifiedSignature": "parseArgumentsPhase2()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "onIndexesUpdated",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-ea721438-352f-4859-a079-c63a93656e98.onIndexesUpdated()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "onIndexesUpdated()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Preferences",
+   "functionName": "savePreferencesData",
+   "packageName": "cc.arduino.view.preferences",
+   "functionSignature": "cc.arduino.view.preferences.Preferences.savePreferencesData()",
+   "filePath": "app\\src\\cc\\arduino\\view\\preferences\\Preferences.java",
+   "simplifiedSignature": "savePreferencesData()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "SketchController",
+   "functionName": "ensureExistence",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.ensureExistence()",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "ensureExistence()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "getPlatformUniqueId",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.getPlatformUniqueId(TargetPlatform)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "getPlatformUniqueId(TargetPlatform)",
+   "terminal": false,
+   "deleted": true,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "ThinkDifferent",
+   "functionName": "handleQuitRequestWith",
+   "packageName": "processing.app.macosx",
+   "functionSignature": "processing.app.macosx.ThinkDifferent.Anonymous-a4872e42-9916-4f0b-a376-8e95762e3a54.handleQuitRequestWith(QuitEvent,QuitResponse)",
+   "filePath": "app\\src\\processing\\app\\macosx\\ThinkDifferent.java",
+   "simplifiedSignature": "handleQuitRequestWith(QuitEvent,QuitResponse)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "run",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-3c505c48-0404-403b-9f85-6c2ece04e0a3.run()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "run()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "saveFile",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.saveFile(String,File)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "saveFile(String,File)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "SketchController",
+   "functionName": "save",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.save()",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "save()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "onBoardOrPortChange",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.onBoardOrPortChange()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "onBoardOrPortChange()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Sketch",
+   "functionName": "save",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Sketch.save()",
+   "filePath": "arduino-core\\src\\processing\\app\\Sketch.java",
+   "simplifiedSignature": "save()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "BaseNoGui",
+   "functionName": "initPackages",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.BaseNoGui.initPackages()",
+   "filePath": "arduino-core\\src\\processing\\app\\BaseNoGui.java",
+   "simplifiedSignature": "initPackages()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildMenuBar",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildMenuBar()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildMenuBar()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "rebuildToolbarMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.rebuildToolbarMenu(JMenu)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "rebuildToolbarMenu(JMenu)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "filterVisibilityOfSubsequentBoardMenus",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.filterVisibilityOfSubsequentBoardMenus(List<JMenu>,TargetBoard,int)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "filterVisibilityOfSubsequentBoardMenus(List<JMenu>,TargetBoard,int)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Base",
+   "functionName": "actionPerformed",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-eb6137e0-eea0-4120-bbb9-9b09c9a145e2.actionPerformed(ActionEvent)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "actionPerformed(ActionEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "BuiltInCoreIsNewerCheck",
+   "functionName": "builtInPackageIsNewerCheck",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.BuiltInCoreIsNewerCheck.builtInPackageIsNewerCheck()",
+   "filePath": "app\\src\\cc\\arduino\\contributions\\BuiltInCoreIsNewerCheck.java",
+   "simplifiedSignature": "builtInPackageIsNewerCheck()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "rebuildProgrammerMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.rebuildProgrammerMenu()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "rebuildProgrammerMenu()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": true
+  },
+  {
+   "className": "SketchFile",
+   "functionName": "saveAs",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchFile.saveAs(File)",
+   "filePath": "arduino-core\\src\\processing\\app\\SketchFile.java",
+   "simplifiedSignature": "saveAs(File)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "ThinkDifferent",
+   "functionName": "openFiles",
+   "packageName": "processing.app.macosx",
+   "functionSignature": "processing.app.macosx.ThinkDifferent.Anonymous-ff06a9f3-5c04-47ec-8d69-2835f7f85e29.openFiles(OpenFilesEvent)",
+   "filePath": "app\\src\\processing\\app\\macosx\\ThinkDifferent.java",
+   "simplifiedSignature": "openFiles(OpenFilesEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "EditorToolbar",
+   "functionName": "handleSelectionPressed",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.EditorToolbar.handleSelectionPressed(int,boolean,int,int)",
+   "filePath": "app\\src\\processing\\app\\EditorToolbar.java",
+   "simplifiedSignature": "handleSelectionPressed(int,boolean,int,int)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "ThinkDifferent",
+   "functionName": "appReOpened",
+   "packageName": "processing.app.macosx",
+   "functionSignature": "processing.app.macosx.ThinkDifferent.Anonymous-9f6e8469-f939-49d6-ad84-f91dfa628e06.appReOpened(AppReOpenedEvent)",
+   "filePath": "app\\src\\processing\\app\\macosx\\ThinkDifferent.java",
+   "simplifiedSignature": "appReOpened(AppReOpenedEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "CommandlineParser",
+   "functionName": "processBoardArgument",
+   "packageName": "processing.app.helpers",
+   "functionSignature": "processing.app.helpers.CommandlineParser.processBoardArgument(String)",
+   "filePath": "arduino-core\\src\\processing\\app\\helpers\\CommandlineParser.java",
+   "simplifiedSignature": "processBoardArgument(String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "rebuildExamplesMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.rebuildExamplesMenu(JMenu)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "rebuildExamplesMenu(JMenu)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "handleQuit",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.handleQuit()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "handleQuit()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Base",
+   "functionName": "isMacOsAboutMenuItemPresent",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.isMacOsAboutMenuItemPresent()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "isMacOsAboutMenuItemPresent()",
+   "terminal": false,
+   "deleted": true,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "EditorTab",
+   "functionName": "createTextArea",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.EditorTab.createTextArea(RSyntaxDocument)",
+   "filePath": "app\\src\\processing\\app\\EditorTab.java",
+   "simplifiedSignature": "createTextArea(RSyntaxDocument)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "main",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.main(String[])",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "main(String[])",
+   "terminal": true,
+   "deleted": false,
+   "changed": true,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "rebuildSketchbookMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.rebuildSketchbookMenu(JMenu)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "rebuildSketchbookMenu(JMenu)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "SketchController",
+   "functionName": "importLibrary",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.importLibrary(UserLibrary)",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "importLibrary(UserLibrary)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "rebuildBoardsMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.rebuildBoardsMenu()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "rebuildBoardsMenu()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "onIndexesUpdated",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-03b4d02c-903e-4229-9881-610c68409619.onIndexesUpdated()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "onIndexesUpdated()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "EditorToolbar",
+   "functionName": "mousePressed",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.EditorToolbar.mousePressed(MouseEvent)",
+   "filePath": "app\\src\\processing\\app\\EditorToolbar.java",
+   "simplifiedSignature": "mousePressed(MouseEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "addSketches",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.addSketches(JMenu,File)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "addSketches(JMenu,File)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": true
+  },
+  {
+   "className": "SketchController",
+   "functionName": "saveAs",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.saveAs()",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "saveAs()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "addProgrammersForPlatform",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.addProgrammersForPlatform(TargetPlatform,List<JMenuItem>,ButtonGroup)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "addProgrammersForPlatform(TargetPlatform,List<JMenuItem>,ButtonGroup)",
+   "terminal": false,
+   "deleted": true,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Base",
+   "functionName": "openLibraryManager",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "openLibraryManager(String,String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "addEditorFontResizeKeyListener",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.addEditorFontResizeKeyListener(Component)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "addEditorFontResizeKeyListener(Component)",
+   "terminal": false,
+   "deleted": true,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Editor",
+   "functionName": "resumeOrCloseSerialMonitor",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.resumeOrCloseSerialMonitor()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "resumeOrCloseSerialMonitor()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "addSketchesSubmenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.addSketchesSubmenu(JMenu,String,File)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "addSketchesSubmenu(JMenu,String,File)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "actionPerformed",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-106647be-b312-4c38-a91c-fb15200a9eda.actionPerformed(ActionEvent)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "actionPerformed(ActionEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "BuiltInCoreIsNewerCheck",
+   "functionName": "run",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.BuiltInCoreIsNewerCheck.run()",
+   "filePath": "app\\src\\cc\\arduino\\contributions\\BuiltInCoreIsNewerCheck.java",
+   "simplifiedSignature": "run()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "SketchController",
+   "functionName": "nameCode",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.nameCode(String)",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "nameCode(String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "selectSerialPort",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.selectSerialPort(String)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "selectSerialPort(String)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "restoreSketches",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.restoreSketches()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "restoreSketches()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "AbstractWithPreferencesTest",
+   "functionName": "init",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.AbstractWithPreferencesTest.init()",
+   "filePath": "app\\test\\processing\\app\\AbstractWithPreferencesTest.java",
+   "simplifiedSignature": "init()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildToolsMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildToolsMenu()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildToolsMenu()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "SketchFile",
+   "functionName": "save",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchFile.save()",
+   "filePath": "arduino-core\\src\\processing\\app\\SketchFile.java",
+   "simplifiedSignature": "save()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "SketchController",
+   "functionName": "handleDeleteCode",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.handleDeleteCode()",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "handleDeleteCode()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "EditorToolbar",
+   "functionName": "handleSelectionPressed",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.EditorToolbar.handleSelectionPressed(int)",
+   "filePath": "app\\src\\processing\\app\\EditorToolbar.java",
+   "simplifiedSignature": "handleSelectionPressed(int)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "BaseNoGui",
+   "functionName": "selectBoard",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.BaseNoGui.selectBoard(TargetBoard)",
+   "filePath": "arduino-core\\src\\processing\\app\\BaseNoGui.java",
+   "simplifiedSignature": "selectBoard(TargetBoard)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.selectBoard(TargetBoard)",
+   "endNodeSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "impactLevel": 2
+  },
+  {
+   "startNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "endNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.hyperlinkUpdate(HyperlinkEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.EditorToolbar.handleSelectionPressed(int,boolean,int,int)",
+   "endNodeSignature": "processing.app.EditorToolbar.mousePressed(MouseEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.SketchFile.save()",
+   "endNodeSignature": "processing.app.SketchController.ensureExistence()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.SketchController.ensureExistence()",
+   "endNodeSignature": "processing.app.SketchController.handleAddFile()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.filterVisibilityOfSubsequentBoardMenus(List<JMenu>,TargetBoard,int)",
+   "endNodeSignature": "processing.app.Base.Anonymous-02d2d8fc-320d-48d5-99c3-c7c187acf7c3.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "endNodeSignature": "cc.arduino.contributions.ContributionsSelfCheck.goToManager(String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.saveFile(String,File)",
+   "endNodeSignature": "processing.app.SketchFile.save()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildSketchbookMenus()",
+   "endNodeSignature": "processing.app.SketchController.saveAs()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addProgrammersForPlatform(TargetPlatform,List<JMenuItem>,ButtonGroup)",
+   "endNodeSignature": "processing.app.Base.rebuildProgrammerMenu()",
+   "impactLevel": 2
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildToolbarMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.Anonymous-3c505c48-0404-403b-9f85-6c2ece04e0a3.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.SketchController.ensureExistence()",
+   "endNodeSignature": "processing.app.SketchController.importLibrary(UserLibrary)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.UploadHandler.run()",
+   "endNodeSignature": "processing.app.Editor.UploadHandler.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.SketchController.ensureExistence()",
+   "endNodeSignature": "processing.app.SketchController.handleRenameCode()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildProgrammerMenu()",
+   "endNodeSignature": "processing.app.Base.Anonymous-ea721438-352f-4859-a079-c63a93656e98.onIndexesUpdated()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.getPlatformUniqueId(TargetPlatform)",
+   "endNodeSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "impactLevel": 2
+  },
+  {
+   "startNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "endNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildProgrammerMenu()",
+   "endNodeSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addEditorFontResizeListeners(Component)",
+   "endNodeSignature": "processing.app.Editor.handleSerial()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "endNodeSignature": "processing.app.Base.main(String[])",
+   "impactLevel": 1
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addSketchesSubmenu(JMenu,String,File)",
+   "endNodeSignature": "processing.app.Base.addSketchesSubmenu(JMenu,UserLibrary)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildExamplesMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.SketchFile.save()",
+   "endNodeSignature": "processing.app.Sketch.save()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Editor.selectSerialPort(String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.initPackages()",
+   "endNodeSignature": "processing.app.Base.Anonymous-ea721438-352f-4859-a079-c63a93656e98.onIndexesUpdated()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "impactLevel": 2
+  },
+  {
+   "startNodeSignature": "processing.app.SketchController.ensureExistence()",
+   "endNodeSignature": "processing.app.SketchController.nameCode(String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.getPlatformUniqueId(TargetPlatform)",
+   "endNodeSignature": "processing.app.Base.rebuildBoardsMenu()",
+   "impactLevel": 2
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildExamplesMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.Anonymous-eb6137e0-eea0-4120-bbb9-9b09c9a145e2.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildBoardsMenu()",
+   "endNodeSignature": "processing.app.Base.Anonymous-ea721438-352f-4859-a079-c63a93656e98.onIndexesUpdated()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.initPlatform()",
+   "endNodeSignature": "cc.arduino.contributions.GzippedJsonDownloaderTest.testJsonDownload()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "endNodeSignature": "processing.app.EditorTab.createTextArea(RSyntaxDocument)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.selectBoard(TargetBoard)",
+   "endNodeSignature": "processing.app.helpers.CommandlineParser.processBoardArgument(String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Base.Anonymous-106647be-b312-4c38-a91c-fb15200a9eda.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.createNewUntitled()",
+   "endNodeSignature": "processing.app.Base.handleNew()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addSketches(JMenu,File)",
+   "endNodeSignature": "processing.app.Base.addSketchesSubmenu(JMenu,String,File)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildSketchbookMenus()",
+   "endNodeSignature": "cc.arduino.view.preferences.Preferences.savePreferencesData()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Base.Anonymous-eb6137e0-eea0-4120-bbb9-9b09c9a145e2.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.helpers.CommandlineParser.processBoardArgument(String)",
+   "endNodeSignature": "processing.app.helpers.CommandlineParser.parseArgumentsPhase2()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Base.Anonymous-03b4d02c-903e-4229-9881-610c68409619.onIndexesUpdated()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.saveFile(String,File)",
+   "endNodeSignature": "processing.app.Base.saveFile(String,File)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildExamplesMenu(JMenu)",
+   "endNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.serialPrompt()",
+   "endNodeSignature": "processing.app.Editor.UploadHandler.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addEditorFontResizeMouseWheelListener(Component)",
+   "endNodeSignature": "processing.app.Base.addEditorFontResizeListeners(Component)",
+   "impactLevel": 3
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleQuit()",
+   "endNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleQuit()",
+   "endNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.selectBoard(TargetBoard)",
+   "endNodeSignature": "processing.app.Base.Anonymous-02d2d8fc-320d-48d5-99c3-c7c187acf7c3.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Sketch.saveAs(File)",
+   "endNodeSignature": "processing.app.SketchController.saveAs()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildSketchbookMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.Anonymous-3c505c48-0404-403b-9f85-6c2ece04e0a3.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleNew()",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.Anonymous-9f6e8469-f939-49d6-ad84-f91dfa628e06.appReOpened(AppReOpenedEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.SketchController.ensureExistence()",
+   "endNodeSignature": "processing.app.SketchController.build(boolean,boolean)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildProgrammerMenu()",
+   "endNodeSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "impactLevel": 2
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildBoardsMenu()",
+   "endNodeSignature": "processing.app.Base.Anonymous-03b4d02c-903e-4229-9881-610c68409619.onIndexesUpdated()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleQuit()",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.Anonymous-a4872e42-9916-4f0b-a376-8e95762e3a54.handleQuitRequestWith(QuitEvent,QuitResponse)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "endNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "endNodeSignature": "processing.app.Editor.Anonymous-30c3f047-d051-42ae-b9bd-f449a8e9bd12.windowClosing(WindowEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildSketchbookMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.rebuildSketchbookMenus()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.initPackages()",
+   "endNodeSignature": "processing.app.Base.Anonymous-03b4d02c-903e-4229-9881-610c68409619.onIndexesUpdated()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSerial()",
+   "endNodeSignature": "processing.app.Editor.resumeOrCloseSerialMonitor()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.initPlatform()",
+   "endNodeSignature": "processing.app.AbstractWithPreferencesTest.init()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "endNodeSignature": "processing.app.Base.rebuildBoardsMenu()",
+   "impactLevel": 2
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildSketchbookMenus()",
+   "endNodeSignature": "processing.app.SketchController.nameCode(String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addSketches(JMenu,File)",
+   "endNodeSignature": "processing.app.Base.rebuildToolbarMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildProgrammerMenu()",
+   "endNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.initPackages()",
+   "endNodeSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addSketches(JMenu,File)",
+   "endNodeSignature": "processing.app.Base.rebuildSketchbookMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleNew()",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildExamplesMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "impactLevel": 2
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildBoardsMenu()",
+   "endNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.BuiltInCoreIsNewerCheck.builtInPackageIsNewerCheck()",
+   "endNodeSignature": "cc.arduino.contributions.BuiltInCoreIsNewerCheck.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.isMacOsAboutMenuItemPresent()",
+   "endNodeSignature": "processing.app.Base.main(String[])",
+   "impactLevel": 1
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildExamplesMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSerial()",
+   "endNodeSignature": "processing.app.EditorToolbar.handleSelectionPressed(int,boolean,int,int)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "endNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleNew()",
+   "endNodeSignature": "processing.app.EditorToolbar.handleSelectionPressed(int,boolean,int,int)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.Anonymous-eb6137e0-eea0-4120-bbb9-9b09c9a145e2.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.SketchController.ensureExistence()",
+   "endNodeSignature": "processing.app.SketchController.handleDeleteCode()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.EditorToolbar.handleSelectionPressed(int,boolean,int,int)",
+   "endNodeSignature": "processing.app.EditorToolbar.handleSelectionPressed(int)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addSketches(JMenu,File)",
+   "endNodeSignature": "processing.app.Base.rebuildExamplesMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildBoardsMenu()",
+   "endNodeSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildProgrammerMenu()",
+   "endNodeSignature": "processing.app.Base.Anonymous-02d2d8fc-320d-48d5-99c3-c7c187acf7c3.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Base.Anonymous-02d2d8fc-320d-48d5-99c3-c7c187acf7c3.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "endNodeSignature": "processing.app.SketchController.handleDeleteCode()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.buildToolsMenu()",
+   "endNodeSignature": "processing.app.Editor.buildMenuBar()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.saveFile(String,File)",
+   "endNodeSignature": "processing.app.SketchFile.saveAs(File)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.initPackages()",
+   "endNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.retrieveSketchLocation(String)",
+   "endNodeSignature": "processing.app.Base.restoreSketches()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildToolbarMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.rebuildSketchbookMenus()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "endNodeSignature": "cc.arduino.contributions.BuiltInCoreIsNewerCheck.builtInPackageIsNewerCheck()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.resumeOrCloseSerialMonitor()",
+   "endNodeSignature": "processing.app.Editor.UploadHandler.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildSketchbookMenu(JMenu)",
+   "endNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.initPlatform()",
+   "endNodeSignature": "cc.arduino.contributions.JsonDownloaderTest.testJsonDownload()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addSketchesSubmenu(JMenu,String,File)",
+   "endNodeSignature": "processing.app.Base.addSketches(JMenu,File)",
+   "impactLevel": 2
+  },
+  {
+   "startNodeSignature": "processing.app.SketchFile.saveAs(File)",
+   "endNodeSignature": "processing.app.Sketch.saveAs(File)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleNew()",
+   "endNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildProgrammerMenu()",
+   "endNodeSignature": "processing.app.Editor.buildToolsMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildProgrammerMenu()",
+   "endNodeSignature": "processing.app.Base.Anonymous-03b4d02c-903e-4229-9881-610c68409619.onIndexesUpdated()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addSketchesSubmenu(JMenu,UserLibrary)",
+   "endNodeSignature": "processing.app.Base.rebuildExamplesMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Editor.UploadHandler.run()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "endNodeSignature": "processing.app.Editor.buildToolsMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.helpers.CommandlineParser.processBoardArgument(String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleQuit()",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "endNodeSignature": "processing.app.Editor.buildMenuBar()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.SketchController.ensureExistence()",
+   "endNodeSignature": "processing.app.SketchController.save()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.Anonymous-ff06a9f3-5c04-47ec-8d69-2835f7f85e29.openFiles(OpenFilesEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "endNodeSignature": "cc.arduino.UpdatableBoardsLibsFakeURLsHandler.openBoardLibManager(URL)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.filterVisibilityOfSubsequentBoardMenus(List<JMenu>,TargetBoard,int)",
+   "endNodeSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "impactLevel": 2
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildExamplesMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.Anonymous-02d2d8fc-320d-48d5-99c3-c7c187acf7c3.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.addEditorFontResizeKeyListener(Component)",
+   "endNodeSignature": "processing.app.Base.addEditorFontResizeListeners(Component)",
+   "impactLevel": 3
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Base.Anonymous-02d2d8fc-320d-48d5-99c3-c7c187acf7c3.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Sketch.save()",
+   "endNodeSignature": "processing.app.SketchController.save()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.rebuildImportMenu(JMenu)",
+   "endNodeSignature": "processing.app.Editor.buildSketchMenu(JMenu)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSerial()",
+   "endNodeSignature": "processing.app.Editor.buildToolsMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Editor.serialPrompt()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.BaseNoGui.initPackages()",
+   "endNodeSignature": "processing.app.AbstractWithPreferencesTest.init()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.SketchController.ensureExistence()",
+   "endNodeSignature": "processing.app.SketchController.handleNewCode()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.handleSerial()",
+   "endNodeSignature": "processing.app.Editor.selectSerialPort(String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.onBoardOrPortChange()",
+   "endNodeSignature": "processing.app.Base.createBoardMenusAndCustomMenus(List<JMenu>,List<JMenuItem>,Map<String, ButtonGroup>,TargetBoard,TargetPlatform,TargetPackage)",
+   "impactLevel": 2
+  }
+ ]
+}

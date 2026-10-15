@@ -1,0 +1,25 @@
+{
+ "pr": 8647,
+ "files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.6348088531187123,
+   "bug_freq": 0.027777777777777776,
+   "history_pr_count": 36,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/UIHelper.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  }
+ ]
+}

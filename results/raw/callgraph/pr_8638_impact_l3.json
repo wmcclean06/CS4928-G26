@@ -1,0 +1,69 @@
+{
+ "nodes": [
+  {
+   "className": "Preferences",
+   "functionName": "savePreferencesData",
+   "packageName": "cc.arduino.view.preferences",
+   "functionSignature": "cc.arduino.view.preferences.Preferences.savePreferencesData()",
+   "filePath": "app\\src\\cc\\arduino\\view\\preferences\\Preferences.java",
+   "simplifiedSignature": "savePreferencesData()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Preferences",
+   "functionName": "okButtonActionPerformed",
+   "packageName": "cc.arduino.view.preferences",
+   "functionSignature": "cc.arduino.view.preferences.Preferences.okButtonActionPerformed(ActionEvent)",
+   "filePath": "app\\src\\cc\\arduino\\view\\preferences\\Preferences.java",
+   "simplifiedSignature": "okButtonActionPerformed(ActionEvent)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Preferences",
+   "functionName": "actionPerformed",
+   "packageName": "cc.arduino.view.preferences",
+   "functionSignature": "cc.arduino.view.preferences.Preferences.Anonymous-b92b30a7-4262-4f99-843a-714b1b9d2727.actionPerformed(ActionEvent)",
+   "filePath": "app\\src\\cc\\arduino\\view\\preferences\\Preferences.java",
+   "simplifiedSignature": "actionPerformed(ActionEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Preferences",
+   "functionName": "initComponents",
+   "packageName": "cc.arduino.view.preferences",
+   "functionSignature": "cc.arduino.view.preferences.Preferences.initComponents()",
+   "filePath": "app\\src\\cc\\arduino\\view\\preferences\\Preferences.java",
+   "simplifiedSignature": "initComponents()",
+   "terminal": true,
+   "deleted": false,
+   "changed": true,
+   "affected": true
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "cc.arduino.view.preferences.Preferences.savePreferencesData()",
+   "endNodeSignature": "cc.arduino.view.preferences.Preferences.okButtonActionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.view.preferences.Preferences.okButtonActionPerformed(ActionEvent)",
+   "endNodeSignature": "cc.arduino.view.preferences.Preferences.Anonymous-b92b30a7-4262-4f99-843a-714b1b9d2727.actionPerformed(ActionEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.view.preferences.Preferences.okButtonActionPerformed(ActionEvent)",
+   "endNodeSignature": "cc.arduino.view.preferences.Preferences.initComponents()",
+   "impactLevel": 2
+  }
+ ]
+}

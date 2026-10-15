@@ -1,0 +1,5 @@
+{
+ "endpoint": "pagerank",
+ "http_status": 400,
+ "response": "{\"timestamp\":\"2026-10-15T16:34:51.562+00:00\",\"status\":400,\"error\":\"Bad Request\",\"path\":\"/api/v1/callgraph/pagerank\"}"
+}

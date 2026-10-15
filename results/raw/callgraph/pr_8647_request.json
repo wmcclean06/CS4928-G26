@@ -1,0 +1,19 @@
+{
+ "prNumber": "8647",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "Base.java",
+   "status": "MODIFIED",
+   "oldSha": "62ebfc2acafcbf3b9aec0031cb4ec26092833396",
+   "newSha": "02802c4cd7ac6e680e2852019c20fdf81859ecbb"
+  },
+  {
+   "fileName": "UIHelper.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "1763a4e1ed20fe366f62456e1946386d9b525df8"
+  }
+ ]
+}

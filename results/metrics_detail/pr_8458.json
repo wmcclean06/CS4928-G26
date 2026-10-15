@@ -1,0 +1,15 @@
+{
+ "pr": 8458,
+ "files": [
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.7173015144561725,
+   "bug_freq": 0.11764705882352941,
+   "history_pr_count": 34,
+   "highly_churned": false,
+   "highly_buggy": false
+  }
+ ]
+}

@@ -1,0 +1,115 @@
+{
+ "nodes": [
+  {
+   "className": "Base",
+   "functionName": "handleClose",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.handleClose(Editor)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "handleClose(Editor)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "ThinkDifferent",
+   "functionName": "handleQuitRequestWith",
+   "packageName": "processing.app.macosx",
+   "functionSignature": "processing.app.macosx.ThinkDifferent.Anonymous-a4872e42-9916-4f0b-a376-8e95762e3a54.handleQuitRequestWith(QuitEvent,QuitResponse)",
+   "filePath": "app\\src\\processing\\app\\macosx\\ThinkDifferent.java",
+   "simplifiedSignature": "handleQuitRequestWith(QuitEvent,QuitResponse)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "PluggableDiscovery",
+   "functionName": "processJsonNode",
+   "packageName": "cc.arduino.packages.discoverers",
+   "functionSignature": "cc.arduino.packages.discoverers.PluggableDiscovery.processJsonNode(ObjectMapper,JsonNode)",
+   "filePath": "arduino-core\\src\\cc\\arduino\\packages\\discoverers\\PluggableDiscovery.java",
+   "simplifiedSignature": "processJsonNode(ObjectMapper,JsonNode)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "handleQuit",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.handleQuit()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "handleQuit()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildFileMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildFileMenu()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildFileMenu()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "ThinkDifferent",
+   "functionName": "init",
+   "packageName": "processing.app.macosx",
+   "functionSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "filePath": "app\\src\\processing\\app\\macosx\\ThinkDifferent.java",
+   "simplifiedSignature": "init()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "PluggableDiscovery",
+   "functionName": "startPolling",
+   "packageName": "cc.arduino.packages.discoverers",
+   "functionSignature": "cc.arduino.packages.discoverers.PluggableDiscovery.startPolling()",
+   "filePath": "arduino-core\\src\\cc\\arduino\\packages\\discoverers\\PluggableDiscovery.java",
+   "simplifiedSignature": "startPolling()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "cc.arduino.packages.discoverers.PluggableDiscovery.startPolling()",
+   "endNodeSignature": "cc.arduino.packages.discoverers.PluggableDiscovery.processJsonNode(ObjectMapper,JsonNode)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleQuit()",
+   "endNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleQuit()",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.Anonymous-a4872e42-9916-4f0b-a376-8e95762e3a54.handleQuitRequestWith(QuitEvent,QuitResponse)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleQuit()",
+   "endNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleQuit()",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "impactLevel": 0
+  }
+ ]
+}

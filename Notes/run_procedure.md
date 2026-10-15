@@ -53,6 +53,7 @@ python scripts/fetch_pr_data.py
 ```
 - Fetches raw GitHub data for the 10 sample PRs, the 474 merged PRs created before the last sample PR (history), and the 11 later merged bug-labelled PRs (RQ2), into data/raw/. No method rules are applied at this stage.
 - Every request is logged in data/raw/fetch_log.csv.
+- - data/raw/later_bug/ is collected for RQ2 later in the semester and is not used in the M2 (RQ1) result.
 
 Status 14/10/2026: IN PROGRESS. §1–§2 complete (environment, call graph at a0df6e0, raw PR data). Next: §3 pilot on #8349 (write metrics script, check against Fig. 10).
 
@@ -70,3 +71,23 @@ python scripts/compute_metrics.py 8349
 - compute_metrics.py: Fig. 10 self-test PASS (44.38, C). #8349 categories: impact A, buggy A, size A, churn A, merge E → risk 10.0, A. Output in results/rq1_metrics.csv and results/metrics_detail/pr_8349.json.
 - Churn and buggy ratios use only the PR's .java files (M1 step 1). Affects #8429 (1 of 5 files) and #8621 (3 of 31 files); the bot's live mode would count all files.
 - Pipeline confirmed valid on one PR. No method changes needed after the pilot.
+
+## §4 Run the bounded reproduction (15/10/2026)
+1. Fetched the PR branches whose new file versions were missing from the server's clone (open PRs plus one file in #8600). Execution repair only: the clone stays on master @ a0df6e0 and the call graph is unchanged.
+```powershell
+git -C "<clone location>" fetch origin "+refs/pull/8600/head:refs/remotes/origin/pr/8600" "+refs/pull/8607/head:refs/remotes/origin/pr/8607" "+refs/pull/8621/head:refs/remotes/origin/pr/8621" "+refs/pull/8640/head:refs/remotes/origin/pr/8640" "+refs/pull/8647/head:refs/remotes/origin/pr/8647"
+```
+- Checked afterwards: all old/new file versions for the 10 PRs present; each fetched branch matches the head SHA in data/raw/sample; clone HEAD still a0df6e0.
+2. #8600 contains a renamed file. It is sent with status RENAMED, as the bot does; the artefact's server only accepts ADDED/REMOVED/MODIFIED, so it is expected to reject the PR. The rejection is kept as evidence and #8600 is reported as NOT SCORED (artefact limitation, no deviation).
+3. Queried the server for all sample PRs and computed the metrics:
+```powershell
+python scripts/query_callgraph.py --all
+python scripts/compute_metrics.py --all
+```
+- #8349 skipped (pilot outputs already existed; nothing overwritten).
+- #8600 rejected by the server (HTTP 400; server log: cannot deserialize FileStatus "RENAMED"). Evidence in results/raw/callgraph/pr_8600_error.json. Reported as NOT SCORED.
+- #8640: PageRank 0.0003 but 0 changed methods in the impact results; its changed methods have no callers, and the impact query only returns changed methods that do.
+- #8647: PageRank 0.0. Its only changed existing method is the Base(String[]) constructor (UIHelper.java is a new file, which the server skips); the constructor contributes no PageRank. Artefact behaviour, not a failure.
+- Results: 9 of 10 PRs scored. Risk scores: #8621 27.5 (B); #8607 and #8647 18.75 (A); #8429, #8458, #8537, #8638 and #8640 14.37 (A); #8349 10.0 (A); #8600 not scored. Full values in results/rq1_metrics.csv; per-file values in results/metrics_detail/.
+
+Status 15/10/2026: IN PROGRESS. §1–§4 complete: bounded run done, 9/10 PRs scored, #8600 not scored (artefact rejects renamed files). Next: §5 results table, RQ2 evidence and trace; §6 apply decision rules.

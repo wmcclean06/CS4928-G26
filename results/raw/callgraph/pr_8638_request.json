@@ -1,0 +1,13 @@
+{
+ "prNumber": "8638",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "Preferences.java",
+   "status": "MODIFIED",
+   "oldSha": "bdbfabf08e9b8fb4a9179eea105712f37e01cd40",
+   "newSha": "736ae826cfefca7cabed61c801659dbef46290e4"
+  }
+ ]
+}

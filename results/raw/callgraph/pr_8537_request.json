@@ -1,0 +1,19 @@
+{
+ "prNumber": "8537",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "FilterJTextField.java",
+   "status": "MODIFIED",
+   "oldSha": "9dc7fd8d6b50536034b44042c10bfe0bd702ee1c",
+   "newSha": "90759449397c7567b6b0be7998e762f8ea81392f"
+  },
+  {
+   "fileName": "InstallerJDialog.java",
+   "status": "MODIFIED",
+   "oldSha": "3dd864134c47a5f0e76c10c891011bca31036a1e",
+   "newSha": "466bd0dfafcad6c77d6aafe87d2f1e43aaf36c91"
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "prNumber": "8607",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "Base.java",
+   "status": "MODIFIED",
+   "oldSha": "7af728fdd49b84a0e6263d3729d9ba485a203fcc",
+   "newSha": "897df1dd01aac0247ac88b1d4caa5abecf8dbcab"
+  },
+  {
+   "fileName": "BaseNoGui.java",
+   "status": "MODIFIED",
+   "oldSha": "c47a82d69b8380f26f09ad111ae6c425924141f0",
+   "newSha": "e0fa5f1d5e95d6251c94b171f8ae0b27249cca8a"
+  }
+ ]
+}

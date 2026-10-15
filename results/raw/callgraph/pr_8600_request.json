@@ -1,0 +1,73 @@
+{
+ "prNumber": "8600",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "ContributedLibraryTableCellJPanel.java",
+   "status": "MODIFIED",
+   "oldSha": "99d4b66d23e4aacb1701acee956d0da0dcb6ce75",
+   "newSha": "d4382cf514714ed258899830103f6a207c0a8620"
+  },
+  {
+   "fileName": "LibraryManagerUI.java",
+   "status": "MODIFIED",
+   "oldSha": "7ff1925878c11ad915a4275188fba261bc5190a0",
+   "newSha": "66ad0e44ba547f45ac38623102b5c2ae0e666272"
+  },
+  {
+   "fileName": "MultiLibraryInstallDialog.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "75f7703f4305e13c4924e7bc623acf8c8d22da61"
+  },
+  {
+   "fileName": "Base.java",
+   "status": "MODIFIED",
+   "oldSha": "ef4d9b30a4e944f61bc3dc432371e3123d7da947",
+   "newSha": "c8591cc2007423f7b1a0c14596ebc4f493fa7911"
+  },
+  {
+   "fileName": "VersionHelper.java",
+   "status": "MODIFIED",
+   "oldSha": "caf98c8f1202a34acc9f2a0c2b648b76bf2a1792",
+   "newSha": "bead8d46ebf38e3a0e0640168c626572d2fed215"
+  },
+  {
+   "fileName": "ContributedLibrary.java",
+   "status": "MODIFIED",
+   "oldSha": "3aa1198882cdacb5e3ce22c6bb5f3dd1985c0903",
+   "newSha": "692a3dfb20bb529cc5b90cd610b8304e39492476"
+  },
+  {
+   "fileName": "ContributedLibraryDependency.java",
+   "status": "RENAMED",
+   "oldSha": "f4edd57327fc71c1c34c782e9720b5ac9e8c1424",
+   "newSha": "e8e500dd58554f2e7114956303f618bf51f43132"
+  },
+  {
+   "fileName": "LibrariesIndex.java",
+   "status": "MODIFIED",
+   "oldSha": "7998525a152b47b094949792e092b89cd9f967fa",
+   "newSha": "d66a31fd3ceae3162f4812d0048b9bdc4e124862"
+  },
+  {
+   "fileName": "LibraryInstaller.java",
+   "status": "MODIFIED",
+   "oldSha": "4b4fb7f7dbb4f4274ea2e9c7e81cfa0cc6ab4f3d",
+   "newSha": "de91c0490904f182f554ca88b904705aca581c35"
+  },
+  {
+   "fileName": "UnavailableContributedLibrary.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "277d969dede64272d90bcd1f6ce8b6b0a6cf815d"
+  },
+  {
+   "fileName": "UserLibrary.java",
+   "status": "MODIFIED",
+   "oldSha": "e22ae36eb290ed5aa5e4133dab5487a01e0ecdd9",
+   "newSha": "c1625b88a01e831649d6603affa488bb42c318f4"
+  }
+ ]
+}

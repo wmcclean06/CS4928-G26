@@ -1,0 +1,15 @@
+{
+ "pr": 8638,
+ "files": [
+  {
+   "path": "app/src/cc/arduino/view/preferences/Preferences.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.458233890214797,
+   "bug_freq": 0.0,
+   "history_pr_count": 9,
+   "highly_churned": false,
+   "highly_buggy": false
+  }
+ ]
+}

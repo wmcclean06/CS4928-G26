@@ -1,0 +1,103 @@
+{
+ "nodes": [
+  {
+   "className": "Base",
+   "functionName": "onIndexesUpdated",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-03b4d02c-903e-4229-9881-610c68409619.onIndexesUpdated()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "onIndexesUpdated()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "InstallerJDialog",
+   "functionName": "setFilterText",
+   "packageName": "cc.arduino.contributions.ui",
+   "functionSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "filePath": "app\\src\\cc\\arduino\\contributions\\ui\\InstallerJDialog.java",
+   "simplifiedSignature": "setFilterText(String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "openBoardsManager",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "openBoardsManager(String,String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "openLibraryManager",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "openLibraryManager(String,String)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "FilterJTextField",
+   "functionName": "applyFilter",
+   "packageName": "cc.arduino.contributions.ui",
+   "functionSignature": "cc.arduino.contributions.ui.FilterJTextField.applyFilter()",
+   "filePath": "app\\src\\cc\\arduino\\contributions\\ui\\FilterJTextField.java",
+   "simplifiedSignature": "applyFilter()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Base",
+   "functionName": "onIndexesUpdated",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.Anonymous-ea721438-352f-4859-a079-c63a93656e98.onIndexesUpdated()",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "onIndexesUpdated()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "endNodeSignature": "processing.app.Base.openLibraryManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.ui.FilterJTextField.applyFilter()",
+   "endNodeSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "impactLevel": 1
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "endNodeSignature": "processing.app.Base.Anonymous-03b4d02c-903e-4229-9881-610c68409619.onIndexesUpdated()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "endNodeSignature": "processing.app.Base.openBoardsManager(String,String)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.ui.InstallerJDialog.setFilterText(String)",
+   "endNodeSignature": "processing.app.Base.Anonymous-ea721438-352f-4859-a079-c63a93656e98.onIndexesUpdated()",
+   "impactLevel": 0
+  }
+ ]
+}

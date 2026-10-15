@@ -93,3 +93,124 @@ Already on 'master'
 Command exited with code 0
 Already up to date.
 Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+2026-10-15 17:34:51.550  WARN 27268 --- [nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.callgraph.model.pr.FileStatus` from String "RENAMED": not one of the values accepted for Enum class: [ADDED, MODIFIED, REMOVED]; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.callgraph.model.pr.FileStatus` from String "RENAMED": not one of the values accepted for Enum class: [ADDED, MODIFIED, REMOVED]<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 1165] (through reference chain: com.callgraph.model.pr.PullRequestChange["changedFilesWithSha"]->java.util.ArrayList[6]->com.callgraph.model.pr.ChangedFileWithSha["status"])]
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0
+Your branch is up to date with 'origin/master'.
+Already on 'master'
+Command exited with code 0
+Already up to date.
+Command exited with code 0

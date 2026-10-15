@@ -1,0 +1,35 @@
+{
+ "nodes": [
+  {
+   "className": "Preferences",
+   "functionName": "savePreferencesData",
+   "packageName": "cc.arduino.view.preferences",
+   "functionSignature": "cc.arduino.view.preferences.Preferences.savePreferencesData()",
+   "filePath": "app\\src\\cc\\arduino\\view\\preferences\\Preferences.java",
+   "simplifiedSignature": "savePreferencesData()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Preferences",
+   "functionName": "okButtonActionPerformed",
+   "packageName": "cc.arduino.view.preferences",
+   "functionSignature": "cc.arduino.view.preferences.Preferences.okButtonActionPerformed(ActionEvent)",
+   "filePath": "app\\src\\cc\\arduino\\view\\preferences\\Preferences.java",
+   "simplifiedSignature": "okButtonActionPerformed(ActionEvent)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "cc.arduino.view.preferences.Preferences.savePreferencesData()",
+   "endNodeSignature": "cc.arduino.view.preferences.Preferences.okButtonActionPerformed(ActionEvent)",
+   "impactLevel": 0
+  }
+ ]
+}

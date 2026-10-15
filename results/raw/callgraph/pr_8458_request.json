@@ -1,0 +1,13 @@
+{
+ "prNumber": "8458",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "Editor.java",
+   "status": "MODIFIED",
+   "oldSha": "e0abd62e5ed5aaf0780ef7a29533c054b5a6f133",
+   "newSha": "93d791a352b15ef36b8d91ed21ba698de37e7c10"
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "pr": 8537,
+ "files": [
+  {
+   "path": "app/src/cc/arduino/contributions/ui/FilterJTextField.java",
+   "status": "modified",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/ui/InstallerJDialog.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.22302158273381295,
+   "bug_freq": 0.0,
+   "history_pr_count": 3,
+   "highly_churned": false,
+   "highly_buggy": false
+  }
+ ]
+}

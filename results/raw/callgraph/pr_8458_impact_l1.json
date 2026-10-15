@@ -1,0 +1,35 @@
+{
+ "nodes": [
+  {
+   "className": "Editor",
+   "functionName": "addLineHighlight",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.addLineHighlight(int)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "addLineHighlight(int)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Editor",
+   "functionName": "statusError",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.statusError(Exception)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "statusError(Exception)",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "processing.app.Editor.addLineHighlight(int)",
+   "endNodeSignature": "processing.app.Editor.statusError(Exception)",
+   "impactLevel": 0
+  }
+ ]
+}

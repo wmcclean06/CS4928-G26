@@ -1,0 +1,35 @@
+{
+ "nodes": [
+  {
+   "className": "EditorToolbar",
+   "functionName": "windowActivated",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.EditorToolbar.Anonymous-0716673b-1d3b-486d-8687-d6ee32613a73.windowActivated(WindowEvent)",
+   "filePath": "app\\src\\processing\\app\\EditorToolbar.java",
+   "simplifiedSignature": "windowActivated(WindowEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "EditorToolbar",
+   "functionName": "buildTouchBar",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.EditorToolbar.buildTouchBar()",
+   "filePath": "app\\src\\processing\\app\\EditorToolbar.java",
+   "simplifiedSignature": "buildTouchBar()",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "processing.app.EditorToolbar.buildTouchBar()",
+   "endNodeSignature": "processing.app.EditorToolbar.Anonymous-0716673b-1d3b-486d-8687-d6ee32613a73.windowActivated(WindowEvent)",
+   "impactLevel": 0
+  }
+ ]
+}
