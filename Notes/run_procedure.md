@@ -55,3 +55,7 @@ python scripts/fetch_pr_data.py
 - Every request is logged in data/raw/fetch_log.csv.
 
 Status 14/10/2026: IN PROGRESS. §1–§2 complete (environment, call graph at a0df6e0, raw PR data). Next: §3 pilot on #8349 (write metrics script, check against Fig. 10).
+
+## Restart (15/10/2026)
+- Started the Neo4j instance; graph still present (MATCH (f:Function) RETURN count(f) → 2124). 
+- Started callgraph-server with the same command as before, logging to Logs/callgraph_server_15102026.log.
