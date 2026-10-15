@@ -18,3 +18,10 @@ M1 says history = PRs created before each PR, but not when they had to be merged
 Why: this is the information CHID would have had when the PR was opened. Set before any metrics were computed.
 
 Effect: PRs merged after the sampled PR was opened are not counted, so history is slightly smaller.
+
+## D4 - 15/10/2026 - Author merge rate for a first-time author (disclosure)
+compute_metrics.py applies the bot's formula merged / (earlier PRs + 1), so an author with no earlier PRs gets 0 → category E. This matches the bot's historical analysis. The bot's live mode would instead leave the category unset (no database record for the author), so the PR would not be scored.
+
+When: the rule was in the script before the §4 run; its effect was identified afterwards, while tracing #8621 (15/10/2026). Nothing was changed after seeing results.
+
+Effect: only #8621 is affected. With the formula: 9/10 scored, categories A and B. With the bot's live behaviour: 8/10 scored, all A. Both are reported.

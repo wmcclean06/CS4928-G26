@@ -91,3 +91,8 @@ python scripts/compute_metrics.py --all
 - Results: 9 of 10 PRs scored. Risk scores: #8621 27.5 (B); #8607 and #8647 18.75 (A); #8429, #8458, #8537, #8638 and #8640 14.37 (A); #8349 10.0 (A); #8600 not scored. Full values in results/rq1_metrics.csv; per-file values in results/metrics_detail/.
 
 Status 15/10/2026: IN PROGRESS. §1–§4 complete: bounded run done, 9/10 PRs scored, #8600 not scored (artefact rejects renamed files). Next: §5 results table, RQ2 evidence and trace; §6 apply decision rules.
+
+## §5 Evidence chain (15/10/2026)
+- Traced #8621 (risk 27.5, B; the only PR above category A) from results/rq1_metrics.csv back to the raw server response, raw GitHub data, file versions in the clone, the frozen commit and its eligibility log entry. Full trace: Notes/trace_8621.md.
+- Each step was re-checked independently against the raw data and all values matched.
+- The trace showed that #8621's merge-rate category depends on how a first-time author is handled, which decides the RQ1 outcome. Recorded as D4 (disclosure; nothing changed after the run).
