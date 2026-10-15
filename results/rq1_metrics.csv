@@ -1,0 +1,2 @@
+pr,state,author,created_at,java_files,history_prs_used,pagerank_sum,impact_cat,highly_buggy_files,buggy_ratio,buggy_cat,pr_size,size_cat,highly_churned_files,churn_ratio,churn_cat,author_prior_prs,author_prior_merged,merge_rate,merge_cat,risk_score,risk_cat,scored
+8349,merged,facchinm,2019-01-02T09:34:40Z,1,461,0.0006657039599442909,A,0,0.0,A,3,A,0,0.0,A,80,55,0.6790123456790124,E,10.0,A,True

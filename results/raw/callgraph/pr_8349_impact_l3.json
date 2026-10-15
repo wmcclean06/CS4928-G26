@@ -1,0 +1,137 @@
+{
+ "nodes": [
+  {
+   "className": "Base",
+   "functionName": "handleClose",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.handleClose(Editor)",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "handleClose(Editor)",
+   "terminal": false,
+   "deleted": false,
+   "changed": true,
+   "affected": false
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildMenuBar",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildMenuBar()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildMenuBar()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildFileMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildFileMenu()",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "buildFileMenu()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Base",
+   "functionName": "main",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Base.main(String[])",
+   "filePath": "app\\src\\processing\\app\\Base.java",
+   "simplifiedSignature": "main(String[])",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "ThinkDifferent",
+   "functionName": "init",
+   "packageName": "processing.app.macosx",
+   "functionSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "filePath": "app\\src\\processing\\app\\macosx\\ThinkDifferent.java",
+   "simplifiedSignature": "init()",
+   "terminal": false,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "ThinkDifferent",
+   "functionName": "openFiles",
+   "packageName": "processing.app.macosx",
+   "functionSignature": "processing.app.macosx.ThinkDifferent.Anonymous-ff06a9f3-5c04-47ec-8d69-2835f7f85e29.openFiles(OpenFilesEvent)",
+   "filePath": "app\\src\\processing\\app\\macosx\\ThinkDifferent.java",
+   "simplifiedSignature": "openFiles(OpenFilesEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "windowClosing",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.Anonymous-30c3f047-d051-42ae-b9bd-f449a8e9bd12.windowClosing(WindowEvent)",
+   "filePath": "app\\src\\processing\\app\\Editor.java",
+   "simplifiedSignature": "windowClosing(WindowEvent)",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  },
+  {
+   "className": "SketchController",
+   "functionName": "handleDeleteCode",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.SketchController.handleDeleteCode()",
+   "filePath": "app\\src\\processing\\app\\SketchController.java",
+   "simplifiedSignature": "handleDeleteCode()",
+   "terminal": true,
+   "deleted": false,
+   "changed": false,
+   "affected": true
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "endNodeSignature": "processing.app.Base.main(String[])",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "endNodeSignature": "processing.app.Editor.buildMenuBar()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "endNodeSignature": "processing.app.SketchController.handleDeleteCode()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.Anonymous-ff06a9f3-5c04-47ec-8d69-2835f7f85e29.openFiles(OpenFilesEvent)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "endNodeSignature": "processing.app.macosx.ThinkDifferent.init()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "endNodeSignature": "processing.app.Editor.buildFileMenu()",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "processing.app.Base.handleClose(Editor)",
+   "endNodeSignature": "processing.app.Editor.Anonymous-30c3f047-d051-42ae-b9bd-f449a8e9bd12.windowClosing(WindowEvent)",
+   "impactLevel": 0
+  }
+ ]
+}

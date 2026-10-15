@@ -1,0 +1,15 @@
+{
+ "pr": 8349,
+ "files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.6332493702770781,
+   "bug_freq": 0.029411764705882353,
+   "history_pr_count": 34,
+   "highly_churned": false,
+   "highly_buggy": false
+  }
+ ]
+}

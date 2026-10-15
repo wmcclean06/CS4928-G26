@@ -59,3 +59,14 @@ Status 14/10/2026: IN PROGRESS. §1–§2 complete (environment, call graph at a
 ## Restart (15/10/2026)
 - Started the Neo4j instance; graph still present (MATCH (f:Function) RETURN count(f) → 2124). 
 - Started callgraph-server with the same command as before, logging to Logs/callgraph_server_15102026.log.
+
+## §3 Prove the pipeline: pilot on #8349 (15/10/2026)
+```powershell
+python scripts/query_callgraph.py 8349
+python scripts/compute_metrics.py 8349
+```
+- query_callgraph.py sent #8349's .java files (Base.java) to callgraph-server and saved the request and responses to results/raw/callgraph/pr_8349_*.json.
+- Changed method: Base.handleClose(Editor), matching the PR diff. Impacted methods: 5 at level 1, 7 at level 3. PageRank sum 0.000666.
+- compute_metrics.py: Fig. 10 self-test PASS (44.38, C). #8349 categories: impact A, buggy A, size A, churn A, merge E → risk 10.0, A. Output in results/rq1_metrics.csv and results/metrics_detail/pr_8349.json.
+- Churn and buggy ratios use only the PR's .java files (M1 step 1). Affects #8429 (1 of 5 files) and #8621 (3 of 31 files); the bot's live mode would count all files.
+- Pipeline confirmed valid on one PR. No method changes needed after the pilot.

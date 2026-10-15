@@ -3,3 +3,8 @@
 - AI influenced Deviation 1 as it highlighted the likelihood of ties occurring. We reviewed and agreed upon it before running.
 - AI explained the "fatal: not a git repository ... code 128" line in the server log by reading the artefact code: the Gradle clean-up in CallgraphUtils.downloadDependencyJars runs `git reset --hard` in the parent folder instead of the clone. We checked this ourselves in CallgraphUtils.java and CallGraphService.java and confirmed it does not affect the run.
 - AI wrote scripts/fetch_pr_data.py, , including the line-count rule copied from the bot's getTotalLOC. We reviewed the script, and AI test-ran it on PRs #8349 and #8607 before the real run. 
+
+- AI wrote scripts/query_callgraph.py, which builds the server's PullRequestChange request from the raw PR data and saves each request and response unedited.
+- AI wrote scripts/compute_metrics.py, porting the metric rules from the artefact code (calculateMetricCategory, incremental_updateBranch and incremental_calculateRiskScore in incrementalAnalysisMethods.js; default settings in Repository.js). We checked the ported rules and settings against the JS code and the paper, and the built-in Fig. 10 self-test reproduces 44.38% / C.
+- AI identified that M1 does not say when a history PR must have been merged, and proposed the D3 rule (merged before the sampled PR was created). The group agreed it before any metrics were computed.
+- AI recommended counting only the PR's .java files (M1 step 1), rather than all files as in the bot's live mode, and showed it affects #8429 and #8621. The group agreed before running §4 of lab 4.
