@@ -96,3 +96,9 @@ Status 15/10/2026: IN PROGRESS. §1–§4 complete: bounded run done, 9/10 PRs s
 - Traced #8621 (risk 27.5, B; the only PR above category A) from results/rq1_metrics.csv back to the raw server response, raw GitHub data, file versions in the clone, the frozen commit and its eligibility log entry. Full trace: Notes/trace_8621.md.
 - Each step was re-checked independently against the raw data and all values matched.
 - The trace showed that #8621's merge-rate category depends on how a first-time author is handled, which decides the RQ1 outcome. Recorded as D4 (disclosure; nothing changed after the run).
+
+## §6 Compare with the original study (15/10/2026)
+- Applied the M1 RQ1 decision rule to results/rq1_metrics.csv: 9/10 PRs scored, risk categories A and B → REPRODUCED.
+- Result, ranking and caveats (including D4) in results/rq1_result.md.
+
+Status 15/10/2026 (after §6): RQ1 REPRODUCED under the run as executed; NOT REPRODUCED under the bot's live handling of first-time authors (D4). Evidence: results/rq1_result.md, results/rq1_metrics.csv, Notes/trace_8621.md.
