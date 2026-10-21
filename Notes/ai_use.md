@@ -11,3 +11,5 @@
 - AI found that the artefact's server only accepts ADDED/REMOVED/MODIFIED and so rejects PRs with renamed files, as the bot would. AI recommended sending #8600 unchanged and reporting it as NOT SCORED rather than altering the request (which would need a deviation). The group agreed before running §4.
 - D4 (first-time author merge rate): the rule that gives an author with no earlier PRs a merge rate of 0 (category E) came from AI's port of the bot's formula in compute_metrics.py; it was not discussed as a group before the §4 run. AI identified its effect afterwards while tracing #8621: it decides whether #8621 is scored and therefore the RQ1 outcome. Nothing was changed after seeing results; the group recorded D4 and reports both outcomes.
 - results/rq1_result.md: AI generated the ranking table from results/rq1_metrics.csv and drafted the decision and caveats. The group checked the table against the CSV and agreed the wording.
+
+- AI was used for helping define the Highly Churned File Ratio for a PR but the file was written by Kaiden Foley
