@@ -9,3 +9,5 @@ Code Churn Ratio for a file = Cumulatively changed number of lines of code / Tot
 
 The Cumulative part of this is over the files total lifetime in the repository.
 As such a code churn ratio of 5+ means that this file has been fully rewritten about five times over its lifetime in the repository
+
+Note: the reproduction applies this as churn > 5, counts only the PR's .java files, and uses only PRs merged before the sampled PR was opened (see Plans/M1_PLAN.md, D3 in Notes/deviations.md and Notes/run_procedure.md §3).
