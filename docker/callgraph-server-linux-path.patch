@@ -1,0 +1,107 @@
+diff -ruN a/callgraph-server/pom.xml b/callgraph-server/pom.xml
+--- a/callgraph-server/pom.xml	2026-10-24 23:54:31.252143652 +0000
++++ b/callgraph-server/pom.xml	2026-10-24 23:54:31.262143718 +0000
+@@ -133,7 +133,7 @@
+ 						<!--主配置清单-->
+ 						<manifest>
+ 							<addClasspath>true</addClasspath>
+-							<mainClass>com.aiddroid.java.callgraph.Application</mainClass>
++							<mainClass>com.callgraph.CallgraphServerApplication</mainClass>
+ 						</manifest>
+ 					</archive>
+ 				</configuration>
+diff -ruN a/callgraph-server/src/main/java/com/callgraph/service/CallGraphService.java b/callgraph-server/src/main/java/com/callgraph/service/CallGraphService.java
+--- a/callgraph-server/src/main/java/com/callgraph/service/CallGraphService.java	2026-10-24 23:54:31.256143678 +0000
++++ b/callgraph-server/src/main/java/com/callgraph/service/CallGraphService.java	2026-10-24 23:54:31.261143711 +0000
+@@ -35,7 +35,7 @@
+ 
+     public String createSaveCallGraph(CallGraphInit callGraphInit) {
+         String currentPath = System.getProperty("user.dir");
+-        String upperLevelPath = currentPath.substring(0, currentPath.lastIndexOf("\\"));
++        String upperLevelPath = currentPath.substring(0, Math.max(currentPath.lastIndexOf("\\"), currentPath.lastIndexOf("/")));
+ 
+         boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
+         String branchName = callGraphInit.getBranchName();
+@@ -43,7 +43,7 @@
+         String githubToken = callGraphInit.getGithubToken();
+ 
+ 
+-        String projectPath = upperLevelPath + "\\" + "change_impact_detector\\analyzed_repositories";
++        String projectPath = upperLevelPath + File.separator + "change_impact_detector" + File.separator + "analyzed_repositories";
+         String cloneCommand = "git clone https://" + githubToken + "@github.com/" + projectIdentifier + ".git " + projectIdentifier;
+ 
+         File folder = new File(projectPath);
+@@ -75,7 +75,7 @@
+             CallgraphUtils.downloadDependencyJars("gradle", (ArrayList<String>) gradleFiles, projectPath);
+         }
+ 
+-        String srcPath = projectPath + "\\" + projectIdentifier;
++        String srcPath = projectPath + File.separator + projectIdentifier;
+ 
+         // Pull the possibly made changes to the remote branch
+         GeneralUtils.gitCheckoutAndPull(srcPath, branchName);
+@@ -165,7 +165,7 @@
+         String srcPath = GeneralUtils.getProjectSrcPath(pullRequestChange.getProjectIdentifier());
+         String prNumber = pullRequestChange.getPrNumber();
+ 
+-        String folderPath = srcPath.substring(0, srcPath.lastIndexOf("\\")) + "\\" + pullRequestChange.getPrNumber();
++        String folderPath = srcPath.substring(0, Math.max(srcPath.lastIndexOf("\\"), srcPath.lastIndexOf("/"))) + File.separator + pullRequestChange.getPrNumber();
+         ArrayList<ChangedFileWithSha> changedFilesWithSha = pullRequestChange.getChangedFilesWithSha();
+ 
+         // Pull the possibly made changes to the remote branches
+@@ -188,7 +188,7 @@
+         String srcPath = GeneralUtils.getProjectSrcPath(pullRequestChange.getProjectIdentifier());
+         String prNumber = pullRequestChange.getPrNumber();
+ 
+-        String folderPath = srcPath.substring(0, srcPath.lastIndexOf("\\")) + "\\" + pullRequestChange.getPrNumber();
++        String folderPath = srcPath.substring(0, Math.max(srcPath.lastIndexOf("\\"), srcPath.lastIndexOf("/"))) + File.separator + pullRequestChange.getPrNumber();
+         ArrayList<ChangedFileWithSha> changedFilesWithSha = pullRequestChange.getChangedFilesWithSha();
+ 
+         // Pull the possibly made changes to the remote branches
+@@ -212,7 +212,7 @@
+         String srcPath = GeneralUtils.getProjectSrcPath(pullRequestChange.getProjectIdentifier());
+         String prNumber = pullRequestChange.getPrNumber();
+ 
+-        String folderPath = srcPath.substring(0, srcPath.lastIndexOf("\\")) + "\\" + pullRequestChange.getPrNumber();
++        String folderPath = srcPath.substring(0, Math.max(srcPath.lastIndexOf("\\"), srcPath.lastIndexOf("/"))) + File.separator + pullRequestChange.getPrNumber();
+         ArrayList<ChangedFileWithSha> changedFilesWithSha = pullRequestChange.getChangedFilesWithSha();
+ 
+         // Pull the possibly made changes to the remote branches
+diff -ruN a/callgraph-server/src/main/java/com/callgraph/utils/CallgraphUtils.java b/callgraph-server/src/main/java/com/callgraph/utils/CallgraphUtils.java
+--- a/callgraph-server/src/main/java/com/callgraph/utils/CallgraphUtils.java	2026-10-24 23:54:31.255143672 +0000
++++ b/callgraph-server/src/main/java/com/callgraph/utils/CallgraphUtils.java	2026-10-24 23:54:31.261143711 +0000
+@@ -77,7 +77,7 @@
+         boolean isWindows = System.getProperty("os.name").contains("Windows");
+         FileDistiller distiller = ChangeDistiller.createFileDistiller(ChangeDistiller.Language.JAVA);
+ 
+-        String folderPath = srcPath.substring(0, srcPath.lastIndexOf("\\")) + "\\" + prNumber;
++        String folderPath = srcPath.substring(0, Math.max(srcPath.lastIndexOf("\\"), srcPath.lastIndexOf("/"))) + File.separator + prNumber;
+ 
+         CommandUtils.runCommand(srcPath, "mkdir " + folderPath, isWindows);
+ 
+@@ -92,7 +92,7 @@
+                 String shaOld = changedFile.getOldSha();
+                 String shaNew = changedFile.getNewSha();
+ 
+-                String command1 = "git show " + shaOld + " > " + folderPath + "\\" + shaOld + ".java";
++                String command1 = "git show " + shaOld + " > " + folderPath + File.separator + shaOld + ".java";
+                 CommandUtils.runCommand(srcPath, command1, isWindows);
+ 
+                 String newFileName;
+@@ -103,13 +103,13 @@
+                     GeneralUtils.createEmptyClassFile(fileName, folderPath);
+                     newFileName = changedFile.getFileName();
+                 } else {
+-                    String command2 = "git show " + shaNew + " > " + folderPath + "\\" + shaNew + ".java";
++                    String command2 = "git show " + shaNew + " > " + folderPath + File.separator + shaNew + ".java";
+                     CommandUtils.runCommand(srcPath, command2, isWindows);
+                     newFileName = shaNew + ".java";
+                 }
+ 
+-                File left = new File(folderPath + "\\" + shaOld + ".java");
+-                File right = new File(folderPath + "\\" + newFileName);
++                File left = new File(folderPath + File.separator + shaOld + ".java");
++                File right = new File(folderPath + File.separator + newFileName);
+ 
+                 try {
+                     distiller.extractClassifiedSourceCodeChanges(left, right);

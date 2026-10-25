@@ -13,3 +13,5 @@
 - results/rq1_result.md: AI generated the ranking table from results/rq1_metrics.csv and drafted the decision and caveats. The group checked the table against the CSV and agreed the wording.
 
 - AI was used for helping define the Highly Churned File Ratio for a PR but the file was written by Kaiden Foley
+
+- AI was used for developing the docker image used for making the run procedure more generic meaning it could run easily on more machines

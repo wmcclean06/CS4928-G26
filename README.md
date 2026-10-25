@@ -23,3 +23,23 @@ Explanation of the different Metrics used in the paper
 - Including some scaling factor for Merge rate based off the total PRs for a project 
 - The second question would be around picking 5 for a highly churned file as this seems high for certain projects and low for others. So you may be able to again use the lifetime or number of pull requests of a specific project to scale this factor
 - For Highly Buggy Files there may be a more rigorous definition of bug which could be used though I understand the difficulty of having to be able to use a metric like this it must be quick to calculate
+
+
+## Docker quick-start (added 24/10/2026)
+
+The whole stack (Neo4j 5.3.0 + APOC 5.3.0 + GDS 2.3.2, callgraph-server on
+JDK 8, git, Python) runs in one container built from this repo:
+
+```bash
+cp .env.example .env        # fill in GITHUB_TOKEN and the Neo4j password
+bash docker/run.sh build    # downloads the artefact (MD5-checked), patches + builds it
+bash docker/run.sh up       # starts Neo4j + callgraph-server, waits for :8080
+bash docker/run.sh help     # per-step commands (create-save, neo4j-stats, fetch, query, metrics, ...)
+```
+
+The Docker procedure and how each command maps to the recorded §2-§4 steps is
+in [Notes/run_procedure.md](Notes/run_procedure.md) ("§D Docker run of the
+recorded pipeline"); a guided step-by-step tour with expected outputs and
+troubleshooting is in [WALKTHROUGH.md](WALKTHROUGH.md). The only artefact
+change is the Linux path patch recorded as D5 in
+[Notes/deviations.md](Notes/deviations.md).

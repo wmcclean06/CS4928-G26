@@ -1,4 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{}</component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a3529464-714d-415c-a9fc-8ca4ffa8fb62" name="Changes" comment="These show now handle all the .idea files&#10;&#10;I had an issue where there were two repos and I didn't realise that was the issue but this is the one all the fixes I think have been going to, and it looks like it is set up correctly">
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Notes/run_procedure_Docker" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WALKTHROUGH.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/callgraph-server-linux-path.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/cg-entrypoint.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/run.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/run.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notes/ai_use.md" beforeDir="false" afterPath="$PROJECT_DIR$/Notes/ai_use.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notes/deviations.md" beforeDir="false" afterPath="$PROJECT_DIR$/Notes/deviations.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notes/environment.md" beforeDir="false" afterPath="$PROJECT_DIR$/Notes/environment.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/metrics_detail/pr_8349.json" beforeDir="false" afterPath="$PROJECT_DIR$/results/metrics_detail/pr_8349.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/metrics_detail/pr_8429.json" beforeDir="false" afterPath="$PROJECT_DIR$/results/metrics_detail/pr_8429.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/metrics_detail/pr_8458.json" beforeDir="false" afterPath="$PROJECT_DIR$/results/metrics_detail/pr_8458.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/metrics_detail/pr_8537.json" beforeDir="false" afterPath="$PROJECT_DIR$/results/metrics_detail/pr_8537.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/metrics_detail/pr_8600.json" beforeDir="false" afterPath="$PROJECT_DIR$/results/metrics_detail/pr_8600.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/metrics_detail/pr_8607.json" beforeDir="false" afterPath="$PROJECT_DIR$/results/metrics_detail/pr_8607.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/metrics_detail/pr_8621.json" beforeDir="false" afterPath="$PROJECT_DIR$/results/metrics_detail/pr_8621.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/metrics_detail/pr_8638.json" beforeDir="false" afterPath="$PROJECT_DIR$/results/metrics_detail/pr_8638.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/metrics_detail/pr_8640.json" beforeDir="false" afterPath="$PROJECT_DIR$/results/metrics_detail/pr_8640.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/metrics_detail/pr_8647.json" beforeDir="false" afterPath="$PROJECT_DIR$/results/metrics_detail/pr_8647.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/raw/create_save_response.txt" beforeDir="false" afterPath="$PROJECT_DIR$/results/raw/create_save_response.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kaidenfoley4-hub&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/wmcclean06/CS4928-G26.git&quot;,
+    &quot;accountId&quot;: &quot;35169a6c-282b-4da7-9a3e-55a0ba46398c&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3L8pF7EDjJ6PKWFf5KmClWqLkTn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHELLCHECK.PATH": "C:\\Users\\kaide\\AppData\\Roaming\\JetBrains\\PyCharm2026.2\\plugins\\Shell Script\\shellcheck.exe",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Theory&PracticeProject/Project/CS4928-G26",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "settings.editor.selected.configurable": "preferences.fileTypes"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Theory&amp;PracticeProject\Project\CS4928-G26" />
+      <recent name="D:\Theory&amp;PracticeProject\Project\CS4928-G26\docker" />
+      <recent name="D:\Theory&amp;PracticeProject\Project\CS4928-G26\Notes" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-PY-262.10968.92" />
+        <option value="bundled-python-sdk-73a66231627c-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10968.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3529464-714d-415c-a9fc-8ca4ffa8fb62" name="Changes" comment="" />
+      <created>1792845442605</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1792845442605</updated>
+      <workItem from="1792845443842" duration="913000" />
+      <workItem from="1792871435866" duration="2773000" />
+      <workItem from="1792874248700" duration="11461000" />
+    </task>
+    <task id="LOCAL-00001" summary="These show now handle all the .idea files&#10;&#10;I had an issue where there were two repos and I didn't realise that was the issue but this is the one all the fixes I think have been going to, and it looks like it is set up correctly">
+      <option name="closed" value="true" />
+      <created>1792845652327</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1792845652327</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ps1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="These show now handle all the .idea files&#10;&#10;I had an issue where there were two repos and I didn't realise that was the issue but this is the one all the fixes I think have been going to, and it looks like it is set up correctly" />
+    <option name="LAST_COMMIT_MESSAGE" value="These show now handle all the .idea files&#10;&#10;I had an issue where there were two repos and I didn't realise that was the issue but this is the one all the fixes I think have been going to, and it looks like it is set up correctly" />
+  </component>
 </project>

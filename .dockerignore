@@ -1,0 +1,8 @@
+# Whitelist build context: only the Dockerfile and docker/ belong in the
+# image build. Everything else (results, data, logs, notes, documents, .git,
+# .env with the token) stays on the host and out of the image.
+*
+!Dockerfile
+!docker
+!docker/cg-entrypoint.sh
+!docker/callgraph-server-linux-path.patch
