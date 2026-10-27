@@ -21,6 +21,8 @@ so the script can be re-run to resume. Requires GITHUB_TOKEN.
 
   python scripts/fetch_pr_data.py                  # all groups
   python scripts/fetch_pr_data.py --group sample   # one group
+  python scripts/fetch_pr_data.py --set event_a     # Event A PRs (data/event_a/eligibility_log.csv
+                                                    # -> data/raw/event_a_sample/; history/later_bug shared)
 """
 
 import argparse
@@ -43,6 +45,12 @@ DATA = ROOT / "data"
 RAW = DATA / "raw"
 LOG = RAW / "fetch_log.csv"
 BUG_LABELS = {"bug", "Type: Bug"}
+# PR set -> (sample list, raw folder for its PRs). history/later_bug are shared;
+# per-PR cut-offs are applied in compute_metrics.py.
+SETS = {
+    "m2":      (DATA / "eligibility_log.csv", "sample"),
+    "event_a": (DATA / "event_a" / "eligibility_log.csv", "event_a_sample"),
+}
 
 
 def log(url, status, note=""):
@@ -160,9 +168,11 @@ def fetch(group, numbers, with_meta):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--group", choices=["sample", "history", "later_bug", "all"], default="all")
+    ap.add_argument("--set", choices=list(SETS), default="m2")
     args = ap.parse_args()
 
-    with open(DATA / "eligibility_log.csv", newline="", encoding="utf-8-sig") as f:
+    elig, sample_dir = SETS[args.set]
+    with open(elig, newline="", encoding="utf-8-sig") as f:
         rows = list(csv.reader(f))[1:]
     sample = [int(r[0]) for r in rows if r and r[-1].startswith("ELIGIBLE")]
     prs = {p["number"]: p for p in json.loads((DATA / "arduino_pr_list.json").read_text(encoding="utf-8"))}
@@ -176,7 +186,7 @@ def main():
     print(f"sample {len(sample)}, history {len(history)}, later_bug {len(later_bug)}")
 
     if args.group in ("sample", "all"):
-        fetch("sample", sample, True)
+        fetch(sample_dir, sample, True)
     if args.group in ("history", "all"):
         fetch("history", history, True)
     if args.group in ("later_bug", "all"):

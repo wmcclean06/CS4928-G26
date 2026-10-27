@@ -16,6 +16,7 @@ and the script moves on; that PR is then reported as NOT SCORED by compute_metri
 
   python scripts/query_callgraph.py 8349            # one PR (the §3 pilot)
   python scripts/query_callgraph.py --all           # all 10 sample PRs (§4)
+  python scripts/query_callgraph.py --set event_a --all   # Event A PRs -> results/event_a/raw/callgraph/
 """
 
 import argparse
@@ -28,8 +29,14 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SAMPLE = ROOT / "data" / "raw" / "sample"
-OUT = ROOT / "results" / "raw" / "callgraph"
+# PR set -> (sample list, raw PR data, output folder)
+SETS = {
+    "m2":      (ROOT / "data" / "eligibility_log.csv", ROOT / "data" / "raw" / "sample",
+                ROOT / "results" / "raw" / "callgraph"),
+    "event_a": (ROOT / "data" / "event_a" / "eligibility_log.csv", ROOT / "data" / "raw" / "event_a_sample",
+                ROOT / "results" / "event_a" / "raw" / "callgraph"),
+}
+ELIGIBILITY, SAMPLE, OUT = SETS["m2"]
 SERVER = "http://localhost:8080/api/v1/callgraph"
 
 
@@ -90,12 +97,15 @@ def run(n):
 
 
 def main():
+    global ELIGIBILITY, SAMPLE, OUT
     ap = argparse.ArgumentParser()
     ap.add_argument("prs", nargs="*", type=int)
     ap.add_argument("--all", action="store_true")
+    ap.add_argument("--set", choices=list(SETS), default="m2")
     args = ap.parse_args()
+    ELIGIBILITY, SAMPLE, OUT = SETS[args.set]
     if args.all:
-        with open(ROOT / "data" / "eligibility_log.csv", newline="", encoding="utf-8-sig") as f:
+        with open(ELIGIBILITY, newline="", encoding="utf-8-sig") as f:
             prs = [int(r[0]) for r in list(csv.reader(f))[1:] if r and r[-1].startswith("ELIGIBLE")]
     else:
         prs = args.prs
