@@ -1,0 +1,86 @@
+[
+ {
+  "sha": "8a0b47a5bc61bde540faa24f1cf38326a64d3eb4",
+  "filename": "arduino-core/src/cc/arduino/Constants.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fcc%2Farduino%2FConstants.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fcc%2Farduino%2FConstants.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2FConstants.java?ref=5bb9f87faea58728edc381b86bad5a24568cabe1",
+  "patch": "@@ -37,6 +37,7 @@ public class Constants {\n   public static final String PREF_REMOVE_PLACEHOLDER = \"___REMOVE___\";\n   public static final String PREF_BOARDS_MANAGER_ADDITIONAL_URLS = \"boardsmanager.additional.urls\";\n   public static final String PREF_CONTRIBUTIONS_TRUST_ALL = \"contributions.trust.all\";\n+  public static final String ALLOW_INSECURE_PACKAGES = \"allow_insecure_packages\";\n \n   public static final String DEFAULT_INDEX_FILE_NAME = \"package_index.json\";\n   public static final String BUNDLED_INDEX_FILE_NAME = \"package_index_bundled.json\";"
+ },
+ {
+  "sha": "4ddca67b3cd5fef2ac05211b2abffb7632d170b6",
+  "filename": "arduino-core/src/cc/arduino/contributions/DownloadableContributionsDownloader.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 6,
+  "changes": 13,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FDownloadableContributionsDownloader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FDownloadableContributionsDownloader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FDownloadableContributionsDownloader.java?ref=5bb9f87faea58728edc381b86bad5a24568cabe1",
+  "patch": "@@ -198,12 +198,6 @@ public boolean verifyDomain(URL url) {\n \n   public boolean checkSignature(MultiStepProgress progress, URL signatureUrl, ProgressListener progressListener, SignatureVerifier signatureVerifier, String statusText, File fileToVerify) throws Exception {\n \n-    final boolean allowInsecurePackages =\n-      PreferencesData.getBoolean(\"allow_insecure_packages\", false);\n-    if (allowInsecurePackages) {\n-      log.info(\"Allow insecure packages is true the signature will be skip and return always verified\");\n-      return true;\n-    }\n \n     // Signature file name\n     final String signatureFileName = FilenameUtils.getName(signatureUrl.getPath());\n@@ -215,6 +209,13 @@ public boolean checkSignature(MultiStepProgress progress, URL signatureUrl, Prog\n       // Download signature\n       download(signatureUrl, packageIndexSignatureTemp, progress, statusText, progressListener, true);\n \n+      if (PreferencesData.areInsecurePackagesAllowed()) {\n+        Files.move(packageIndexSignatureTemp.toPath(), packageIndexSignature.toPath(), StandardCopyOption.REPLACE_EXISTING);\n+        log.info(\"Allowing insecure packages because allow_insecure_packages is set to true in preferences.txt\" +\n+          \" but the signature was download\");\n+        return true;\n+      }\n+\n       // Verify the signature before move the files\n       final boolean signatureVerified = signatureVerifier.isSigned(fileToVerify, packageIndexSignatureTemp);\n       if (signatureVerified) {"
+ },
+ {
+  "sha": "77136cb46cb7d93dd3909877349423ddbcbb8f55",
+  "filename": "arduino-core/src/cc/arduino/contributions/SignatureVerificationFailedException.java",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 46,
+  "changes": 46,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c3fdb10244d4a065f426adbd6a0cfc9fc8e97603/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FSignatureVerificationFailedException.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c3fdb10244d4a065f426adbd6a0cfc9fc8e97603/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FSignatureVerificationFailedException.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FSignatureVerificationFailedException.java?ref=c3fdb10244d4a065f426adbd6a0cfc9fc8e97603",
+  "patch": "@@ -1,46 +0,0 @@\n-/*\n- * This file is part of Arduino.\n- *\n- * Copyright 2015 Arduino LLC (http://www.arduino.cc/)\n- *\n- * Arduino is free software; you can redistribute it and/or modify\n- * it under the terms of the GNU General Public License as published by\n- * the Free Software Foundation; either version 2 of the License, or\n- * (at your option) any later version.\n- *\n- * This program is distributed in the hope that it will be useful,\n- * but WITHOUT ANY WARRANTY; without even the implied warranty of\n- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n- * GNU General Public License for more details.\n- *\n- * You should have received a copy of the GNU General Public License\n- * along with this program; if not, write to the Free Software\n- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA\n- *\n- * As a special exception, you may use this file as part of a free software\n- * library without restriction.  Specifically, if other files instantiate\n- * templates or use macros or inline functions from this file, or you compile\n- * this file and link it with other files to produce an executable, this\n- * file does not by itself cause the resulting executable to be covered by\n- * the GNU General Public License.  This exception does not however\n- * invalidate any other reasons why the executable file might be covered by\n- * the GNU General Public License.\n- */\n-\n-package cc.arduino.contributions;\n-\n-import processing.app.I18n;\n-\n-import static processing.app.I18n.tr;\n-\n-@SuppressWarnings(\"serial\")\n-public class SignatureVerificationFailedException extends Exception {\n-\n-  public SignatureVerificationFailedException(String filename) {\n-    super(I18n.format(tr(\"{0} file signature verification failed\"), filename));\n-  }\n-\n-  public SignatureVerificationFailedException(String filename, Throwable cause) {\n-    super(I18n.format(tr(\"{0} file signature verification failed\"), filename), cause);\n-  }\n-}"
+ },
+ {
+  "sha": "2b6ff4cdea8a69305a39effff8aa682352a91d1a",
+  "filename": "arduino-core/src/cc/arduino/contributions/packages/ContributionInstaller.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 3,
+  "changes": 6,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionInstaller.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionInstaller.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionInstaller.java?ref=5bb9f87faea58728edc381b86bad5a24568cabe1",
+  "patch": "@@ -145,7 +145,7 @@ public synchronized List<String> install(ContributedPlatform contributedPlatform\n       assert toolContrib.getDownloadedFile() != null;\n       new ArchiveExtractor(platform).extract(toolContrib.getDownloadedFile(), destFolder.toFile(), 1);\n       try {\n-        findAndExecutePostInstallScriptIfAny(destFolder.toFile(), contributedPlatform.getParentPackage().isTrusted(), PreferencesData.getBoolean(Constants.PREF_CONTRIBUTIONS_TRUST_ALL));\n+        findAndExecutePostInstallScriptIfAny(destFolder.toFile(), contributedPlatform.getParentPackage().isTrusted(), PreferencesData.areInsecurePackagesAllowed());\n       } catch (IOException e) {\n         errors.add(tr(\"Error running post install script\"));\n       }\n@@ -164,7 +164,7 @@ public synchronized List<String> install(ContributedPlatform contributedPlatform\n     contributedPlatform.setInstalled(true);\n     contributedPlatform.setInstalledFolder(destFolder);\n     try {\n-      findAndExecutePostInstallScriptIfAny(destFolder, contributedPlatform.getParentPackage().isTrusted(), PreferencesData.getBoolean(Constants.PREF_CONTRIBUTIONS_TRUST_ALL));\n+      findAndExecutePostInstallScriptIfAny(destFolder, contributedPlatform.getParentPackage().isTrusted(), PreferencesData.areInsecurePackagesAllowed());\n     } catch (IOException e) {\n       e.printStackTrace();\n       errors.add(tr(\"Error running post install script\"));\n@@ -244,7 +244,7 @@ public synchronized List<String> remove(ContributedPlatform contributedPlatform)\n     }\n     List<String> errors = new LinkedList<>();\n     try {\n-      findAndExecutePreUninstallScriptIfAny(contributedPlatform.getInstalledFolder(), contributedPlatform.getParentPackage().isTrusted(), PreferencesData.getBoolean(Constants.PREF_CONTRIBUTIONS_TRUST_ALL));\n+      findAndExecutePreUninstallScriptIfAny(contributedPlatform.getInstalledFolder(), contributedPlatform.getParentPackage().isTrusted(), PreferencesData.areInsecurePackagesAllowed());\n     } catch (IOException e) {\n       errors.add(tr(\"Error running post install script\"));\n     }"
+ },
+ {
+  "sha": "2a97e0e7d0edc485c832015ca9f480eec6ca9c42",
+  "filename": "arduino-core/src/cc/arduino/contributions/packages/ContributionsIndexer.java",
+  "status": "modified",
+  "additions": 17,
+  "deletions": 7,
+  "changes": 24,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java?ref=5bb9f87faea58728edc381b86bad5a24568cabe1",
+  "patch": "@@ -31,14 +31,14 @@\n \n import cc.arduino.Constants;\n import cc.arduino.contributions.DownloadableContribution;\n-import cc.arduino.contributions.SignatureVerificationFailedException;\n import cc.arduino.contributions.SignatureVerifier;\n-\n import com.fasterxml.jackson.core.JsonProcessingException;\n import com.fasterxml.jackson.databind.DeserializationFeature;\n import com.fasterxml.jackson.databind.ObjectMapper;\n import com.fasterxml.jackson.module.mrbean.MrBeanModule;\n import org.apache.commons.compress.utils.IOUtils;\n+\n+import processing.app.BaseNoGui;\n import processing.app.Platform;\n import processing.app.PreferencesData;\n import processing.app.debug.TargetPackage;\n@@ -87,11 +87,21 @@ public void parseIndex() throws Exception {\n     File defaultIndexFile = getIndexFile(Constants.DEFAULT_INDEX_FILE_NAME);\n     if (defaultIndexFile.exists()) {\n       // Check main index signature\n-      if (!PreferencesData.getBoolean(\"allow_insecure_packages\") && !signatureVerifier.isSigned(defaultIndexFile)) {\n-        throw new SignatureVerificationFailedException(Constants.DEFAULT_INDEX_FILE_NAME);\n+      if (signatureVerifier.isSigned(defaultIndexFile)) {\n+        mergeContributions(defaultIndexFile);\n+      } else if (PreferencesData.areInsecurePackagesAllowed()) {\n+        System.err.println(format(tr(\"Warning: forced trusting untrusted contributions\")));\n+        mergeContributions(defaultIndexFile);\n+      } else {\n+        BaseNoGui\n+            .showWarning(Constants.DEFAULT_INDEX_FILE_NAME,\n+                              tr(\"A package index has an invalid signature and needs to be updated.\\n\"\n+                                 + \"Please open the Board Manager from the menu\\n\"\n+                                 + \"\\n\" //\n+                                 + \"      Tools -> Board -> Board Manager\\n\"\n+                                 + \"\\nto update it\"),\n+                              null);\n       }\n-\n-      mergeContributions(defaultIndexFile);\n     }\n \n     // Set main and bundled indexes as trusted\n@@ -143,7 +153,7 @@ private void mergeContributions(File indexFile) throws IOException {\n \n     ContributionsIndex contributionsIndex = parseIndex(indexFile);\n     boolean signed = signatureVerifier.isSigned(indexFile);\n-    boolean trustall = PreferencesData.getBoolean(Constants.PREF_CONTRIBUTIONS_TRUST_ALL);\n+    boolean trustall = PreferencesData.areInsecurePackagesAllowed();\n \n     for (ContributedPackage contributedPackage : contributionsIndex.getPackages()) {\n       contributedPackage.setTrusted(signed || trustall);"
+ },
+ {
+  "sha": "0d921f6ccc60a70397e58b6940bf45cd75f70857",
+  "filename": "arduino-core/src/processing/app/BaseNoGui.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 2,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java?ref=5bb9f87faea58728edc381b86bad5a24568cabe1",
+  "patch": "@@ -2,7 +2,6 @@\n \n import cc.arduino.Constants;\n import cc.arduino.contributions.GPGDetachedSignatureVerifier;\n-import cc.arduino.contributions.SignatureVerificationFailedException;\n import cc.arduino.contributions.VersionComparator;\n import cc.arduino.contributions.libraries.LibrariesIndexer;\n import cc.arduino.contributions.packages.ContributedPlatform;\n@@ -482,7 +481,7 @@ static public void initPackages() throws Exception {\n \n     try {\n       indexer.parseIndex();\n-    } catch (JsonProcessingException | SignatureVerificationFailedException e) {\n+    } catch (JsonProcessingException e) {\n       File indexFile = indexer.getIndexFile(Constants.DEFAULT_INDEX_FILE_NAME);\n       File indexSignatureFile = indexer.getIndexFile(Constants.DEFAULT_INDEX_FILE_NAME + \".sig\");\n       indexFile.delete();"
+ },
+ {
+  "sha": "01f4568ad5b02fe334814000de295356343dcf47",
+  "filename": "arduino-core/src/processing/app/PreferencesData.java",
+  "status": "modified",
+  "additions": 17,
+  "deletions": 10,
+  "changes": 27,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5bb9f87faea58728edc381b86bad5a24568cabe1/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPreferencesData.java?ref=5bb9f87faea58728edc381b86bad5a24568cabe1",
+  "patch": "@@ -1,9 +1,14 @@\n package processing.app;\n \n-import static processing.app.I18n.format;\n-import static processing.app.I18n.tr;\n+import cc.arduino.Constants;\n+import cc.arduino.i18n.Languages;\n+import org.apache.commons.compress.utils.IOUtils;\n+import processing.app.helpers.PreferencesHelper;\n+import processing.app.helpers.PreferencesMap;\n+import processing.app.legacy.PApplet;\n+import processing.app.legacy.PConstants;\n \n-import java.awt.Font;\n+import java.awt.*;\n import java.io.File;\n import java.io.IOException;\n import java.io.PrintWriter;\n@@ -13,13 +18,8 @@\n import java.util.MissingResourceException;\n import java.util.stream.Collectors;\n \n-import org.apache.commons.compress.utils.IOUtils;\n-\n-import cc.arduino.i18n.Languages;\n-import processing.app.helpers.PreferencesHelper;\n-import processing.app.helpers.PreferencesMap;\n-import processing.app.legacy.PApplet;\n-import processing.app.legacy.PConstants;\n+import static processing.app.I18n.format;\n+import static processing.app.I18n.tr;\n \n \n public class PreferencesData {\n@@ -275,4 +275,11 @@ public static void setCollection(String key, Collection<String> values) {\n     String value = values.stream().collect(Collectors.joining(\",\"));\n     set(key, value);\n   }\n+\n+  public static boolean areInsecurePackagesAllowed() {\n+    if (getBoolean(Constants.ALLOW_INSECURE_PACKAGES, false)) {\n+      return true;\n+    }\n+    return getBoolean(Constants.PREF_CONTRIBUTIONS_TRUST_ALL, false);\n+  }\n }"
+ }
+]

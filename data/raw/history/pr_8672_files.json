@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "f4cb342034061a31037f6b060994b15caa2c6aae",
+  "filename": "app/src/cc/arduino/contributions/ui/FilterJTextField.java",
+  "status": "modified",
+  "additions": 19,
+  "deletions": 0,
+  "changes": 19,
+  "blob_url": "https://github.com/arduino/Arduino/blob/941050ecf0d71d3d72c56e968e417d981d79c040/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FFilterJTextField.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/941050ecf0d71d3d72c56e968e417d981d79c040/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FFilterJTextField.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FFilterJTextField.java?ref=941050ecf0d71d3d72c56e968e417d981d79c040",
+  "patch": "@@ -124,4 +124,23 @@ private void updateStyle() {\n       setFont(getFont().deriveFont(Font.PLAIN));\n     }\n   }\n+\n+  @Override\n+  public void paste() {\n+\n+    // Same precondition check as JTextComponent#paste().\n+    if (!isEditable() || !isEnabled()) {\n+      return;\n+    }\n+\n+    // Disable hint to prevent the focus handler from clearing the pasted text.\n+    if (showingHint) {\n+      showingHint = false;\n+      setText(\"\");\n+      updateStyle();\n+    }\n+\n+    // Perform the paste.\n+    super.paste();\n+  }\n }"
+ },
+ {
+  "sha": "9aa0cd70e2fcd3bacbe5552f2aa3a3ca75aa9d57",
+  "filename": "app/src/cc/arduino/contributions/ui/InstallerJDialog.java",
+  "status": "modified",
+  "additions": 29,
+  "deletions": 0,
+  "changes": 29,
+  "blob_url": "https://github.com/arduino/Arduino/blob/941050ecf0d71d3d72c56e968e417d981d79c040/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FInstallerJDialog.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/941050ecf0d71d3d72c56e968e417d981d79c040/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FInstallerJDialog.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FInstallerJDialog.java?ref=941050ecf0d71d3d72c56e968e417d981d79c040",
+  "patch": "@@ -45,15 +45,18 @@\n import java.awt.event.WindowEvent;\n import java.awt.event.MouseEvent;\n import java.awt.event.MouseMotionListener;\n+import java.awt.event.WindowAdapter;\n import java.util.function.Predicate;\n \n+import javax.swing.Action;\n import javax.swing.Box;\n import javax.swing.BoxLayout;\n import javax.swing.JButton;\n import javax.swing.JComboBox;\n import javax.swing.JDialog;\n import javax.swing.JLabel;\n import javax.swing.JPanel;\n+import javax.swing.JPopupMenu;\n import javax.swing.JScrollPane;\n import javax.swing.JTable;\n import javax.swing.ListSelectionModel;\n@@ -64,6 +67,7 @@\n import javax.swing.table.TableCellRenderer;\n import javax.swing.table.TableColumn;\n import javax.swing.table.TableColumnModel;\n+import javax.swing.text.DefaultEditorKit;\n \n import cc.arduino.contributions.ui.listeners.AbstractKeyListener;\n import processing.app.Base;\n@@ -130,6 +134,31 @@ protected void onFilter(String[] _filters) {\n         }\n       };\n \n+      // Add cut/copy/paste contextual menu to the search filter input field.\n+      JPopupMenu menu = new JPopupMenu();\n+\n+      Action cut = new DefaultEditorKit.CutAction();\n+      cut.putValue(Action.NAME, tr(\"Cut\"));\n+      menu.add(cut);\n+\n+      Action copy = new DefaultEditorKit.CopyAction();\n+      copy.putValue(Action.NAME, tr(\"Copy\"));\n+      menu.add(copy);\n+\n+      Action paste = new DefaultEditorKit.PasteAction();\n+      paste.putValue(Action.NAME, tr(\"Paste\"));\n+      menu.add(paste);\n+\n+      filterField.setComponentPopupMenu(menu);\n+      \n+      // Focus the filter field when the window opens.\n+      addWindowListener(new WindowAdapter() {\n+        @Override\n+        public void windowOpened(WindowEvent e) {\n+          filterField.requestFocus();\n+        }\n+      });\n+\n       filtersContainer = new JPanel();\n       filtersContainer.setLayout(new BoxLayout(filtersContainer, BoxLayout.X_AXIS));\n       filtersContainer.add(Box.createHorizontalStrut(5));"
+ },
+ {
+  "sha": "46d8c6a61acae1e3088605463883c1d8bfc418e2",
+  "filename": "app/src/processing/app/AbstractTextMonitor.java",
+  "status": "modified",
+  "additions": 20,
+  "deletions": 0,
+  "changes": 20,
+  "blob_url": "https://github.com/arduino/Arduino/blob/941050ecf0d71d3d72c56e968e417d981d79c040/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/941050ecf0d71d3d72c56e968e417d981d79c040/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java?ref=941050ecf0d71d3d72c56e968e417d981d79c040",
+  "patch": "@@ -14,18 +14,21 @@\n import java.util.Date;\n import java.util.StringTokenizer;\n \n+import javax.swing.Action;\n import javax.swing.Box;\n import javax.swing.BoxLayout;\n import javax.swing.JButton;\n import javax.swing.JCheckBox;\n import javax.swing.JComboBox;\n import javax.swing.JLabel;\n import javax.swing.JPanel;\n+import javax.swing.JPopupMenu;\n import javax.swing.JScrollPane;\n import javax.swing.JTextField;\n import javax.swing.SwingUtilities;\n import javax.swing.border.EmptyBorder;\n import javax.swing.text.DefaultCaret;\n+import javax.swing.text.DefaultEditorKit;\n \n import cc.arduino.packages.BoardPort;\n \n@@ -82,6 +85,23 @@ public void windowGainedFocus(WindowEvent e) {\n       }\n     });\n \n+    // Add cut/copy/paste contextual menu to the text input field.\n+    JPopupMenu menu = new JPopupMenu();\n+\n+    Action cut = new DefaultEditorKit.CutAction();\n+    cut.putValue(Action.NAME, tr(\"Cut\"));\n+    menu.add(cut);\n+\n+    Action copy = new DefaultEditorKit.CopyAction();\n+    copy.putValue(Action.NAME, tr(\"Copy\"));\n+    menu.add(copy);\n+\n+    Action paste = new DefaultEditorKit.PasteAction();\n+    paste.putValue(Action.NAME, tr(\"Paste\"));\n+    menu.add(paste);\n+\n+    textField.setComponentPopupMenu(menu);\n+\n     sendButton = new JButton(tr(\"Send\"));\n     clearButton = new JButton(tr(\"Clear output\"));\n "
+ }
+]

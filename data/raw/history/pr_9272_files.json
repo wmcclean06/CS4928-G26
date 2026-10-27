@@ -1,0 +1,86 @@
+[
+ {
+  "sha": "7c2ecff383f5917e96c366ec609ff951a8471d50",
+  "filename": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellEditor.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellEditor.java?ref=af9e859c0866171d2e87ae9e34eec5cb8fa9edff",
+  "patch": "@@ -125,6 +125,7 @@ public Component getTableCellEditorComponent(JTable table, Object value,\n     editorCell.versionToInstallChooser\n         .setVisible(!mayInstalled.isPresent() && notInstalled.size() > 1);\n \n+    editorCell.setForeground(Color.BLACK);\n     editorCell.setBackground(new Color(218, 227, 227)); // #dae3e3\n     return editorCell;\n   }"
+ },
+ {
+  "sha": "46182bd0c5d43414c19a3bec3b3bc3c62241c2c5",
+  "filename": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellJPanel.java",
+  "status": "modified",
+  "additions": 10,
+  "deletions": 15,
+  "changes": 25,
+  "blob_url": "https://github.com/arduino/Arduino/blob/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java?ref=af9e859c0866171d2e87ae9e34eec5cb8fa9edff",
+  "patch": "@@ -42,6 +42,7 @@ public class ContributedLibraryTableCellJPanel extends JPanel {\n   final JPanel buttonsPanel;\n   final JPanel inactiveButtonsPanel;\n   final JLabel statusLabel;\n+  final JTextPane description;\n   private final String moreInfoLbl = tr(\"More info\");\n \n   public ContributedLibraryTableCellJPanel(JTable parentTable, Object value,\n@@ -77,7 +78,8 @@ public ContributedLibraryTableCellJPanel(JTable parentTable, Object value,\n     versionToInstallChooser\n         .setMinimumSize(new Dimension((int)versionToInstallChooser.getPreferredSize().getWidth() + 50, (int)versionToInstallChooser.getPreferredSize().getHeight()));\n \n-    makeNewDescription();\n+    description = makeNewDescription();\n+    add(description);\n \n     buttonsPanel = new JPanel();\n     buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.X_AXIS));\n@@ -121,7 +123,6 @@ public ContributedLibraryTableCellJPanel(JTable parentTable, Object value,\n     add(Box.createVerticalStrut(15));\n \n     ContributedLibraryReleases releases = (ContributedLibraryReleases) value;\n-    JTextPane description = makeNewDescription();\n \n     // FIXME: happens on macosx, don't know why\n     if (releases == null)\n@@ -205,7 +206,6 @@ public ContributedLibraryTableCellJPanel(JTable parentTable, Object value,\n     description.setText(desc);\n     // copy description to accessibility context for screen readers to use\n     description.getAccessibleContext().setAccessibleDescription(desc);\n-    description.setBackground(Color.WHITE);\n \n     // for modelToView to work, the text area has to be sized. It doesn't\n     // matter if it's visible or not.\n@@ -215,14 +215,6 @@ public ContributedLibraryTableCellJPanel(JTable parentTable, Object value,\n     InstallerTableCell\n         .setJTextPaneDimensionToFitContainedText(description,\n                                                  parentTable.getBounds().width);\n-\n-    if (isSelected) {\n-      setBackground(parentTable.getSelectionBackground());\n-      setForeground(parentTable.getSelectionForeground());\n-    } else {\n-      setBackground(parentTable.getBackground());\n-      setForeground(parentTable.getForeground());\n-    }\n   }\n \n   // same function as in ContributedPlatformTableCellJPanel - is there a utils file this can move to?\n@@ -246,9 +238,6 @@ private String setButtonOrLink(JButton button, String desc, String label, String\n \n   // TODO Make this a method of Theme\n   private JTextPane makeNewDescription() {\n-    if (getComponentCount() > 0) {\n-      remove(0);\n-    }\n     JTextPane description = new JTextPane();\n     description.setInheritsPopupMenu(true);\n     Insets margin = description.getMargin();\n@@ -274,7 +263,6 @@ private JTextPane makeNewDescription() {\n       }\n     });\n     // description.addKeyListener(new DelegatingKeyListener(parentTable));\n-    add(description, 0);\n     return description;\n   }\n \n@@ -283,4 +271,11 @@ public void setButtonsVisible(boolean enabled) {\n     buttonsPanel.setVisible(enabled);\n     inactiveButtonsPanel.setVisible(!enabled);\n   }\n+\n+  public void setForeground(Color c) {\n+    super.setForeground(c);\n+    // The description is not opaque, so copy our foreground color to it.\n+    if (description != null)\n+      description.setForeground(c);\n+  }\n }"
+ },
+ {
+  "sha": "d107f90208acb96e1d2c1738eb04377a42ade8f8",
+  "filename": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellRenderer.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellRenderer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellRenderer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellRenderer.java?ref=af9e859c0866171d2e87ae9e34eec5cb8fa9edff",
+  "patch": "@@ -46,6 +46,7 @@ public Component getTableCellRendererComponent(JTable table, Object value,\n         value, isSelected);\n     cell.setButtonsVisible(false);\n \n+    cell.setForeground(Color.BLACK);\n     if (row % 2 == 0) {\n       cell.setBackground(new Color(236, 241, 241)); // #ecf1f1\n     } else {"
+ },
+ {
+  "sha": "7fe221fa340fbbb3af6e36434718113c073c2e9c",
+  "filename": "app/src/cc/arduino/contributions/packages/ui/ContributedPlatformTableCellEditor.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellEditor.java?ref=af9e859c0866171d2e87ae9e34eec5cb8fa9edff",
+  "patch": "@@ -129,7 +129,8 @@ public Component getTableCellEditorComponent(JTable table, Object _value,\n     cell.versionToInstallChooser\n         .setVisible(installed == null && uninstalledReleases.size() > 1);\n \n-    cell.update(table, _value, true, !installedBuiltIn.isEmpty());\n+    cell.update(table, _value, !installedBuiltIn.isEmpty());\n+    cell.setForeground(Color.BLACK);\n     cell.setBackground(new Color(218, 227, 227)); // #dae3e3\n     return cell;\n   }"
+ },
+ {
+  "sha": "100c7b8b12b62b0dca800d26ad63752b6e93e12f",
+  "filename": "app/src/cc/arduino/contributions/packages/ui/ContributedPlatformTableCellJPanel.java",
+  "status": "modified",
+  "additions": 10,
+  "deletions": 18,
+  "changes": 28,
+  "blob_url": "https://github.com/arduino/Arduino/blob/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellJPanel.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellJPanel.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellJPanel.java?ref=af9e859c0866171d2e87ae9e34eec5cb8fa9edff",
+  "patch": "@@ -75,6 +75,7 @@ public class ContributedPlatformTableCellJPanel extends JPanel {\n   final JPanel buttonsPanel;\n   final JPanel inactiveButtonsPanel;\n   final JLabel statusLabel;\n+  final JTextPane description;\n   private final String moreInfoLbl = tr(\"More Info\");\n   private final String onlineHelpLbl = tr(\"Online Help\");\n \n@@ -117,7 +118,8 @@ public ContributedPlatformTableCellJPanel() {\n     versionToInstallChooser\n         .setMaximumSize(versionToInstallChooser.getPreferredSize());\n \n-    makeNewDescription();\n+    description = makeNewDescription();\n+    add(description);\n \n     buttonsPanel = new JPanel();\n     buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.X_AXIS));\n@@ -184,12 +186,9 @@ private String setButtonOrLink(JButton button, String desc, String label, String\n     return retString;\n   }\n \n-  void update(JTable parentTable, Object value, boolean isSelected,\n-              boolean hasBuiltInRelease) {\n+  void update(JTable parentTable, Object value, boolean hasBuiltInRelease) {\n     ContributedPlatformReleases releases = (ContributedPlatformReleases) value;\n \n-    JTextPane description = makeNewDescription();\n-\n     // FIXME: happens on macosx, don't know why\n     if (releases == null) {\n       return;\n@@ -268,7 +267,6 @@ void update(JTable parentTable, Object value, boolean isSelected,\n     description.setText(desc);\n     // copy description to accessibility context for screen readers to use\n     description.getAccessibleContext().setAccessibleDescription(desc);\n-    description.setBackground(Color.WHITE);\n \n     // for modelToView to work, the text area has to be sized. It doesn't\n     // matter if it's visible or not.\n@@ -278,20 +276,9 @@ void update(JTable parentTable, Object value, boolean isSelected,\n     int width = parentTable.getBounds().width;\n     InstallerTableCell.setJTextPaneDimensionToFitContainedText(description,\n                                                                width);\n-\n-    if (isSelected) {\n-      setBackground(parentTable.getSelectionBackground());\n-      setForeground(parentTable.getSelectionForeground());\n-    } else {\n-      setBackground(parentTable.getBackground());\n-      setForeground(parentTable.getForeground());\n-    }\n   }\n \n   private JTextPane makeNewDescription() {\n-    if (getComponentCount() > 0) {\n-      remove(0);\n-    }\n     JTextPane description = new JTextPane();\n     description.setInheritsPopupMenu(true);\n     Insets margin = description.getMargin();\n@@ -315,7 +302,6 @@ private JTextPane makeNewDescription() {\n         Base.openURL(e.getDescription());\n       }\n     });\n-    add(description, 0);\n     return description;\n   }\n \n@@ -326,4 +312,10 @@ public void setButtonsVisible(boolean enabled) {\n     inactiveButtonsPanel.setVisible(!enabled);\n   }\n \n+  public void setForeground(Color c) {\n+    super.setForeground(c);\n+    // The description is not opaque, so copy our foreground color to it.\n+    if (description != null)\n+      description.setForeground(c);\n+  }\n }"
+ },
+ {
+  "sha": "b6f6aae015cb7611c9c33a540bb999962bd798e9",
+  "filename": "app/src/cc/arduino/contributions/packages/ui/ContributedPlatformTableCellRenderer.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellRenderer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellRenderer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellRenderer.java?ref=af9e859c0866171d2e87ae9e34eec5cb8fa9edff",
+  "patch": "@@ -44,8 +44,9 @@ public Component getTableCellRendererComponent(JTable table, Object value,\n                                                  int column) {\n     ContributedPlatformTableCellJPanel cell = new ContributedPlatformTableCellJPanel();\n     cell.setButtonsVisible(false);\n-    cell.update(table, value, isSelected, false);\n+    cell.update(table, value, false);\n \n+    cell.setForeground(Color.BLACK);\n     if (row % 2 == 0) {\n       cell.setBackground(new Color(236, 241, 241)); // #ecf1f1\n     } else {"
+ },
+ {
+  "sha": "2888cd6880023c644385c1732315e0bd0609b04d",
+  "filename": "app/src/cc/arduino/contributions/ui/InstallerJDialog.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FInstallerJDialog.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/af9e859c0866171d2e87ae9e34eec5cb8fa9edff/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FInstallerJDialog.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FInstallerJDialog.java?ref=af9e859c0866171d2e87ae9e34eec5cb8fa9edff",
+  "patch": "@@ -180,7 +180,6 @@ public void windowOpened(WindowEvent e) {\n     contribTable.setDragEnabled(false);\n     contribTable.setIntercellSpacing(new Dimension(0, 1));\n     contribTable.setShowVerticalLines(false);\n-    contribTable.setSelectionBackground(Theme.getColor(\"status.notice.bgcolor\"));\n     contribTable.addKeyListener(new AbstractKeyListener() {\n \n       @Override"
+ }
+]

@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "ec5c09181e086f86ff02d4e495a897aa1815aa45",
+  "filename": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellJPanel.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/6bcd0529c1564376846a11de0341dfe006f8522d/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/6bcd0529c1564376846a11de0341dfe006f8522d/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java?ref=6bcd0529c1564376846a11de0341dfe006f8522d",
+  "patch": "@@ -193,6 +193,8 @@ public ContributedLibraryTableCellJPanel(JTable parentTable, Object value,\n \n     desc += \"</body></html>\";\n     description.setText(desc);\n+    // copy description to accessibility context for screen readers to use\n+    description.getAccessibleContext().setAccessibleDescription(desc);\n     description.setBackground(Color.WHITE);\n \n     // for modelToView to work, the text area has to be sized. It doesn't"
+ },
+ {
+  "sha": "7a2750a7eb9ec513f343512c9510b0480f4b005f",
+  "filename": "app/src/cc/arduino/contributions/packages/ui/ContributedPlatformTableCellJPanel.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 0,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/6bcd0529c1564376846a11de0341dfe006f8522d/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellJPanel.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/6bcd0529c1564376846a11de0341dfe006f8522d/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellJPanel.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellJPanel.java?ref=6bcd0529c1564376846a11de0341dfe006f8522d",
+  "patch": "@@ -230,6 +230,8 @@ void update(JTable parentTable, Object value, boolean isSelected,\n \n     desc += \"</body></html>\";\n     description.setText(desc);\n+    // copy description to accessibility context for screen readers to use\n+    description.getAccessibleContext().setAccessibleDescription(desc);\n     description.setBackground(Color.WHITE);\n \n     // for modelToView to work, the text area has to be sized. It doesn't"
+ },
+ {
+  "sha": "7c946e4993e69eccfc5f70f3ea516e7a35198721",
+  "filename": "app/src/cc/arduino/contributions/ui/ProgressJProgressBar.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 1,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/6bcd0529c1564376846a11de0341dfe006f8522d/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FProgressJProgressBar.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/6bcd0529c1564376846a11de0341dfe006f8522d/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FProgressJProgressBar.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fui%2FProgressJProgressBar.java?ref=6bcd0529c1564376846a11de0341dfe006f8522d",
+  "patch": "@@ -38,8 +38,13 @@ public class ProgressJProgressBar extends JProgressBar {\n \n   public void setValue(Progress p) {\n     setValue((int) p.getProgress());\n-    if (p.getStatus() != null)\n+    if (p.getStatus() != null) {\n       setString(p.getStatus());\n+      // copy status to accessibility context for screen readers to use\n+      getAccessibleContext().setAccessibleDescription(p.getStatus());\n+      // make status focusable so screen readers can get to it\n+      setFocusable(true);\n+    }\n   }\n \n }"
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "c22f7da156c3c9e99f5bb756a3ac84bddc5e6ea2",
+  "filename": "arduino-core/src/cc/arduino/utils/ArchiveExtractor.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/047501ac6746d6606c764f0cb1fadf99b37989be/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2FArchiveExtractor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/047501ac6746d6606c764f0cb1fadf99b37989be/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2FArchiveExtractor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2FArchiveExtractor.java?ref=047501ac6746d6606c764f0cb1fadf99b37989be",
+  "patch": "@@ -36,6 +36,7 @@\n import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;\n import org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream;\n import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;\n+import org.apache.commons.compress.compressors.xz.XZCompressorInputStream;\n import org.apache.commons.compress.utils.IOUtils;\n import processing.app.I18n;\n import processing.app.Platform;\n@@ -98,6 +99,8 @@ public void extract(File archiveFile, File destFolder, int stripPath, boolean ov\n         in = new ZipArchiveInputStream(new FileInputStream(archiveFile));\n       } else if (archiveFile.getName().endsWith(\"tar.gz\")) {\n         in = new TarArchiveInputStream(new GzipCompressorInputStream(new FileInputStream(archiveFile)));\n+      } else if (archiveFile.getName().endsWith(\"tar.xz\")) {\n+        in = new TarArchiveInputStream(new XZCompressorInputStream(new FileInputStream(archiveFile)));\n       } else if (archiveFile.getName().endsWith(\"tar\")) {\n         in = new TarArchiveInputStream(new FileInputStream(archiveFile));\n       } else {"
+ }
+]

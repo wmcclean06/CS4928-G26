@@ -1,0 +1,35 @@
+{
+ "nodes": [
+  {
+   "className": "DownloadableContributionsDownloader",
+   "functionName": "download",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.DownloadableContributionsDownloader.download(DownloadableContribution,Progress,String,ProgressListener,boolean)",
+   "filePath": "arduino-core/src/cc/arduino/contributions/DownloadableContributionsDownloader.java",
+   "simplifiedSignature": "download(DownloadableContribution,Progress,String,ProgressListener,boolean)",
+   "changed": false,
+   "deleted": false,
+   "terminal": false,
+   "affected": true
+  },
+  {
+   "className": "DownloadableContributionsDownloader",
+   "functionName": "download",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.DownloadableContributionsDownloader.download(DownloadableContribution,Progress,String,ProgressListener,boolean,boolean)",
+   "filePath": "arduino-core/src/cc/arduino/contributions/DownloadableContributionsDownloader.java",
+   "simplifiedSignature": "download(DownloadableContribution,Progress,String,ProgressListener,boolean,boolean)",
+   "changed": true,
+   "deleted": false,
+   "terminal": false,
+   "affected": false
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "cc.arduino.contributions.DownloadableContributionsDownloader.download(DownloadableContribution,Progress,String,ProgressListener,boolean,boolean)",
+   "endNodeSignature": "cc.arduino.contributions.DownloadableContributionsDownloader.download(DownloadableContribution,Progress,String,ProgressListener,boolean)",
+   "impactLevel": 0
+  }
+ ]
+}

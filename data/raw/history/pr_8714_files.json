@@ -1,0 +1,86 @@
+[
+ {
+  "sha": "3be7723b5864fd89ef4eb8df632ef8d0f441473a",
+  "filename": "app/src/cc/arduino/packages/MonitorFactory.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 4,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fcc%2Farduino%2Fpackages%2FMonitorFactory.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fcc%2Farduino%2Fpackages%2FMonitorFactory.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fpackages%2FMonitorFactory.java?ref=0312ef7353a85e6123f7333840165f59d6207749",
+  "patch": "@@ -30,24 +30,23 @@\n package cc.arduino.packages;\n \n import processing.app.AbstractMonitor;\n-import processing.app.Base;\n import processing.app.NetworkMonitor;\n import processing.app.SerialMonitor;\n \n public class MonitorFactory {\n \n-  public AbstractMonitor newMonitor(Base base, BoardPort port) {\n+  public AbstractMonitor newMonitor(BoardPort port) {\n     if (\"network\".equals(port.getProtocol())) {\n       if (\"yes\".equals(port.getPrefs().get(\"ssh_upload\"))) {\n         // the board is SSH capable\n-        return new NetworkMonitor(base, port); \n+        return new NetworkMonitor(port);\n       } else {\n         // SSH not supported, no monitor support\n         return null;\n       }\n     }\n \n-    return new SerialMonitor(base, port);\n+    return new SerialMonitor(port);\n   }\n \n }"
+ },
+ {
+  "sha": "3e8d38b5d3046e78a6171586140f0a4ba57c7fd7",
+  "filename": "app/src/processing/app/AbstractTextMonitor.java",
+  "status": "modified",
+  "additions": 17,
+  "deletions": 6,
+  "changes": 23,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java?ref=0312ef7353a85e6123f7333840165f59d6207749",
+  "patch": "@@ -8,6 +8,8 @@\n import java.awt.Font;\n import java.awt.event.ActionEvent;\n import java.awt.event.ActionListener;\n+import java.awt.event.KeyListener;\n+import java.awt.event.MouseWheelListener;\n import java.awt.event.WindowAdapter;\n import java.awt.event.WindowEvent;\n import java.text.SimpleDateFormat;\n@@ -43,12 +45,21 @@ public abstract class AbstractTextMonitor extends AbstractMonitor {\n   protected JComboBox<String> lineEndings;\n   protected JComboBox<String> serialRates;\n \n-  public AbstractTextMonitor(Base base, BoardPort boardPort) {\n+  public AbstractTextMonitor(BoardPort boardPort) {\n     super(boardPort);\n+  }\n \n-    // Add font size adjustment listeners. This has to be done here due to\n-    // super(boardPort) invoking onCreateWindow(...) before we can store base.\n-    base.addEditorFontResizeListeners(textArea);\n+  @Override\n+  public synchronized void addMouseWheelListener(MouseWheelListener l) {\n+    super.addMouseWheelListener(l);\n+    textArea.addMouseWheelListener(l);\n+  }\n+\n+  @Override\n+  public synchronized void addKeyListener(KeyListener l) {\n+    super.addKeyListener(l);\n+    textArea.addKeyListener(l);\n+    textField.addKeyListener(l);\n   }\n \n   @Override\n@@ -105,7 +116,7 @@ public void windowGainedFocus(WindowEvent e) {\n     minimumSize.setSize(minimumSize.getWidth() / 3, minimumSize.getHeight());\n     noLineEndingAlert.setMinimumSize(minimumSize);\n \n-    lineEndings = new JComboBox<String>(new String[]{tr(\"No line ending\"), tr(\"Newline\"), tr(\"Carriage return\"), tr(\"Both NL & CR\")});\n+    lineEndings = new JComboBox<>(new String[]{tr(\"No line ending\"), tr(\"Newline\"), tr(\"Carriage return\"), tr(\"Both NL & CR\")});\n     lineEndings.addActionListener((ActionEvent event) -> {\n       PreferencesData.setInteger(\"serial.line_ending\", lineEndings.getSelectedIndex());\n       noLineEndingAlert.setForeground(pane.getBackground());\n@@ -115,7 +126,7 @@ public void windowGainedFocus(WindowEvent e) {\n \n     lineEndings.setMaximumSize(lineEndings.getMinimumSize());\n \n-    serialRates = new JComboBox<String>();\n+    serialRates = new JComboBox<>();\n     for (String rate : serialRateStrings) {\n       serialRates.addItem(rate + \" \" + tr(\"baud\"));\n     }"
+ },
+ {
+  "sha": "6895c31d0bea38267b98eceaf23a1995d38697d8",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 28,
+  "deletions": 37,
+  "changes": 65,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=0312ef7353a85e6123f7333840165f59d6207749",
+  "patch": "@@ -1870,9 +1870,6 @@ public void handleFontSizeChange(int change) {\n     getEditors().forEach(Editor::applyPreferences);\n   }\n \n-  private MouseWheelListener editorFontResizeMouseWheelListener = null;\n-  private KeyListener editorFontResizeKeyListener = null;\n-\n   /**\n    * Adds a {@link MouseWheelListener} and {@link KeyListener} to the given\n    * component that will make \"CTRL scroll\" and \"CTRL +/-\"\n@@ -1884,8 +1881,8 @@ public void handleFontSizeChange(int change) {\n    * @param comp - The component to add the listener to.\n    */\n   public void addEditorFontResizeListeners(Component comp) {\n-    this.addEditorFontResizeMouseWheelListener(comp);\n-    this.addEditorFontResizeKeyListener(comp);\n+    addEditorFontResizeMouseWheelListener(comp);\n+    addEditorFontResizeKeyListener(comp);\n   }\n \n   /**\n@@ -1897,20 +1894,17 @@ public void addEditorFontResizeListeners(Component comp) {\n    * @param comp - The component to add the listener to.\n    */\n   public void addEditorFontResizeMouseWheelListener(Component comp) {\n-    if (this.editorFontResizeMouseWheelListener == null) {\n-      this.editorFontResizeMouseWheelListener = (MouseWheelEvent e) -> {\n-        if (e.isControlDown()) {\n-          if (e.getWheelRotation() < 0) {\n-            this.handleFontSizeChange(1);\n-          } else {\n-            this.handleFontSizeChange(-1);\n-          }\n+    comp.addMouseWheelListener(e -> {\n+      if (e.isControlDown()) {\n+        if (e.getWheelRotation() < 0) {\n+          this.handleFontSizeChange(1);\n         } else {\n-          e.getComponent().getParent().dispatchEvent(e);\n+          this.handleFontSizeChange(-1);\n         }\n-      };\n-    }\n-    comp.addMouseWheelListener(this.editorFontResizeMouseWheelListener);\n+      } else {\n+        e.getComponent().getParent().dispatchEvent(e);\n+      }\n+    });\n   }\n \n   /**\n@@ -1920,29 +1914,26 @@ public void addEditorFontResizeMouseWheelListener(Component comp) {\n    * @param comp - The component to add the listener to.\n    */\n   public void addEditorFontResizeKeyListener(Component comp) {\n-    if (this.editorFontResizeKeyListener == null) {\n-      this.editorFontResizeKeyListener = new KeyAdapter() {\n-        @Override\n-        public void keyPressed(KeyEvent e) {\n-          if (e.getModifiersEx() == KeyEvent.CTRL_DOWN_MASK\n-              || e.getModifiersEx() == (KeyEvent.CTRL_DOWN_MASK\n-                  | KeyEvent.SHIFT_DOWN_MASK)) {\n-            switch (e.getKeyCode()) {\n-              case KeyEvent.VK_PLUS:\n-              case KeyEvent.VK_EQUALS:\n-                Base.this.handleFontSizeChange(1);\n-                break;\n-              case KeyEvent.VK_MINUS:\n-                if (!e.isShiftDown()) {\n-                  Base.this.handleFontSizeChange(-1);\n-                }\n-                break;\n+    comp.addKeyListener(new KeyAdapter() {\n+      @Override\n+      public void keyPressed(KeyEvent e) {\n+        if (e.getModifiersEx() == KeyEvent.CTRL_DOWN_MASK\n+            || e.getModifiersEx() == (KeyEvent.CTRL_DOWN_MASK\n+                                      | KeyEvent.SHIFT_DOWN_MASK)) {\n+          switch (e.getKeyCode()) {\n+          case KeyEvent.VK_PLUS:\n+          case KeyEvent.VK_EQUALS:\n+            Base.this.handleFontSizeChange(1);\n+            break;\n+          case KeyEvent.VK_MINUS:\n+            if (!e.isShiftDown()) {\n+              Base.this.handleFontSizeChange(-1);\n             }\n+            break;\n           }\n         }\n-      };\n-    }\n-    comp.addKeyListener(this.editorFontResizeKeyListener);\n+      }\n+    });\n   }\n \n   public List<JMenu> getBoardsCustomMenus() {"
+ },
+ {
+  "sha": "cb910d089cd56c8b35e1ce1aede377b5e94ea5b9",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=0312ef7353a85e6123f7333840165f59d6207749",
+  "patch": "@@ -2214,7 +2214,7 @@ public void handleSerial() {\n       return;\n     }\n \n-    serialMonitor = new MonitorFactory().newMonitor(base, port);\n+    serialMonitor = new MonitorFactory().newMonitor(port);\n \n     if (serialMonitor == null) {\n       String board = port.getPrefs().get(\"board\");\n@@ -2223,6 +2223,7 @@ public void handleSerial() {\n       return;\n     }\n \n+    base.addEditorFontResizeListeners(serialMonitor);\n     Base.setIcon(serialMonitor);\n \n     // If currently uploading, disable the monitor (it will be later"
+ },
+ {
+  "sha": "9ea7b435a1918f8b37522850269141f951acdd60",
+  "filename": "app/src/processing/app/EditorTab.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java?ref=0312ef7353a85e6123f7333840165f59d6207749",
+  "patch": "@@ -30,8 +30,6 @@\n import java.awt.Font;\n import java.awt.event.ActionEvent;\n import java.awt.event.ActionListener;\n-import java.awt.event.MouseWheelListener;\n-import java.awt.event.MouseWheelEvent;\n \n import java.io.IOException;\n "
+ },
+ {
+  "sha": "b7f08026ace0bddbb12471ec84ee5f93b459abf5",
+  "filename": "app/src/processing/app/NetworkMonitor.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FNetworkMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FNetworkMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FNetworkMonitor.java?ref=0312ef7353a85e6123f7333840165f59d6207749",
+  "patch": "@@ -31,8 +31,8 @@ public class NetworkMonitor extends AbstractTextMonitor implements MessageConsum\n   private Channel channel;\n   private int connectionAttempts;\n \n-  public NetworkMonitor(Base base, BoardPort port) {\n-    super(base, port);\n+  public NetworkMonitor(BoardPort port) {\n+    super(port);\n \n     onSendCommand(new ActionListener() {\n       public void actionPerformed(ActionEvent event) {"
+ },
+ {
+  "sha": "d69b5ae27db73c1e8b56099f59afbf093a4d9a9b",
+  "filename": "app/src/processing/app/SerialMonitor.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FSerialMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/0312ef7353a85e6123f7333840165f59d6207749/app%2Fsrc%2Fprocessing%2Fapp%2FSerialMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSerialMonitor.java?ref=0312ef7353a85e6123f7333840165f59d6207749",
+  "patch": "@@ -32,8 +32,8 @@ public class SerialMonitor extends AbstractTextMonitor {\n   private Serial serial;\n   private int serialRate;\n \n-  public SerialMonitor(Base base, BoardPort port) {\n-    super(base, port);\n+  public SerialMonitor(BoardPort port) {\n+    super(port);\n \n     serialRate = PreferencesData.getInteger(\"serial.debug_rate\");\n     serialRates.setSelectedItem(serialRate + \" \" + tr(\"baud\"));"
+ }
+]

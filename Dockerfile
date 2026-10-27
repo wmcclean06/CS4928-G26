@@ -24,7 +24,7 @@
 #  are being purged, which makes `apt-get install` fail with 404s even
 #  though `apt-get update` succeeds. The archive holds the complete frozen
 #  final state (verified 25/10/2026) and serves plain HTTP, so no TLS trust
-#  is needed before ca-certificates is installed. Deviation D6.)
+#  is needed before ca-certificates is installed.)
 FROM debian:bullseye-slim AS artefact-prep
 
 ARG CHID_ARTEFACT_URL=https://ndownloader.figshare.com/files/50340738
@@ -86,7 +86,7 @@ USER root
 # installed here instead of being assumed present in the base image. Same
 # archive.debian.org pin as the artefact stage: the neo4j:5.3.0 base is
 # Debian 11 (EOL 31/08/2026), whose regular apt mirrors no longer serve all
-# .deb files (deviation D6). The rewrite covers /etc/apt/sources.list AND any
+# .deb files. The rewrite covers /etc/apt/sources.list AND any
 # /etc/apt/sources.list.d/*.list, whichever layout the base image uses.
 RUN set -eux; \
     find /etc/apt -maxdepth 2 -name '*.list' -exec sed -i 's|deb.debian.org/debian|archive.debian.org/debian|g; s|deb.debian.org/debian-security|archive.debian.org/debian-security|g; s|security.debian.org|archive.debian.org/debian-security|g' {} +; \

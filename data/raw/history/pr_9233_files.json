@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "b234a3e4d6c062ca067e99f88af14978f6df393a",
+  "filename": "app/src/processing/app/SerialPlotter.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 0,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/628f2fe3141c618f1fc0a79f79fdfae178afdc18/app%2Fsrc%2Fprocessing%2Fapp%2FSerialPlotter.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/628f2fe3141c618f1fc0a79f79fdfae178afdc18/app%2Fsrc%2Fprocessing%2Fapp%2FSerialPlotter.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSerialPlotter.java?ref=628f2fe3141c618f1fc0a79f79fdfae178afdc18",
+  "patch": "@@ -289,6 +289,10 @@ public void message(final String s) {\n       messageBuffer.delete(0, linebreak + 1);\n \n       line = line.trim();\n+      if (line.length() == 0) {\n+        // the line only contained trimmable characters\n+        continue;\n+      }\n       String[] parts = line.split(\"[, \\t]+\");\n       if(parts.length == 0) {\n         continue;"
+ }
+]

@@ -1,0 +1,103 @@
+{
+ "nodes": [
+  {
+   "className": "DownloadableContributionsDownloader",
+   "functionName": "download",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.DownloadableContributionsDownloader.download(DownloadableContribution,Progress,String,ProgressListener,boolean)",
+   "filePath": "arduino-core/src/cc/arduino/contributions/DownloadableContributionsDownloader.java",
+   "simplifiedSignature": "download(DownloadableContribution,Progress,String,ProgressListener,boolean)",
+   "changed": false,
+   "deleted": false,
+   "terminal": false,
+   "affected": true
+  },
+  {
+   "className": "LibraryInstaller",
+   "functionName": "performInstall",
+   "packageName": "cc.arduino.contributions.libraries",
+   "functionSignature": "cc.arduino.contributions.libraries.LibraryInstaller.performInstall(ContributedLibrary,ProgressListener,MultiStepProgress)",
+   "filePath": "arduino-core/src/cc/arduino/contributions/libraries/LibraryInstaller.java",
+   "simplifiedSignature": "performInstall(ContributedLibrary,ProgressListener,MultiStepProgress)",
+   "changed": false,
+   "deleted": false,
+   "terminal": false,
+   "affected": true
+  },
+  {
+   "className": "DownloadableContributionsDownloader",
+   "functionName": "download",
+   "packageName": "cc.arduino.contributions",
+   "functionSignature": "cc.arduino.contributions.DownloadableContributionsDownloader.download(DownloadableContribution,Progress,String,ProgressListener,boolean,boolean)",
+   "filePath": "arduino-core/src/cc/arduino/contributions/DownloadableContributionsDownloader.java",
+   "simplifiedSignature": "download(DownloadableContribution,Progress,String,ProgressListener,boolean,boolean)",
+   "changed": true,
+   "deleted": false,
+   "terminal": false,
+   "affected": false
+  },
+  {
+   "className": "ContributionManagerUI",
+   "functionName": "onInstallPressed",
+   "packageName": "cc.arduino.contributions.packages.ui",
+   "functionSignature": "cc.arduino.contributions.packages.ui.ContributionManagerUI.onInstallPressed(ContributedPlatform,ContributedPlatform)",
+   "filePath": "app/src/cc/arduino/contributions/packages/ui/ContributionManagerUI.java",
+   "simplifiedSignature": "onInstallPressed(ContributedPlatform,ContributedPlatform)",
+   "changed": false,
+   "deleted": false,
+   "terminal": false,
+   "affected": true
+  },
+  {
+   "className": "LibraryInstaller",
+   "functionName": "install",
+   "packageName": "cc.arduino.contributions.libraries",
+   "functionSignature": "cc.arduino.contributions.libraries.LibraryInstaller.install(List<ContributedLibrary>,ProgressListener)",
+   "filePath": "arduino-core/src/cc/arduino/contributions/libraries/LibraryInstaller.java",
+   "simplifiedSignature": "install(List<ContributedLibrary>,ProgressListener)",
+   "changed": false,
+   "deleted": false,
+   "terminal": false,
+   "affected": true
+  },
+  {
+   "className": "ContributionInstaller",
+   "functionName": "install",
+   "packageName": "cc.arduino.contributions.packages",
+   "functionSignature": "cc.arduino.contributions.packages.ContributionInstaller.install(ContributedPlatform,ProgressListener)",
+   "filePath": "arduino-core/src/cc/arduino/contributions/packages/ContributionInstaller.java",
+   "simplifiedSignature": "install(ContributedPlatform,ProgressListener)",
+   "changed": false,
+   "deleted": false,
+   "terminal": false,
+   "affected": true
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "cc.arduino.contributions.libraries.LibraryInstaller.performInstall(ContributedLibrary,ProgressListener,MultiStepProgress)",
+   "endNodeSignature": "cc.arduino.contributions.libraries.LibraryInstaller.install(List<ContributedLibrary>,ProgressListener)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.DownloadableContributionsDownloader.download(DownloadableContribution,Progress,String,ProgressListener,boolean)",
+   "endNodeSignature": "cc.arduino.contributions.packages.ContributionInstaller.install(ContributedPlatform,ProgressListener)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.packages.ContributionInstaller.install(ContributedPlatform,ProgressListener)",
+   "endNodeSignature": "cc.arduino.contributions.packages.ui.ContributionManagerUI.onInstallPressed(ContributedPlatform,ContributedPlatform)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.DownloadableContributionsDownloader.download(DownloadableContribution,Progress,String,ProgressListener,boolean,boolean)",
+   "endNodeSignature": "cc.arduino.contributions.DownloadableContributionsDownloader.download(DownloadableContribution,Progress,String,ProgressListener,boolean)",
+   "impactLevel": 0
+  },
+  {
+   "startNodeSignature": "cc.arduino.contributions.DownloadableContributionsDownloader.download(DownloadableContribution,Progress,String,ProgressListener,boolean)",
+   "endNodeSignature": "cc.arduino.contributions.libraries.LibraryInstaller.performInstall(ContributedLibrary,ProgressListener,MultiStepProgress)",
+   "impactLevel": 0
+  }
+ ]
+}

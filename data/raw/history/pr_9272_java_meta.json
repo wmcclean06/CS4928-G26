@@ -1,0 +1,91 @@
+{
+ "pr": 9272,
+ "base_sha": "a1448876a1115c9d3ee9e88f29a15bb081a27816",
+ "head_sha": "af9e859c0866171d2e87ae9e34eec5cb8fa9edff",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellEditor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 0,
+   "old_sha": "c5c2e41751c1d44ca0c6b2fe4991a77f0479753d",
+   "new_sha": "7c2ecff383f5917e96c366ec609ff951a8471d50",
+   "head_sha_check": "7c2ecff383f5917e96c366ec609ff951a8471d50",
+   "loc_at_head": 126,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellJPanel.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 10,
+   "deletions": 15,
+   "old_sha": "865de5776305012cd543e22d26dbd6d3e63497aa",
+   "new_sha": "46182bd0c5d43414c19a3bec3b3bc3c62241c2c5",
+   "head_sha_check": "46182bd0c5d43414c19a3bec3b3bc3c62241c2c5",
+   "loc_at_head": 237,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellRenderer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 0,
+   "old_sha": "bc4b3ffd94031bcd841a676c776359b18daf2906",
+   "new_sha": "d107f90208acb96e1d2c1738eb04377a42ade8f8",
+   "head_sha_check": "d107f90208acb96e1d2c1738eb04377a42ade8f8",
+   "loc_at_head": 55,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/packages/ui/ContributedPlatformTableCellEditor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 1,
+   "old_sha": "26bcb1c9d3b18755db28a7e784fa0bce2a3a8717",
+   "new_sha": "7fe221fa340fbbb3af6e36434718113c073c2e9c",
+   "head_sha_check": "7fe221fa340fbbb3af6e36434718113c073c2e9c",
+   "loc_at_head": 129,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/packages/ui/ContributedPlatformTableCellJPanel.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 10,
+   "deletions": 18,
+   "old_sha": "d59538823f7142c8f078d8b2a3abe9d065806927",
+   "new_sha": "100c7b8b12b62b0dca800d26ad63752b6e93e12f",
+   "head_sha_check": "100c7b8b12b62b0dca800d26ad63752b6e93e12f",
+   "loc_at_head": 278,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/packages/ui/ContributedPlatformTableCellRenderer.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 1,
+   "old_sha": "cc4b1d0c18655c91fee748bb7e1a21f7b7c2355e",
+   "new_sha": "b6f6aae015cb7611c9c33a540bb999962bd798e9",
+   "head_sha_check": "b6f6aae015cb7611c9c33a540bb999962bd798e9",
+   "loc_at_head": 55,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/ui/InstallerJDialog.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 1,
+   "old_sha": "dd2998bc441fc37c50a522bf325c5039ad8d443d",
+   "new_sha": "2888cd6880023c644385c1732315e0bd0609b04d",
+   "head_sha_check": "2888cd6880023c644385c1732315e0bd0609b04d",
+   "loc_at_head": 321,
+   "notes": ""
+  }
+ ]
+}

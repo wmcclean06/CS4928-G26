@@ -1,0 +1,4 @@
+# Files used inside the Linux container must keep Linux line endings on every OS
+*.sh text eol=lf
+Dockerfile text eol=lf
+docker/*.patch text eol=lf

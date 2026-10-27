@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "2442a68fb81488ed853c0f42d740292dbad5f947",
+  "filename": "build/shared/revisions.txt",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/1b4cf703f0ae68befb975224ebbf8d1059e3162f/build%2Fshared%2Frevisions.txt",
+  "raw_url": "https://github.com/arduino/Arduino/raw/1b4cf703f0ae68befb975224ebbf8d1059e3162f/build%2Fshared%2Frevisions.txt",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2Frevisions.txt?ref=1b4cf703f0ae68befb975224ebbf8d1059e3162f",
+  "patch": "@@ -20,7 +20,7 @@ ARDUINO 1.8.10 2019.09.13\n [hardware]\n * Bundle new avr toolchain (fixes lto issue with 5.4.0 and 64bit compatibility with upcoming macOS Catalina)\n \n-[arduino-buidler]\n+[arduino-builder]\n * update to 1.4.7 (based on the new arduino-cli)\n \n ARDUINO 1.8.9 2019.03.15"
+ }
+]

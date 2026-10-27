@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "21876ffc47ee472328a6cd42ac2e1ad9dda26abc",
+  "filename": "arduino-core/src/cc/arduino/packages/DiscoveryManager.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 0,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/fb67967b0064a1e32abb7c8c40f5bfa15006879f/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FDiscoveryManager.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/fb67967b0064a1e32abb7c8c40f5bfa15006879f/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FDiscoveryManager.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fpackages%2FDiscoveryManager.java?ref=fb67967b0064a1e32abb7c8c40f5bfa15006879f",
+  "patch": "@@ -35,6 +35,7 @@\n import java.util.ArrayList;\n import java.util.List;\n import java.util.Map;\n+import java.io.File;\n \n import cc.arduino.packages.discoverers.PluggableDiscovery;\n import cc.arduino.packages.discoverers.serial.SerialDiscovery;\n@@ -65,6 +66,10 @@ public DiscoveryManager(Map<String, TargetPackage> packages) {\n       for (TargetPlatform platform: targetPackage.getPlatforms().values()) {\n         //System.out.println(\"installed: \"+platform);\n         PreferencesMap prefs = platform.getPreferences().subTree(\"discovery\");\n+        PreferencesMap pathPrefs = new PreferencesMap();\n+        File platformFolder = platform.getFolder();\n+        pathPrefs.put(\"runtime.platform.path\", platformFolder.getAbsolutePath());\n+        pathPrefs.put(\"runtime.hardware.path\", platformFolder.getParentFile().getAbsolutePath());\n         for (String discoveryName : prefs.firstLevelMap().keySet()) {\n           PreferencesMap discoveryPrefs = prefs.subTree(discoveryName);\n \n@@ -76,9 +81,11 @@ public DiscoveryManager(Map<String, TargetPackage> packages) {\n           try {\n             if (PreferencesData.getBoolean(\"discovery.debug\")) {\n               System.out.println(\"found discovery: \" + discoveryName + \" -> \" + pattern);\n+              System.out.println(\"with pathnames -> \" + pathPrefs);\n               System.out.println(\"with preferencess -> \" + discoveryPrefs);\n             }\n             pattern = StringReplacer.replaceFromMapping(pattern, PreferencesData.getMap());\n+            pattern = StringReplacer.replaceFromMapping(pattern, pathPrefs);\n             String[] cmd = StringReplacer.formatAndSplit(pattern, discoveryPrefs);\n             discoverers.add(new PluggableDiscovery(discoveryName, cmd));\n           } catch (Exception e) {"
+ }
+]

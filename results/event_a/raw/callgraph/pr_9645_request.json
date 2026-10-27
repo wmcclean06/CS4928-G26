@@ -1,0 +1,13 @@
+{
+ "prNumber": "9645",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "DiscoveryManager.java",
+   "status": "MODIFIED",
+   "oldSha": "30f2f1d1dfc4d51b12b67e3a9d540a8b3ebf8c9c",
+   "newSha": "21876ffc47ee472328a6cd42ac2e1ad9dda26abc"
+  }
+ ]
+}

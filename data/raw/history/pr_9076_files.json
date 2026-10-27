@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "745ccb1dd5b15ba48a9df09740ad3cef874ef26e",
+  "filename": "app/test/cc/arduino/contributions/GzippedJsonDownloaderTest.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 1,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/89051a5e41e87a29c135fcfab1b06ed8e3f862c3/app%2Ftest%2Fcc%2Farduino%2Fcontributions%2FGzippedJsonDownloaderTest.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/89051a5e41e87a29c135fcfab1b06ed8e3f862c3/app%2Ftest%2Fcc%2Farduino%2Fcontributions%2FGzippedJsonDownloaderTest.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Ftest%2Fcc%2Farduino%2Fcontributions%2FGzippedJsonDownloaderTest.java?ref=89051a5e41e87a29c135fcfab1b06ed8e3f862c3",
+  "patch": "@@ -38,7 +38,9 @@ public void tearDown() throws Exception {\n \n   @Test\n   public void testJsonDownload() throws Exception {\n-    new GZippedJsonDownloader(downloader, new URL(\"http://downloads.arduino.cc/libraries/library_index.json\"), new URL(\"http://downloads.arduino.cc/libraries/library_index.json.gz\")).download(tempFile, new MultiStepProgress(1), \"\", new NoopProgressListener());\n+    new GZippedJsonDownloader(downloader, new URL(\"http://downloads.arduino.cc/libraries/library_index.json\"),\n+      new URL(\"http://downloads.arduino.cc/libraries/library_index.json.gz\"))\n+      .download(tempFile, new MultiStepProgress(1), \"\", new NoopProgressListener(), true);\n \n     InputStream indexIn = new FileInputStream(tempFile);\n     ObjectMapper mapper = new ObjectMapper();"
+ },
+ {
+  "sha": "bdb64325f59a794730463cab805bf0490bc69fc4",
+  "filename": "app/test/cc/arduino/contributions/JsonDownloaderTest.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 1,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/89051a5e41e87a29c135fcfab1b06ed8e3f862c3/app%2Ftest%2Fcc%2Farduino%2Fcontributions%2FJsonDownloaderTest.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/89051a5e41e87a29c135fcfab1b06ed8e3f862c3/app%2Ftest%2Fcc%2Farduino%2Fcontributions%2FJsonDownloaderTest.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Ftest%2Fcc%2Farduino%2Fcontributions%2FJsonDownloaderTest.java?ref=89051a5e41e87a29c135fcfab1b06ed8e3f862c3",
+  "patch": "@@ -38,7 +38,8 @@ public void tearDown() throws Exception {\n \n   @Test\n   public void testJsonDownload() throws Exception {\n-    new JsonDownloader(downloader, new URL(\"http://downloads.arduino.cc/libraries/library_index.json\")).download(tempFile, new MultiStepProgress(1), \"\", new NoopProgressListener());\n+    new JsonDownloader(downloader, new URL(\"http://downloads.arduino.cc/libraries/library_index.json\"))\n+      .download(tempFile, new MultiStepProgress(1), \"\", new NoopProgressListener(), true);\n \n     InputStream indexIn = new FileInputStream(tempFile);\n     ObjectMapper mapper = new ObjectMapper();"
+ }
+]

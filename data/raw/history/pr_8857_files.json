@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "35a53e906dea9bcacdc412cf25896d4f898c22d9",
+  "filename": "arduino-core/src/cc/arduino/contributions/packages/ContributionsIndexer.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d518d7683caddd00d48762938f3e89719a7139cc/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d518d7683caddd00d48762938f3e89719a7139cc/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2FContributionsIndexer.java?ref=d518d7683caddd00d48762938f3e89719a7139cc",
+  "patch": "@@ -215,7 +215,7 @@ public void syncWithFilesystem() throws IOException {\n   }\n \n   private void syncBuiltInHardware() throws IOException {\n-    if (index == null) {\n+    if (index == null || builtInHardwareFolder == null) {\n       return;\n     }\n     for (File folder : builtInHardwareFolder.listFiles(ONLY_DIRS)) {"
+ },
+ {
+  "sha": "37d4b33e9f07587436a69c3fe45b9ac96d6ec233",
+  "filename": "arduino-core/src/processing/app/BaseNoGui.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 1,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d518d7683caddd00d48762938f3e89719a7139cc/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d518d7683caddd00d48762938f3e89719a7139cc/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java?ref=d518d7683caddd00d48762938f3e89719a7139cc",
+  "patch": "@@ -676,7 +676,9 @@ static public void onBoardOrPortChange() {\n     // Libraries located in the latest folders on the list can override\n     // other libraries with the same name.\n     librariesIndexer.setLibrariesFolders(librariesFolders);\n-    librariesIndexer.setArchitecturePriority(getTargetPlatform().getId());\n+    if (getTargetPlatform() != null) {\n+      librariesIndexer.setArchitecturePriority(getTargetPlatform().getId());\n+    }\n     librariesIndexer.rescanLibraries();\n \n     populateImportToLibraryTable();"
+ }
+]

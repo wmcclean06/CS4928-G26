@@ -24,6 +24,8 @@ Outputs:
   python scripts/compute_metrics.py --selftest   # Fig. 10 check (must give 44.38, C)
   python scripts/compute_metrics.py 8349         # one PR
   python scripts/compute_metrics.py --all        # all sample PRs
+  python scripts/compute_metrics.py --set event_a --all
+        # Event A PRs -> results/event_a/event_a_metrics.csv, results/event_a/metrics_detail/
 """
 
 import argparse
@@ -36,8 +38,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
-CALLGRAPH = ROOT / "results" / "raw" / "callgraph"
 RESULTS = ROOT / "results"
+# PR set -> (sample list, raw PR data, call-graph results, output CSV, per-PR detail folder)
+SETS = {
+    "m2":      (ROOT / "data" / "eligibility_log.csv", RAW / "sample", RESULTS / "raw" / "callgraph",
+                RESULTS / "rq1_metrics.csv", RESULTS / "metrics_detail"),
+    "event_a": (ROOT / "data" / "event_a" / "eligibility_log.csv", RAW / "event_a_sample",
+                RESULTS / "event_a" / "raw" / "callgraph",
+                RESULTS / "event_a" / "event_a_metrics.csv", RESULTS / "event_a" / "metrics_detail"),
+}
+ELIGIBILITY, SAMPLE, CALLGRAPH, OUT_CSV, DETAIL = SETS["m2"]
 
 # --- Frozen parameters -----------------------------------------------------
 # Default settings from github-bot/models/Repository.js (bounds in %).
@@ -106,7 +116,7 @@ def load(path):
 
 
 def sample_numbers():
-    with open(ROOT / "data" / "eligibility_log.csv", newline="", encoding="utf-8-sig") as f:
+    with open(ELIGIBILITY, newline="", encoding="utf-8-sig") as f:
         return [int(r[0]) for r in list(csv.reader(f))[1:] if r and r[-1].startswith("ELIGIBLE")]
 
 
@@ -159,8 +169,8 @@ def merge_rate(pr_list, author, created):
 
 
 def compute(n, history, pr_list):
-    pr = load(RAW / "sample" / f"pr_{n}.json")
-    meta = load(RAW / "sample" / f"pr_{n}_java_meta.json")
+    pr = load(SAMPLE / f"pr_{n}.json")
+    meta = load(SAMPLE / f"pr_{n}_java_meta.json")
     created, author = pr["created_at"], pr["user"]["login"]
     branch, n_hist = replay_branch(history, created)
 
@@ -217,11 +227,14 @@ def selftest():
 
 
 def main():
+    global ELIGIBILITY, SAMPLE, CALLGRAPH, OUT_CSV, DETAIL
     ap = argparse.ArgumentParser()
     ap.add_argument("prs", nargs="*", type=int)
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--set", choices=list(SETS), default="m2")
     args = ap.parse_args()
+    ELIGIBILITY, SAMPLE, CALLGRAPH, OUT_CSV, DETAIL = SETS[args.set]
     if not selftest():
         sys.exit("self-test failed; not computing")
     if args.selftest and not (args.prs or args.all):
@@ -233,17 +246,17 @@ def main():
     history = history_prs()
     pr_list = json.loads((ROOT / "data" / "arduino_pr_list.json").read_text(encoding="utf-8"))
     rows = []
-    (RESULTS / "metrics_detail").mkdir(parents=True, exist_ok=True)
+    DETAIL.mkdir(parents=True, exist_ok=True)
     for n in prs:
         row, detail = compute(n, history, pr_list)
         rows.append(row)
-        (RESULTS / "metrics_detail" / f"pr_{n}.json").write_text(
+        (DETAIL / f"pr_{n}.json").write_text(
             json.dumps({"pr": n, "files": detail}, indent=1), encoding="utf-8")
         print(f"#{n}: impact {row['impact_cat'] or '-'}  buggy {row['buggy_cat']}  size {row['size_cat']}  "
               f"churn {row['churn_cat']}  merge {row['merge_cat']}  ->  risk "
               f"{row['risk_score'] if row['scored'] else 'NOT SCORED (no PageRank result)'} {row['risk_cat']}")
 
-    out = RESULTS / "rq1_metrics.csv"
+    out = OUT_CSV
     with open(out, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]))
         w.writeheader()

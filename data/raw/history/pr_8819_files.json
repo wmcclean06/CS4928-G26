@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "0257f89eea7cdfbc8e9f19bd2bb9fb59acac09f6",
+  "filename": "PULL_REQUEST_TEMPLATE.md",
+  "status": "added",
+  "additions": 17,
+  "deletions": 0,
+  "changes": 17,
+  "blob_url": "https://github.com/arduino/Arduino/blob/94c5e6cd5a5c321d2e8c9d790f1f26a5a2fa5a31/PULL_REQUEST_TEMPLATE.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/94c5e6cd5a5c321d2e8c9d790f1f26a5a2fa5a31/PULL_REQUEST_TEMPLATE.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/PULL_REQUEST_TEMPLATE.md?ref=94c5e6cd5a5c321d2e8c9d790f1f26a5a2fa5a31",
+  "patch": "@@ -0,0 +1,17 @@\n+### All Submissions:\n+\n+* [ ] Have you followed the guidelines in our Contributing document?\n+* [ ] Have you checked to ensure there aren't other open [Pull Requests](https://github.com/arduino/Arduino/pulls?q=) for the same update/change?\n+\n+<!-- You can erase any parts of this template not applicable to your Pull Request. -->\n+\n+### New Feature Submissions:\n+\n+1. [ ] Does your submission pass tests?\n+2. [ ] Have you lint your code locally prior to submission?\n+\n+### Changes to Core Features:\n+\n+* [ ] Have you added an explanation of what your changes do and why you'd like us to include them?\n+* [ ] Have you written new tests for your core changes, as applicable?\n+* [ ] Have you successfully ran tests with your changes"
+ }
+]

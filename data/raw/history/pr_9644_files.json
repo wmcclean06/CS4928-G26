@@ -1,0 +1,38 @@
+[
+ {
+  "sha": "b6ba0d7652e4259d16454a3fd7fd1faf383e376c",
+  "filename": "app/src/processing/app/AbstractMonitor.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 3,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c249656d5fba73360baa28e22eef7f07354cd52d/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c249656d5fba73360baa28e22eef7f07354cd52d/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractMonitor.java?ref=c249656d5fba73360baa28e22eef7f07354cd52d",
+  "patch": "@@ -1,7 +1,6 @@\n package processing.app;\n \n import cc.arduino.packages.BoardPort;\n-import cc.arduino.packages.DiscoveryManager;\n import processing.app.legacy.PApplet;\n \n import javax.swing.*;\n@@ -10,7 +9,6 @@\n import java.awt.event.ActionListener;\n import java.awt.event.WindowAdapter;\n import java.awt.event.WindowEvent;\n-import java.util.List;\n \n @SuppressWarnings(\"serial\")\n public abstract class AbstractMonitor extends JFrame implements ActionListener {\n@@ -85,7 +83,7 @@ public void actionPerformed(ActionEvent ae) {\n               suspend();\n             }\n           } else {\n-            if (closed && (Editor.isUploading() == false)) {\n+            if (closed && !Editor.isUploading()) {\n               resume(boardPort);\n             }\n           }"
+ },
+ {
+  "sha": "d6d256b1c7023e61dfc13b06415f9b3e3299b553",
+  "filename": "app/src/processing/app/AbstractTextMonitor.java",
+  "status": "modified",
+  "additions": 20,
+  "deletions": 3,
+  "changes": 23,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c249656d5fba73360baa28e22eef7f07354cd52d/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c249656d5fba73360baa28e22eef7f07354cd52d/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FAbstractTextMonitor.java?ref=c249656d5fba73360baa28e22eef7f07354cd52d",
+  "patch": "@@ -3,6 +3,7 @@\n import static processing.app.I18n.tr;\n \n import java.awt.BorderLayout;\n+import java.awt.Color;\n import java.awt.Container;\n import java.awt.Dimension;\n import java.awt.Font;\n@@ -170,9 +171,25 @@ public void windowGainedFocus(WindowEvent e) {\n   }\n \n   @Override\n-  protected void onEnableWindow(boolean enable)\n-  {\n-    textArea.setEnabled(enable);\n+  protected void onEnableWindow(boolean enable) {\n+    // never actually disable textArea, so people can\n+    // still select & copy text, even when the port\n+    // is closed or disconnected\n+    textArea.setEnabled(true);\n+    if (enable) {\n+      // setting these to null for system default\n+      // gives a wrong gray background on Windows\n+      // so assume black text on white background\n+      textArea.setForeground(Color.BLACK);\n+      textArea.setBackground(Color.WHITE);\n+    } else {\n+      // In theory, UIManager.getDefaults() should\n+      // give us the system's colors for disabled\n+      // windows.  But it doesn't seem to work.  :(\n+      textArea.setForeground(new Color(64, 64, 64));\n+      textArea.setBackground(new Color(238, 238, 238));\n+    }\n+    textArea.invalidate();\n     clearButton.setEnabled(enable);\n     scrollPane.setEnabled(enable);\n     textField.setEnabled(enable);"
+ },
+ {
+  "sha": "9af95d8d4cdcbd81de393ea5432d8629f6396973",
+  "filename": "app/src/processing/app/SerialMonitor.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 2,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/c249656d5fba73360baa28e22eef7f07354cd52d/app%2Fsrc%2Fprocessing%2Fapp%2FSerialMonitor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/c249656d5fba73360baa28e22eef7f07354cd52d/app%2Fsrc%2Fprocessing%2Fapp%2FSerialMonitor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FSerialMonitor.java?ref=c249656d5fba73360baa28e22eef7f07354cd52d",
+  "patch": "@@ -23,7 +23,6 @@\n \n import java.awt.Color;\n import java.awt.event.ActionEvent;\n-import java.awt.event.ActionListener;\n import java.awt.event.KeyAdapter;\n import java.awt.event.KeyEvent;\n \n@@ -143,7 +142,6 @@ public void close() throws Exception {\n       int[] location = getPlacement();\n       String locationStr = PApplet.join(PApplet.str(location), \",\");\n       PreferencesData.set(\"last.serial.location\", locationStr);\n-      textArea.setText(\"\");\n       serial.dispose();\n       serial = null;\n     }"
+ }
+]

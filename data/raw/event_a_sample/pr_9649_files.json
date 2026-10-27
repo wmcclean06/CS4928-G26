@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "ee32dff53869abb13beaaa74411741db3ef1b09e",
+  "filename": "arduino-core/src/cc/arduino/contributions/DownloadableContributionsDownloader.java",
+  "status": "modified",
+  "additions": 6,
+  "deletions": 1,
+  "changes": 7,
+  "blob_url": "https://github.com/arduino/Arduino/blob/723f19e9b5f727cdd3b89c7c0998c0db30f66977/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FDownloadableContributionsDownloader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/723f19e9b5f727cdd3b89c7c0998c0db30f66977/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FDownloadableContributionsDownloader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Fcontributions%2FDownloadableContributionsDownloader.java?ref=723f19e9b5f727cdd3b89c7c0998c0db30f66977",
+  "patch": "@@ -62,7 +62,12 @@ public File download(DownloadableContribution contribution, Progress progress, f\n \n   public File download(DownloadableContribution contribution, Progress progress, final String statusText, ProgressListener progressListener, boolean noResume, boolean allowCache) throws Exception {\n     URL url = new URL(contribution.getUrl());\n-    Path outputFile = Paths.get(stagingFolder.getAbsolutePath(), contribution.getArchiveFileName());\n+    // Filter out paths from file name\n+    String filename = new File(contribution.getArchiveFileName()).getName();\n+    Path outputFile = Paths.get(stagingFolder.getAbsolutePath(), filename).normalize();\n+    if (outputFile.toFile().isDirectory()) {\n+      throw new Exception(format(\"Can't download {0}: invalid filename or exinsting directory\", contribution.getArchiveFileName()));\n+    }\n \n     // Ensure the existence of staging folder\n     Files.createDirectories(stagingFolder.toPath());"
+ }
+]

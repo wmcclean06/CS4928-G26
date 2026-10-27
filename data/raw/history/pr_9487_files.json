@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "cdca1b7178326347f5267c82ce5e8359e2e56905",
+  "filename": "app/src/processing/app/UpdateCheck.java",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/e8030560e615918d3f3525045e131a8deb0a2225/app%2Fsrc%2Fprocessing%2Fapp%2FUpdateCheck.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/e8030560e615918d3f3525045e131a8deb0a2225/app%2Fsrc%2Fprocessing%2Fapp%2FUpdateCheck.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FUpdateCheck.java?ref=e8030560e615918d3f3525045e131a8deb0a2225",
+  "patch": "@@ -51,7 +51,7 @@\n  */\n public class UpdateCheck implements Runnable {\n   Base base;\n-  String downloadURL = tr(\"http://www.arduino.cc/latest.txt\");\n+  String downloadURL = tr(\"https://www.arduino.cc/latest.txt\");\n \n   static final long ONE_DAY = 24 * 60 * 60 * 1000;\n \n@@ -116,7 +116,7 @@ public void run() {\n                                                     options,\n                                                     options[0]);\n           if (result == JOptionPane.YES_OPTION) {\n-            Base.openURL(tr(\"http://www.arduino.cc/en/Main/Software\"));\n+            Base.openURL(tr(\"https://www.arduino.cc/en/Main/Software\"));\n           }\n         }\n       }"
+ }
+]

@@ -1,0 +1,675 @@
+{
+ "pr": 9643,
+ "files": [
+  {
+   "path": "app/src/cc/arduino/contributions/ContributionsSelfCheck.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.984375,
+   "bug_freq": 0.0,
+   "history_pr_count": 3,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/LibraryOfSameTypeComparator.java",
+   "status": "modified",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/filters/UpdatableLibraryPredicate.java",
+   "status": "modified",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryComparatorWithTypePriority.java",
+   "status": "renamed",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellEditor.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.2698412698412698,
+   "bug_freq": 0.0,
+   "history_pr_count": 2,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellJPanel.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.4219409282700424,
+   "bug_freq": 0.0,
+   "history_pr_count": 8,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/DropdownAllLibraries.java",
+   "status": "modified",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/DropdownInstalledLibraryItem.java",
+   "status": "modified",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/DropdownLibraryOfCategoryItem.java",
+   "status": "modified",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/DropdownLibraryOfTypeItem.java",
+   "status": "modified",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/DropdownUpdatableLibrariesItem.java",
+   "status": "modified",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/LibrariesIndexTableModel.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.21637426900584794,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/LibraryManagerUI.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.4092664092664093,
+   "bug_freq": 0.0,
+   "history_pr_count": 4,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/MultiLibraryInstallDialog.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.1493506493506493,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/ui/InstallerJDialog.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.29283489096573206,
+   "bug_freq": 0.0,
+   "history_pr_count": 7,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/cc/arduino/view/preferences/Preferences.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.5065710872162486,
+   "bug_freq": 0.0,
+   "history_pr_count": 11,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/Base.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.7181337181337182,
+   "bug_freq": 0.022727272727272728,
+   "history_pr_count": 44,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/CommandHistory.java",
+   "status": "modified",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.7976958525345622,
+   "bug_freq": 0.125,
+   "history_pr_count": 40,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/EditorToolbar.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.4260869565217391,
+   "bug_freq": 0.3333333333333333,
+   "history_pr_count": 6,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/SerialMonitor.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.2,
+   "bug_freq": 0.0,
+   "history_pr_count": 4,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/SerialPlotter.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.5234159779614325,
+   "bug_freq": 0.2857142857142857,
+   "history_pr_count": 7,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/SketchController.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.15373961218836568,
+   "bug_freq": 0.14285714285714285,
+   "history_pr_count": 7,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/UpdateCheck.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.3017241379310345,
+   "bug_freq": 0.0,
+   "history_pr_count": 3,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/test/cc/arduino/contributions/UpdatableLibraryTest.java",
+   "status": "removed",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/test/cc/arduino/net/CustomProxySelectorTest.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.2246376811594204,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/Compiler.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.3176691729323309,
+   "bug_freq": 0.09090909090909091,
+   "history_pr_count": 11,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/ArduinoCore.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/ArduinoCoreInstance.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/ProgressWrapper.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/commands/ArduinoCoreGrpc.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/commands/Board.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/commands/Commands.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/commands/Common.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/commands/Compile.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/commands/Core.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/commands/Lib.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/commands/Upload.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/debug/DebugGrpc.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/debug/DebugOuterClass.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/monitor/MonitorGrpc.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/monitor/MonitorOuterClass.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/settings/SettingsGrpc.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/cli/settings/SettingsOuterClass.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/DownloadableContribution.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.15,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/VersionComparator.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.7647058823529411,
+   "bug_freq": 0.5,
+   "history_pr_count": 2,
+   "highly_churned": false,
+   "highly_buggy": true
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/ContributedLibrary.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.1858974358974359,
+   "bug_freq": 0.0,
+   "history_pr_count": 2,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/ContributedLibraryDependency.java",
+   "status": "removed",
+   "in_history": true,
+   "churn": 0.16216216216216217,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/ContributedLibraryRelease.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/ContributedLibraryReleases.java",
+   "status": "removed",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndex.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.506578947368421,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/LibrariesIndexer.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.39555555555555555,
+   "bug_freq": 0.0,
+   "history_pr_count": 6,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/LibraryInstaller.java",
+   "status": "removed",
+   "in_history": true,
+   "churn": 0.9226519337016574,
+   "bug_freq": 0.0,
+   "history_pr_count": 5,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/libraries/UnavailableContributedLibrary.java",
+   "status": "removed",
+   "in_history": true,
+   "churn": 1.2118644067796611,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/legacy/OldI18nMessages.java",
+   "status": "added",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/net/CustomProxySelector.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.14,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/discoverers/PluggableDiscovery.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.1302681992337165,
+   "bug_freq": 0.0,
+   "history_pr_count": 2,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/uploaders/SSHUploader.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.11737089201877934,
+   "bug_freq": 0.14285714285714285,
+   "history_pr_count": 7,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/uploaders/SerialUploader.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.5462427745664741,
+   "bug_freq": 0.2727272727272727,
+   "history_pr_count": 11,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/utils/network/FileDownloaderCache.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.1458333333333333,
+   "bug_freq": 0.0,
+   "history_pr_count": 2,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/utils/network/HttpConnectionManager.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.1586206896551725,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/processing/app/BaseNoGui.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.6834701055099648,
+   "bug_freq": 0.07692307692307693,
+   "history_pr_count": 26,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/processing/app/helpers/BoardCloudResolver.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.1615384615384616,
+   "bug_freq": 0,
+   "history_pr_count": 1,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/processing/app/packages/LegacyUserLibrary.java",
+   "status": "removed",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/processing/app/packages/UserLibrary.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 0.1799163179916318,
+   "bug_freq": 0.0,
+   "history_pr_count": 4,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/processing/app/packages/UserLibraryFolder.java",
+   "status": "removed",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "arduino-core/src/processing/app/packages/UserLibraryPriorityComparator.java",
+   "status": "modified",
+   "in_history": false,
+   "churn": null,
+   "bug_freq": null,
+   "history_pr_count": null,
+   "highly_churned": false,
+   "highly_buggy": false
+  }
+ ]
+}

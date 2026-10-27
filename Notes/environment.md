@@ -8,6 +8,7 @@
 | callgraph-server    | Spring Boot 2.6.4, JavaParser 3.24.8, JGraphT 1.3.0, Neo4j Java driver starter 4.3.6.0 (from pom.xml)          |
 | Neo4j               | 5.3.0 (Neo4j Desktop Version 2.2.1)                                                                            |
 | Neo4j plugins       | APOC 5.3.0, Graph Data Science 2.3.2                                                                           |
+| Neo4j runtime       | Java 17.0.19 (Azul Zulu, bundled with Neo4j Desktop); confirmed by "VM Version: 17.0.19+10-LTS" in the instance's debug.log. Separate from callgraph-server, which runs on JDK 1.8.0_202. |
 | Git                 | 2.52.0.windows.1                                                                                               |
 | Python              | 3.13.16                                                                                                        |
 | Artefact            | CHID replication package, https://doi.org/10.6084/m9.figshare.27643755.v1 (downloaded 09/10/2026)              |
@@ -22,7 +23,7 @@ Docker environment (image added 24/10/2026, not used for the original run)
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | Image                   | cs4928-g26:latest, built from the repo Dockerfile (base: official neo4j:5.3.0 image)                                                           |
 | Base OS                 | Debian 11 (bullseye), from the neo4j:5.3.0 image                                                                                               |
-| Neo4j                   | 5.3.0 community (official image, tarball checksummed by the image build)                                                                       |
+| Neo4j                   | 5.3.0 community (official image, tarball checksummed by the image build). The original run used Neo4j Desktop's Enterprise edition; no effect on PageRank or the queries used, confirmed by identical graph stats (2,124 / 3,355 / 1,701, sum 1.0). |                                                                       |
 | Neo4j plugins           | APOC 5.3.0 (apoc-5.3.0-core.jar), Graph Data Science 2.3.2 - same jars as the recorded environment, baked into the image                       |
 | Java (callgraph-server) | Temurin JDK 8u412-b08 (Java 1.8), at /opt/java8                                                                                                |
 | Java (Neo4j)            | Java 17 bundled at /opt/java/openjdk by the official image                                                                                     |

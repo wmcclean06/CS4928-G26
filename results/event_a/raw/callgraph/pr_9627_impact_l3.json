@@ -1,0 +1,35 @@
+{
+ "nodes": [
+  {
+   "className": "Editor",
+   "functionName": "buildMenuBar",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildMenuBar()",
+   "filePath": "app/src/processing/app/Editor.java",
+   "simplifiedSignature": "buildMenuBar()",
+   "changed": false,
+   "deleted": false,
+   "terminal": true,
+   "affected": true
+  },
+  {
+   "className": "Editor",
+   "functionName": "buildHelpMenu",
+   "packageName": "processing.app",
+   "functionSignature": "processing.app.Editor.buildHelpMenu()",
+   "filePath": "app/src/processing/app/Editor.java",
+   "simplifiedSignature": "buildHelpMenu()",
+   "changed": true,
+   "deleted": false,
+   "terminal": false,
+   "affected": false
+  }
+ ],
+ "edges": [
+  {
+   "startNodeSignature": "processing.app.Editor.buildHelpMenu()",
+   "endNodeSignature": "processing.app.Editor.buildMenuBar()",
+   "impactLevel": 0
+  }
+ ]
+}

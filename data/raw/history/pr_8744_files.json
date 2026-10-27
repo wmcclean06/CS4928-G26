@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "e044b1891e4c0675608cec3e68ebc4f07f22adb7",
+  "filename": "arduino-core/src/processing/app/BaseNoGui.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 1,
+  "changes": 2,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f0156e39dd3d1b343d3a851b997698af63776fba/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f0156e39dd3d1b343d3a851b997698af63776fba/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FBaseNoGui.java?ref=f0156e39dd3d1b343d3a851b997698af63776fba",
+  "patch": "@@ -893,7 +893,7 @@ static public void saveFile(String str, File file) throws IOException {\n     PApplet.saveStrings(temp, strArray);\n \n     try {\n-      file = file.getCanonicalFile();\n+      file = file.toPath().toRealPath().toFile().getCanonicalFile();\n     } catch (IOException e) {\n     }\n "
+ }
+]

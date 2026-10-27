@@ -21,8 +21,8 @@ Everything here is the tutorial companion to the authoritative records:
 | Record | What it holds |
 |---|---|
 | `Notes/run_procedure.md` §1–§6 | The original run as executed on Windows (unchanged) |
-| `Notes/run_procedure.md` §D | The terse Docker command table this walkthrough expands |
-| `Notes/deviations.md` | D1–D5; **D5** is the only artefact change in the image |
+| `Notes/run_procedure_Docker.md` | The terse Docker command table this walkthrough expands, the 27/10/2026 verification and the Event A run |
+| `Notes/deviations.md` | D1–D6; **D5** is the only artefact change in the image (D6 = Event A decision rules) |
 | `Notes/environment.md` | Software versions, original and Docker |
 
 Rough timings on a typical laptop/connection: image build 5–15 min (once),
@@ -109,8 +109,8 @@ stages (the artefact stage and the runtime stage) pin apt to
 end-of-life on 31/08/2026, and the regular mirrors now serve a stale
 package index whose `.deb` files are being removed, which fails
 `apt-get install` with 404s even though `apt-get update` succeeds. The
-archive holds the complete, frozen final state of Debian 11 (deviation
-**D6**), which makes the build deterministic.
+archive holds the complete, frozen final state of Debian 11 (a build
+detail, not a deviation), which makes the build deterministic.
 
 A successful build ends with the last lines of the Maven log, e.g.:
 
@@ -443,7 +443,7 @@ procedures, with `NEO4J_URI` pointed at
 `bolt://host.docker.internal:7687` in `.env` — and the `run.sh` helper
 commands (e.g. `neo4j-stats`) would still query the bundled database and
 report its (empty) counts. The self-contained route is what this
-walkthrough and the Docker section of `Notes/run_procedure.md` describe,
+walkthrough and `Notes/run_procedure_Docker.md` describe,
 and it is the only one the recorded values (2124 / 3355 / 1701) were
 verified against.
 
@@ -472,8 +472,7 @@ almost always transient network. Re-run `bash docker/run.sh build` —
 finished layers are cached, so it resumes. The MD5 check protects you
 against a silently corrupted artefact download.
 
-The apt steps inside the build are pinned to `archive.debian.org`
-(deviation **D6**), so the Debian 11 end-of-life mirror purge cannot
+The apt steps inside the build are pinned to `archive.debian.org`, so the Debian 11 end-of-life mirror purge cannot
 404 them; if the archive itself is briefly unreachable or slow, just
 re-run the build.
 
@@ -493,6 +492,22 @@ converts `C:\…` paths automatically for the `-v` bind mount. The original
 unpatched Windows procedure (`Notes/run_procedure.md` §1–§6) remains the
 fallback if you ever want a fully unmodified artefact.
 
+**The container exits straight after `up` with exit code 127.**
+`docker/cg-entrypoint.sh` was checked out with Windows (CRLF) line
+endings, so bash inside the container cannot run it. `.gitattributes` now
+forces LF for `*.sh`, `Dockerfile` and `docker/*.patch`, so a fresh clone
+is fine; in an older checkout, convert `docker/cg-entrypoint.sh` to LF
+(e.g. your editor's line-ending setting), then `build`, `down` and `up`
+again (the entrypoint is copied into the image at build time).
+
+**`build` fails at `resolve image config for docker.io/docker/dockerfile:1`
+with "TLS handshake timeout" (auth.docker.io).** Docker cannot reach
+Docker Hub; line 1 of the `Dockerfile` needs it before anything else is
+built. This is a network problem, not the project: re-run `build`, restart
+Docker Desktop, or try another connection (some networks block Docker
+Hub). If `docker images cs4928-g26` already lists the image, skip `build`
+and go to `up`.
+
 **`neo4j-stats` says connection refused right after `up`.** Neo4j is
 still booting. Wait a few seconds and re-run; `status` re-checks it for
 you.
@@ -501,22 +516,26 @@ you.
 
 ## 12. What the Docker route changes (and what it doesn't)
 
-- **One artefact change, recorded as D5**: the 10-line Linux path patch
+- **One artefact change, recorded as D5**: the 12-line Linux path patch
   (`docker/callgraph-server-linux-path.patch`) makes the server's file-path
   logic separator-aware, because the artefact hard-codes Windows backslash
-  paths and throws on Linux. No analysis, parameter or metric logic is
+  paths and throws on Linux, and sets the jar's main class in `pom.xml` so
+  the server starts with `java -jar`. No analysis, parameter or metric logic is
   touched. A copy of the applied patch ships inside the image at
   `/opt/callgraph-server/APPLIED-linux-path.patch` as evidence.
 - **Everything else is the artefact as published**: the source is
   MD5-verified against the recorded checksum at build time, built with the
   recorded Maven command, and run on a pinned JDK 8; Neo4j, APOC and GDS
   are pinned to the versions recorded in `Notes/environment.md`.
-- **The scripts are untouched** (`scripts/*.py` are stdlib-only and
-  hard-code `localhost:8080`, which is exactly what the container gives
-  them). The never-overwrite evidence discipline is preserved end to end.
+- **The scripts need no Docker-specific changes** (`scripts/*.py` are
+  stdlib-only and hard-code `localhost:8080`, which is exactly what the
+  container gives them). Since 27/10/2026 they take an optional
+  `--set m2|event_a` switch that only chooses input/output folders; the
+  default (`m2`) is the recorded behaviour. The never-overwrite evidence discipline is preserved end to end.
 - **The original Windows procedure is not replaced**: §1–§6 of
-  `Notes/run_procedure.md` remain the record of the run as executed; §D is
-  the short Docker mapping; this file is the guided tour.
+  `Notes/run_procedure.md` remain the record of the run as executed;
+  `Notes/run_procedure_Docker.md` is the short Docker mapping; this file is
+  the guided tour.
 
 ---
 
@@ -550,7 +569,10 @@ the same `CG_*` overrides (set them as `$env:CG_IMAGE` etc. before
 calling). Invoke it with
 `powershell -ExecutionPolicy Bypass -File docker\run.ps1 <command>`, e.g.
 `powershell -ExecutionPolicy Bypass -File docker\run.ps1 up` — it works with
-the preinstalled Windows PowerShell 5.1, no Git Bash needed. Only the
+the preinstalled Windows PowerShell 5.1, no Git Bash needed. A shortcut such
+as `function cg { powershell -ExecutionPolicy Bypass -File docker\run.ps1 @args }`
+saves typing; do not name it `R`, which is PowerShell's built-in alias for
+`Invoke-History` and takes precedence over a function. Only the
 invocation differs: keep using `bash docker/run.sh` on macOS/Linux and in
 Git Bash. Internally `docker\run.ps1` runs `create-save` and `neo4j-stats`
 from the host over the published ports (8080/7687) — the same shape as
