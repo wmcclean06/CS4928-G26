@@ -36,3 +36,9 @@ remains executable unpatched.
 
 Effect: the temporary folder the server writes git-show files into moves from two levels above the artefact (Desktop\27643755\<pr> on Windows) to beside the clone, which has no effect on any metric.
 
+## D6 - 27/10/2026 - Event A decision rules
+Event A asks for false alarms and missed high-impact changes on 5 held-out PRs. M1's only high-risk rule (top 3 of 10, ties included per D1) does not scale to 5: with M2-style ties it could flag every PR, making a miss impossible. For Event A: flagged = risk category B or worse (score > 20); scored threshold = 4 of 5 (M1's 80%); defect evidence = M1's RQ2 rule, with "later" meaning created after the held-out PR was merged (open PRs: label only).
+
+When: recorded before any Event A analysis (Plans/EVENT_A_PLAN.md).
+
+Effect: Event A only. The M2 result and the RQ2 top-3 rule are unchanged.
