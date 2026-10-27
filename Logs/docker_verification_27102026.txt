@@ -1,0 +1,49 @@
+﻿MATCH  #8349 request
+MATCH  #8349 pagerank  recorded=0.0006657039599442909 rerun=0.0006657039599442912
+MATCH  #8349 impact level 1 (6 methods, 5 edges)
+MATCH  #8349 impact level 3 (8 methods, 7 edges)
+MATCH  #8429 request
+MATCH  #8429 pagerank  recorded=0.0005619150356385043 rerun=0.0005619150356385046
+MATCH  #8429 impact level 1 (2 methods, 1 edges)
+MATCH  #8429 impact level 3 (2 methods, 1 edges)
+MATCH  #8458 request
+MATCH  #8458 pagerank  recorded=0.00035278698755727153 rerun=0.0003527869875572717
+MATCH  #8458 impact level 1 (2 methods, 1 edges)
+MATCH  #8458 impact level 3 (22 methods, 32 edges)
+MATCH  #8537 request
+MATCH  #8537 pagerank  recorded=0.0013264693277633545 rerun=0.001326469327763355
+MATCH  #8537 impact level 1 (6 methods, 5 edges)
+MATCH  #8537 impact level 3 (19 methods, 21 edges)
+MATCH  #8600 rejected by server in both runs
+MATCH  #8607 request
+MATCH  #8607 pagerank  recorded=0.009527318590811979 rerun=0.009527318590811983
+MATCH  #8607 impact level 1 (45 methods, 47 edges)
+MATCH  #8607 impact level 3 (83 methods, 125 edges)
+MATCH  #8621 request
+MATCH  #8621 pagerank  recorded=0.0011098120797132342 rerun=0.0011098120797132347
+MATCH  #8621 impact level 1 (7 methods, 5 edges)
+MATCH  #8621 impact level 3 (13 methods, 13 edges)
+MATCH  #8638 request
+MATCH  #8638 pagerank  recorded=0.000992850151370731 rerun=0.0009928501513707317
+MATCH  #8638 impact level 1 (2 methods, 1 edges)
+MATCH  #8638 impact level 3 (4 methods, 3 edges)
+MATCH  #8640 request
+MATCH  #8640 pagerank  recorded=0.00030373785710189423 rerun=0.0003037378571018944
+MATCH  #8640 impact level 1 (0 methods, 0 edges)
+MATCH  #8640 impact level 3 (0 methods, 0 edges)
+MATCH  #8647 request
+MATCH  #8647 pagerank  recorded=0.0 rerun=0.0
+MATCH  #8647 impact level 1 (0 methods, 0 edges)
+MATCH  #8647 impact level 3 (0 methods, 0 edges)
+MATCH  #8349 rq1_metrics categories and risk  risk 10.0 A
+MATCH  #8429 rq1_metrics categories and risk  risk 14.37 A
+MATCH  #8458 rq1_metrics categories and risk  risk 14.37 A
+MATCH  #8537 rq1_metrics categories and risk  risk 14.37 A
+MATCH  #8600 rq1_metrics categories and risk  risk not scored 
+MATCH  #8607 rq1_metrics categories and risk  risk 18.75 A
+MATCH  #8621 rq1_metrics categories and risk  risk 27.5 B
+MATCH  #8638 rq1_metrics categories and risk  risk 14.37 A
+MATCH  #8640 rq1_metrics categories and risk  risk 14.37 A
+MATCH  #8647 rq1_metrics categories and risk  risk 18.75 A
+
+VERDICT: re-run matches the recorded run
