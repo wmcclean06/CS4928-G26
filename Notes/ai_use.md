@@ -14,4 +14,5 @@
 
 - AI was used for helping define the Highly Churned File Ratio for a PR but the file was written by Kaiden Foley
 
-- AI was used for developing the docker image used for making the run procedure more generic meaning it could run easily on more machines
+- Docker setup: AI wrote the Dockerfile, docker/run.sh, docker/run.ps1, docker/cg-entrypoint.sh and the Linux path patch, and drafted D5, the Docker run procedure, the WALKTHROUGH and the Docker environment table. Kaiden built and ran the image up to walkthrough step 10 and fixed the failures found; the Docker create-save reproduced the recorded graph exactly (2,124 / 3,355 / 1,701, PageRank sum 1.0).
+- Review of the Docker changes: AI reviewed the commits after PRE_EVENT_A and identified the overwritten create_save_response.txt, the ineffective .gitignore, gaps in D5, D6 being a build note rather than a deviation, and the broken README link. The group checked and applied the fixes.

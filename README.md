@@ -38,8 +38,7 @@ bash docker/run.sh help     # per-step commands (create-save, neo4j-stats, fetch
 ```
 
 The Docker procedure and how each command maps to the recorded §2-§4 steps is
-in [Notes/run_procedure.md](Notes/run_procedure.md) ("§D Docker run of the
-recorded pipeline"); a guided step-by-step tour with expected outputs and
+in [Notes/run_procedure_Docker.md](Notes/run_procedure_Docker.md); a guided step-by-step tour with expected outputs and
 troubleshooting is in [WALKTHROUGH.md](WALKTHROUGH.md). The only artefact
 change is the Linux path patch recorded as D5 in
 [Notes/deviations.md](Notes/deviations.md).

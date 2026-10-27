@@ -1,7 +1,7 @@
 ## §D Docker run of the recorded pipeline (added 24/10/2026)
 
 This section adds a containerised way to repeat the §2-§4 pipeline. It does not
-replace the records above: §1-§6 document the original run as executed on
+replace the records in Notes/run_procedure.md: §1-§6 document the original run as executed on
 Windows. The Docker route reproduces the same stack - Neo4j 5.3.0 with APOC
 5.3.0 and GDS 2.3.2, callgraph-server (Spring Boot 2.6.4 on JDK 8), git and
 Python - in one image, built from the same artefact download (CHID_codes.zip,
@@ -12,8 +12,7 @@ What runs inside the container:
 - Neo4j 5.3.0 community (official image) with APOC 5.3.0-core and GDS 2.3.2
   jars baked in; procedures unrestricted/allow-listed for apoc.* and gds.*
   (the server calls gds.graph.*, apoc.do.when and gds.pageRank.write).
-- callgraph-server built during `docker build` from the unmodified artefact
-  source with Maven 3.8.6 on JDK 8 (`mvn -B clean install -DskipTests`, same
+- callgraph-server built during `docker build` from the artefact source plus the D5 patch with Maven 3.8.6 on JDK 8 (`mvn -B clean install -DskipTests`, same
   as §2 step 3), then run from /opt/callgraph-server on a pinned Temurin
   JDK 8, so the artefact's clone path resolves to
   /opt/change_impact_detector/analyzed_repositories/arduino/Arduino.

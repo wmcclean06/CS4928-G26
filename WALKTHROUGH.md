@@ -472,8 +472,7 @@ almost always transient network. Re-run `bash docker/run.sh build` —
 finished layers are cached, so it resumes. The MD5 check protects you
 against a silently corrupted artefact download.
 
-The apt steps inside the build are pinned to `archive.debian.org`
-(deviation **D6**), so the Debian 11 end-of-life mirror purge cannot
+The apt steps inside the build are pinned to `archive.debian.org`, so the Debian 11 end-of-life mirror purge cannot
 404 them; if the archive itself is briefly unreachable or slow, just
 re-run the build.
 
