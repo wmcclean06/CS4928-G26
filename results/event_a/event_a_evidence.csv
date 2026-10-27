@@ -1,0 +1,6 @@
+pr,state,merged_at,java_files,scored,risk_score,risk_cat,flagged,own_bug_label,later_bug_prs_same_java_files,defect_evidence,outcome
+9627,merged,2020-01-16T08:31:58Z,1,True,9.38,A,False,,,False,correct clear
+9643,open,,67,False,,,False,,,False,not scored
+9644,merged,2020-02-12T11:47:23Z,3,True,9.38,A,False,,,False,correct clear
+9645,merged,2020-01-21T10:35:19Z,1,True,30.0,B,True,,,False,false alarm
+9649,merged,2020-01-21T13:39:03Z,1,True,7.5,A,False,,,False,correct clear
