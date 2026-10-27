@@ -1,0 +1,721 @@
+﻿2026-10-27T13:19:47.567278202Z [cg] waiting for Neo4j bolt on bolt://localhost:7687 ...
+2026-10-27T13:19:50.751625365Z Changed password for user 'neo4j'. IMPORTANT: this change will only take effect if performed before the database is started for the first time.
+2026-10-27T13:19:52.630445294Z 2026-10-27 13:19:52.628+0000 INFO  Starting...
+2026-10-27T13:19:52.982225367Z 2026-10-27 13:19:52.981+0000 INFO  This instance is ServerId{cabbe26d} (cabbe26d-32d0-43f3-98c5-6cd66bc80074)
+2026-10-27T13:19:53.128526895Z SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2026-10-27T13:19:53.128550271Z SLF4J: Defaulting to no-operation (NOP) logger implementation
+2026-10-27T13:19:53.128552173Z SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2026-10-27T13:19:53.556566970Z 2026-10-27 13:19:53.556+0000 INFO  ======== Neo4j 5.3.0 ========
+2026-10-27T13:19:53.784965686Z 2026-10-27 13:19:53.784+0000 INFO  GDS compatibility: for Neo4j Settings 4.4 -- not available, for Neo4j Settings 5.1 -- not available, for Neo4j Settings 5.2.0 -- not available, for Neo4j Settings 5.3 -- available, for Neo4j Settings 5.4 -- not available, for Neo4j Settings 5.5 -- not available, for Neo4j Settings 5.6 -- not available, selected: Neo4j Settings 5.3
+2026-10-27T13:19:53.785152037Z 2026-10-27 13:19:53.784+0000 INFO  GDS compatibility: for Neo4j 4.4 -- not available, for Neo4j 5.1 -- not available, for Neo4j 5.2.0 -- not available, for Neo4j 5.3 -- available, for Neo4j 5.4 -- not available, for Neo4j 5.5 -- not available, for Neo4j 5.6 -- not available, selected: Neo4j 5.3
+2026-10-27T13:20:04.859751743Z 2026-10-27 13:20:04.859+0000 INFO  Bolt enabled on 0.0.0.0:7687.
+2026-10-27T13:20:05.528145690Z 2026-10-27 13:20:05.527+0000 INFO  Remote interface available at http://localhost:7474/
+2026-10-27T13:20:05.530882678Z 2026-10-27 13:20:05.530+0000 INFO  id: 3DC3EEC9E77ADD5106D884AE25A1C1E75297DA8608112ADC4DB0F56126B00EA9
+2026-10-27T13:20:05.531140035Z 2026-10-27 13:20:05.530+0000 INFO  name: system
+2026-10-27T13:20:05.531262739Z 2026-10-27 13:20:05.531+0000 INFO  creationDate: 2026-10-27T13:19:54.188Z
+2026-10-27T13:20:05.531497602Z 2026-10-27 13:20:05.531+0000 INFO  Started.
+2026-10-27T13:20:06.724216206Z [cg] Neo4j is up.
+2026-10-27T13:20:06.830304860Z [cg] callgraph-server starting on http://localhost:8080 (pid 833, openjdk version "1.8.0_412")
+2026-10-27T13:20:07.588047953Z 
+2026-10-27T13:20:07.588067634Z   .   ____          _            __ _ _
+2026-10-27T13:20:07.588069343Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2026-10-27T13:20:07.588070937Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2026-10-27T13:20:07.588072332Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2026-10-27T13:20:07.588073525Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+2026-10-27T13:20:07.588074781Z  =========|_|==============|___/=/_/_/_/
+2026-10-27T13:20:07.590858895Z  :: Spring Boot ::                (v2.6.4)
+2026-10-27T13:20:07.590870997Z 
+2026-10-27T13:20:07.671352601Z 2026-10-27 13:20:07.669  INFO 833 --- [           main] c.callgraph.CallgraphServerApplication   : Starting CallgraphServerApplication v0.0.1-SNAPSHOT using Java 1.8.0_412 on aee350004072 with PID 833 (/opt/callgraph-server/callgraph-0.0.1-SNAPSHOT.jar started by root in /opt/callgraph-server)
+2026-10-27T13:20:07.672041765Z 2026-10-27 13:20:07.671  INFO 833 --- [           main] c.callgraph.CallgraphServerApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-10-27T13:20:08.735265796Z 2026-10-27 13:20:08.734  INFO 833 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2026-10-27T13:20:08.748534441Z 2026-10-27 13:20:08.748  INFO 833 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-27T13:20:08.748666794Z 2026-10-27 13:20:08.748  INFO 833 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2026-10-27T13:20:08.811405579Z 2026-10-27 13:20:08.810  INFO 833 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-27T13:20:08.811426140Z 2026-10-27 13:20:08.811  INFO 833 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1088 ms
+2026-10-27T13:20:09.314268004Z 2026-10-27 13:20:09.313  INFO 833 --- [           main] org.neo4j.driver.internal.DriverFactory  : Direct driver instance 1827725498 created for server address localhost:7687
+2026-10-27T13:20:09.387176173Z 2026-10-27 13:20:09.386  INFO 833 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2026-10-27T13:20:09.395331946Z 2026-10-27 13:20:09.394  INFO 833 --- [           main] c.callgraph.CallgraphServerApplication   : Started CallgraphServerApplication in 2.056 seconds (JVM running for 2.656)
+2026-10-27T13:20:10.111937878Z 2026-10-27 13:20:10.111  INFO 833 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-27T13:20:10.111976150Z 2026-10-27 13:20:10.111  INFO 833 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-27T13:20:10.112744966Z 2026-10-27 13:20:10.112  INFO 833 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-10-27T13:20:10.741744947Z Cloning into 'arduino/Arduino'...
+2026-10-27T13:29:28.318762048Z Command exited with code 0
+2026-10-27T13:29:28.367647266Z fatal: not a git repository (or any parent up to mount point /opt)
+2026-10-27T13:29:28.367683130Z Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+2026-10-27T13:29:28.368515460Z Command exited with code 128
+2026-10-27T13:29:28.497447456Z Already on 'master'
+2026-10-27T13:29:28.497508030Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:29:28.498256104Z Command exited with code 0
+2026-10-27T13:29:28.500721893Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:29:28.500732860Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:29:28.500744949Z hint: commands sometime before your next pull:
+2026-10-27T13:29:28.500746467Z hint: 
+2026-10-27T13:29:28.500747684Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:29:28.500748947Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:29:28.500751866Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:29:28.500757481Z hint: 
+2026-10-27T13:29:28.500758804Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:29:28.500760311Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:29:28.500761585Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:29:28.500762823Z hint: invocation.
+2026-10-27T13:29:29.854883692Z Already up to date.
+2026-10-27T13:29:29.855484453Z Command exited with code 0
+2026-10-27T13:30:26.302220527Z 2026-10-27 13:30:26.301+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Start
+2026-10-27T13:30:26.303312924Z 2026-10-27 13:30:26.302+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes :: Start
+2026-10-27T13:30:26.312021483Z 2026-10-27 13:30:26.311+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 0%
+2026-10-27T13:30:26.312455073Z 2026-10-27 13:30:26.312+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 1%
+2026-10-27T13:30:26.312784775Z 2026-10-27 13:30:26.312+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 2%
+2026-10-27T13:30:26.313080978Z 2026-10-27 13:30:26.312+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 3%
+2026-10-27T13:30:26.313468303Z 2026-10-27 13:30:26.313+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 4%
+2026-10-27T13:30:26.313904633Z 2026-10-27 13:30:26.313+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 5%
+2026-10-27T13:30:26.314254052Z 2026-10-27 13:30:26.313+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 6%
+2026-10-27T13:30:26.314605577Z 2026-10-27 13:30:26.314+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 7%
+2026-10-27T13:30:26.315033307Z 2026-10-27 13:30:26.314+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 8%
+2026-10-27T13:30:26.315358070Z 2026-10-27 13:30:26.315+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 9%
+2026-10-27T13:30:26.315612247Z 2026-10-27 13:30:26.315+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 10%
+2026-10-27T13:30:26.316103103Z 2026-10-27 13:30:26.315+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 11%
+2026-10-27T13:30:26.316415413Z 2026-10-27 13:30:26.316+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 12%
+2026-10-27T13:30:26.316998402Z 2026-10-27 13:30:26.316+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 13%
+2026-10-27T13:30:26.317448082Z 2026-10-27 13:30:26.317+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 14%
+2026-10-27T13:30:26.317810634Z 2026-10-27 13:30:26.317+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 15%
+2026-10-27T13:30:26.318099836Z 2026-10-27 13:30:26.317+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 16%
+2026-10-27T13:30:26.318511250Z 2026-10-27 13:30:26.318+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 17%
+2026-10-27T13:30:26.319060994Z 2026-10-27 13:30:26.318+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 18%
+2026-10-27T13:30:26.319296753Z 2026-10-27 13:30:26.319+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 19%
+2026-10-27T13:30:26.320012419Z 2026-10-27 13:30:26.319+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 20%
+2026-10-27T13:30:26.320325686Z 2026-10-27 13:30:26.320+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 21%
+2026-10-27T13:30:26.320678519Z 2026-10-27 13:30:26.320+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 22%
+2026-10-27T13:30:26.320996108Z 2026-10-27 13:30:26.320+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 23%
+2026-10-27T13:30:26.321441058Z 2026-10-27 13:30:26.321+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 24%
+2026-10-27T13:30:26.321915917Z 2026-10-27 13:30:26.321+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 25%
+2026-10-27T13:30:26.322454577Z 2026-10-27 13:30:26.322+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 26%
+2026-10-27T13:30:26.322992440Z 2026-10-27 13:30:26.322+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 27%
+2026-10-27T13:30:26.323802893Z 2026-10-27 13:30:26.323+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 28%
+2026-10-27T13:30:26.324462507Z 2026-10-27 13:30:26.324+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 29%
+2026-10-27T13:30:26.325406987Z 2026-10-27 13:30:26.325+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 30%
+2026-10-27T13:30:26.326121458Z 2026-10-27 13:30:26.325+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 31%
+2026-10-27T13:30:26.326746975Z 2026-10-27 13:30:26.326+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 32%
+2026-10-27T13:30:26.327157227Z 2026-10-27 13:30:26.326+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 33%
+2026-10-27T13:30:26.327596819Z 2026-10-27 13:30:26.327+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 34%
+2026-10-27T13:30:26.328024548Z 2026-10-27 13:30:26.327+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 35%
+2026-10-27T13:30:26.328442591Z 2026-10-27 13:30:26.328+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 36%
+2026-10-27T13:30:26.328923098Z 2026-10-27 13:30:26.328+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 37%
+2026-10-27T13:30:26.329406454Z 2026-10-27 13:30:26.329+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 38%
+2026-10-27T13:30:26.329917966Z 2026-10-27 13:30:26.329+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 39%
+2026-10-27T13:30:26.330120161Z 2026-10-27 13:30:26.329+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 40%
+2026-10-27T13:30:26.330390887Z 2026-10-27 13:30:26.330+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 41%
+2026-10-27T13:30:26.330679560Z 2026-10-27 13:30:26.330+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 42%
+2026-10-27T13:30:26.331017816Z 2026-10-27 13:30:26.330+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 43%
+2026-10-27T13:30:26.331340389Z 2026-10-27 13:30:26.331+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 44%
+2026-10-27T13:30:26.331598207Z 2026-10-27 13:30:26.331+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 45%
+2026-10-27T13:30:26.331871186Z 2026-10-27 13:30:26.331+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 46%
+2026-10-27T13:30:26.332141929Z 2026-10-27 13:30:26.331+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 47%
+2026-10-27T13:30:26.332448755Z 2026-10-27 13:30:26.332+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 48%
+2026-10-27T13:30:26.332692114Z 2026-10-27 13:30:26.332+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 49%
+2026-10-27T13:30:26.333000971Z 2026-10-27 13:30:26.332+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 50%
+2026-10-27T13:30:26.333292160Z 2026-10-27 13:30:26.333+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 51%
+2026-10-27T13:30:26.333611979Z 2026-10-27 13:30:26.333+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 52%
+2026-10-27T13:30:26.333894179Z 2026-10-27 13:30:26.333+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 53%
+2026-10-27T13:30:26.334160208Z 2026-10-27 13:30:26.333+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 54%
+2026-10-27T13:30:26.334428222Z 2026-10-27 13:30:26.334+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 55%
+2026-10-27T13:30:26.334675815Z 2026-10-27 13:30:26.334+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 56%
+2026-10-27T13:30:26.334940745Z 2026-10-27 13:30:26.334+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 57%
+2026-10-27T13:30:26.335227360Z 2026-10-27 13:30:26.335+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 58%
+2026-10-27T13:30:26.335474704Z 2026-10-27 13:30:26.335+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 59%
+2026-10-27T13:30:26.335829367Z 2026-10-27 13:30:26.335+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 60%
+2026-10-27T13:30:26.336017170Z 2026-10-27 13:30:26.335+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 61%
+2026-10-27T13:30:26.336321532Z 2026-10-27 13:30:26.336+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 62%
+2026-10-27T13:30:26.336569561Z 2026-10-27 13:30:26.336+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 63%
+2026-10-27T13:30:26.336797528Z 2026-10-27 13:30:26.336+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 64%
+2026-10-27T13:30:26.337035440Z 2026-10-27 13:30:26.336+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 65%
+2026-10-27T13:30:26.337261415Z 2026-10-27 13:30:26.337+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 66%
+2026-10-27T13:30:26.337515702Z 2026-10-27 13:30:26.337+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 67%
+2026-10-27T13:30:26.337847712Z 2026-10-27 13:30:26.337+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 68%
+2026-10-27T13:30:26.338115061Z 2026-10-27 13:30:26.337+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 69%
+2026-10-27T13:30:26.338342061Z 2026-10-27 13:30:26.338+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 70%
+2026-10-27T13:30:26.338570668Z 2026-10-27 13:30:26.338+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 71%
+2026-10-27T13:30:26.338789552Z 2026-10-27 13:30:26.338+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 72%
+2026-10-27T13:30:26.339149457Z 2026-10-27 13:30:26.338+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 73%
+2026-10-27T13:30:26.339299504Z 2026-10-27 13:30:26.339+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 74%
+2026-10-27T13:30:26.339530517Z 2026-10-27 13:30:26.339+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 75%
+2026-10-27T13:30:26.339767106Z 2026-10-27 13:30:26.339+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 76%
+2026-10-27T13:30:26.340043093Z 2026-10-27 13:30:26.339+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 77%
+2026-10-27T13:30:26.340475751Z 2026-10-27 13:30:26.340+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 78%
+2026-10-27T13:30:26.340830461Z 2026-10-27 13:30:26.340+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 79%
+2026-10-27T13:30:26.341035717Z 2026-10-27 13:30:26.340+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 80%
+2026-10-27T13:30:26.341283697Z 2026-10-27 13:30:26.341+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 81%
+2026-10-27T13:30:26.341471947Z 2026-10-27 13:30:26.341+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 82%
+2026-10-27T13:30:26.341734103Z 2026-10-27 13:30:26.341+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 83%
+2026-10-27T13:30:26.342066373Z 2026-10-27 13:30:26.341+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 84%
+2026-10-27T13:30:26.342353946Z 2026-10-27 13:30:26.342+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 85%
+2026-10-27T13:30:26.342564306Z 2026-10-27 13:30:26.342+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 86%
+2026-10-27T13:30:26.342950986Z 2026-10-27 13:30:26.342+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 87%
+2026-10-27T13:30:26.343315369Z 2026-10-27 13:30:26.343+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 88%
+2026-10-27T13:30:26.343750646Z 2026-10-27 13:30:26.343+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 89%
+2026-10-27T13:30:26.343950736Z 2026-10-27 13:30:26.343+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 90%
+2026-10-27T13:30:26.344334986Z 2026-10-27 13:30:26.344+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 91%
+2026-10-27T13:30:26.344598821Z 2026-10-27 13:30:26.344+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 92%
+2026-10-27T13:30:26.344820157Z 2026-10-27 13:30:26.344+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 93%
+2026-10-27T13:30:26.345022363Z 2026-10-27 13:30:26.344+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 94%
+2026-10-27T13:30:26.345312427Z 2026-10-27 13:30:26.345+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 95%
+2026-10-27T13:30:26.345421703Z 2026-10-27 13:30:26.345+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 96%
+2026-10-27T13:30:26.345685134Z 2026-10-27 13:30:26.345+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 97%
+2026-10-27T13:30:26.345804270Z 2026-10-27 13:30:26.345+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 98%
+2026-10-27T13:30:26.346070683Z 2026-10-27 13:30:26.345+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 99%
+2026-10-27T13:30:26.346861373Z 2026-10-27 13:30:26.346+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes 100%
+2026-10-27T13:30:26.346953139Z 2026-10-27 13:30:26.346+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Nodes :: Finished
+2026-10-27T13:30:26.355511820Z 2026-10-27 13:30:26.355+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships :: Start
+2026-10-27T13:30:26.363693379Z 2026-10-27 13:30:26.363+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 0%
+2026-10-27T13:30:26.364399741Z 2026-10-27 13:30:26.364+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 1%
+2026-10-27T13:30:26.364860139Z 2026-10-27 13:30:26.364+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 2%
+2026-10-27T13:30:26.365288976Z 2026-10-27 13:30:26.365+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 3%
+2026-10-27T13:30:26.365595194Z 2026-10-27 13:30:26.365+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 4%
+2026-10-27T13:30:26.366311813Z 2026-10-27 13:30:26.366+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 5%
+2026-10-27T13:30:26.366679482Z 2026-10-27 13:30:26.366+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 6%
+2026-10-27T13:30:26.367018930Z 2026-10-27 13:30:26.366+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 7%
+2026-10-27T13:30:26.367392747Z 2026-10-27 13:30:26.367+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 8%
+2026-10-27T13:30:26.367882990Z 2026-10-27 13:30:26.367+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 9%
+2026-10-27T13:30:26.368226549Z 2026-10-27 13:30:26.368+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 10%
+2026-10-27T13:30:26.368703718Z 2026-10-27 13:30:26.368+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 11%
+2026-10-27T13:30:26.368979362Z 2026-10-27 13:30:26.368+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 12%
+2026-10-27T13:30:26.369276626Z 2026-10-27 13:30:26.369+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 13%
+2026-10-27T13:30:26.369658773Z 2026-10-27 13:30:26.369+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 14%
+2026-10-27T13:30:26.370109790Z 2026-10-27 13:30:26.369+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 15%
+2026-10-27T13:30:26.370621402Z 2026-10-27 13:30:26.370+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 16%
+2026-10-27T13:30:26.370970136Z 2026-10-27 13:30:26.370+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 17%
+2026-10-27T13:30:26.371449320Z 2026-10-27 13:30:26.371+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 18%
+2026-10-27T13:30:26.371750115Z 2026-10-27 13:30:26.371+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 19%
+2026-10-27T13:30:26.372183854Z 2026-10-27 13:30:26.371+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 20%
+2026-10-27T13:30:26.372597060Z 2026-10-27 13:30:26.372+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 21%
+2026-10-27T13:30:26.373030262Z 2026-10-27 13:30:26.372+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 22%
+2026-10-27T13:30:26.373360906Z 2026-10-27 13:30:26.373+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 23%
+2026-10-27T13:30:26.373498041Z 2026-10-27 13:30:26.373+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 24%
+2026-10-27T13:30:26.373760914Z 2026-10-27 13:30:26.373+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 25%
+2026-10-27T13:30:26.374056777Z 2026-10-27 13:30:26.373+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 26%
+2026-10-27T13:30:26.374284142Z 2026-10-27 13:30:26.374+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 27%
+2026-10-27T13:30:26.374495323Z 2026-10-27 13:30:26.374+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 28%
+2026-10-27T13:30:26.374770112Z 2026-10-27 13:30:26.374+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 29%
+2026-10-27T13:30:26.374961375Z 2026-10-27 13:30:26.374+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 30%
+2026-10-27T13:30:26.375441932Z 2026-10-27 13:30:26.375+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 31%
+2026-10-27T13:30:26.375928848Z 2026-10-27 13:30:26.375+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 32%
+2026-10-27T13:30:26.376263828Z 2026-10-27 13:30:26.376+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 33%
+2026-10-27T13:30:26.376573622Z 2026-10-27 13:30:26.376+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 34%
+2026-10-27T13:30:26.376841036Z 2026-10-27 13:30:26.376+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 35%
+2026-10-27T13:30:26.377091082Z 2026-10-27 13:30:26.376+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 36%
+2026-10-27T13:30:26.377321140Z 2026-10-27 13:30:26.377+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 37%
+2026-10-27T13:30:26.377560954Z 2026-10-27 13:30:26.377+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 38%
+2026-10-27T13:30:26.377782759Z 2026-10-27 13:30:26.377+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 39%
+2026-10-27T13:30:26.378028369Z 2026-10-27 13:30:26.377+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 40%
+2026-10-27T13:30:26.378337439Z 2026-10-27 13:30:26.378+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 41%
+2026-10-27T13:30:26.378592976Z 2026-10-27 13:30:26.378+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 42%
+2026-10-27T13:30:26.379003577Z 2026-10-27 13:30:26.378+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 43%
+2026-10-27T13:30:26.379219963Z 2026-10-27 13:30:26.379+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 44%
+2026-10-27T13:30:26.379499577Z 2026-10-27 13:30:26.379+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 45%
+2026-10-27T13:30:26.379822258Z 2026-10-27 13:30:26.379+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 46%
+2026-10-27T13:30:26.380076616Z 2026-10-27 13:30:26.379+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 47%
+2026-10-27T13:30:26.380332956Z 2026-10-27 13:30:26.380+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 48%
+2026-10-27T13:30:26.380551970Z 2026-10-27 13:30:26.380+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 49%
+2026-10-27T13:30:26.380847247Z 2026-10-27 13:30:26.380+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 50%
+2026-10-27T13:30:26.382929240Z 2026-10-27 13:30:26.382+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 51%
+2026-10-27T13:30:26.383118984Z 2026-10-27 13:30:26.382+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 52%
+2026-10-27T13:30:26.383347655Z 2026-10-27 13:30:26.383+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 53%
+2026-10-27T13:30:26.383603450Z 2026-10-27 13:30:26.383+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 54%
+2026-10-27T13:30:26.383829116Z 2026-10-27 13:30:26.383+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 55%
+2026-10-27T13:30:26.384323379Z 2026-10-27 13:30:26.384+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 56%
+2026-10-27T13:30:26.384836012Z 2026-10-27 13:30:26.384+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 57%
+2026-10-27T13:30:26.385049610Z 2026-10-27 13:30:26.384+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 58%
+2026-10-27T13:30:26.385293800Z 2026-10-27 13:30:26.385+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 59%
+2026-10-27T13:30:26.386022502Z 2026-10-27 13:30:26.385+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 60%
+2026-10-27T13:30:26.386054912Z 2026-10-27 13:30:26.385+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 61%
+2026-10-27T13:30:26.386533201Z 2026-10-27 13:30:26.386+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 62%
+2026-10-27T13:30:26.386650996Z 2026-10-27 13:30:26.386+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 63%
+2026-10-27T13:30:26.386883776Z 2026-10-27 13:30:26.386+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 64%
+2026-10-27T13:30:26.387115060Z 2026-10-27 13:30:26.386+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 65%
+2026-10-27T13:30:26.387274706Z 2026-10-27 13:30:26.387+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 66%
+2026-10-27T13:30:26.387495233Z 2026-10-27 13:30:26.387+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 67%
+2026-10-27T13:30:26.387689533Z 2026-10-27 13:30:26.387+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 68%
+2026-10-27T13:30:26.387968140Z 2026-10-27 13:30:26.387+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 69%
+2026-10-27T13:30:26.388207082Z 2026-10-27 13:30:26.388+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 70%
+2026-10-27T13:30:26.388419907Z 2026-10-27 13:30:26.388+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 71%
+2026-10-27T13:30:26.388672102Z 2026-10-27 13:30:26.388+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 72%
+2026-10-27T13:30:26.388958648Z 2026-10-27 13:30:26.388+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 73%
+2026-10-27T13:30:26.389262033Z 2026-10-27 13:30:26.389+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 74%
+2026-10-27T13:30:26.389393401Z 2026-10-27 13:30:26.389+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 75%
+2026-10-27T13:30:26.389718736Z 2026-10-27 13:30:26.389+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 76%
+2026-10-27T13:30:26.389835277Z 2026-10-27 13:30:26.389+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 77%
+2026-10-27T13:30:26.390049249Z 2026-10-27 13:30:26.389+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 78%
+2026-10-27T13:30:26.390282108Z 2026-10-27 13:30:26.390+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 79%
+2026-10-27T13:30:26.390492576Z 2026-10-27 13:30:26.390+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 80%
+2026-10-27T13:30:26.390760632Z 2026-10-27 13:30:26.390+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 81%
+2026-10-27T13:30:26.390979756Z 2026-10-27 13:30:26.390+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 82%
+2026-10-27T13:30:26.391103578Z 2026-10-27 13:30:26.390+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 83%
+2026-10-27T13:30:26.391455670Z 2026-10-27 13:30:26.391+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 84%
+2026-10-27T13:30:26.391611399Z 2026-10-27 13:30:26.391+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 85%
+2026-10-27T13:30:26.391822090Z 2026-10-27 13:30:26.391+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 86%
+2026-10-27T13:30:26.392045026Z 2026-10-27 13:30:26.391+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 87%
+2026-10-27T13:30:26.392204806Z 2026-10-27 13:30:26.392+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 88%
+2026-10-27T13:30:26.392437963Z 2026-10-27 13:30:26.392+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 89%
+2026-10-27T13:30:26.392650352Z 2026-10-27 13:30:26.392+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 90%
+2026-10-27T13:30:26.392880738Z 2026-10-27 13:30:26.392+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 91%
+2026-10-27T13:30:26.393066064Z 2026-10-27 13:30:26.392+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 92%
+2026-10-27T13:30:26.393359913Z 2026-10-27 13:30:26.393+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 93%
+2026-10-27T13:30:26.393499268Z 2026-10-27 13:30:26.393+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 94%
+2026-10-27T13:30:26.393986120Z 2026-10-27 13:30:26.393+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 95%
+2026-10-27T13:30:26.394106465Z 2026-10-27 13:30:26.393+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 96%
+2026-10-27T13:30:26.394502356Z 2026-10-27 13:30:26.394+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 97%
+2026-10-27T13:30:26.394653906Z 2026-10-27 13:30:26.394+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 98%
+2026-10-27T13:30:26.394734614Z 2026-10-27 13:30:26.394+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 99%
+2026-10-27T13:30:26.395491776Z 2026-10-27 13:30:26.395+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships 100%
+2026-10-27T13:30:26.395524215Z 2026-10-27 13:30:26.395+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Relationships :: Finished
+2026-10-27T13:30:26.404352242Z 2026-10-27 13:30:26.404+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Finished
+2026-10-27T13:30:27.067608807Z 2026-10-27 13:30:27.067+0000 INFO  [neo4j.BoltWorker-5 [bolt-2 - /127.0.0.1:52080]] Loading :: Actual memory usage of the loaded graph: 579 KiB
+2026-10-27T13:30:27.160185819Z 2026-10-27 13:30:27.159+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Start
+2026-10-27T13:30:27.161126945Z 2026-10-27 13:30:27.160+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 1 of 20 :: Start
+2026-10-27T13:30:27.176677202Z 2026-10-27 13:30:27.176+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 1 of 20 49%
+2026-10-27T13:30:27.176927817Z 2026-10-27 13:30:27.176+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 1 of 20 100%
+2026-10-27T13:30:27.177194662Z 2026-10-27 13:30:27.177+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 1 of 20 :: Finished
+2026-10-27T13:30:27.177425920Z 2026-10-27 13:30:27.177+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 1 of 20 :: Start
+2026-10-27T13:30:27.177582214Z 2026-10-27 13:30:27.177+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 1 of 20 100%
+2026-10-27T13:30:27.177671465Z 2026-10-27 13:30:27.177+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 1 of 20 :: Finished
+2026-10-27T13:30:27.177808053Z 2026-10-27 13:30:27.177+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 2 of 20 :: Start
+2026-10-27T13:30:27.183197939Z 2026-10-27 13:30:27.182+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 2 of 20 50%
+2026-10-27T13:30:27.183313929Z 2026-10-27 13:30:27.183+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 2 of 20 100%
+2026-10-27T13:30:27.183551918Z 2026-10-27 13:30:27.183+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 2 of 20 :: Finished
+2026-10-27T13:30:27.183747843Z 2026-10-27 13:30:27.183+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 2 of 20 :: Start
+2026-10-27T13:30:27.183874876Z 2026-10-27 13:30:27.183+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 2 of 20 100%
+2026-10-27T13:30:27.183975646Z 2026-10-27 13:30:27.183+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 2 of 20 :: Finished
+2026-10-27T13:30:27.184131351Z 2026-10-27 13:30:27.184+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 3 of 20 :: Start
+2026-10-27T13:30:27.187717044Z 2026-10-27 13:30:27.187+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 3 of 20 49%
+2026-10-27T13:30:27.187909527Z 2026-10-27 13:30:27.187+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 3 of 20 100%
+2026-10-27T13:30:27.188136573Z 2026-10-27 13:30:27.187+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 3 of 20 :: Finished
+2026-10-27T13:30:27.188315130Z 2026-10-27 13:30:27.188+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 3 of 20 :: Start
+2026-10-27T13:30:27.188420702Z 2026-10-27 13:30:27.188+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 3 of 20 100%
+2026-10-27T13:30:27.188427105Z 2026-10-27 13:30:27.188+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 3 of 20 :: Finished
+2026-10-27T13:30:27.188591530Z 2026-10-27 13:30:27.188+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 4 of 20 :: Start
+2026-10-27T13:30:27.191439472Z 2026-10-27 13:30:27.191+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 4 of 20 49%
+2026-10-27T13:30:27.191531077Z 2026-10-27 13:30:27.191+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 4 of 20 100%
+2026-10-27T13:30:27.191819709Z 2026-10-27 13:30:27.191+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 4 of 20 :: Finished
+2026-10-27T13:30:27.192028501Z 2026-10-27 13:30:27.191+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 4 of 20 :: Start
+2026-10-27T13:30:27.192048252Z 2026-10-27 13:30:27.191+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 4 of 20 100%
+2026-10-27T13:30:27.192222761Z 2026-10-27 13:30:27.192+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 4 of 20 :: Finished
+2026-10-27T13:30:27.192339701Z 2026-10-27 13:30:27.192+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 5 of 20 :: Start
+2026-10-27T13:30:27.194433228Z 2026-10-27 13:30:27.194+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 5 of 20 49%
+2026-10-27T13:30:27.194694141Z 2026-10-27 13:30:27.194+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 5 of 20 100%
+2026-10-27T13:30:27.194854100Z 2026-10-27 13:30:27.194+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 5 of 20 :: Finished
+2026-10-27T13:30:27.195015041Z 2026-10-27 13:30:27.194+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 5 of 20 :: Start
+2026-10-27T13:30:27.195115760Z 2026-10-27 13:30:27.194+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 5 of 20 100%
+2026-10-27T13:30:27.195329362Z 2026-10-27 13:30:27.195+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 5 of 20 :: Finished
+2026-10-27T13:30:27.195467003Z 2026-10-27 13:30:27.195+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 6 of 20 :: Start
+2026-10-27T13:30:27.197900750Z 2026-10-27 13:30:27.197+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 6 of 20 50%
+2026-10-27T13:30:27.198070593Z 2026-10-27 13:30:27.197+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 6 of 20 100%
+2026-10-27T13:30:27.198327194Z 2026-10-27 13:30:27.198+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 6 of 20 :: Finished
+2026-10-27T13:30:27.198468239Z 2026-10-27 13:30:27.198+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 6 of 20 :: Start
+2026-10-27T13:30:27.198556226Z 2026-10-27 13:30:27.198+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 6 of 20 100%
+2026-10-27T13:30:27.198564583Z 2026-10-27 13:30:27.198+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 6 of 20 :: Finished
+2026-10-27T13:30:27.198756394Z 2026-10-27 13:30:27.198+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 7 of 20 :: Start
+2026-10-27T13:30:27.200880121Z 2026-10-27 13:30:27.200+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 7 of 20 50%
+2026-10-27T13:30:27.201027901Z 2026-10-27 13:30:27.200+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 7 of 20 100%
+2026-10-27T13:30:27.201305302Z 2026-10-27 13:30:27.201+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 7 of 20 :: Finished
+2026-10-27T13:30:27.201438999Z 2026-10-27 13:30:27.201+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 7 of 20 :: Start
+2026-10-27T13:30:27.201537564Z 2026-10-27 13:30:27.201+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 7 of 20 100%
+2026-10-27T13:30:27.201540828Z 2026-10-27 13:30:27.201+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 7 of 20 :: Finished
+2026-10-27T13:30:27.201694156Z 2026-10-27 13:30:27.201+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 8 of 20 :: Start
+2026-10-27T13:30:27.203920253Z 2026-10-27 13:30:27.203+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 8 of 20 49%
+2026-10-27T13:30:27.204110049Z 2026-10-27 13:30:27.203+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 8 of 20 100%
+2026-10-27T13:30:27.204376422Z 2026-10-27 13:30:27.204+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 8 of 20 :: Finished
+2026-10-27T13:30:27.204390420Z 2026-10-27 13:30:27.204+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 8 of 20 :: Start
+2026-10-27T13:30:27.204539807Z 2026-10-27 13:30:27.204+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 8 of 20 100%
+2026-10-27T13:30:27.204639746Z 2026-10-27 13:30:27.204+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 8 of 20 :: Finished
+2026-10-27T13:30:27.204719872Z 2026-10-27 13:30:27.204+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 9 of 20 :: Start
+2026-10-27T13:30:27.206733711Z 2026-10-27 13:30:27.206+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 9 of 20 49%
+2026-10-27T13:30:27.206908750Z 2026-10-27 13:30:27.206+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 9 of 20 100%
+2026-10-27T13:30:27.207111561Z 2026-10-27 13:30:27.206+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 9 of 20 :: Finished
+2026-10-27T13:30:27.207267809Z 2026-10-27 13:30:27.207+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 9 of 20 :: Start
+2026-10-27T13:30:27.207495942Z 2026-10-27 13:30:27.207+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 9 of 20 100%
+2026-10-27T13:30:27.207545931Z 2026-10-27 13:30:27.207+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 9 of 20 :: Finished
+2026-10-27T13:30:27.207719456Z 2026-10-27 13:30:27.207+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 10 of 20 :: Start
+2026-10-27T13:30:27.210359750Z 2026-10-27 13:30:27.210+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 10 of 20 49%
+2026-10-27T13:30:27.210509865Z 2026-10-27 13:30:27.210+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 10 of 20 100%
+2026-10-27T13:30:27.210766922Z 2026-10-27 13:30:27.210+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 10 of 20 :: Finished
+2026-10-27T13:30:27.210943936Z 2026-10-27 13:30:27.210+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 10 of 20 :: Start
+2026-10-27T13:30:27.211041056Z 2026-10-27 13:30:27.210+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 10 of 20 100%
+2026-10-27T13:30:27.211115655Z 2026-10-27 13:30:27.210+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 10 of 20 :: Finished
+2026-10-27T13:30:27.211234662Z 2026-10-27 13:30:27.211+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 11 of 20 :: Start
+2026-10-27T13:30:27.213196912Z 2026-10-27 13:30:27.213+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 11 of 20 50%
+2026-10-27T13:30:27.213377154Z 2026-10-27 13:30:27.213+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 11 of 20 100%
+2026-10-27T13:30:27.213578761Z 2026-10-27 13:30:27.213+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 11 of 20 :: Finished
+2026-10-27T13:30:27.213710722Z 2026-10-27 13:30:27.213+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 11 of 20 :: Start
+2026-10-27T13:30:27.213783482Z 2026-10-27 13:30:27.213+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 11 of 20 100%
+2026-10-27T13:30:27.213871511Z 2026-10-27 13:30:27.213+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 11 of 20 :: Finished
+2026-10-27T13:30:27.214075734Z 2026-10-27 13:30:27.213+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 12 of 20 :: Start
+2026-10-27T13:30:27.216250445Z 2026-10-27 13:30:27.216+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 12 of 20 49%
+2026-10-27T13:30:27.216425896Z 2026-10-27 13:30:27.216+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 12 of 20 100%
+2026-10-27T13:30:27.216642908Z 2026-10-27 13:30:27.216+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 12 of 20 :: Finished
+2026-10-27T13:30:27.216772615Z 2026-10-27 13:30:27.216+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 12 of 20 :: Start
+2026-10-27T13:30:27.216831521Z 2026-10-27 13:30:27.216+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 12 of 20 100%
+2026-10-27T13:30:27.216928834Z 2026-10-27 13:30:27.216+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 12 of 20 :: Finished
+2026-10-27T13:30:27.217015029Z 2026-10-27 13:30:27.216+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 13 of 20 :: Start
+2026-10-27T13:30:27.218570602Z 2026-10-27 13:30:27.218+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 13 of 20 49%
+2026-10-27T13:30:27.218625006Z 2026-10-27 13:30:27.218+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 13 of 20 100%
+2026-10-27T13:30:27.218902893Z 2026-10-27 13:30:27.218+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 13 of 20 :: Finished
+2026-10-27T13:30:27.218959167Z 2026-10-27 13:30:27.218+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 13 of 20 :: Start
+2026-10-27T13:30:27.219072561Z 2026-10-27 13:30:27.218+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 13 of 20 100%
+2026-10-27T13:30:27.219149559Z 2026-10-27 13:30:27.219+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 13 of 20 :: Finished
+2026-10-27T13:30:27.219262189Z 2026-10-27 13:30:27.219+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 14 of 20 :: Start
+2026-10-27T13:30:27.221308382Z 2026-10-27 13:30:27.221+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 14 of 20 50%
+2026-10-27T13:30:27.221494971Z 2026-10-27 13:30:27.221+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 14 of 20 100%
+2026-10-27T13:30:27.221697972Z 2026-10-27 13:30:27.221+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 14 of 20 :: Finished
+2026-10-27T13:30:27.221829094Z 2026-10-27 13:30:27.221+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 14 of 20 :: Start
+2026-10-27T13:30:27.221880719Z 2026-10-27 13:30:27.221+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 14 of 20 100%
+2026-10-27T13:30:27.221957517Z 2026-10-27 13:30:27.221+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 14 of 20 :: Finished
+2026-10-27T13:30:27.222241793Z 2026-10-27 13:30:27.222+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 15 of 20 :: Start
+2026-10-27T13:30:27.223602393Z 2026-10-27 13:30:27.223+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 15 of 20 49%
+2026-10-27T13:30:27.223764786Z 2026-10-27 13:30:27.223+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 15 of 20 100%
+2026-10-27T13:30:27.223978777Z 2026-10-27 13:30:27.223+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 15 of 20 :: Finished
+2026-10-27T13:30:27.224134460Z 2026-10-27 13:30:27.223+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 15 of 20 :: Start
+2026-10-27T13:30:27.224199748Z 2026-10-27 13:30:27.224+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 15 of 20 100%
+2026-10-27T13:30:27.224203999Z 2026-10-27 13:30:27.224+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 15 of 20 :: Finished
+2026-10-27T13:30:27.224452091Z 2026-10-27 13:30:27.224+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 16 of 20 :: Start
+2026-10-27T13:30:27.225830869Z 2026-10-27 13:30:27.225+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 16 of 20 49%
+2026-10-27T13:30:27.225926590Z 2026-10-27 13:30:27.225+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 16 of 20 100%
+2026-10-27T13:30:27.226180956Z 2026-10-27 13:30:27.226+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 16 of 20 :: Finished
+2026-10-27T13:30:27.226310434Z 2026-10-27 13:30:27.226+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 16 of 20 :: Start
+2026-10-27T13:30:27.226394415Z 2026-10-27 13:30:27.226+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 16 of 20 100%
+2026-10-27T13:30:27.226402805Z 2026-10-27 13:30:27.226+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 16 of 20 :: Finished
+2026-10-27T13:30:27.226571069Z 2026-10-27 13:30:27.226+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 17 of 20 :: Start
+2026-10-27T13:30:27.228740743Z 2026-10-27 13:30:27.228+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 17 of 20 49%
+2026-10-27T13:30:27.228945327Z 2026-10-27 13:30:27.228+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 17 of 20 100%
+2026-10-27T13:30:27.229116085Z 2026-10-27 13:30:27.228+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 17 of 20 :: Finished
+2026-10-27T13:30:27.229258453Z 2026-10-27 13:30:27.229+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 17 of 20 :: Start
+2026-10-27T13:30:27.229364947Z 2026-10-27 13:30:27.229+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 17 of 20 100%
+2026-10-27T13:30:27.229373546Z 2026-10-27 13:30:27.229+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 17 of 20 :: Finished
+2026-10-27T13:30:27.229485412Z 2026-10-27 13:30:27.229+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 18 of 20 :: Start
+2026-10-27T13:30:27.231916847Z 2026-10-27 13:30:27.231+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 18 of 20 50%
+2026-10-27T13:30:27.232050395Z 2026-10-27 13:30:27.231+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 18 of 20 100%
+2026-10-27T13:30:27.232223640Z 2026-10-27 13:30:27.232+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 18 of 20 :: Finished
+2026-10-27T13:30:27.232334979Z 2026-10-27 13:30:27.232+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 18 of 20 :: Start
+2026-10-27T13:30:27.232407915Z 2026-10-27 13:30:27.232+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 18 of 20 100%
+2026-10-27T13:30:27.232416322Z 2026-10-27 13:30:27.232+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 18 of 20 :: Finished
+2026-10-27T13:30:27.232561526Z 2026-10-27 13:30:27.232+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 19 of 20 :: Start
+2026-10-27T13:30:27.234715380Z 2026-10-27 13:30:27.234+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 19 of 20 49%
+2026-10-27T13:30:27.234882550Z 2026-10-27 13:30:27.234+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 19 of 20 100%
+2026-10-27T13:30:27.235055294Z 2026-10-27 13:30:27.234+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 19 of 20 :: Finished
+2026-10-27T13:30:27.235223507Z 2026-10-27 13:30:27.235+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 19 of 20 :: Start
+2026-10-27T13:30:27.235341065Z 2026-10-27 13:30:27.235+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 19 of 20 100%
+2026-10-27T13:30:27.235345558Z 2026-10-27 13:30:27.235+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 19 of 20 :: Finished
+2026-10-27T13:30:27.235484051Z 2026-10-27 13:30:27.235+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 20 of 20 :: Start
+2026-10-27T13:30:27.237793316Z 2026-10-27 13:30:27.237+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 20 of 20 49%
+2026-10-27T13:30:27.237868672Z 2026-10-27 13:30:27.237+0000 INFO  [gds-forkjoin-0] PageRank :: Compute iteration 20 of 20 100%
+2026-10-27T13:30:27.238045404Z 2026-10-27 13:30:27.237+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Compute iteration 20 of 20 :: Finished
+2026-10-27T13:30:27.238230323Z 2026-10-27 13:30:27.238+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 20 of 20 :: Start
+2026-10-27T13:30:27.238399266Z 2026-10-27 13:30:27.238+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 20 of 20 100%
+2026-10-27T13:30:27.238403641Z 2026-10-27 13:30:27.238+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Master compute iteration 20 of 20 :: Finished
+2026-10-27T13:30:27.238639516Z 2026-10-27 13:30:27.238+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRank :: Finished
+2026-10-27T13:30:27.249870062Z 2026-10-27 13:30:27.249+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRankWriteProc :: WriteNodeProperties :: Start
+2026-10-27T13:30:27.253887602Z 2026-10-27 13:30:27.253+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 0%
+2026-10-27T13:30:27.254153844Z 2026-10-27 13:30:27.253+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 1%
+2026-10-27T13:30:27.254223794Z 2026-10-27 13:30:27.254+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 2%
+2026-10-27T13:30:27.254520778Z 2026-10-27 13:30:27.254+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 3%
+2026-10-27T13:30:27.254629974Z 2026-10-27 13:30:27.254+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 4%
+2026-10-27T13:30:27.254779231Z 2026-10-27 13:30:27.254+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 5%
+2026-10-27T13:30:27.254960323Z 2026-10-27 13:30:27.254+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 6%
+2026-10-27T13:30:27.255213244Z 2026-10-27 13:30:27.255+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 7%
+2026-10-27T13:30:27.255405029Z 2026-10-27 13:30:27.255+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 8%
+2026-10-27T13:30:27.255546362Z 2026-10-27 13:30:27.255+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 9%
+2026-10-27T13:30:27.255620646Z 2026-10-27 13:30:27.255+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 10%
+2026-10-27T13:30:27.255878522Z 2026-10-27 13:30:27.255+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 11%
+2026-10-27T13:30:27.255956186Z 2026-10-27 13:30:27.255+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 12%
+2026-10-27T13:30:27.256075614Z 2026-10-27 13:30:27.255+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 13%
+2026-10-27T13:30:27.256269564Z 2026-10-27 13:30:27.256+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 14%
+2026-10-27T13:30:27.256396748Z 2026-10-27 13:30:27.256+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 15%
+2026-10-27T13:30:27.256544576Z 2026-10-27 13:30:27.256+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 16%
+2026-10-27T13:30:27.256710132Z 2026-10-27 13:30:27.256+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 17%
+2026-10-27T13:30:27.256786165Z 2026-10-27 13:30:27.256+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 18%
+2026-10-27T13:30:27.256902081Z 2026-10-27 13:30:27.256+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 19%
+2026-10-27T13:30:27.257062926Z 2026-10-27 13:30:27.256+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 20%
+2026-10-27T13:30:27.257202831Z 2026-10-27 13:30:27.257+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 21%
+2026-10-27T13:30:27.257332141Z 2026-10-27 13:30:27.257+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 22%
+2026-10-27T13:30:27.257460219Z 2026-10-27 13:30:27.257+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 23%
+2026-10-27T13:30:27.257585398Z 2026-10-27 13:30:27.257+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 24%
+2026-10-27T13:30:27.257657898Z 2026-10-27 13:30:27.257+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 25%
+2026-10-27T13:30:27.257830946Z 2026-10-27 13:30:27.257+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 26%
+2026-10-27T13:30:27.257966179Z 2026-10-27 13:30:27.257+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 27%
+2026-10-27T13:30:27.258088406Z 2026-10-27 13:30:27.257+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 28%
+2026-10-27T13:30:27.258243332Z 2026-10-27 13:30:27.258+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 29%
+2026-10-27T13:30:27.258358520Z 2026-10-27 13:30:27.258+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 30%
+2026-10-27T13:30:27.258525920Z 2026-10-27 13:30:27.258+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 31%
+2026-10-27T13:30:27.258663466Z 2026-10-27 13:30:27.258+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 32%
+2026-10-27T13:30:27.258755532Z 2026-10-27 13:30:27.258+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 33%
+2026-10-27T13:30:27.258888489Z 2026-10-27 13:30:27.258+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 34%
+2026-10-27T13:30:27.258964967Z 2026-10-27 13:30:27.258+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 35%
+2026-10-27T13:30:27.259130750Z 2026-10-27 13:30:27.259+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 36%
+2026-10-27T13:30:27.259282800Z 2026-10-27 13:30:27.259+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 37%
+2026-10-27T13:30:27.259425526Z 2026-10-27 13:30:27.259+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 38%
+2026-10-27T13:30:27.259718347Z 2026-10-27 13:30:27.259+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 39%
+2026-10-27T13:30:27.260044036Z 2026-10-27 13:30:27.259+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 40%
+2026-10-27T13:30:27.260183188Z 2026-10-27 13:30:27.260+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 41%
+2026-10-27T13:30:27.260353188Z 2026-10-27 13:30:27.260+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 42%
+2026-10-27T13:30:27.260484207Z 2026-10-27 13:30:27.260+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 43%
+2026-10-27T13:30:27.260702007Z 2026-10-27 13:30:27.260+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 44%
+2026-10-27T13:30:27.260765434Z 2026-10-27 13:30:27.260+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 45%
+2026-10-27T13:30:27.260865562Z 2026-10-27 13:30:27.260+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 46%
+2026-10-27T13:30:27.260963263Z 2026-10-27 13:30:27.260+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 47%
+2026-10-27T13:30:27.261042684Z 2026-10-27 13:30:27.260+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 48%
+2026-10-27T13:30:27.261190085Z 2026-10-27 13:30:27.261+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 49%
+2026-10-27T13:30:27.261386089Z 2026-10-27 13:30:27.261+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 50%
+2026-10-27T13:30:27.261550680Z 2026-10-27 13:30:27.261+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 51%
+2026-10-27T13:30:27.261758103Z 2026-10-27 13:30:27.261+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 52%
+2026-10-27T13:30:27.261910146Z 2026-10-27 13:30:27.261+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 53%
+2026-10-27T13:30:27.261982876Z 2026-10-27 13:30:27.261+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 54%
+2026-10-27T13:30:27.262101492Z 2026-10-27 13:30:27.262+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 55%
+2026-10-27T13:30:27.262198053Z 2026-10-27 13:30:27.262+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 56%
+2026-10-27T13:30:27.262290510Z 2026-10-27 13:30:27.262+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 57%
+2026-10-27T13:30:27.262423791Z 2026-10-27 13:30:27.262+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 58%
+2026-10-27T13:30:27.262548835Z 2026-10-27 13:30:27.262+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 59%
+2026-10-27T13:30:27.262612336Z 2026-10-27 13:30:27.262+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 60%
+2026-10-27T13:30:27.262879270Z 2026-10-27 13:30:27.262+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 61%
+2026-10-27T13:30:27.263026004Z 2026-10-27 13:30:27.262+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 62%
+2026-10-27T13:30:27.263092122Z 2026-10-27 13:30:27.262+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 63%
+2026-10-27T13:30:27.263294214Z 2026-10-27 13:30:27.263+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 64%
+2026-10-27T13:30:27.263339859Z 2026-10-27 13:30:27.263+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 65%
+2026-10-27T13:30:27.263470163Z 2026-10-27 13:30:27.263+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 66%
+2026-10-27T13:30:27.263535608Z 2026-10-27 13:30:27.263+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 67%
+2026-10-27T13:30:27.263631355Z 2026-10-27 13:30:27.263+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 68%
+2026-10-27T13:30:27.263705207Z 2026-10-27 13:30:27.263+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 69%
+2026-10-27T13:30:27.263837450Z 2026-10-27 13:30:27.263+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 70%
+2026-10-27T13:30:27.264091556Z 2026-10-27 13:30:27.263+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 71%
+2026-10-27T13:30:27.264154328Z 2026-10-27 13:30:27.264+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 72%
+2026-10-27T13:30:27.264238899Z 2026-10-27 13:30:27.264+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 73%
+2026-10-27T13:30:27.264386456Z 2026-10-27 13:30:27.264+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 74%
+2026-10-27T13:30:27.264393710Z 2026-10-27 13:30:27.264+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 75%
+2026-10-27T13:30:27.264556699Z 2026-10-27 13:30:27.264+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 76%
+2026-10-27T13:30:27.264559605Z 2026-10-27 13:30:27.264+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 77%
+2026-10-27T13:30:27.264774798Z 2026-10-27 13:30:27.264+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 78%
+2026-10-27T13:30:27.264909637Z 2026-10-27 13:30:27.264+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 79%
+2026-10-27T13:30:27.265129370Z 2026-10-27 13:30:27.265+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 80%
+2026-10-27T13:30:27.265290194Z 2026-10-27 13:30:27.265+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 81%
+2026-10-27T13:30:27.265491635Z 2026-10-27 13:30:27.265+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 82%
+2026-10-27T13:30:27.265604530Z 2026-10-27 13:30:27.265+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 83%
+2026-10-27T13:30:27.265760183Z 2026-10-27 13:30:27.265+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 84%
+2026-10-27T13:30:27.265885178Z 2026-10-27 13:30:27.265+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 85%
+2026-10-27T13:30:27.266008962Z 2026-10-27 13:30:27.265+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 86%
+2026-10-27T13:30:27.266093925Z 2026-10-27 13:30:27.266+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 87%
+2026-10-27T13:30:27.266240368Z 2026-10-27 13:30:27.266+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 88%
+2026-10-27T13:30:27.266321304Z 2026-10-27 13:30:27.266+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 89%
+2026-10-27T13:30:27.266432909Z 2026-10-27 13:30:27.266+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 90%
+2026-10-27T13:30:27.266568669Z 2026-10-27 13:30:27.266+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 91%
+2026-10-27T13:30:27.266624123Z 2026-10-27 13:30:27.266+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 92%
+2026-10-27T13:30:27.266758305Z 2026-10-27 13:30:27.266+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 93%
+2026-10-27T13:30:27.266828159Z 2026-10-27 13:30:27.266+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 94%
+2026-10-27T13:30:27.266923489Z 2026-10-27 13:30:27.266+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 95%
+2026-10-27T13:30:27.267082066Z 2026-10-27 13:30:27.266+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 96%
+2026-10-27T13:30:27.267090212Z 2026-10-27 13:30:27.267+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 97%
+2026-10-27T13:30:27.267259037Z 2026-10-27 13:30:27.267+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 98%
+2026-10-27T13:30:27.267281579Z 2026-10-27 13:30:27.267+0000 INFO  [gds-2] PageRankWriteProc :: WriteNodeProperties 99%
+2026-10-27T13:30:27.288431477Z 2026-10-27 13:30:27.288+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRankWriteProc :: WriteNodeProperties 100%
+2026-10-27T13:30:27.288451625Z 2026-10-27 13:30:27.288+0000 INFO  [neo4j.BoltWorker-5 [bolt-3 - /127.0.0.1:34106]] PageRankWriteProc :: WriteNodeProperties :: Finished
+2026-10-27T13:35:50.944515722Z Already on 'master'
+2026-10-27T13:35:50.944643993Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:50.944654628Z Command exited with code 0
+2026-10-27T13:35:50.947748439Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:50.947761962Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:50.947764462Z hint: commands sometime before your next pull:
+2026-10-27T13:35:50.947766239Z hint: 
+2026-10-27T13:35:50.947768020Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:50.947769767Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:50.947771291Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:50.947772833Z hint: 
+2026-10-27T13:35:50.947774279Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:50.947776077Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:50.947777758Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:50.947779303Z hint: invocation.
+2026-10-27T13:35:51.908086880Z Already up to date.
+2026-10-27T13:35:51.909132215Z Command exited with code 0
+2026-10-27T13:35:52.661403830Z Already on 'master'
+2026-10-27T13:35:52.661424283Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:52.662240792Z Command exited with code 0
+2026-10-27T13:35:52.665229920Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:52.665245323Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:52.665247827Z hint: commands sometime before your next pull:
+2026-10-27T13:35:52.665249742Z hint: 
+2026-10-27T13:35:52.665251494Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:52.665253163Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:52.665254713Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:52.665256784Z hint: 
+2026-10-27T13:35:52.665258570Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:52.665271458Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:52.665272874Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:52.665274124Z hint: invocation.
+2026-10-27T13:35:53.043291781Z Already up to date.
+2026-10-27T13:35:53.044675363Z Command exited with code 0
+2026-10-27T13:35:53.449984816Z Already on 'master'
+2026-10-27T13:35:53.450002524Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:53.450643629Z Command exited with code 0
+2026-10-27T13:35:53.453171285Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:53.453178379Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:53.453179933Z hint: commands sometime before your next pull:
+2026-10-27T13:35:53.453181211Z hint: 
+2026-10-27T13:35:53.453182374Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:53.453183612Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:53.453185143Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:53.453186393Z hint: 
+2026-10-27T13:35:53.453309326Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:53.453318626Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:53.453320373Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:53.453321682Z hint: invocation.
+2026-10-27T13:35:53.817306528Z Already up to date.
+2026-10-27T13:35:53.818640610Z Command exited with code 0
+2026-10-27T13:35:54.093036540Z 2026-10-27 13:35:54.092  WARN 833 --- [io-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.callgraph.model.pr.FileStatus` from String "RENAMED": not one of the values accepted for Enum class: [ADDED, MODIFIED, REMOVED]; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `com.callgraph.model.pr.FileStatus` from String "RENAMED": not one of the values accepted for Enum class: [ADDED, MODIFIED, REMOVED]<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 730] (through reference chain: com.callgraph.model.pr.PullRequestChange["changedFilesWithSha"]->java.util.ArrayList[3]->com.callgraph.model.pr.ChangedFileWithSha["status"])]
+2026-10-27T13:35:54.128332162Z Already on 'master'
+2026-10-27T13:35:54.128356273Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:54.128748111Z Command exited with code 0
+2026-10-27T13:35:54.131098154Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:54.131128127Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:54.131130265Z hint: commands sometime before your next pull:
+2026-10-27T13:35:54.131131602Z hint: 
+2026-10-27T13:35:54.131132758Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:54.131134018Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:54.131135123Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:54.131136280Z hint: 
+2026-10-27T13:35:54.131137397Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:54.131138970Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:54.131140361Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:54.131141618Z hint: invocation.
+2026-10-27T13:35:54.578266917Z Already up to date.
+2026-10-27T13:35:54.579548441Z Command exited with code 0
+2026-10-27T13:35:54.667402755Z Already on 'master'
+2026-10-27T13:35:54.667418025Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:54.668430824Z Command exited with code 0
+2026-10-27T13:35:54.670766394Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:54.670777251Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:54.670778935Z hint: commands sometime before your next pull:
+2026-10-27T13:35:54.670780155Z hint: 
+2026-10-27T13:35:54.670781340Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:54.670782562Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:54.670783686Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:54.670784820Z hint: 
+2026-10-27T13:35:54.670785863Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:54.670787320Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:54.670788599Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:54.670789804Z hint: invocation.
+2026-10-27T13:35:55.113419419Z Already up to date.
+2026-10-27T13:35:55.114486516Z Command exited with code 0
+2026-10-27T13:35:55.205385677Z Already on 'master'
+2026-10-27T13:35:55.205402296Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:55.206190398Z Command exited with code 0
+2026-10-27T13:35:55.208689151Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:55.208710416Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:55.208721729Z hint: commands sometime before your next pull:
+2026-10-27T13:35:55.208723167Z hint: 
+2026-10-27T13:35:55.208724346Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:55.208725539Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:55.208726707Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:55.208727844Z hint: 
+2026-10-27T13:35:55.208728951Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:55.208730393Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:55.208731642Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:55.208732835Z hint: invocation.
+2026-10-27T13:35:55.627438957Z Already up to date.
+2026-10-27T13:35:55.628195596Z Command exited with code 0
+2026-10-27T13:35:55.751277133Z Already on 'master'
+2026-10-27T13:35:55.751296732Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:55.751961364Z Command exited with code 0
+2026-10-27T13:35:55.754287328Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:55.754296882Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:55.754298552Z hint: commands sometime before your next pull:
+2026-10-27T13:35:55.754299782Z hint: 
+2026-10-27T13:35:55.754300928Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:55.754302172Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:55.754303310Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:55.754405569Z hint: 
+2026-10-27T13:35:55.754407071Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:55.754408597Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:55.754409864Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:55.754411131Z hint: invocation.
+2026-10-27T13:35:56.146681023Z Already up to date.
+2026-10-27T13:35:56.147758058Z Command exited with code 0
+2026-10-27T13:35:56.195706704Z Already on 'master'
+2026-10-27T13:35:56.195725752Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:56.196246918Z Command exited with code 0
+2026-10-27T13:35:56.198209465Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:56.198214448Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:56.198215946Z hint: commands sometime before your next pull:
+2026-10-27T13:35:56.198225710Z hint: 
+2026-10-27T13:35:56.198227255Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:56.198228539Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:56.198229732Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:56.198230915Z hint: 
+2026-10-27T13:35:56.198231993Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:56.198233459Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:56.198234746Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:56.198236024Z hint: invocation.
+2026-10-27T13:35:56.649369856Z Already up to date.
+2026-10-27T13:35:56.650362165Z Command exited with code 0
+2026-10-27T13:35:56.705785849Z Already on 'master'
+2026-10-27T13:35:56.705817754Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:56.706431954Z Command exited with code 0
+2026-10-27T13:35:56.709123685Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:56.709135082Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:56.709136847Z hint: commands sometime before your next pull:
+2026-10-27T13:35:56.709138200Z hint: 
+2026-10-27T13:35:56.709139706Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:56.709140970Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:56.709142247Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:56.709143437Z hint: 
+2026-10-27T13:35:56.709144522Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:56.709146021Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:56.709147279Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:56.709148511Z hint: invocation.
+2026-10-27T13:35:57.100484285Z Already up to date.
+2026-10-27T13:35:57.101174394Z Command exited with code 0
+2026-10-27T13:35:57.199430108Z Already on 'master'
+2026-10-27T13:35:57.199555533Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:57.200159543Z Command exited with code 0
+2026-10-27T13:35:57.202410071Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:57.202420506Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:57.202422314Z hint: commands sometime before your next pull:
+2026-10-27T13:35:57.202423653Z hint: 
+2026-10-27T13:35:57.202424890Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:57.202502300Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:57.202509828Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:57.202511607Z hint: 
+2026-10-27T13:35:57.202512972Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:57.202514532Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:57.202515799Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:57.202517058Z hint: invocation.
+2026-10-27T13:35:57.581388558Z Already up to date.
+2026-10-27T13:35:57.582481475Z Command exited with code 0
+2026-10-27T13:35:57.633872988Z Already on 'master'
+2026-10-27T13:35:57.633891508Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:57.634516166Z Command exited with code 0
+2026-10-27T13:35:57.636552495Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:57.636561873Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:57.636563609Z hint: commands sometime before your next pull:
+2026-10-27T13:35:57.636564949Z hint: 
+2026-10-27T13:35:57.636566147Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:57.636567538Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:57.636568762Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:57.636569947Z hint: 
+2026-10-27T13:35:57.636571066Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:57.636572553Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:57.636573895Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:57.636575164Z hint: invocation.
+2026-10-27T13:35:58.083697326Z Already up to date.
+2026-10-27T13:35:58.084533437Z Command exited with code 0
+2026-10-27T13:35:58.139263909Z Already on 'master'
+2026-10-27T13:35:58.139282080Z Your branch is up to date with 'origin/master'.
+2026-10-27T13:35:58.139923225Z Command exited with code 0
+2026-10-27T13:35:58.142051305Z hint: Pulling without specifying how to reconcile divergent branches is
+2026-10-27T13:35:58.142061496Z hint: discouraged. You can squelch this message by running one of the following
+2026-10-27T13:35:58.142063404Z hint: commands sometime before your next pull:
+2026-10-27T13:35:58.142064807Z hint: 
+2026-10-27T13:35:58.142066001Z hint:   git config pull.rebase false  # merge (the default strategy)
+2026-10-27T13:35:58.142067306Z hint:   git config pull.rebase true   # rebase
+2026-10-27T13:35:58.142077781Z hint:   git config pull.ff only       # fast-forward only
+2026-10-27T13:35:58.142079054Z hint: 
+2026-10-27T13:35:58.142080105Z hint: You can replace "git config" with "git config --global" to set a default
+2026-10-27T13:35:58.142081586Z hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+2026-10-27T13:35:58.142082855Z hint: or --ff-only on the command line to override the configured default per
+2026-10-27T13:35:58.142084129Z hint: invocation.
+2026-10-27T13:35:58.491772756Z Already up to date.
+2026-10-27T13:35:58.493125933Z Command exited with code 0

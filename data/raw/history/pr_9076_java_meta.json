@@ -1,0 +1,31 @@
+{
+ "pr": 9076,
+ "base_sha": "c88ff311f1303c06b1843bf8b61e6ba7ec108d84",
+ "head_sha": "89051a5e41e87a29c135fcfab1b06ed8e3f862c3",
+ "java_files": [
+  {
+   "path": "app/test/cc/arduino/contributions/GzippedJsonDownloaderTest.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 3,
+   "deletions": 1,
+   "old_sha": "e1e231acd3a27cf155179cf4e88fed69b15154ad",
+   "new_sha": "745ccb1dd5b15ba48a9df09740ad3cef874ef26e",
+   "head_sha_check": "745ccb1dd5b15ba48a9df09740ad3cef874ef26e",
+   "loc_at_head": 45,
+   "notes": ""
+  },
+  {
+   "path": "app/test/cc/arduino/contributions/JsonDownloaderTest.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 1,
+   "old_sha": "ebf3c0913ce9bd54fcb0d2fd5f691b6fecec834f",
+   "new_sha": "bdb64325f59a794730463cab805bf0490bc69fc4",
+   "head_sha_check": "bdb64325f59a794730463cab805bf0490bc69fc4",
+   "loc_at_head": 44,
+   "notes": ""
+  }
+ ]
+}

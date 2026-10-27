@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "535c31ed7d3fec6d8d305a9f21f013591ac85445",
+  "filename": "arduino-core/src/processing/app/Platform.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/9b427f4c9e32b00319216f380546eed79489a0fc/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPlatform.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/9b427f4c9e32b00319216f380546eed79489a0fc/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPlatform.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2FPlatform.java?ref=9b427f4c9e32b00319216f380546eed79489a0fc",
+  "patch": "@@ -208,6 +208,9 @@ public synchronized void getBoardWithMatchingVidPidFromCloud(String vid, String\n     try {\n       URL jsonUrl = new URL(\"http\", \"api-builder.arduino.cc\", 80, \"/builder/v1/boards/0x\"+vid+\"/0x\"+pid);\n       URLConnection connection = jsonUrl.openConnection();\n+      String userAgent = \"ArduinoIDE/\" + BaseNoGui.VERSION_NAME + \" Java/\"\n+                  + System.getProperty(\"java.version\");\n+      connection.setRequestProperty(\"User-agent\", userAgent);\n       connection.connect();\n       HttpURLConnection httpConnection = (HttpURLConnection) connection;\n       int code = httpConnection.getResponseCode();"
+ }
+]

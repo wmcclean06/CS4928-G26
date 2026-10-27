@@ -1,0 +1,13 @@
+{
+ "prNumber": "9649",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "DownloadableContributionsDownloader.java",
+   "status": "MODIFIED",
+   "oldSha": "4ddca67b3cd5fef2ac05211b2abffb7632d170b6",
+   "newSha": "ee32dff53869abb13beaaa74411741db3ef1b09e"
+  }
+ ]
+}

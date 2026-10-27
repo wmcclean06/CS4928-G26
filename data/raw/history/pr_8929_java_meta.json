@@ -1,0 +1,19 @@
+{
+ "pr": 8929,
+ "base_sha": "00a7546fb43edb46bc56c55196f439fccba971b1",
+ "head_sha": "eaefcb90d511edaa7b4b889966ee0b09ab2a6ccd",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/SerialPlotter.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 112,
+   "deletions": 0,
+   "old_sha": "363753749fe2af37973f999d5c88ebfb6d2ca8fe",
+   "new_sha": "f1f48f7cc486128a5b5d95d1de65865d4df3d208",
+   "head_sha_check": "f1f48f7cc486128a5b5d95d1de65865d4df3d208",
+   "loc_at_head": 363,
+   "notes": ""
+  }
+ ]
+}

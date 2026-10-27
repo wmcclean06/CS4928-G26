@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "67e41e162d273e0f799f1eb0b005d36dc43a74e4",
+  "filename": "README.md",
+  "status": "modified",
+  "additions": 2,
+  "deletions": 2,
+  "changes": 4,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5a9e54deb8f3c15a069f283eeb0c7b34c806e1b3/README.md",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5a9e54deb8f3c15a069f283eeb0c7b34c806e1b3/README.md",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/README.md?ref=5a9e54deb8f3c15a069f283eeb0c7b34c806e1b3",
+  "patch": "@@ -50,8 +50,8 @@ and David A. Mellis.\n Arduino uses\n [GNU avr-gcc toolchain](https://gcc.gnu.org/wiki/avr-gcc),\n [GCC ARM Embedded toolchain](https://launchpad.net/gcc-arm-embedded),\n-[avr-libc](http://www.nongnu.org/avr-libc/),\n-[avrdude](http://www.nongnu.org/avrdude/),\n+[avr-libc](https://www.nongnu.org/avr-libc/),\n+[avrdude](https://www.nongnu.org/avrdude/),\n [bossac](http://www.shumatech.com/web/products/bossa),\n [openOCD](http://openocd.org/)\n and code from [Processing](https://www.processing.org)"
+ }
+]

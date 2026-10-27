@@ -1,0 +1,115 @@
+{
+ "pr": 8704,
+ "base_sha": "f119590d84c1c5eb40b344ced8a809a37a86fae9",
+ "head_sha": "2d593c40fe75a5992aac950442a36e0a1e752ddf",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/packages/MonitorFactory.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 4,
+   "deletions": 3,
+   "old_sha": "83d849dd6efae97e4686aa5e0be0905928266a5c",
+   "new_sha": "1682eb34185c26413d2ae579a625b8252e7df3af",
+   "head_sha_check": "1682eb34185c26413d2ae579a625b8252e7df3af",
+   "loc_at_head": 47,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/AbstractMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 12,
+   "deletions": 0,
+   "old_sha": "52c5b65b56b75f47e875f28a895f1bf3734c98a2",
+   "new_sha": "1efbec7e2d60ac12f8c7b844e07fc01ed5aaae73",
+   "head_sha_check": "1efbec7e2d60ac12f8c7b844e07fc01ed5aaae73",
+   "loc_at_head": 146,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/AbstractTextMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 40,
+   "deletions": 25,
+   "old_sha": "b6e196a16b5b89db4a1c4e068b1803e2d7cd9f45",
+   "new_sha": "64a0928e55e76af272e5ca51d1695f48e8857c11",
+   "head_sha_check": "64a0928e55e76af272e5ca51d1695f48e8857c11",
+   "loc_at_head": 181,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 75,
+   "deletions": 0,
+   "old_sha": "62ebfc2acafcbf3b9aec0031cb4ec26092833396",
+   "new_sha": "8544e6c41801bf3f93b981f2b28b5c78e98f152a",
+   "head_sha_check": "8544e6c41801bf3f93b981f2b28b5c78e98f152a",
+   "loc_at_head": 2061,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 10,
+   "deletions": 5,
+   "old_sha": "dc0a5b7cbf2dd9e8999058740c3832db6f6abbf8",
+   "new_sha": "49c092fd9d2578916b24fd83684eeea8ee49bbf7",
+   "head_sha_check": "49c092fd9d2578916b24fd83684eeea8ee49bbf7",
+   "loc_at_head": 2185,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/EditorConsole.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 40,
+   "deletions": 3,
+   "old_sha": "f656798f0cb3b1829b5e290d235515ea2a0dfd89",
+   "new_sha": "15c78df2dda683c46f393071465038b94b8fc4bd",
+   "head_sha_check": "15c78df2dda683c46f393071465038b94b8fc4bd",
+   "loc_at_head": 153,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/EditorTab.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 14,
+   "old_sha": "8c5fb86a7d8e23fab0fca838093ac18a7c4549f1",
+   "new_sha": "25c45d9d854f0fd36540e1937f32fb001d50d3f4",
+   "head_sha_check": "25c45d9d854f0fd36540e1937f32fb001d50d3f4",
+   "loc_at_head": 536,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/NetworkMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 2,
+   "old_sha": "b7f08026ace0bddbb12471ec84ee5f93b459abf5",
+   "new_sha": "3ab20314ba405ac7d561f7bf70764278c97d4c73",
+   "head_sha_check": "3ab20314ba405ac7d561f7bf70764278c97d4c73",
+   "loc_at_head": 137,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/SerialMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 22,
+   "deletions": 29,
+   "old_sha": "45adbd7d54b527bf7437eadfd19510fb33840e53",
+   "new_sha": "d4f59019eaedfcf06b18309f19521853353e31b8",
+   "head_sha_check": "d4f59019eaedfcf06b18309f19521853353e31b8",
+   "loc_at_head": 95,
+   "notes": ""
+  }
+ ]
+}

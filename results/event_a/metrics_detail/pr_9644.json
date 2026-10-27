@@ -1,0 +1,35 @@
+{
+ "pr": 9644,
+ "files": [
+  {
+   "path": "app/src/processing/app/AbstractMonitor.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.5029239766081872,
+   "bug_freq": 0.14285714285714285,
+   "history_pr_count": 7,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/AbstractTextMonitor.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 2.06282722513089,
+   "bug_freq": 0.125,
+   "history_pr_count": 8,
+   "highly_churned": false,
+   "highly_buggy": false
+  },
+  {
+   "path": "app/src/processing/app/SerialMonitor.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.2,
+   "bug_freq": 0.0,
+   "history_pr_count": 4,
+   "highly_churned": false,
+   "highly_buggy": false
+  }
+ ]
+}

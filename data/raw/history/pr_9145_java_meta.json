@@ -1,0 +1,43 @@
+{
+ "pr": 9145,
+ "base_sha": "452ac63200631d9dad42d6b1c1ddaef09244ab0f",
+ "head_sha": "6bcd0529c1564376846a11de0341dfe006f8522d",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellJPanel.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 0,
+   "old_sha": "d4382cf514714ed258899830103f6a207c0a8620",
+   "new_sha": "ec5c09181e086f86ff02d4e495a897aa1815aa45",
+   "head_sha_check": "ec5c09181e086f86ff02d4e495a897aa1815aa45",
+   "loc_at_head": 216,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/packages/ui/ContributedPlatformTableCellJPanel.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 0,
+   "old_sha": "b4537ce94cce1880e2f4647494af1696b6ecaaa2",
+   "new_sha": "7a2750a7eb9ec513f343512c9510b0480f4b005f",
+   "head_sha_check": "7a2750a7eb9ec513f343512c9510b0480f4b005f",
+   "loc_at_head": 252,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/ui/ProgressJProgressBar.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 6,
+   "deletions": 1,
+   "old_sha": "12b39742fa38bab941e1ebc04f5f5584a46dde9d",
+   "new_sha": "7c946e4993e69eccfc5f70f3ea516e7a35198721",
+   "head_sha_check": "7c946e4993e69eccfc5f70f3ea516e7a35198721",
+   "loc_at_head": 44,
+   "notes": ""
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "665b83a9574fd48cc82cb5a830efe214e0cadc93",
+  "filename": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellJPanel.java",
+  "status": "modified",
+  "additions": 7,
+  "deletions": 13,
+  "changes": 20,
+  "blob_url": "https://github.com/arduino/Arduino/blob/227bae4f6d4e0045bafb27ab2e44b10170ed5683/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/227bae4f6d4e0045bafb27ab2e44b10170ed5683/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Flibraries%2Fui%2FContributedLibraryTableCellJPanel.java?ref=227bae4f6d4e0045bafb27ab2e44b10170ed5683",
+  "patch": "@@ -3,21 +3,12 @@\n import static processing.app.I18n.format;\n import static processing.app.I18n.tr;\n \n-import java.awt.Color;\n-import java.awt.Component;\n-import java.awt.Dimension;\n-import java.awt.Insets;\n+import java.awt.*;\n import java.util.Optional;\n \n-import javax.swing.Box;\n-import javax.swing.BoxLayout;\n-import javax.swing.JButton;\n-import javax.swing.JComboBox;\n-import javax.swing.JLabel;\n-import javax.swing.JPanel;\n-import javax.swing.JTable;\n-import javax.swing.JTextPane;\n+import javax.swing.*;\n import javax.swing.border.EmptyBorder;\n+import javax.swing.border.TitledBorder;\n import javax.swing.event.HyperlinkEvent;\n import javax.swing.text.Document;\n import javax.swing.text.html.HTMLDocument;\n@@ -128,6 +119,9 @@ public ContributedLibraryTableCellJPanel(JTable parentTable, Object value,\n       return;\n \n     ContributedLibrary selected = releases.getSelected();\n+    TitledBorder titledBorder = BorderFactory.createTitledBorder(selected.getName());\n+    titledBorder.setTitleFont(getFont().deriveFont(Font.BOLD));\n+    setBorder(titledBorder);\n     Optional<ContributedLibrary> mayInstalled = releases.getInstalled();\n \n     boolean installable, upgradable;\n@@ -162,7 +156,7 @@ public ContributedLibraryTableCellJPanel(JTable parentTable, Object value,\n     String desc = \"<html><body>\";\n \n     // Library name...\n-    desc += format(\"<b>{0}</b>\", name);\n+//    desc += format(\"<b>{0}</b>\", name);\n     if (mayInstalled.isPresent() && mayInstalled.get().isIDEBuiltIn()) {\n       desc += \" Built-In \";\n     }"
+ },
+ {
+  "sha": "6051ec98cd55830259fbeeb435ac7cdd9c99a0eb",
+  "filename": "app/src/cc/arduino/contributions/packages/ui/ContributedPlatformTableCellJPanel.java",
+  "status": "modified",
+  "additions": 8,
+  "deletions": 14,
+  "changes": 22,
+  "blob_url": "https://github.com/arduino/Arduino/blob/227bae4f6d4e0045bafb27ab2e44b10170ed5683/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellJPanel.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/227bae4f6d4e0045bafb27ab2e44b10170ed5683/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellJPanel.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fcc%2Farduino%2Fcontributions%2Fpackages%2Fui%2FContributedPlatformTableCellJPanel.java?ref=227bae4f6d4e0045bafb27ab2e44b10170ed5683",
+  "patch": "@@ -32,20 +32,11 @@\n import static processing.app.I18n.format;\n import static processing.app.I18n.tr;\n \n-import java.awt.Color;\n-import java.awt.Component;\n-import java.awt.Dimension;\n-import java.awt.Insets;\n-\n-import javax.swing.Box;\n-import javax.swing.BoxLayout;\n-import javax.swing.JButton;\n-import javax.swing.JComboBox;\n-import javax.swing.JLabel;\n-import javax.swing.JPanel;\n-import javax.swing.JTable;\n-import javax.swing.JTextPane;\n+import java.awt.*;\n+\n+import javax.swing.*;\n import javax.swing.border.EmptyBorder;\n+import javax.swing.border.TitledBorder;\n import javax.swing.event.HyperlinkEvent;\n import javax.swing.text.Document;\n import javax.swing.text.html.HTMLDocument;\n@@ -196,6 +187,9 @@ void update(JTable parentTable, Object value, boolean isSelected,\n     }\n \n     ContributedPlatform selected = releases.getSelected();\n+    TitledBorder titledBorder = BorderFactory.createTitledBorder(selected.getName());\n+    titledBorder.setTitleFont(getFont().deriveFont(Font.BOLD));\n+    setBorder(titledBorder);\n     ContributedPlatform installed = releases.getInstalled();\n \n     boolean removable, installable, upgradable;\n@@ -221,7 +215,7 @@ void update(JTable parentTable, Object value, boolean isSelected,\n     removeButtonPlaceholder.setVisible(!removable);\n \n     String desc = \"<html><body>\";\n-    desc += \"<b>\" + selected.getName() + \"</b>\";\n+//    desc += \"<b>\" + selected.getName() + \"</b>\";\n     if (installed != null && installed.isBuiltIn()) {\n       desc += \" Built-In \";\n     }"
+ }
+]

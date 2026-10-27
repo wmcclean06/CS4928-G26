@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "b69a1fa1bc54c6b9b405cdf5d284dcb910bf9fee",
+  "filename": "arduino-core/src/cc/arduino/utils/network/FileDownloader.java",
+  "status": "modified",
+  "additions": 1,
+  "deletions": 0,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/20fe9f35cf82be3a2e71a88a62a411f419085676/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2Fnetwork%2FFileDownloader.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/20fe9f35cf82be3a2e71a88a62a411f419085676/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2Fnetwork%2FFileDownloader.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2Fnetwork%2FFileDownloader.java?ref=20fe9f35cf82be3a2e71a88a62a411f419085676",
+  "patch": "@@ -171,6 +171,7 @@ private void downloadFile(boolean noResume) throws InterruptedException {\n         final Optional<File> fileFromCache = getFileCached(fileCached);\n         if (fileCached.isNotChange() && fileFromCache.isPresent()) {\n           // Copy the cached file in the destination file\n+          log.info(\"The file will be taken from the cache {}\", fileFromCache);\n           FileUtils.copyFile(fileFromCache.get(), outputFile);\n         } else {\n           openConnectionAndFillTheFile(noResume);"
+ },
+ {
+  "sha": "766e70859e151c5fc3bfc691d443eb7b3609d4e0",
+  "filename": "arduino-core/src/cc/arduino/utils/network/FileDownloaderCache.java",
+  "status": "modified",
+  "additions": 9,
+  "deletions": 6,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/20fe9f35cf82be3a2e71a88a62a411f419085676/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2Fnetwork%2FFileDownloaderCache.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/20fe9f35cf82be3a2e71a88a62a411f419085676/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2Fnetwork%2FFileDownloaderCache.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fcc%2Farduino%2Futils%2Fnetwork%2FFileDownloaderCache.java?ref=20fe9f35cf82be3a2e71a88a62a411f419085676",
+  "patch": "@@ -146,6 +146,7 @@ public static Optional<FileCached> getFileCached(final URL remoteURL, boolean en\n       .orElseGet(() -> new FileCached(remoteURL.toString(), cacheFilePath.toString()));\n \n     // If the file is change of the cache is disable run the HEAD request to check if the file is changed\n+    log.info(\"Get file cached is expire {}, exist {}, info {} \", fileCached.isExpire(), fileCached.exists(), fileCached);\n     if (fileCached.isExpire() || !fileCached.exists()) {\n       // Update remote etag and cache control header\n       final Optional<FileCached> fileCachedInfoUpdated =\n@@ -286,17 +287,19 @@ public boolean isNotChange() {\n     @JsonIgnore\n     public boolean isChange() {\n       // Check if the file is expire\n-      if (!isExpire()) {\n-        log.debug(\"The file \\\"{}\\\" is no expire, the eTag will not be checked. Expire time: {}\", localPath,\n+      boolean isChange = false;\n+      if (isExpire()) {\n+        log.debug(\"The file \\\"{}\\\" is expire. Expire time: {}\", localPath,\n           this.getExpiresTime().format(DateTimeFormatter.ISO_DATE_TIME));\n-        return false;\n+        isChange = true;\n       }\n \n-      if (lastETag != null) {\n+      if (lastETag != null && !lastETag.equals(eTag)) {\n         // If are different means that the file is change\n-        return !lastETag.equals(eTag);\n+        log.debug(\"The file \\\"{}\\\" is changed last ETag != now Etag ({}!={})\", localPath, lastETag, eTag);\n+        isChange = true;\n       }\n-      return true;\n+      return isChange;\n     }\n \n     @JsonIgnore"
+ }
+]

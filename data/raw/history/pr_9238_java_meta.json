@@ -1,0 +1,43 @@
+{
+ "pr": 9238,
+ "base_sha": "6c7d1042a901db9f7f412e47ec4f3702d508f3d2",
+ "head_sha": "b821f7561b3cb354caa8415cdd29bdb0c70196d5",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 43,
+   "deletions": 28,
+   "old_sha": "e9ddc9e4222ea1be41b33d0b45c01b8e5d364f13",
+   "new_sha": "7af728fdd49b84a0e6263d3729d9ba485a203fcc",
+   "head_sha_check": "7af728fdd49b84a0e6263d3729d9ba485a203fcc",
+   "loc_at_head": 2115,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/Editor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 17,
+   "deletions": 9,
+   "old_sha": "f0c7c19248cf5e63391f8bf4ef5bc430630ce7b3",
+   "new_sha": "2ec29c498cb88a7a5a85edb38abd1b705353fd07",
+   "head_sha_check": "2ec29c498cb88a7a5a85edb38abd1b705353fd07",
+   "loc_at_head": 2179,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/I18n.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 4,
+   "old_sha": "0ab961aa9ed1e51026dd1fc122f1701b70018443",
+   "new_sha": "1f1a9f937032fcea2390128449f42377dc274708",
+   "head_sha_check": "1f1a9f937032fcea2390128449f42377dc274708",
+   "loc_at_head": 96,
+   "notes": ""
+  }
+ ]
+}

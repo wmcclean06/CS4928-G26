@@ -1,0 +1,55 @@
+{
+ "pr": 9093,
+ "base_sha": "f0722843f6701b2441a0832997cb0470c19d4c2c",
+ "head_sha": "2fbbcc242927d046ba5bc8cd146b63625c00c66a",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 1,
+   "old_sha": "470be5972b104f0332678339f3d70e9ae3159d6f",
+   "new_sha": "d8e9b1cac459134c864e022e58670a2aee9657fe",
+   "head_sha_check": "d8e9b1cac459134c864e022e58670a2aee9657fe",
+   "loc_at_head": 2079,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/discoverers/serial/SerialDiscovery.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 5,
+   "deletions": 7,
+   "old_sha": "3d5fb2fd7dd68a315d127636327d80e2fd63030c",
+   "new_sha": "7ce44f56b5dfcd633f3c35f0d5cd54474aa1a91d",
+   "head_sha_check": "7ce44f56b5dfcd633f3c35f0d5cd54474aa1a91d",
+   "loc_at_head": 185,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/Platform.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 90,
+   "old_sha": "5e80563649acf71fd29d3cc332f31093b0db83f7",
+   "new_sha": "2c02c37ed2b3a031a4e6ae17275b3bd15146caaf",
+   "head_sha_check": "2c02c37ed2b3a031a4e6ae17275b3bd15146caaf",
+   "loc_at_head": 251,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/helpers/BoardCloudResolver.java",
+   "previous_path": null,
+   "status": "added",
+   "additions": 151,
+   "deletions": 0,
+   "old_sha": null,
+   "new_sha": "41e929fbe02781f6814a87cf3c589b1f974c9691",
+   "head_sha_check": "41e929fbe02781f6814a87cf3c589b1f974c9691",
+   "loc_at_head": 130,
+   "notes": "added"
+  }
+ ]
+}

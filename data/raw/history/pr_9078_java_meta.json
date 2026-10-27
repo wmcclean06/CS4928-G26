@@ -1,0 +1,19 @@
+{
+ "pr": 9078,
+ "base_sha": "e6598250587e25aa9a77b79a5ee740101e904674",
+ "head_sha": "d9fa353271d30e0cee0b50a03dd5bee7859e20b8",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/UpdateCheck.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 4,
+   "deletions": 4,
+   "old_sha": "39c555069a171694dc88e59487c6678f4f874629",
+   "new_sha": "5350c8fd609e790f84d8e317b9d5a7519fea3a89",
+   "head_sha_check": "5350c8fd609e790f84d8e317b9d5a7519fea3a89",
+   "loc_at_head": 116,
+   "notes": ""
+  }
+ ]
+}

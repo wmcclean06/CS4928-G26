@@ -1,0 +1,43 @@
+{
+ "pr": 9158,
+ "base_sha": "5bb9f87faea58728edc381b86bad5a24568cabe1",
+ "head_sha": "710667d15ba8964168762a8a49e689e254e42adc",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/contributions/ContributionsSelfCheck.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 64,
+   "deletions": 10,
+   "old_sha": "7812f62ad7f36cbae2c12991761d2db3a12fa6a6",
+   "new_sha": "687323d18177fb086909fd3668a4d40c3f3667ec",
+   "head_sha_check": "687323d18177fb086909fd3668a4d40c3f3667ec",
+   "loc_at_head": 192,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/view/NotificationPopup.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 120,
+   "deletions": 9,
+   "old_sha": "2334d6e14bd3a7ffcd88bbc8fcc1d72a4863ea01",
+   "new_sha": "69fb3ff9ec06375a8c733b28bf2cb3e411856d0e",
+   "head_sha_check": "69fb3ff9ec06375a8c733b28bf2cb3e411856d0e",
+   "loc_at_head": 238,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/view/preferences/Preferences.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 8,
+   "deletions": 1,
+   "old_sha": "736ae826cfefca7cabed61c801659dbef46290e4",
+   "new_sha": "8711ac8b577364be5ba986899dc1b1d86cef34f3",
+   "head_sha_check": "8711ac8b577364be5ba986899dc1b1d86cef34f3",
+   "loc_at_head": 837,
+   "notes": ""
+  }
+ ]
+}

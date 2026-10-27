@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "5350c8fd609e790f84d8e317b9d5a7519fea3a89",
+  "filename": "app/src/processing/app/UpdateCheck.java",
+  "status": "modified",
+  "additions": 4,
+  "deletions": 4,
+  "changes": 8,
+  "blob_url": "https://github.com/arduino/Arduino/blob/d9fa353271d30e0cee0b50a03dd5bee7859e20b8/app%2Fsrc%2Fprocessing%2Fapp%2FUpdateCheck.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/d9fa353271d30e0cee0b50a03dd5bee7859e20b8/app%2Fsrc%2Fprocessing%2Fapp%2FUpdateCheck.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FUpdateCheck.java?ref=d9fa353271d30e0cee0b50a03dd5bee7859e20b8",
+  "patch": "@@ -66,14 +66,14 @@ public UpdateCheck(Base base) {\n   public void run() {\n     //System.out.println(\"checking for updates...\");\n \n-    // generate a random id in case none exists yet\n-    Random r = new Random();\n-    long id = r.nextLong();\n-\n+    long id;\n     String idString = PreferencesData.get(\"update.id\");\n     if (idString != null) {\n       id = Long.parseLong(idString);\n     } else {\n+      // generate a random id in case none exists yet\n+      Random r = new Random();\n+      id = r.nextLong();\n       PreferencesData.set(\"update.id\", String.valueOf(id));\n     }\n "
+ }
+]

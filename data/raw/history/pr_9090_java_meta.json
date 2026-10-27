@@ -1,0 +1,31 @@
+{
+ "pr": 9090,
+ "base_sha": "b2235c3a4ad34c73529a8b957953a1515794b8b1",
+ "head_sha": "20fe9f35cf82be3a2e71a88a62a411f419085676",
+ "java_files": [
+  {
+   "path": "arduino-core/src/cc/arduino/utils/network/FileDownloader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 0,
+   "old_sha": "95138d8ff668141bbc4939ac119e7bf29a3bf617",
+   "new_sha": "b69a1fa1bc54c6b9b405cdf5d284dcb910bf9fee",
+   "head_sha_check": "b69a1fa1bc54c6b9b405cdf5d284dcb910bf9fee",
+   "loc_at_head": 255,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/utils/network/FileDownloaderCache.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 9,
+   "deletions": 6,
+   "old_sha": "4fe38689f2d3f7d8c6e96e669fab09cf0208e1cb",
+   "new_sha": "766e70859e151c5fc3bfc691d443eb7b3609d4e0",
+   "head_sha_check": "766e70859e151c5fc3bfc691d443eb7b3609d4e0",
+   "loc_at_head": 384,
+   "notes": ""
+  }
+ ]
+}

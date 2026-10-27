@@ -1,0 +1,43 @@
+{
+ "pr": 9644,
+ "base_sha": "ff26dd58f88ad3d049976b1fb9c2fac62e17cc45",
+ "head_sha": "c249656d5fba73360baa28e22eef7f07354cd52d",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/AbstractMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 3,
+   "old_sha": "42c095aad13cde258b4dee1f4b91106a3a701147",
+   "new_sha": "b6ba0d7652e4259d16454a3fd7fd1faf383e376c",
+   "head_sha_check": "b6ba0d7652e4259d16454a3fd7fd1faf383e376c",
+   "loc_at_head": 169,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/AbstractTextMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 20,
+   "deletions": 3,
+   "old_sha": "4e35d4e448fffa5ca65e2f1a947d1252e73faba2",
+   "new_sha": "d6d256b1c7023e61dfc13b06415f9b3e3299b553",
+   "head_sha_check": "d6d256b1c7023e61dfc13b06415f9b3e3299b553",
+   "loc_at_head": 223,
+   "notes": ""
+  },
+  {
+   "path": "app/src/processing/app/SerialMonitor.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 0,
+   "deletions": 2,
+   "old_sha": "435f19956c35d452c2baa5ce4cd8a01eca6bbbad",
+   "new_sha": "9af95d8d4cdcbd81de393ea5432d8629f6396973",
+   "head_sha_check": "9af95d8d4cdcbd81de393ea5432d8629f6396973",
+   "loc_at_head": 126,
+   "notes": ""
+  }
+ ]
+}

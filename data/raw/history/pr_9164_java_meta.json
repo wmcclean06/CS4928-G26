@@ -1,0 +1,43 @@
+{
+ "pr": 9164,
+ "base_sha": "a7400216ee8e796423cc5845582e4a28c1af77f5",
+ "head_sha": "1b515b17673cc3550ada79839c0eebfab9fa5ecd",
+ "java_files": [
+  {
+   "path": "app/src/cc/arduino/contributions/libraries/ui/ContributedLibraryTableCellJPanel.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 31,
+   "deletions": 2,
+   "old_sha": "ec5c09181e086f86ff02d4e495a897aa1815aa45",
+   "new_sha": "865de5776305012cd543e22d26dbd6d3e63497aa",
+   "head_sha_check": "865de5776305012cd543e22d26dbd6d3e63497aa",
+   "loc_at_head": 242,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/packages/ui/ContributedPlatformTableCellJPanel.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 38,
+   "deletions": 2,
+   "old_sha": "7a2750a7eb9ec513f343512c9510b0480f4b005f",
+   "new_sha": "d59538823f7142c8f078d8b2a3abe9d065806927",
+   "head_sha_check": "d59538823f7142c8f078d8b2a3abe9d065806927",
+   "loc_at_head": 284,
+   "notes": ""
+  },
+  {
+   "path": "app/src/cc/arduino/contributions/ui/InstallerJDialog.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 1,
+   "deletions": 0,
+   "old_sha": "9aa0cd70e2fcd3bacbe5552f2aa3a3ca75aa9d57",
+   "new_sha": "dd2998bc441fc37c50a522bf325c5039ad8d443d",
+   "head_sha_check": "dd2998bc441fc37c50a522bf325c5039ad8d443d",
+   "loc_at_head": 322,
+   "notes": ""
+  }
+ ]
+}

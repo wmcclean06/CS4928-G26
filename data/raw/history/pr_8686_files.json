@@ -1,0 +1,26 @@
+[
+ {
+  "sha": "e732d80d631683d74afda59162c46e72fe6db571",
+  "filename": "app/src/processing/app/Base.java",
+  "status": "modified",
+  "additions": 14,
+  "deletions": 1,
+  "changes": 15,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f3e787ef57a8ab32b52bc033a516a41171b845b0/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f3e787ef57a8ab32b52bc033a516a41171b845b0/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FBase.java?ref=f3e787ef57a8ab32b52bc033a516a41171b845b0",
+  "patch": "@@ -764,7 +764,20 @@ protected File createNewUntitled() throws IOException {\n     if (!newbieFile.createNewFile()) {\n       throw new IOException();\n     }\n-    FileUtils.copyFile(new File(getContentFile(\"examples\"), \"01.Basics\" + File.separator + \"BareMinimum\" + File.separator + \"BareMinimum.ino\"), newbieFile);\n+\n+    // Initialize the pde file with the BareMinimum sketch.\n+    // Apply user-defined tab settings.\n+    String sketch = FileUtils.readFileToString(\n+        new File(getContentFile(\"examples\"), \"01.Basics\" + File.separator\n+            + \"BareMinimum\" + File.separator + \"BareMinimum.ino\"));\n+    String currentTab = \"  \";\n+    String newTab = (PreferencesData.getBoolean(\"editor.tabs.expand\")\n+        ? StringUtils.repeat(\" \",\n+            PreferencesData.getInteger(\"editor.tabs.size\"))\n+        : \"\\t\");\n+    sketch = sketch.replaceAll(\n+        \"(?<=(^|\\n)(\" + currentTab + \"){0,50})\" + currentTab, newTab);\n+    FileUtils.writeStringToFile(newbieFile, sketch);\n     return newbieFile;\n   }\n "
+ },
+ {
+  "sha": "f2a1603b698a673ec4b694620b89de2f2b293e11",
+  "filename": "arduino-core/src/processing/app/helpers/FileUtils.java",
+  "status": "modified",
+  "additions": 31,
+  "deletions": 0,
+  "changes": 31,
+  "blob_url": "https://github.com/arduino/Arduino/blob/f3e787ef57a8ab32b52bc033a516a41171b845b0/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FFileUtils.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/f3e787ef57a8ab32b52bc033a516a41171b845b0/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FFileUtils.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/arduino-core%2Fsrc%2Fprocessing%2Fapp%2Fhelpers%2FFileUtils.java?ref=f3e787ef57a8ab32b52bc033a516a41171b845b0",
+  "patch": "@@ -8,6 +8,9 @@\n import java.io.FileOutputStream;\n import java.io.IOException;\n import java.io.InputStreamReader;\n+import java.io.OutputStream;\n+import java.nio.charset.Charset;\n+import java.nio.charset.StandardCharsets;\n import java.nio.file.Files;\n import java.nio.file.Paths;\n import java.util.ArrayList;\n@@ -146,6 +149,34 @@ public static String readFileToString(File file, String encoding) throws IOExcep\n     }\n   }\n \n+  /**\n+   * Writes the given data to the given file, creating the file if it does not exist.\n+   * This method is equivalent to calling {@code writeStringToFile(file, data, StandardCharsets.UTF_8)}.\n+   * @param file - The file to write to.\n+   * @param data - The string to write.\n+   * @throws IOException If an I/O error occurs.\n+   */\n+  public static void writeStringToFile(File file, String data) throws IOException {\n+    writeStringToFile(file, data, StandardCharsets.UTF_8);\n+  }\n+\n+  /**\n+   * Writes the given data to the given file, creating the file if it does not exist.\n+   * @param file - The file to write to.\n+   * @param data - The string to write.\n+   * @param charset - The charset used to convert the string to bytes.\n+   * @throws IOException If an I/O error occurs.\n+   */\n+  public static void writeStringToFile(File file, String data, Charset charset) throws IOException {\n+    OutputStream out = null;\n+    try {\n+      out = new FileOutputStream(file);\n+      out.write(data.getBytes(charset));\n+    } finally {\n+      IOUtils.closeQuietly(out);\n+    }\n+  }\n+\n   /**\n    * Returns true if the given file has any of the given extensions.\n    *"
+ }
+]

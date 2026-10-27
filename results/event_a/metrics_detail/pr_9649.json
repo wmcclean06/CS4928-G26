@@ -1,0 +1,15 @@
+{
+ "pr": 9649,
+ "files": [
+  {
+   "path": "arduino-core/src/cc/arduino/contributions/DownloadableContributionsDownloader.java",
+   "status": "modified",
+   "in_history": true,
+   "churn": 1.1527093596059113,
+   "bug_freq": 0.0,
+   "history_pr_count": 5,
+   "highly_churned": false,
+   "highly_buggy": false
+  }
+ ]
+}

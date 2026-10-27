@@ -1,0 +1,409 @@
+{
+ "prNumber": "9643",
+ "destinationBranchName": "master",
+ "projectIdentifier": "arduino/Arduino",
+ "changedFilesWithSha": [
+  {
+   "fileName": "ContributionsSelfCheck.java",
+   "status": "MODIFIED",
+   "oldSha": "96fd987b099411c14b5aeb7a16daec20e7217965",
+   "newSha": "0c146d4f6d54f1654d45c1868c6688d8e40ba028"
+  },
+  {
+   "fileName": "LibraryOfSameTypeComparator.java",
+   "status": "MODIFIED",
+   "oldSha": "74bd37675186e26ca947aadbf416ea09b8bceede",
+   "newSha": "12a619f788c9fc33ba8e19659d13b5b5a67e0967"
+  },
+  {
+   "fileName": "UpdatableLibraryPredicate.java",
+   "status": "MODIFIED",
+   "oldSha": "e96f1759423ff75716e39a216e07480e2961d0e9",
+   "newSha": "c568c9482e760a7c1f71921ecc786c958a87337a"
+  },
+  {
+   "fileName": "ContributedLibraryComparatorWithTypePriority.java",
+   "status": "RENAMED",
+   "oldSha": "11436b2ccfba5f9f04c3a8bb54280d701d2210c0",
+   "newSha": "fa42401d2f2721d1958ef2eb4e9258350731dbe6"
+  },
+  {
+   "fileName": "ContributedLibraryTableCellEditor.java",
+   "status": "MODIFIED",
+   "oldSha": "7c2ecff383f5917e96c366ec609ff951a8471d50",
+   "newSha": "e91ec8930afa06862648724f4a9287d0356dc650"
+  },
+  {
+   "fileName": "ContributedLibraryTableCellJPanel.java",
+   "status": "MODIFIED",
+   "oldSha": "4f8c15f56424d534ba5818030a3f3b70c28823ee",
+   "newSha": "0aa447c7f9bcd2baba6d6ed3e2ed4058e1ca96c5"
+  },
+  {
+   "fileName": "DropdownAllLibraries.java",
+   "status": "MODIFIED",
+   "oldSha": "ce50aca1432bd95f4c7cd88a87c1e85a0e87e7f1",
+   "newSha": "c68fc8fd639105309854b672eb2df8abe4b77d13"
+  },
+  {
+   "fileName": "DropdownInstalledLibraryItem.java",
+   "status": "MODIFIED",
+   "oldSha": "e5b42e3b37aada84c0df1c098a545ef3558f2bea",
+   "newSha": "fc9ea338afa7a396c7cb17e13e5f71d91382363f"
+  },
+  {
+   "fileName": "DropdownLibraryOfCategoryItem.java",
+   "status": "MODIFIED",
+   "oldSha": "0d07b3ccf03fe455f49b66cf49f5b39f117d237b",
+   "newSha": "ba607b429a58ed1a49b33675e69f76b8927bf762"
+  },
+  {
+   "fileName": "DropdownLibraryOfTypeItem.java",
+   "status": "MODIFIED",
+   "oldSha": "28f44a0189486f63191ebcaadc2b8cb95d34a34f",
+   "newSha": "d99ef71a9e90f916aceb32a90df740659d01e1b0"
+  },
+  {
+   "fileName": "DropdownUpdatableLibrariesItem.java",
+   "status": "MODIFIED",
+   "oldSha": "2c75498f822764e6909339753dcd54d1e41dc48d",
+   "newSha": "c2ef73bd46270f366c76070b8ff038bd597ff50d"
+  },
+  {
+   "fileName": "LibrariesIndexTableModel.java",
+   "status": "MODIFIED",
+   "oldSha": "ceed4562f8d8f0136eb466047ab5271723a93085",
+   "newSha": "096ce6c309a0ba2cfc8cebf0b720c7716ab461f8"
+  },
+  {
+   "fileName": "LibraryManagerUI.java",
+   "status": "MODIFIED",
+   "oldSha": "66ad0e44ba547f45ac38623102b5c2ae0e666272",
+   "newSha": "42442786bfcb461b444484b5e799d3f0e2b1225c"
+  },
+  {
+   "fileName": "MultiLibraryInstallDialog.java",
+   "status": "MODIFIED",
+   "oldSha": "75f7703f4305e13c4924e7bc623acf8c8d22da61",
+   "newSha": "4c6e8a4df4e904182bc06f3df3f571ac34b88d55"
+  },
+  {
+   "fileName": "InstallerJDialog.java",
+   "status": "MODIFIED",
+   "oldSha": "2888cd6880023c644385c1732315e0bd0609b04d",
+   "newSha": "bf637456e376f1a736fcf09ade643138571825f0"
+  },
+  {
+   "fileName": "Preferences.java",
+   "status": "MODIFIED",
+   "oldSha": "005d2f83e54ad6bcc90d7a885b01f1a180e96396",
+   "newSha": "13283d0490afe84cdc91ad2f402be9fe5d17aeec"
+  },
+  {
+   "fileName": "Base.java",
+   "status": "MODIFIED",
+   "oldSha": "34193e07dbf62bb3732421cf333d5552ea82358c",
+   "newSha": "44fdedf2e7580fac85d217b42e6c7cdb74041430"
+  },
+  {
+   "fileName": "CommandHistory.java",
+   "status": "MODIFIED",
+   "oldSha": "cae3c2fc4989bf9ca8af25e9710a4c7bd5fedc1a",
+   "newSha": "189b4d5459985f3a16cf800c3d4c5f3896bdb985"
+  },
+  {
+   "fileName": "Editor.java",
+   "status": "MODIFIED",
+   "oldSha": "2ec29c498cb88a7a5a85edb38abd1b705353fd07",
+   "newSha": "f2b483bfa90d05f2202e397f1c6cfe9b9e5e0d93"
+  },
+  {
+   "fileName": "EditorToolbar.java",
+   "status": "MODIFIED",
+   "oldSha": "d37d0cc96a7f813d1275c68eb14e4aceadb683af",
+   "newSha": "2bf4163f581fd66c08eeba780010db06f6adb9be"
+  },
+  {
+   "fileName": "SerialMonitor.java",
+   "status": "MODIFIED",
+   "oldSha": "b2656ca653d2878ea4c3bb78df0d5997d4b04360",
+   "newSha": "24e3ae8efadcdc1d6ba3a972c61afbe2a0840296"
+  },
+  {
+   "fileName": "SerialPlotter.java",
+   "status": "MODIFIED",
+   "oldSha": "035005ac3628492d91b49e7625a842d9f62aa16a",
+   "newSha": "25127a98955ae4f89ad8c78eb05e382f3cb83e4c"
+  },
+  {
+   "fileName": "SketchController.java",
+   "status": "MODIFIED",
+   "oldSha": "ce9e468cc68ca1c3d5e90abc0ae8676472351f34",
+   "newSha": "2bb8d4cf8b00623db0e3479ee06caa1a5d47852f"
+  },
+  {
+   "fileName": "UpdateCheck.java",
+   "status": "MODIFIED",
+   "oldSha": "cdca1b7178326347f5267c82ce5e8359e2e56905",
+   "newSha": "d7ca8aa0c742a8825d7a7b74ac8e0bcfc842044e"
+  },
+  {
+   "fileName": "UpdatableLibraryTest.java",
+   "status": "REMOVED",
+   "oldSha": "0dab3531cd12f22be126be9db189d058e71c91b1",
+   "newSha": "0dab3531cd12f22be126be9db189d058e71c91b1"
+  },
+  {
+   "fileName": "CustomProxySelectorTest.java",
+   "status": "MODIFIED",
+   "oldSha": "411f1aa23669efa64fb21b051f6620c7cf725c5c",
+   "newSha": "65087e1144c1dff2051c36439e2a6ba03b6de2a1"
+  },
+  {
+   "fileName": "Compiler.java",
+   "status": "MODIFIED",
+   "oldSha": "c2c5b0ff6247db8fb3a80e409952b7b9d20b0219",
+   "newSha": "c292530734d45daf5e7a6204579a2cfc6855b11d"
+  },
+  {
+   "fileName": "ArduinoCore.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "accb9a6c07cc565a05705054f33b9fb6bcd8dcfb"
+  },
+  {
+   "fileName": "ArduinoCoreInstance.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "70913711516a48abb9e75d3023b6ebc2dee1b5ea"
+  },
+  {
+   "fileName": "ProgressWrapper.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "71cbed6c72f082bbefba6570478d3c25cf2c0cdf"
+  },
+  {
+   "fileName": "ArduinoCoreGrpc.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "ddb48c61489a669239f5a2a31b17c6bdc4c1916c"
+  },
+  {
+   "fileName": "Board.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "01e3ab05c442d59f74d4ef963da90a83aad8076a"
+  },
+  {
+   "fileName": "Commands.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "85191b540799de22a52e1e1ba3bf0e70f8bbb6a4"
+  },
+  {
+   "fileName": "Common.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "dce2219505ae76e0702a5d4d29d9185b2af08d0a"
+  },
+  {
+   "fileName": "Compile.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "91af80d8ea761b1301e0528fd7475e21fd5de688"
+  },
+  {
+   "fileName": "Core.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "0eca6d5c911561444d80c46021ede9240b056dab"
+  },
+  {
+   "fileName": "Lib.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "c9019e6ed586cc16576d9a1b2ee00290d38ca65e"
+  },
+  {
+   "fileName": "Upload.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "9940c0d5e702496c30678ee18d4a7826bb6b4f39"
+  },
+  {
+   "fileName": "DebugGrpc.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "7c5ba2c4d42d0834bc8b81b1b65e1e1c70cfbc55"
+  },
+  {
+   "fileName": "DebugOuterClass.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "5af83c4df780b1357adced3fd4d922f7521af015"
+  },
+  {
+   "fileName": "MonitorGrpc.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "738b0ce4663a28ad8eb7a61fd50ca42ae7315ff0"
+  },
+  {
+   "fileName": "MonitorOuterClass.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "826a358198bbfa0904626765444f3fed82dbccba"
+  },
+  {
+   "fileName": "SettingsGrpc.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "ce7449b0064f800e4861f60eb6fb6ff810d68822"
+  },
+  {
+   "fileName": "SettingsOuterClass.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "a8f3a6d6502d1aaab5ce0f33c51d1e27fd5241e5"
+  },
+  {
+   "fileName": "DownloadableContribution.java",
+   "status": "MODIFIED",
+   "oldSha": "87ef9cee46564fea099b5bac60222836fb35ac54",
+   "newSha": "dd47f76f56576708809413cf24f1108614e475a2"
+  },
+  {
+   "fileName": "VersionComparator.java",
+   "status": "MODIFIED",
+   "oldSha": "af6a1fdb376796f3a712a9fcb0678a33f0570e9a",
+   "newSha": "cf76c8433106d27da5d8733c773412da62b03077"
+  },
+  {
+   "fileName": "ContributedLibrary.java",
+   "status": "MODIFIED",
+   "oldSha": "603b46909b3559c0e4a11add9cb9386f1ac4ca37",
+   "newSha": "eee7b18b12beb8bd0f4569b40b1222e005fd9568"
+  },
+  {
+   "fileName": "ContributedLibraryDependency.java",
+   "status": "REMOVED",
+   "oldSha": "4da5ba6f75b870aa44d5277307dc5b32ac99a98d",
+   "newSha": "4da5ba6f75b870aa44d5277307dc5b32ac99a98d"
+  },
+  {
+   "fileName": "ContributedLibraryRelease.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "0e65041fbaaa120e1f4fff8f0f3170501c40b3fe"
+  },
+  {
+   "fileName": "ContributedLibraryReleases.java",
+   "status": "REMOVED",
+   "oldSha": "7a2a75a44980640ea9c1b1fe88e7494794327051",
+   "newSha": "7a2a75a44980640ea9c1b1fe88e7494794327051"
+  },
+  {
+   "fileName": "LibrariesIndex.java",
+   "status": "MODIFIED",
+   "oldSha": "02ff0475cfa0494ad6100a92578713eeb25e07b7",
+   "newSha": "66358ebd1b75c5127eef79d05244757907e4e84d"
+  },
+  {
+   "fileName": "LibrariesIndexer.java",
+   "status": "MODIFIED",
+   "oldSha": "57460fc19e1a85e11df6055afebef637e4b38cf2",
+   "newSha": "e6f5ecadc903c966d03c9b33dc964ea518bb3e62"
+  },
+  {
+   "fileName": "LibraryInstaller.java",
+   "status": "REMOVED",
+   "oldSha": "3f00f909b0dee72dc75f2f2c1ea81ad35a312d04",
+   "newSha": "3f00f909b0dee72dc75f2f2c1ea81ad35a312d04"
+  },
+  {
+   "fileName": "UnavailableContributedLibrary.java",
+   "status": "REMOVED",
+   "oldSha": "277d969dede64272d90bcd1f6ce8b6b0a6cf815d",
+   "newSha": "277d969dede64272d90bcd1f6ce8b6b0a6cf815d"
+  },
+  {
+   "fileName": "OldI18nMessages.java",
+   "status": "ADDED",
+   "oldSha": "",
+   "newSha": "345ecb5ba3dbcfc70be1a151097b24bff4d02fa4"
+  },
+  {
+   "fileName": "CustomProxySelector.java",
+   "status": "MODIFIED",
+   "oldSha": "32a0894e89efd22d142e4d5ec60dec96101d7573",
+   "newSha": "b96094ae833f6697cc38936699083b685cabf7fc"
+  },
+  {
+   "fileName": "PluggableDiscovery.java",
+   "status": "MODIFIED",
+   "oldSha": "3f7202fa6a92a62fef5c2be89b99a02c2c7dd438",
+   "newSha": "7bc9778f4b9414efaab19b38bd1298d378abbd21"
+  },
+  {
+   "fileName": "SSHUploader.java",
+   "status": "MODIFIED",
+   "oldSha": "fb0eb3ffbd5c80af8ef18733dbd004ecf24764b8",
+   "newSha": "fdda55076e1de77f23db44c00a016441ba802136"
+  },
+  {
+   "fileName": "SerialUploader.java",
+   "status": "MODIFIED",
+   "oldSha": "96ba383aceb0800deb82431987c9115f27f2886a",
+   "newSha": "b2152c4563608e5094aef94f2726ce7c03b72ea1"
+  },
+  {
+   "fileName": "FileDownloaderCache.java",
+   "status": "MODIFIED",
+   "oldSha": "766e70859e151c5fc3bfc691d443eb7b3609d4e0",
+   "newSha": "8ad051dd885d02ed5e60d0ec47900609aa7c3a64"
+  },
+  {
+   "fileName": "HttpConnectionManager.java",
+   "status": "MODIFIED",
+   "oldSha": "b067e8faaa903626b9bb23380b4f7d87f6d78203",
+   "newSha": "d8395beae352651b306eec62cc891f9316515523"
+  },
+  {
+   "fileName": "BaseNoGui.java",
+   "status": "MODIFIED",
+   "oldSha": "e9adb255b3dd0d2de22dc6136b62abe1c1f143ec",
+   "newSha": "b35d802f06e65c4b7a700561208db98c39b8f2b3"
+  },
+  {
+   "fileName": "BoardCloudResolver.java",
+   "status": "MODIFIED",
+   "oldSha": "8fa6f96da147d6182db2b56ce112a4b6d58a5349",
+   "newSha": "e7b2f44281104cf27422eae2149329129978843b"
+  },
+  {
+   "fileName": "LegacyUserLibrary.java",
+   "status": "REMOVED",
+   "oldSha": "a62b942ebdb28e22e7c83c47bf525ec52cd4ed83",
+   "newSha": "a62b942ebdb28e22e7c83c47bf525ec52cd4ed83"
+  },
+  {
+   "fileName": "UserLibrary.java",
+   "status": "MODIFIED",
+   "oldSha": "c1625b88a01e831649d6603affa488bb42c318f4",
+   "newSha": "8a3405269a34853adbb9fbcb52a961619f2a6540"
+  },
+  {
+   "fileName": "UserLibraryFolder.java",
+   "status": "REMOVED",
+   "oldSha": "53371a21323c7cdfbf65a9f008a89af1b82c757c",
+   "newSha": "53371a21323c7cdfbf65a9f008a89af1b82c757c"
+  },
+  {
+   "fileName": "UserLibraryPriorityComparator.java",
+   "status": "MODIFIED",
+   "oldSha": "fe64ba1aa6e6eb05bb5df873b65d3043a8066ef5",
+   "newSha": "313a0ea4d5fbe597bf334d36fdc7f4458411bcf7"
+  }
+ ]
+}

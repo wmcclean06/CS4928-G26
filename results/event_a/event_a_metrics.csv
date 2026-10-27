@@ -1,0 +1,6 @@
+pr,state,author,created_at,java_files,history_prs_used,pagerank_sum,impact_cat,highly_buggy_files,buggy_ratio,buggy_cat,pr_size,size_cat,highly_churned_files,churn_ratio,churn_cat,author_prior_prs,author_prior_merged,merge_rate,merge_cat,risk_score,risk_cat,scored
+9627,merged,cmaglie,2020-01-15T16:47:27Z,1,516,0.00033601000441897054,A,0,0.0,A,46,B,0,0.0,A,74,62,0.8266666666666667,C,9.38,A,True
+9643,open,cmaglie,2020-01-20T11:52:29Z,67,518,,,1,0.014925373134328358,B,103853,E,0,0.0,A,75,63,0.8289473684210527,C,,,False
+9644,merged,cmaglie,2020-01-20T16:07:20Z,3,518,0.0003037378571018943,A,0,0.0,A,29,B,0,0.0,A,76,63,0.8181818181818182,C,9.38,A,True
+9645,merged,PaulStoffregen,2020-01-20T23:45:24Z,1,518,0.0,A,1,1.0,E,7,A,0,0.0,A,17,11,0.6111111111111112,E,30.0,B,True
+9649,merged,cmaglie,2020-01-21T09:47:12Z,1,518,0.0005906875844392376,A,0,0.0,A,7,A,0,0.0,A,77,63,0.8076923076923077,D,7.5,A,True

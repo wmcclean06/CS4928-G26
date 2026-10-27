@@ -1,0 +1,139 @@
+{
+ "pr": 8688,
+ "base_sha": "74f93fe60c67b101309eb4c86f75b60273a71e42",
+ "head_sha": "d5ea9915225246ff5e8c6a0531d7eccb70e31a1b",
+ "java_files": [
+  {
+   "path": "app/src/processing/app/Base.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 9,
+   "old_sha": "62ebfc2acafcbf3b9aec0031cb4ec26092833396",
+   "new_sha": "1195f94d22964f1b0e9697a33fc6bfbc8f06abfb",
+   "head_sha_check": "1195f94d22964f1b0e9697a33fc6bfbc8f06abfb",
+   "loc_at_head": 1987,
+   "notes": ""
+  },
+  {
+   "path": "app/test/cc/arduino/packages/uploaders/MergeSketchWithUploaderTest.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 26,
+   "deletions": 2,
+   "old_sha": "384aa169debd4b2c67b6fd93368fba0edfff565c",
+   "new_sha": "2f048b2a48b9982c8e20304d1c51a98003180c0d",
+   "head_sha_check": "2f048b2a48b9982c8e20304d1c51a98003180c0d",
+   "loc_at_head": 78,
+   "notes": ""
+  },
+  {
+   "path": "app/test/processing/app/CommandLineTest.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 5,
+   "deletions": 5,
+   "old_sha": "c5fb7b8a1566013ffdcdd873efc9e581daaef2e5",
+   "new_sha": "9ac760b1fbb1c2b62ba6558b44b75782e42c6f5e",
+   "head_sha_check": "9ac760b1fbb1c2b62ba6558b44b75782e42c6f5e",
+   "loc_at_head": 143,
+   "notes": ""
+  },
+  {
+   "path": "app/test/processing/app/helpers/StringUtilsTest.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 42,
+   "old_sha": "1ddbf51b35e53f0e3852d6a560f97f3daa97ac70",
+   "new_sha": "1ddbf51b35e53f0e3852d6a560f97f3daa97ac70",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/Uploader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 10,
+   "deletions": 10,
+   "old_sha": "f2e2126d54bf27d228630f7878a59c2aa6ee1cd9",
+   "new_sha": "55ddd46e95a41f8af3d4deec93a7c3523b617916",
+   "head_sha_check": "55ddd46e95a41f8af3d4deec93a7c3523b617916",
+   "loc_at_head": 158,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/discoverers/PluggableDiscovery.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 2,
+   "deletions": 1,
+   "old_sha": "d37166699a0b32fbe4147999605755c635f32f56",
+   "new_sha": "3f7202fa6a92a62fef5c2be89b99a02c2c7dd438",
+   "head_sha_check": "3f7202fa6a92a62fef5c2be89b99a02c2c7dd438",
+   "loc_at_head": 261,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/uploaders/MergeSketchWithBooloader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 4,
+   "deletions": 4,
+   "old_sha": "a6f34b265d27759f51c08f6fff2e0a111301d990",
+   "new_sha": "bbab2bd7b09010f41f400fa6f83dbbea22960159",
+   "head_sha_check": "bbab2bd7b09010f41f400fa6f83dbbea22960159",
+   "loc_at_head": 54,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/cc/arduino/packages/uploaders/SSHUploader.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 8,
+   "deletions": 3,
+   "old_sha": "cf6416c2f29e169d041c599c3ca513bb4b0e4d8e",
+   "new_sha": "fb0eb3ffbd5c80af8ef18733dbd004ecf24764b8",
+   "head_sha_check": "fb0eb3ffbd5c80af8ef18733dbd004ecf24764b8",
+   "loc_at_head": 213,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/BaseNoGui.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 3,
+   "deletions": 3,
+   "old_sha": "0a58769712a1ecb6bab631691df2a7184031a40a",
+   "new_sha": "230ae63d4a5075403ee2aff8ffd840c9b013a79e",
+   "head_sha_check": "230ae63d4a5075403ee2aff8ffd840c9b013a79e",
+   "loc_at_head": 852,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/helpers/FileUtils.java",
+   "previous_path": null,
+   "status": "modified",
+   "additions": 10,
+   "deletions": 113,
+   "old_sha": "b668d545e5ffbc57c9415a4e44ee8b1cccd13032",
+   "new_sha": "9694a2f5b2ac17e82b089c81e221a615f1ecf80b",
+   "head_sha_check": "9694a2f5b2ac17e82b089c81e221a615f1ecf80b",
+   "loc_at_head": 244,
+   "notes": ""
+  },
+  {
+   "path": "arduino-core/src/processing/app/helpers/StringUtils.java",
+   "previous_path": null,
+   "status": "removed",
+   "additions": 0,
+   "deletions": 51,
+   "old_sha": "d17e7022c7e6fe7751be7ea33148c22f73c4e879",
+   "new_sha": "d17e7022c7e6fe7751be7ea33148c22f73c4e879",
+   "head_sha_check": null,
+   "loc_at_head": null,
+   "notes": "removed"
+  }
+ ]
+}

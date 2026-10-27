@@ -1,0 +1,50 @@
+[
+ {
+  "sha": "338404e25e3fd276107bbeb91be81cec043ea246",
+  "filename": "app/src/processing/app/Editor.java",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 28,
+  "changes": 28,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3105ebafefcb8baf6a6d8d437898d6e13c2d2cbe/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3105ebafefcb8baf6a6d8d437898d6e13c2d2cbe/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditor.java?ref=3105ebafefcb8baf6a6d8d437898d6e13c2d2cbe",
+  "patch": "@@ -1146,34 +1146,6 @@ private JMenu buildHelpMenu() {\n \n     menu.addSeparator();\n \n-    item = new JMenuItem(tr(\"Galileo Help\"));\n-    item.setEnabled(false);\n-    menu.add(item);\n-\n-    item = new JMenuItem(tr(\"Getting Started\"));\n-    item.addActionListener(event -> Base.showReference(\"reference/Galileo_help_files\", \"ArduinoIDE_guide_galileo\"));\n-    menu.add(item);\n-\n-    item = new JMenuItem(tr(\"Troubleshooting\"));\n-    item.addActionListener(event -> Base.showReference(\"reference/Galileo_help_files\", \"Guide_Troubleshooting_Galileo\"));\n-    menu.add(item);\n-\n-    menu.addSeparator();\n-\n-    item = new JMenuItem(tr(\"Edison Help\"));\n-    item.setEnabled(false);\n-    menu.add(item);\n-\n-    item = new JMenuItem(tr(\"Getting Started\"));\n-    item.addActionListener(event -> Base.showReference(\"reference/Edison_help_files\", \"ArduinoIDE_guide_edison\"));\n-    menu.add(item);\n-\n-    item = new JMenuItem(tr(\"Troubleshooting\"));\n-    item.addActionListener(event -> Base.showReference(\"reference/Edison_help_files\", \"Guide_Troubleshooting_Edison\"));\n-    menu.add(item);\n-\n-    menu.addSeparator();\n-\n     item = newJMenuItemShift(tr(\"Find in Reference\"), 'F');\n     item.addActionListener(event -> handleFindReference(event));\n     menu.add(item);"
+ },
+ {
+  "sha": "72d9f9fddef29581e5d670c7d68c6cc478ecb313",
+  "filename": "build/build.xml",
+  "status": "modified",
+  "additions": 0,
+  "deletions": 16,
+  "changes": 16,
+  "blob_url": "https://github.com/arduino/Arduino/blob/3105ebafefcb8baf6a6d8d437898d6e13c2d2cbe/build%2Fbuild.xml",
+  "raw_url": "https://github.com/arduino/Arduino/raw/3105ebafefcb8baf6a6d8d437898d6e13c2d2cbe/build%2Fbuild.xml",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fbuild.xml?ref=3105ebafefcb8baf6a6d8d437898d6e13c2d2cbe",
+  "patch": "@@ -233,22 +233,6 @@\n         <param name=\"final_folder\" value=\"${target.path}/reference/www.arduino.cc\" />\n         <param name=\"dest_folder\" value=\"${target.path}/reference/\" />\n       </antcall>\n-      <antcall target=\"unzip\">\n-        <param name=\"archive_file\" value=\"shared/Galileo_help_files-1.6.2.zip\" />\n-        <param name=\"archive_url\" value=\"https://downloads.arduino.cc/Galileo_help_files-1.6.2.zip\" />\n-        <param name=\"final_folder\" value=\"${target.path}/reference/Galileo_help_files\" />\n-        <param name=\"dest_folder\" value=\"${target.path}/reference/\" />\n-      </antcall>\n-      <antcall target=\"unzip\">\n-        <param name=\"archive_file\" value=\"shared/Edison_help_files-1.6.2.zip\" />\n-        <param name=\"archive_url\" value=\"https://downloads.arduino.cc/Edison_help_files-1.6.2.zip\" />\n-        <param name=\"final_folder\" value=\"${target.path}/reference/Edison_help_files\" />\n-        <param name=\"dest_folder\" value=\"${target.path}/reference/\" />\n-      </antcall>\n-\n-      <!-- Fix wrong permissions from zip file root folder -->\n-      <chmod perm=\"755\" dir=\"${target.path}/reference/Galileo_help_files\" />\n-      <chmod perm=\"755\" dir=\"${target.path}/reference/Edison_help_files\" />\n   </target>\n \n   <!-- copy library folder -->"
+ },
+ {
+  "sha": "3eae008bf85d1c6ea874f26889267d001b2ac9ee",
+  "filename": "build/shared/Edison_help_files-1.6.2.zip.sha",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5c8c3538ee4d3ea2e2a263d65e66c1ddaa3093ec/build%2Fshared%2FEdison_help_files-1.6.2.zip.sha",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5c8c3538ee4d3ea2e2a263d65e66c1ddaa3093ec/build%2Fshared%2FEdison_help_files-1.6.2.zip.sha",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2FEdison_help_files-1.6.2.zip.sha?ref=5c8c3538ee4d3ea2e2a263d65e66c1ddaa3093ec",
+  "patch": "@@ -1 +0,0 @@\n-07a93ab86dadbb33c0182fc2e3034ed3a24cbec6"
+ },
+ {
+  "sha": "380f28cd292bad8843b32aa44ec8e4a5577ded39",
+  "filename": "build/shared/Galileo_help_files-1.6.2.zip.sha",
+  "status": "removed",
+  "additions": 0,
+  "deletions": 1,
+  "changes": 1,
+  "blob_url": "https://github.com/arduino/Arduino/blob/5c8c3538ee4d3ea2e2a263d65e66c1ddaa3093ec/build%2Fshared%2FGalileo_help_files-1.6.2.zip.sha",
+  "raw_url": "https://github.com/arduino/Arduino/raw/5c8c3538ee4d3ea2e2a263d65e66c1ddaa3093ec/build%2Fshared%2FGalileo_help_files-1.6.2.zip.sha",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/build%2Fshared%2FGalileo_help_files-1.6.2.zip.sha?ref=5c8c3538ee4d3ea2e2a263d65e66c1ddaa3093ec",
+  "patch": "@@ -1 +0,0 @@\n-494881c26e4dc58ab67409d72c3d63e3c52ac184"
+ }
+]

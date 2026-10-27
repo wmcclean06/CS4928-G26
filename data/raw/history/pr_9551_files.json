@@ -1,0 +1,14 @@
+[
+ {
+  "sha": "5e8f3e4bfcf744bf9099a282792cba0bdab87f90",
+  "filename": "app/src/processing/app/EditorTab.java",
+  "status": "modified",
+  "additions": 3,
+  "deletions": 0,
+  "changes": 3,
+  "blob_url": "https://github.com/arduino/Arduino/blob/20ed5a209c7e37be76356a1c2004f166d76f4f0c/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "raw_url": "https://github.com/arduino/Arduino/raw/20ed5a209c7e37be76356a1c2004f166d76f4f0c/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java",
+  "contents_url": "https://api.github.com/repos/arduino/Arduino/contents/app%2Fsrc%2Fprocessing%2Fapp%2FEditorTab.java?ref=20ed5a209c7e37be76356a1c2004f166d76f4f0c",
+  "patch": "@@ -442,6 +442,9 @@ public void setText(String what) {\n     } finally {\n       caret.setUpdatePolicy(policy);\n     }\n+    // A trick to force textarea to recalculate the bracket matching rectangle.\n+    // In the worst case scenario, this should be ineffective.\n+    textarea.setLineWrap(textarea.getLineWrap());\n   }\n \n   /**"
+ }
+]
