@@ -42,3 +42,11 @@ in [Notes/run_procedure_Docker.md](Notes/run_procedure_Docker.md); a guided step
 troubleshooting is in [WALKTHROUGH.md](WALKTHROUGH.md). The only artefact
 change is the Linux path patch recorded as D5 in
 [Notes/deviations.md](Notes/deviations.md).
+
+## Event B
+
+Include the thoughts on a new metric which uses the import statements to value if a PR should be reviewed
+The metric would pull the folder structure and the imports and check if there are any imports from other files in the project checking how recently they were added to the file in the PR
+This would use the above A-E scale in reverse so 1000+ is now an A and 0-10 is an E. With 1000+ meaning the import was added a 1000+ commits ago 
+
+- Figure out a better number or scale
