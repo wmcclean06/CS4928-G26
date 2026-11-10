@@ -50,3 +50,4 @@ The metric would pull the folder structure and the imports and check if there ar
 This would use the above A-E scale in reverse so 1000+ is now an A and 0-10 is an E. With 1000+ meaning the import was added a 1000+ commits ago 
 
 - Figure out a better number or scale
+- Idea is to use 351 commits per year as a basis this was derived from the Arduino repo as it is 21 years old with 7377 commits (10/11/26) over that lifetime which equals about 351 commits a year. So we would have if it is over 5 years old so 1755+ commits old that's an A then E would be 0-351 commits old 
