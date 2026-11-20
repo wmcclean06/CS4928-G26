@@ -8,6 +8,20 @@ Repository Link: https://doi.org/10.6084/m9.figshare.27643755.v1
 
 Arduino Link https://github.com/arduino/Arduino/tree/a0df6e0e83b652c72bc78b0a1376c54d6ebc3bee
 
+## Where everything is
+
+| Stage | Tag | Result | Key files |
+|---|---|---|---|
+| M1 plan: RQs, sample, method, decision rules | `M1_PLAN` | Frozen 09/10/2026 | [Plans/M1_PLAN.md](Plans/M1_PLAN.md), `data/eligibility_log.csv`, `scripts/select_sample.py` |
+| M2 bounded reproduction (RQ1) | `M2_REPRO`, `PRE_EVENT_A` | **REPRODUCED**: 9/10 scored, categories A and B (with caveats) | [results/rq1_result.md](results/rq1_result.md), `results/rq1_metrics.csv`, `results/raw/callgraph/`, `results/metrics_detail/`, [Notes/run_procedure.md](Notes/run_procedure.md), `Notes/trace_8621.md` |
+| Docker route and independent re-run | `PRE_EVENT_B`, `FINAL` | Fresh re-run matched every M2 number | `Dockerfile`, `docker/`, [WALKTHROUGH.md](WALKTHROUGH.md), [Notes/run_procedure_Docker.md](Notes/run_procedure_Docker.md), `Logs/docker_verification_27102026.txt`, `scripts/compare_runs.py` |
+| Event A: frozen method on 5 held-out PRs (2020) | `PRE_EVENT_B`, `FINAL` | **TRANSFERS**: 4/5 scored, A and B; 1 false alarm, 0 misses (no PR had defect evidence) | [Notes/EVENT_A_PLAN.md](Notes/EVENT_A_PLAN.md), [results/event_a/event_a_result.md](results/event_a/event_a_result.md), `results/event_a/`, `scripts/event_a_evidence.py` |
+| M4 design decision (Week 9) | `PRE_EVENT_B` | No structural change: the server's rejection of PRs with renamed files is kept as a documented limitation | Decision, alternatives and verification are in the student tracker; evidence `results/raw/callgraph/pr_8600_error.json`, `results/event_a/raw/callgraph/pr_9643_error.json` |
+| Event B (Week 10) | `FINAL` | Recorded in the student tracker | Group notes in the [Event B](#event-b) section below |
+| RQ2 | – | Addressed through Event A (transfer to held-out PRs, same defect-evidence rule). The M1 top-3 vs bottom-3 comparison on the M2 sample was not run | [results/event_a/event_a_result.md](results/event_a/event_a_result.md); fetched data for it in `data/raw/later_bug/` |
+
+Across all stages: [Notes/deviations.md](Notes/deviations.md) (D1–D6), [Notes/ai_use.md](Notes/ai_use.md), [Notes/environment.md](Notes/environment.md), raw GitHub data in `data/raw/` (every request in `data/raw/fetch_log.csv`), server logs in `Logs/`.
+
 Explanation of the different Metrics used in the paper 
 
 | Metric                         | What it captures                                                                                                                                                                                                                                                                                            | Effect size |

@@ -29,3 +29,4 @@ Run validity: valid and complete. All 10 PRs attempted; one artefact rejection, 
 2. Weak discrimination: impact, churn and buggy are category A for every scored PR, so the ranking is driven by PR size and author merge rate. Only one PR reaches B.
 3. Impact sizes are tiny (largest PageRank sum 0.0095, #8607, against an A threshold of 0.10). The call graph is small (2,124 methods), possibly because dependency code is not resolved for an Ant-built project.
 4. The paper publishes no per-PR ranking, so "reproduced" means the method re-runs and ranks, not that it matches published numbers (M1 §5).
+5. #8600 (not scored) would score at least 20.63 (B) whatever its impact grade: its size D and merge D alone give (1.75·3 + 1·3) / 10 × 25 = 20.63 (`compute_metrics.risk_score`, artefact rounding). So the second risk category rests on #8621 alone, which itself depends on D4 (caveat 1).
